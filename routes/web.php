@@ -73,7 +73,7 @@ Route::get('pages/events/event-single', function() {
 })->name('go-event-single');
 
 // Volunteer page
-Route::get('pages/volunteer/volunteer', function() {
+Route::get('pages/volunteer', function() {
     return view('pages.volunteer.volunteer');
 })->name('go-volunteer');
 

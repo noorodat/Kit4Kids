@@ -50,7 +50,7 @@
                             <div class="tp-case-details-text">
                                 <div id="Description">
                                     <div class="tp-case-details-img">
-                                        <img src="data:image/png;base64,{{ $kit->image }}" alt="">
+                                        <img src="{{ asset($kit->image) }}" alt="{{ $kit->title }}">
                                     </div>
                                     <div class="tp-case-content">
                                         <div class="tp-case-text-top">

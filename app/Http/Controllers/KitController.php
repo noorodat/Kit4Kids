@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class KitController extends Controller
 {
+    // This function shows the kits in the kits page (in show 9 with pagination)
     public function showAll($cat_id)
     {
         // Get kits for the specified category
@@ -16,6 +17,7 @@ class KitController extends Controller
         return view('pages.causes.causes', ['kits' => $kits]);
     }
 
+    // This function shows a single kit
     public function showSingleKit($kit_id)
     {
         // Retrieve the single kit based on kit_id

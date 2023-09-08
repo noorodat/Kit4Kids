@@ -74,7 +74,7 @@
                                     </li>
                                 </ul>
                                 <h3>
-                                    <a href="{{ route('go-cause-single', ['kit_id' => $kit->id]) }}">${{ $kit->title }}</a>
+                                    <a href="{{ route('go-cause-single', ['kit_id' => $kit->id]) }}">{{ $kit->title }}</a>
                                 </h3>
                                 <p>{{ $kit->description }}</p>
                             </div>

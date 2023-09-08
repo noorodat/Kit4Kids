@@ -154,14 +154,14 @@
                     <div class="col-md-12">
                         <div class="features-wrap">
                             <div class="row">
-                                @foreach($kits as $kit)
+                                @foreach($catagories as $catagory)
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                     <div class="features-item">
                                         <div class="features-icon">
-                                            <img draggable="false" src="{{$kit->image}}" alt="">
+                                            <img draggable="false" src="{{$catagory->image}}" alt="">
                                         </div>-
                                         <div class="features-content">
-                                            <h2><a href="causes-single.html">{{$kit->title}}</a></h2>
+                                            <h2><a href="causes-single.html">{{$catagory->title}}</a></h2>
                                         </div>
                                         {{-- <div class="features-text1">{{$kit->description}}</div> --}}
                                     </div>
@@ -187,126 +187,32 @@
                     </div>
                 </div>
                 <div class="row">
+                    @foreach ($kits as $kit)
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="cause-item">
                             <div class="cause-top">
                                 <div class="cause-img">
-                                    <img src="assets/images/cause/img-1.png" alt="">
+                                    <img src="{{ asset('assets/images/cause/supply-kit.jpg') }}" alt="">
                                     <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <a href="{{ route('go-donate', ['kit_id' => $kit->id]) }}" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="cause-text">
                                 <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
+                                    <li>
+                                        <a href="{{ route('go-cause-single', ['kit_id' => $kit->id]) }}">${{ $kit->price }}</a>
+
+                                    </li>
                                 </ul>
-                                <h3><a href="causes.html">Financial Help for Poor Families</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
+                                <h3>
+                                    <a href="{{ route('go-cause-single', ['kit_id' => $kit->id]) }}">${{ $kit->title }}</a>
+                                </h3>
+                                <p>{{ $kit->description }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-2.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Education for Poor Children</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-3.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Send Child to School for a Year</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-4.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Food And Home for Children</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-5.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Pure Water For The World</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-6.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Recycling For Charity</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
             </div>
         </div>

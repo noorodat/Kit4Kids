@@ -6,7 +6,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-6">
                             <div class="widget about-widget">
                                 <div class="footer-logo widget-title">
-                                    <a href="index.html"><img src="{{asset('assets/images/logo/logo.png')}}" alt="logo">Khai<span>rah.</span></a>
+                                    <a href="{{route('go-home')}}"><img src="{{asset('assets/images/logo/logo.png')}}" alt="logo">Khai<span>rah.</span></a>
                                 </div>
                                 <p>Build and Earn with your online store with lots of cool and exclusive tp-features </p>
                                 <ul>

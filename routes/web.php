@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,15 +42,11 @@ Route::get('pages/about', function() {
     return view('pages.about.about');
 })->name('go-about');
 
-// Causes page
-Route::get('pages/causes', function() {
-    return view('pages.causes.causes');
-})->name('go-causes');
+// Show kits based on the category
+Route::get('pages/causes/{cat_id}', [KitController::class, 'showAll'])->name('go-causes');
 
-// Cause-single page
-Route::get('pages/causes/cause-single', function() {
-    return view('pages.causes.cause-single.cause-single');
-})->name('go-cause-single');
+// Show single kit
+Route::get('pages/causes/{kit_id}/cause-single', [KitController::class, 'showSingleKit'])->name('go-cause-single');
 
 // Contact us page
 Route::get('pages/contact', function() {
@@ -58,7 +54,7 @@ Route::get('pages/contact', function() {
 })->name('go-contact');
 
 // Donate us page
-Route::get('pages/donate', function() {
+Route::get('pages/causes/{kit_id}/donate', function() {
     return view('pages.donate.donate');
 })->name('go-donate');
 
@@ -76,6 +72,9 @@ Route::get('pages/events/event-single', function() {
 Route::get('pages/volunteer', function() {
     return view('pages.volunteer.volunteer');
 })->name('go-volunteer');
+Route::get('/tables', function () {
+    return view('dashboard.dashboard_layouts.tables');
+});
 
 /* ---------------END PAGES ROUTES--------------- */
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('image');
+            $table->binary('image');
             $table->integer('target_money');
             $table->integer('raised_money');
             $table->date('start_date');

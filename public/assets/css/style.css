@@ -3751,9 +3751,13 @@ li{
   background: #ffc039;
 }
 
+/* .features-text1{
+  font-size: 20px;
+  color: white;
+} */
 .features-icon{
-  width: 112px;
-  height: 112px;
+  width: 150px;
+  height: 150px;
   line-height: 112px;
   background: #fff;
   border-radius: 50%;
@@ -3779,6 +3783,7 @@ li{
 }
 .features-content h2 a{
   color: #fff;
+  font-size: 40px;
 }
 .features-wrap{
   padding: 100px 0 70px;

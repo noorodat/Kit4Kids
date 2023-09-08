@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
 
 /*
@@ -34,9 +35,9 @@ require __DIR__.'/auth.php';
 /* ---------------START PAGES ROUTES--------------- */
 
 // home page
-Route::get('pages', function() {
-    return view('pages.index');
-})->name('go-home');
+// Route::get('pages', function() {
+//     return view('pages.index');
+// })->name('go-home');
 
 // about us page
 Route::get('pages/about', function() {
@@ -78,3 +79,6 @@ Route::get('/tables', function () {
 });
 
 /* ---------------END PAGES ROUTES--------------- */
+
+// home page
+   Route::get('pages', [HomeController::class, 'index'])->name('go-home');

@@ -159,6 +159,11 @@ li{
   overflow: hidden;
 }
 
+.pagination-nav {
+    display: flex;
+    justify-content: center;
+}
+
 .wow {
   visibility: hidden;
 }
@@ -3873,9 +3878,6 @@ li{
   color: #fff;
   font-weight: 600;
 }
-.cause-text ul li:last-child a{
-  background: #ffc039;
-}
 
 .cause-item{
   border:2px solid #eefaf5;
@@ -3992,7 +3994,7 @@ li{
   visibility: visible;
 }
 .case-area{
-  padding-bottom: 70px;
+  padding-bottom: 0;
 }
 @media(max-width: 991px){
 .cause-text h3 {
@@ -4100,7 +4102,7 @@ li{
   padding: 0 20px;
 }
 .case-area {
-    padding-bottom: 70px;
+    padding-bottom: 0;
 }
 
 .cta-area {

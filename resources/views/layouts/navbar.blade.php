@@ -50,7 +50,7 @@
                             </li>
                             <li><a href="{{route('go-about')}}">About</a></li>
                             <li class="menu-item-has-children">
-                                <a href="{{route('go-causes')}}">Causes</a>
+                                <li><a href="{{ route('go-causes', ['cat_id' => 1]) }}">Causes</a></li>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="{{route('go-events')}}">Events</a>

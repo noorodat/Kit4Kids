@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +64,10 @@ Route::get('pages/donate', function() {
     return view('pages.donate.donate');
 })->name('go-donate');
 
+//Paypal
+Route::get('/success', [PaymentController::class, 'success']);
+Route::post('pay' ,[PaymentController::class, 'pay'])->name('payment');
+
 // Events page
 Route::get('pages/events', function() {
     return view('pages.events.events');
@@ -76,5 +82,6 @@ Route::get('pages/events/event-single', function() {
 Route::get('pages/volunteer', function() {
     return view('pages.volunteer.volunteer');
 })->name('go-volunteer');
+
 
 /* ---------------END PAGES ROUTES--------------- */

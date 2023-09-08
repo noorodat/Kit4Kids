@@ -665,8 +665,6 @@
 
 })(window.jQuery);
 
-// Change img src
-
 
 
 

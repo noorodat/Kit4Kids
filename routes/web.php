@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-/* START PAGES ROUTES */
+/* ---------------START PAGES ROUTES--------------- */
 
 // home page
 Route::get('pages', function() {
@@ -77,4 +77,4 @@ Route::get('pages/volunteer', function() {
     return view('pages.volunteer.volunteer');
 })->name('go-volunteer');
 
-/* END PAGES ROUTES */
+/* ---------------END PAGES ROUTES--------------- */

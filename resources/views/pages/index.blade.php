@@ -26,16 +26,16 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slide-1.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider5.jpg">
                             <div class="container">
                                 <div data-swiper-parallax="200" class="slide-thumb">
                                     <span>GO FOR HELP</span>
                                 </div>
                                 <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>They Are Wait For Some Food.</h2>
+                                    <h2>Helping hands, happy hearts.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>It is a long established fact that a reader will be distracted the readable content of a page when looking at its layout point of using of letters, as opposed.</p>
+                                    <p>Join our dedicated team of volunteers and make a difference in the lives of students.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
@@ -48,16 +48,16 @@
                         </div> <!-- end slide-inner -->
                     </div> <!-- end swiper-slide -->
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slide-2.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider6.jpg">
                             <div class="container">
                                 <div data-swiper-parallax="200" class="slide-thumb">
                                     <span>GO FOR HELP</span>
                                 </div>
                                 <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>They Are Wait For Some Food.</h2>
+                                    <h2>Volunteers inspire greatness.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>It is a long established fact that a reader will be distracted the readable content of a page when looking at its layout point of using of letters, as opposed.</p>
+                                    <p>"Help shape the future of our students through your valuable contributions as a volunteer.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
@@ -70,16 +70,16 @@
                         </div> <!-- end slide-inner -->
                     </div> <!-- end swiper-slide -->
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slide-3.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider4.jpg">
                             <div class="container">
                                 <div data-swiper-parallax="200" class="slide-thumb">
                                     <span>GO FOR HELP</span>
                                 </div>
                                 <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>They Are Wait For Some Food.</h2>
+                                    <h2>Give your time, change lives.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>It is a long established fact that a reader will be distracted the readable content of a page when looking at its layout point of using of letters, as opposed.</p>
+                                    <p>Enrich your life while enriching the lives of students – volunteer with us today.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
@@ -104,10 +104,10 @@
                 <div class="row">
                     <div class="col col-md-5">
                         <div class="video-area">
-                            <img src="assets/images/about.jpg" alt>
-                            <div class="video-holder">
+                            <img src="assets/images/about/st.jpg" alt height="550px">
+                            {{-- <div class="video-holder">
                                 <a href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col col-md-7">
@@ -116,14 +116,14 @@
                                 <div class="thumb-text">
                                     <span>ABOUT US</span>
                                 </div>
-                                <h2>Khairah is <span>Nonprofit</span> Organization <span>For Help</span> Children.</h2>
+                                <h2>HopeHarbor is <span>Nonprofit</span> Organization <span>For Help</span> schoolchildren.</h2>
                             </div>
-                            <p>It is a long established fact that a reader will be distracted by thethe readable content off a page when looking at its layout point using Lorem Ipsum is that it has.</p>
+                            <p>HopeHarbor is a passionate nonprofit organization committed to making a positive difference in the lives of schoolchildren. Our mission is to provide hope, support, and opportunities for academic success to underserved students.</p>
                             <div class="ab-icon-area">
                                 <div class="about-icon-wrap">
                                     <div class="about-icon-item">
                                         <div class="ab-icon">
-                                            <img draggable="false" src="assets/images/about/1.png" alt="">
+                                            <img draggable="false" src="assets/images/about/6.png" alt="" style="padding: 6px">
                                         </div>
                                         <div class="ab-text">
                                             <h2><a href="causes-single.html">Save <br> Children.</a></h2>
@@ -131,10 +131,10 @@
                                     </div>
                                     <div class="about-icon-item">
                                         <div class="ab-icon ab-icon2">
-                                            <img draggable="false" src="assets/images/about/2.png" alt="">
+                                            <img draggable="false" src="assets/images/about/4.png" alt="">
                                         </div>
                                         <div class="ab-text">
-                                            <h2><a href="causes-single.html">Fresh And <br> Clean Water.</a></h2>
+                                            <h2><a href="causes-single.html">Save <br> Education.</a></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -154,46 +154,19 @@
                     <div class="col-md-12">
                         <div class="features-wrap">
                             <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                                @foreach($kits as $kit)
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                     <div class="features-item">
                                         <div class="features-icon">
-                                            <img draggable="false" src="assets/images/features/img-1.png" alt="">
-                                        </div>
+                                            <img draggable="false" src="{{$kit->image}}" alt="">
+                                        </div>-
                                         <div class="features-content">
-                                            <h2><a href="causes-single.html">Cancer Treatment</a></h2>
+                                            <h2><a href="causes-single.html">{{$kit->title}}</a></h2>
                                         </div>
+                                        {{-- <div class="features-text1">{{$kit->description}}</div> --}}
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                                    <div class="features-item-2">
-                                        <div class="features-icon">
-                                            <img draggable="false" src="assets/images/features/img-2.png" alt="">
-                                        </div>
-                                        <div class="features-content">
-                                            <h2><a href="causes-single.html">Hospital Build</a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                                    <div class="features-item">
-                                        <div class="features-icon">
-                                            <img draggable="false" src="assets/images/features/img-4.png" alt="">
-                                        </div>
-                                        <div class="features-content">
-                                            <h2><a href="causes-single.html">Food & Build Home</a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                                    <div class="features-item-2 active">
-                                        <div class="features-icon">
-                                            <img draggable="false" src="assets/images/features/img-3.png" alt="">
-                                        </div>
-                                        <div class="features-content">
-                                            <h2><a href="causes-single.html">Environtment Recyle</a></h2>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -207,10 +180,10 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="section-title section-title2 text-center">
                         <div class="thumb-text">
-                            <span>CAUSES</span>
+                            <span>KITS</span>
                         </div>
-                        <h2>Latest Caused of Khairah.</h2>
-                        <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
+                        <h2>Popular kits of HopeHarbor.</h2>
+                        <p>Explore our selection of popular kits designed for volunteers who want to make a meaningful impact. These volunteer packages include essential resources and tools to support your volunteering efforts. Join us in making a difference in the community!</p>
                     </div>
                 </div>
                 <div class="row">
@@ -351,11 +324,11 @@
                         <div class="cta-wrap">
                             <div class="cta-call">
                                 <span>Call Us!</span>
-                                <h3>00 968 469 876</h3>
+                                <h3>0791757324</h3>
                             </div>
                             <div class="cta-call">
                                 <span>E-mail Us!</span>
-                                <h3>support@gmail.com</h3>
+                                <h3>HopeHarbor@gmail.com</h3>
                             </div>
                         </div>
                     </div>
@@ -450,7 +423,7 @@
         </div>
         <!-- event-area start -->
         <!-- volunteer-area start -->
-        <div class="volunteer-area section-padding">
+        {{-- <div class="volunteer-area section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
@@ -512,7 +485,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- volunteer-area start -->
         <!-- start testimonials-section-s2 -->
         <section class="testimonials-section section-padding">
@@ -574,7 +547,7 @@
         </section>
         <!-- end testimonials-section-s2 -->
         <!-- blog-area start -->
-        <div class="blog-area section-padding">
+        {{-- <div class="blog-area section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
@@ -652,7 +625,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- blog-area start -->
         <!-- start partners-section -->
         <section class="partners-section section-padding">

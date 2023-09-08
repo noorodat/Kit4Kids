@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
 
+use App\Http\Controllers\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +62,10 @@ Route::get('pages/causes/{kit_id}/donate', function() {
     return view('pages.donate.donate');
 })->name('go-donate');
 
+//Paypal
+Route::get('/success', [PaymentController::class, 'success']);
+Route::post('pay' ,[PaymentController::class, 'pay'])->name('payment');
+
 // Events page
 Route::get('pages/events', function() {
     return view('pages.events.events');
@@ -77,6 +83,7 @@ Route::get('pages/volunteer', function() {
 Route::get('/tables', function () {
     return view('dashboard.dashboard_layouts.tables');
 });
+
 
 /* ---------------END PAGES ROUTES--------------- */
 

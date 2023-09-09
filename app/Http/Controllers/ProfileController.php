@@ -8,16 +8,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Donation;
+
 
 class ProfileController extends Controller
 {
     /**
      * Display the user's profile form.
      */
+  
     public function edit(Request $request): View
     {
+        $id = Auth::id();
+        $donations = Donation::where('user_id', $id)->get();
+    
         return view('profile.edit', [
             'user' => $request->user(),
+            'donations'=>$donations,
         ]);
     }
 

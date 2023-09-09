@@ -85,7 +85,14 @@
                         </div> --}}
                         @if (Route::has('login'))
                             @auth
-                                <a href="{{ url('/pages') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                <a href="{{ url('/profile') }}" class="theme-btn-s2 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="margin: 0 10px">Profile</a>
+                                <div class="vollenter-btn">
+                                    <a class="theme-btn-s2" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>                    
+                                </div>
                             @else
                             <div class="vollenter-btn">
                                 <a class="theme-btn-s2" href="{{ route('login') }}">Login</a>
@@ -97,6 +104,7 @@
                                 @endif
                             @endauth
                     @endif
+                    
                     </div>
                 </div><!-- end of container -->
             </nav>

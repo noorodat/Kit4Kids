@@ -20,8 +20,6 @@ class KitController extends Controller
     /* ---------This function shows a single kit--------- */
     public function showSingleKit($cat_id, Kit $kit)
     {
-
-        dd($cat_id);
         // No need to search again by ID
         // Get 3 random kits to show on the single kit page
         $moreKits = Kit::where('id', '!=', $kit->id)

@@ -65,7 +65,6 @@ Route::get('pages/causes/{cat_id}/{kit}/cause-single', [KitController::class, 's
 Route::get('pages/contact', [ContactController::class, 'contact'])->name('go-contact');
 Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('contact.send');
 
-
 // Donate us page
 Route::get('pages/causes/{kit_id}/donate', function() {
     return view('pages.donate.donate');

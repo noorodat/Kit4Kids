@@ -152,20 +152,23 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
+                        <h2 class="donate-categories">How do you want to help?</h2>
                         <div class="features-wrap">
                             <div class="row">
                                 @foreach($catagories as $catagory)
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <div class="features-item">
-                                        <div class="features-icon">
-                                            <img draggable="false" src="{{$catagory->image}}" alt="">
-                                        </div>-
-                                        <div class="features-content">
-                                            <h2><a href="causes-single.html">{{$catagory->title}}</a></h2>
+                                    <a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="features-item">
+                                                <div class="features-icon">
+                                                    <img draggable="false" src="{{$catagory->image}}" alt="">
+                                                </div>-
+                                                <div class="features-content">
+                                                    <h2><a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">{{$catagory->title}}</a></h2>
+                                                </div>
+                                                {{-- <div class="features-text1">{{$kit->description}}</div> --}}
+                                            </div>
                                         </div>
-                                        {{-- <div class="features-text1">{{$kit->description}}</div> --}}
-                                    </div>
-                                </div>
+                                    </a>
                                 @endforeach
                             </div>
                         </div>

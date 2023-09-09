@@ -86,10 +86,12 @@
                                     <div class="posts">
                                         <div class="post">
                                             <div class="img-holder">
-                                                <a href=""><img src="{{ asset($kit->image) }}" alt></a>
+                                                <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}">{{$kit->price}}</a>
                                             </div>
                                             <div class="details">
-                                                <h4><a href="#">{{$kit->title}}</a></h4>
+                                                <h4>
+                                                    <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}">{{$kit->title}}</a>
+                                                </h4>
                                                 <p class="fs-4">{{$kit->description}}</p>
                                                 <span class="price">${{$kit->price}}</span>
                                             </div>

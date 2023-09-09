@@ -59,6 +59,7 @@
                 <div class="row">
                     <div class="col-12">
                         @foreach ($campaigns as $campaign)
+                        <span class="campaign_id" hidden style="display: none">{{$campaign->id}}</span>
                         <div class="event-item">
                             <div class="event-img">
                                 <img src="{{ url($campaign->image) }}" alt="">
@@ -79,7 +80,10 @@
                                         <li>Target Money: ${{ $campaign->target_money }}</li>
                                         <li style="margin-left:30px; ">Raised Money: ${{ $campaign->raised_money }}</li>
                                     </ul>
-                                    <h2>
+                                    <div class="time-left">
+                                        <span>Time left:</span>
+                                        <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                                    </div>                                    <h2>
                                         <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
                                     </h2>
                                     <p>{{ $campaign->description }}</p>

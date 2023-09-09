@@ -12,9 +12,11 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{asset('/sign/css/style.css')}}">
 </head>
-<body style="height:100vh !important">
+<body style="height:100vh !important ;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
+">
 
-    <div class="main" style="padding:50px 0 0 0;">
+    <div class="main" style="padding:50px 0 0 0;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
+    ">
 
         <!-- Sign up form -->
         <section class="signup">

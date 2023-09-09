@@ -32,6 +32,7 @@
                     <h2 class="text-lg font-medium text-gray-900">
                         {{ __('Your Donations') }}
                     </h2>
+                    @if(count($donations) > 0)
                     <table>
                         <thead>
                             <tr>
@@ -40,15 +41,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($donations as $donate)
-                                
-                            
-                            <tr>
-                                <td>{{$donate->title}}</td>
-                                <td>{{$donate->description}}</td>
-                            </tr>
-                        @endforeach
+                            @foreach($donations as $donate)
+                                <tr>
+                                    <td>{{$donate->title}}</td>
+                                    <td>{{$donate->description}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
+                    </table>
+                @else
+                    <p>No donations found.</p>
+                @endif
                     </table>
                 </div>
             </div>

@@ -12,6 +12,9 @@ class EmailVerificationNotificationController extends Controller
     /**
      * Send a new email verification notification.
      */
+    public const HOME = '/pages';
+
+
     public function store(Request $request): RedirectResponse
     {
         if ($request->user()->hasVerifiedEmail()) {

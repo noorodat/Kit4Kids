@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -52,9 +53,9 @@ Route::get('pages/causes/{cat_id}', [KitController::class, 'showAll'])->name('go
 Route::get('pages/causes/{cat_id}/{kit}/cause-single', [KitController::class, 'showSingleKit'])->name('go-cause-single');
 
 // Contact us page
-Route::get('pages/contact', function() {
-    return view('pages.contact.contact');
-})->name('go-contact');
+Route::get('pages/contact', [ContactController::class, 'contact'])->name('go-contact');
+Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('contact.send');
+
 
 // Donate us page
 Route::get('pages/causes/{kit_id}/donate', function() {

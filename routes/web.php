@@ -34,10 +34,10 @@ require __DIR__.'/auth.php';
 
 /* ---------------START PAGES ROUTES--------------- */
 
-// home page
-// Route::get('pages', function() {
-//     return view('pages.index');
-// })->name('go-home');
+// about us page
+Route::get('w', function() {
+    return view('welcomeL');
+});
 
 // about us page
 Route::get('pages/about', function() {

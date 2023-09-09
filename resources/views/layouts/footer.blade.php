@@ -6,14 +6,13 @@
                         <div class="col col-lg-3 col-md-3 col-sm-6">
                             <div class="widget about-widget">
                                 <div class="footer-logo widget-title">
-                                    <a href="{{route('go-home')}}"><img src="{{asset('assets/images/logo/logo.png')}}" alt="logo">Khai<span>rah.</span></a>
+                                    <a href="{{route('go-home')}}"><img src="{{asset('assets/images/logo/logo.png')}}" alt="logo">Hoper<span>Harbo.</span></a>
                                 </div>
-                                <p>Build and Earn with your online store with lots of cool and exclusive tp-features </p>
+                                <p>HopeHarbor is a passionate nonprofit organization committed to making a positive difference in the lives of schoolchildren.</p>
                                 <ul>
-                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                    <li><a href="#"><i class="ti-google"></i></a></li>
+                                    <li><a href="https://web.facebook.com/?locale=ar_AR&_rdc=1&_rdr"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="https://api.whatsapp.com/send?phone=0791757324"><i class="fab fa-whatsapp xl"></i></a></li>
+                                    <li><a href="https://instagram.com/razanmustafa236?igshid=OGQ5ZDc2ODk2ZA=="><i class="ti-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -23,11 +22,11 @@
                                     <h3>Useful Links</h3>
                                 </div>
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="causes.html">Our Causes</a></li>
-                                    <li><a href="volunteer.html">Our Volunteer</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="event.html">Our Event</a></li>
+                                    <li><a href="{{route('go-about')}}">About Us</a></li>
+                                    <li><a href="{{ route('go-causes', ['cat_id' => 1]) }}">Our Kits</a></li>
+                                    <li><a href="{{route('go-volunteer')}}">Our Volunteer</a></li>
+                                    <li><a href="{{route('go-contact')}}">Contact Us</a></li>
+                                    <li><a href="{{route('go-events')}}">Our Event</a></li>
                                 </ul>                            </div>
                         </div>
                         <div class="col col-lg-3 col-lg-offset-1 col-md-3 col-sm-6">
@@ -35,12 +34,12 @@
                                 <div class="widget-title">
                                     <h3>Contact </h3>
                                 </div>
-                                <p>online store with lots of cool and exclusive tp-features</p>
+                                <p>If you want to join with us As a Volunteer. Contact Us Today!</p>
                                 <div class="contact-ft">
                                     <ul>
-                                        <li><i class="fi flaticon-pin"></i>28 Street, New York City, USA</li>
-                                        <li><i class="fi flaticon-call"></i>+000123456789</li>
-                                        <li><i class="fi flaticon-envelope"></i>khairah@gmail.com</li>
+                                        <li><i class="fi flaticon-pin"></i>28 Street, Irbid ,Jordan</li>
+                                        <li><i class="fi flaticon-call"></i>0791757324</li>
+                                        <li><i class="fi flaticon-envelope"></i>HopeHarbor@gmail.com</li>
                                     </ul>
                                 </div>
                             </div>
@@ -51,12 +50,12 @@
                                      <h3>Instagram</h3>
                                 </div>
                                 <ul class="d-flex">
-                                    <li><a href="#"><img src="{{asset('assets/images/instragram/1.jpg')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('assets/images/instragram/2.jpg')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('assets/images/instragram/3.jpg')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('assets/images/instragram/4.jpg')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('assets/images/instragram/5.jpg')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('assets/images/instragram/6.jpg')}}" alt=""></a></li>
+                                    <li><a href="https://instagram.com/razanmustafa236?igshid=OGQ5ZDc2ODk2ZA=="><img src="{{asset('assets/images/instragram/img (1).jpg')}}" alt="" height="70px"></a></li>
+                                    <li><a href="https://instagram.com/razanmustafa236?igshid=OGQ5ZDc2ODk2ZA=="><img src="{{asset('assets/images/instragram/img (2).jpg')}}" alt="" height="70px"></a></li>
+                                    <li><a href="https://instagram.com/razanmustafa236?igshid=OGQ5ZDc2ODk2ZA=="><img src="{{asset('assets/images/instragram/img (3).jpg')}}" alt="" height="70px"></a></li>
+                                    <li><a href="https://instagram.com/razanmustafa236?igshid=OGQ5ZDc2ODk2ZA=="><img src="{{asset('assets/images/instragram/img (4).jpg')}}" alt="" height="70px"></a></li>
+                                    <li><a href="https://instagram.com/razanmustafa236?igshid=OGQ5ZDc2ODk2ZA=="><img src="{{asset('assets/images/instragram/img (7).jpg')}}" alt="" height="70px"></a></li>
+                                    <li><a href="https://instagram.com/razanmustafa236?igshid=OGQ5ZDc2ODk2ZA=="><img src="{{asset('assets/images/instragram/img (6).jpg')}}" alt="" height="70px"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -67,7 +66,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col col-xs-12">
-                            <p class="copyright">&copy; 2020 Khairah. All rights reserved</p>
+                            <p class="copyright">&copy; 2023 HopeHarbor. All rights reserved</p>
                         </div>
                     </div>
                 </div>

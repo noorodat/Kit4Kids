@@ -40,6 +40,15 @@ require __DIR__.'/auth.php';
 Route::get('w', function() {
     return view('welcomeL');
 });
+// login
+Route::get('login', function() {
+    return view('auth.login');
+})->name('login');
+
+// signup
+Route::get('signup', function() {
+    return view('auth.register');
+})->name('signup');
 
 // about us page
 Route::get('pages/about', function() {

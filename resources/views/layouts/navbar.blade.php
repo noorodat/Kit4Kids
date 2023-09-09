@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon.png">
     <meta name="author" content="wpoceans">
@@ -51,9 +51,9 @@
                                 <a class="active" href="{{route('go-home')}}">Home</a>
                             </li>
                             <li><a href="{{route('go-about')}}">About</a></li>
-                            <li class="menu-item-has-children">
+                            {{-- <li class="menu-item-has-children">
                                 <li><a href="{{ route('go-causes', ['cat_id' => 1]) }}">Kits</a></li>
-                            </li>
+                            </li> --}}
                             <li class="menu-item-has-children">
                                 <a href="{{route('go-events')}}">Events</a>
                             </li>
@@ -96,7 +96,7 @@
                             @else
                             <div class="vollenter-btn">
                                 <a class="theme-btn-s2" href="{{ route('login') }}">Login</a>
-                            </div>        
+                            </div>
                                 @if (Route::has('register'))
                                 <div class="vollenter-btn">
                                     <a class="theme-btn-s2" href="{{ route('register') }}">Register</a>

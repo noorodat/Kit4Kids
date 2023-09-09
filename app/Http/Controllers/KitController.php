@@ -14,19 +14,25 @@ class KitController extends Controller
         // Get kits for the specified category
         $kits = Kit::where('category_id', $cat_id)->paginate(9);
         // Return a view with the kits data
-        return view('pages.causes.causes', ['kits' => $kits]);
+        return view('pages.causes.causes', ['kits' => $kits, 'cat_id' => $cat_id]);
     }
 
     /* ---------This function shows a single kit--------- */
-    public function showSingleKit(Kit $kit)
+    public function showSingleKit($cat_id, Kit $kit)
     {
 
+        dd($cat_id);
         // No need to search again by ID
-        // Get 3 random kits to show in the single kit page
-        $moreKits = Kit::where('id', '!=', $kit->id)->inRandomOrder()->limit(3)->get();
+        // Get 3 random kits to show on the single kit page
+        $moreKits = Kit::where('id', '!=', $kit->id)
+            ->where('category_id', $cat_id)
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
 
         // Return a view with the kit data
-        return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits]);
+        return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits, 'cat_id' => $cat_id]);
     }
+
 }
 

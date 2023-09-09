@@ -12,7 +12,18 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
+        $campaigns = Campaign::paginate(5);
+        // Return a view with the campaigns data
+        return view('pages.events.events', ['campaigns' => $campaigns]);
+    }
+
+    public function showSingleCampaign(Campaign $campaign)
+    {
+        // The $campaign parameter will already contain the Campaign object
+        // No need to search again by ID
+
+        // Return a view with the campaign data
+        return view('pages.events.event-single.event-single', ['campaign' => $campaign]);
     }
 
     /**

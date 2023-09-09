@@ -4,9 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
-
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\CampaignController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,7 +49,7 @@ Route::get('pages/about', function() {
 Route::get('pages/causes/{cat_id}', [KitController::class, 'showAll'])->name('go-causes');
 
 // Show single kit
-Route::get('pages/causes/{kit_id}/cause-single', [KitController::class, 'showSingleKit'])->name('go-cause-single');
+Route::get('pages/causes/{kit}/cause-single', [KitController::class, 'showSingleKit'])->name('go-cause-single');
 
 // Contact us page
 Route::get('pages/contact', function() {
@@ -67,14 +66,11 @@ Route::get('/success', [PaymentController::class, 'success']);
 Route::post('pay' ,[PaymentController::class, 'pay'])->name('payment');
 
 // Events page
-Route::get('pages/events', function() {
-    return view('pages.events.events');
-})->name('go-events');
+Route::get('pages/events}', [CampaignController::class, 'index'])->name('go-events');
 
 // Event-single page
-Route::get('pages/events/event-single', function() {
-    return view('pages.events.event-single.event-single');
-})->name('go-event-single');
+Route::get('pages/events/{campaign}/event-single', [CampaignController::class, 'showSingleCampaign'])->name('go-event-single');
+
 
 // Volunteer page
 Route::get('pages/volunteer', function() {

@@ -1161,7 +1161,11 @@ li{
 }
 
 .tp-blog-sidebar .recent-post-widget .post {
-    overflow: hidden;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .tp-blog-sidebar .recent-post-widget .posts>.post+.post {
@@ -1171,22 +1175,30 @@ li{
 }
 
 .tp-blog-sidebar .recent-post-widget .post .img-holder {
-    width: 68px;
+    width: 100%;
     float: left;
 }
 
 .tp-blog-sidebar .recent-post-widget .post .details {
-    width: calc(100% - 68px);
-    float: left;
-    padding-left: 20px;
+    text-align: center;
 }
 
 .tp-blog-sidebar .recent-post-widget .post h4 {
-    font-size: 18px;
+    font-size: 25px;
+    text-decoration: underline;
     margin: 0 0 0.3em;
     color: #444444;
     line-height: 20px;
     font-weight: 600;
+    text-align: center;
+}
+
+.tp-blog-sidebar .recent-post-widget .post p {
+    font-size: 14px;
+}
+
+.tp-blog-sidebar .recent-post-widget .post .price {
+    font-weight: normal;
 }
 
 @media (max-width: 1199px) {
@@ -4202,10 +4214,17 @@ li{
   font-size: 18px;
 }
 .event-right ul li:first-child{
+    font-weight: bold;
   margin-right: 30px;
   color: #03b664;
 }
+
+.event-right ul li{
+    font-weight: bold;
+}
+
 .event-right ul li:last-child{
+    font-weight: bold;
   margin-right: 30px;
   color: #ffc039;
 }
@@ -5848,7 +5867,7 @@ li{
   display: unset;
 }
 .sub-btn{
-  margin-top: 30px;
+  margin-top: 8px;
 }
 .sub-btn .theme-btn{
   padding-right: 27px;

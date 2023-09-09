@@ -201,12 +201,11 @@
                             <div class="cause-text">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('go-cause-single', ['kit_id' => $kit->id]) }}">${{ $kit->price }}</a>
-
+                                        <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->price }}</a>
                                     </li>
                                 </ul>
                                 <h3>
-                                    <a href="{{ route('go-cause-single', ['kit_id' => $kit->id]) }}">${{ $kit->title }}</a>
+                                    <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->title }}</a>
                                 </h3>
                                 <p>{{ $kit->description }}</p>
                             </div>
@@ -425,8 +424,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}                               
-                                
+                                {{-- end --}}
+
                             </div>
                         </div>
                     </div>

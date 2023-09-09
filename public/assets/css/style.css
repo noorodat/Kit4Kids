@@ -334,7 +334,11 @@ li{
 
 .theme-btn:hover, .theme-btn-s2:hover {
   background-position: 100%!important;
-  color: #fff;
+  color: #ffffff;
+}
+.theme-btn-s2 {
+  background: -webkit-linear-gradient(left,#18b760,#e9bf3d 50%,#18b760);
+
 }
 
 .theme-btn i, .theme-btn-s2 i {
@@ -354,7 +358,9 @@ li{
 }
 .theme-btn:hover, .theme-btn-s2:hover, .theme-btn:focus, .theme-btn-s2:focus, .theme-btn:active, .theme-btn-s2:active {
   background-position: 100%!important;
-  color: #fff;
+  color: white;
+  background: -webkit-linear-gradient(left,#e9bf3d,#e9bf3d 50%,#e9bf3d);
+
 }
 
 @media (max-width: 767px) {
@@ -4697,17 +4703,20 @@ li{
       font-size: 26px;
   }
 }
+.xl {
+  font-size: 1.5rem; /* You can adjust the size as needed */
+}
 /*--------------------------------------------------------------
 #1.4  partners-section
 --------------------------------------------------------------*/
 .partners-section{
-  background: url("../images/partners/bg.png") center center/cover no-repeat local;
+  /* background: url("../images/partners/bg.png") center center/cover no-repeat local; */
   position: relative;
   padding-bottom: 90px;
 }
 
 .partners-section:before{
-  background: -webkit-linear-gradient(left,#18b760,#e9bf3d);
+  background: -webkit-linear-gradient(left,#18b76095,#e9be3dca);
   position: absolute;
   left: 0;
   top: 0;

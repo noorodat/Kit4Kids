@@ -14,26 +14,29 @@ class HomeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('kits')->delete();
-        DB::table('kits')->insert([
+        DB::table('categories')->delete();
+        DB::table('categories')->insert([
             [
+                'id' => '1',
                 'title' => 'Stationery',
                 'description' => 'lourn nnkslnfdslkfndslkfsd',
                 'image' => 'assets/images/features/img5.png',
-                'price' => '10',
+                'type' => '10',
                 
             ],
             [
+                'id' => '2',
                 'title' => 'Service',
                 'description' => 'lourn nnkslnfdslkfndslkfsd',
                 'image' => 'assets/images/features/img6.png',
-                'price' => '10',
+                'type' => '10',
             ],
             [
+                'id' => '3',
                 'title' => 'Tawjihi',
                 'description' => 'lourn nnkslnfdslkfndslkfsd',
                 'image' => 'assets/images/features/img7.png',
-                'price' => '10',
+                'type' => '10',
             ]
         ]);
     }

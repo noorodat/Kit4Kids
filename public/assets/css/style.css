@@ -4214,10 +4214,17 @@ li{
   font-size: 18px;
 }
 .event-right ul li:first-child{
+    font-weight: bold;
   margin-right: 30px;
   color: #03b664;
 }
+
+.event-right ul li{
+    font-weight: bold;
+}
+
 .event-right ul li:last-child{
+    font-weight: bold;
   margin-right: 30px;
   color: #ffc039;
 }

@@ -18,17 +18,15 @@ class KitController extends Controller
     }
 
     /* ---------This function shows a single kit--------- */
-    public function showSingleKit($kit_id)
+    public function showSingleKit(Kit $kit)
     {
-        // Retrieve the single kit based on kit_id
-        $singleKit = Kit::where('id', $kit_id)->first();
-        // Get 3 random kits to show in the single kit page
-        $moreKits = Kit::where('id', '!=', $kit_id)->inRandomOrder()->limit(3)->get();
 
-        if ($singleKit) {
-            // If a kit is found, return a view with the kit data
-            return view('pages.causes.cause-single.cause-single', ['kit' => $singleKit, 'moreKits' => $moreKits]);
-        }
+        // No need to search again by ID
+        // Get 3 random kits to show in the single kit page
+        $moreKits = Kit::where('id', '!=', $kit->id)->inRandomOrder()->limit(3)->get();
+
+        // Return a view with the kit data
+        return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits]);
     }
 }
 

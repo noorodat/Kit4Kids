@@ -23,7 +23,7 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="{{asset('/sign/images/signin-image.jpg')}}" alt="sing up image"></figure>
-                        <a href="{{route('signup')}}" class="signup-image-link">Don't have an account yet? Sign up!</a>
+                        <a href="{{route('register')}}" class="signup-image-link">Don't have an account yet? Sign up!</a>
                     </div>
 
                     <div class="signin-form">
@@ -80,7 +80,7 @@
 
 
 
-{{-- 
+{{--
 
 <x-guest-layout>
     <!-- Session Status -->

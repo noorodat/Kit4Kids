@@ -189,7 +189,7 @@
                         <p>Explore our selection of popular kits designed for volunteers who want to make a meaningful impact. These volunteer packages include essential resources and tools to support your volunteering efforts. Join us in making a difference in the community!</p>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     @foreach ($kits->take(9) as $kit)
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="cause-item">
@@ -215,7 +215,7 @@
                         </div>
                     </div>
                 @endforeach
-                </div>
+                </div> --}}
             </div>
         </div>
         <!-- case-area-end -->

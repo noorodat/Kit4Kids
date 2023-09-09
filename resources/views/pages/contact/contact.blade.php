@@ -86,8 +86,9 @@
                                 @if (Session::has('message_sent'))
                                     <div class=" alert alert-success" role="alert">{{Session::get('message_sent')}}</div>
                                 @endif
-                                <form method="post" action="{{route('contact.send')}}" class="contact-validation-active" id="contact-form enctype=multipart/form-data">
-                                    @csrf
+                                <form method="post" action="{{ route('contact.send') }}" class="contact-validation-active" id="contact-form" enctype="multipart/form-data">
+                                    @csrf <!-- Add CSRF token for security -->
+                                    <!-- Your form fields go here -->
                                     <div>
                                         <input type="text" class="form-control"  name="name" id="name" placeholder="Name*">
                                     </div>

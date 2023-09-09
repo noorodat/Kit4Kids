@@ -30,7 +30,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col col-xs-12">
-                                <h2>Our Events</h2>
+                                <h2>Campaigns</h2>
                                 <ol class="breadcrumb">
                                     <li><a href="index.html">Home</a></li>
                                     <li>Events</li>
@@ -49,9 +49,9 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="section-title section-title2 text-center">
                             <div class="thumb-text">
-                                <span>EVENTS</span>
+                                <span>Campaigns</span>
                             </div>
-                            <h2>Our Upcoming Events</h2>
+                            <h2>Donate Campaigns</h2>
                             <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
                         </div>
                     </div>

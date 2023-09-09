@@ -159,11 +159,10 @@
                                     <div class="features-item">
                                         <div class="features-icon">
                                             <img draggable="false" src="{{$catagory->image}}" alt="">
-                                        </div>-
+                                        </div>
                                         <div class="features-content">
                                             <h2><a href="causes-single.html">{{$catagory->title}}</a></h2>
                                         </div>
-                                        {{-- <div class="features-text1">{{$kit->description}}</div> --}}
                                     </div>
                                 </div>
                                 @endforeach

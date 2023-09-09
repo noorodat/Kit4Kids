@@ -58,7 +58,7 @@
                                 <a href="{{route('go-events')}}">Events</a>
                             </li>
                             <li>
-                                <a href="{{route('go-contact')}}">Contact</a>
+                                <a href="{{route('go-contact')}}">Contact Us</a>
                             </li>
                         </ul>
                     </div><!-- end of nav-collapse -->

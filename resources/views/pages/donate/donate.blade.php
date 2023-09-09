@@ -51,33 +51,48 @@
                             </div>
                             <h2>Make a Donation</h2>
                         </div>
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div id="Donations" class="tab-pane">
-                            <form action="#">
+
+
+                            <form action="{{ route('payment') }}" method="POST">
+
+
+                                @csrf
                                 <div class="tp-donations-amount">
                                     <h2>Your Donation</h2>
-                                    <input type="text" class="form-control" name="text" id="text" placeholder="Enter Donation Amount">
+                                    <input type="number" class="form-control" name="amount" id="text"
+                                        placeholder="Enter Donation Amount">
                                 </div>
                                 <div class="tp-donations-details">
                                     <h2>Details</h2>
                                     <div class="row">
+
+
+                                        {{-- لا تنسا تغير المدخل الخفي الخاص باليوزر --}}
+
+                                        <input type="hidden" id="UserId" name="UserId" value="1">
+
+
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                            <input type="text" class="form-control" name="name" id="fname" placeholder="First Name">
+                                            <input type="number" class="form-control" name="phone" id="phone"
+                                                placeholder="Phone">
                                         </div>
+
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Last Name">
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group clearfix">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                            <input type="text" class="form-control" name="Adress" id="Adress" placeholder="Adress">
+                                            <input type="text" class="form-control" name="adress" id="Adress"
+                                                placeholder="Adress">
                                         </div>
                                         <div class="col-lg-12 col-12 form-group">
-                                            <textarea class="form-control" name="note" id="note" placeholder="Message"></textarea>
+                                            <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tp-doanation-payment">
+                                {{-- <div class="tp-doanation-payment">
                                     <h2>Choose Your Payment Method</h2>
                                     <div class="tp-payment-area">
                                         <div class="row">
@@ -135,7 +150,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="submit-area">
                                     <button type="submit" class="theme-btn submit-btn">Donate Now</button>
                                 </div>

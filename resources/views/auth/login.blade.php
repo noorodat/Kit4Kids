@@ -44,4 +44,6 @@
             </x-primary-button>
         </div>
     </form>
+                  <div  class="flex items-center justify-center mt-4" ><a href="{{ route('auth.socilaite.redirect', 'google') }}">or login by google</a></div>
+
 </x-guest-layout>

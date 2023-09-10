@@ -1,0 +1,1 @@
+@extends('dashboard.dashboard_layouts.master')

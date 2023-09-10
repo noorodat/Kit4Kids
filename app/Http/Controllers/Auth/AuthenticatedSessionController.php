@@ -23,12 +23,14 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+    public const HOME = '/pages';
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
         
         $request->session()->regenerate();
         
+ 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -43,6 +45,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('w');
+        // return redirect('w');
+        return redirect('/pages');
     }
 }

@@ -23,6 +23,15 @@ class eventSeeder extends Seeder
                 'target_money' => '2000',
                 'raised_money' => '0',
                 'start_date' => '2023-09-03',
+                'end_date' => '2023-09-09',
+            ],
+            [
+                'title' => 'Winter is coming',
+                'description' => 'Help school students to gear up for Winter, help them wear warm jackets, boots etc.',
+                'image' => 'assets/images/event/2.jpg',
+                'target_money' => '2000',
+                'raised_money' => '0',
+                'start_date' => '2023-09-03',
                 'end_date' => '2023-09-15',
             ],
             [
@@ -50,7 +59,7 @@ class eventSeeder extends Seeder
                 'target_money' => '2000',
                 'raised_money' => '0',
                 'start_date' => '2023-09-03',
-                'end_date' => '2023-09-15',
+                'end_date' => '2023-10-05',
             ],
             [
                 'title' => 'School is coming',
@@ -59,7 +68,7 @@ class eventSeeder extends Seeder
                 'target_money' => '2000',
                 'raised_money' => '0',
                 'start_date' => '2023-09-03',
-                'end_date' => '2023-09-15',
+                'end_date' => '2023-10-07',
             ],
             [
                 'title' => 'School is coming',
@@ -68,7 +77,7 @@ class eventSeeder extends Seeder
                 'target_money' => '2000',
                 'raised_money' => '0',
                 'start_date' => '2023-09-03',
-                'end_date' => '2023-09-15',
+                'end_date' => '2023-11-15',
             ],
             [
                 'title' => 'School is coming',
@@ -77,7 +86,7 @@ class eventSeeder extends Seeder
                 'target_money' => '2000',
                 'raised_money' => '0',
                 'start_date' => '2023-09-03',
-                'end_date' => '2023-09-15',
+                'end_date' => '2023-12-14',
             ],
         ]);
     }

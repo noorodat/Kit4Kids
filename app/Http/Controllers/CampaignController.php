@@ -15,15 +15,35 @@ class CampaignController extends Controller
         $campaigns = Campaign::paginate(5);
         // Return a view with the campaigns data
         return view('pages.events.events', ['campaigns' => $campaigns]);
+        // return view ('dashboard\campaign\index');
     }
 
     public function showSingleCampaign(Campaign $campaign)
     {
         // The $campaign parameter will already contain the Campaign object
         // No need to search again by ID
-
+        $moreCampaigns = Campaign::where('id', '!=', $campaign->id)->inRandomOrder()->limit(3)->get();
         // Return a view with the campaign data
-        return view('pages.events.event-single.event-single', ['campaign' => $campaign]);
+        return view('pages.events.event-single.event-single', ['campaign' => $campaign, 'moreCampaigns' => $moreCampaigns]);
+    }
+
+    /**
+     * Summary of deleteOnCountDown
+     * @param \App\Models\Campaign $campaign
+     * @return \Illuminate\Http\JsonResponse|mixed
+     */
+    public function delete(Campaign $campaign)
+    {
+        try {
+            // Delete the campaign
+            $campaign->delete();
+
+            // Return a success response
+            return response()->json(['message' => 'Event deleted successfully']);
+        } catch (\Exception $e) {
+            // Return an error response in case of an exception
+            return response()->json(['error' => 'Error deleting event'], 500);
+        }
     }
 
     /**

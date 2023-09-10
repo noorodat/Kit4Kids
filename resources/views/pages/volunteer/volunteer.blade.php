@@ -86,8 +86,11 @@
                                                 <input id="file" type="file" class="form-control" name="file">
                                                 <i class="ti-cloud-up"></i>
                                             </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone">
+                                            </div>
                                             <div class="col-lg-12 col-12 form-group">
-                                                <textarea class="form-control" name="note" id="note" placeholder="Case Description..."></textarea>
+                                                <textarea class="form-control" name="note" id="note" placeholder="Campaign Description..."></textarea>
                                             </div>
                                             <div class="submit-area col-lg-12 col-12">
                                                 <button type="submit" class="theme-btn submit-btn">Send request</button>

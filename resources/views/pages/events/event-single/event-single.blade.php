@@ -63,7 +63,7 @@
                                                 <p>{{$campaign->description}}</p>
                                             </div>
                                             <div class="submit-area sub-btn">
-                                                <a href="donate.html" class="theme-btn submit-btn">Donate Now</a>
+                                                <a href="{{ route('go-donate-campaign', ['campaign' => $campaign]) }}" class="theme-btn submit-btn">Donate Now</a>
                                             </div>
                                         </div>
                                     </div>

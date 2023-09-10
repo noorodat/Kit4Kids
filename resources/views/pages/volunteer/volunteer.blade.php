@@ -71,7 +71,8 @@
                         <div class="col-md-6">
                             <div class="volunteer-contact">
                                 <div class="volunteer-contact-form">
-                                    <form method="post" class="contact-validation-active" id="contact-form">
+                                    <form method="post" class="contact-validation-active" id="contact-form" enctype="multipart/form-data" action="{{ route('sendData') }}">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                 <input type="text" class="form-control" name="name" id="name" placeholder="Full name">
@@ -84,7 +85,7 @@
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group form-group-in">
                                                 <label for="file">Upload campaign Image</label>
-                                                <input id="file" type="file" class="form-control createCampaignImage" name="file">
+                                                <input id="file" type="file" class="form-control createCampaignImage" name="image">
                                                 <i class="ti-cloud-up"></i>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">

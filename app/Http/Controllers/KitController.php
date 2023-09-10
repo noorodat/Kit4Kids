@@ -125,6 +125,7 @@ class KitController extends Controller
 
     public function goDonate(Kit $kit)
     {
+        session(['donationType' => 'kit']);
         session(['kitID' => $kit]);
         return view('pages.donate.donate', ['kit' => $kit]);
     }

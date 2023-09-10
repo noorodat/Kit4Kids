@@ -11,6 +11,6 @@
     <p>email: {{$details['email']}}</p>
     <p>address: {{$details['address']}}</p>
     <p>phone: {{$details['phone']}}</p>
-    <p>massege: {{$details['notes']}}</p>
+    <p>massege: {{$details['note']}}</p>
 </body>
 </html>

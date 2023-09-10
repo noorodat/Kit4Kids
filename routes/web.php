@@ -8,6 +8,8 @@ use App\Http\Controllers\KitController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Auth\SocialLoginController;
+
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
 /*
@@ -36,6 +38,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// login by google
+Route::get('auth/{provider}/redirect', [SocialLoginController::class, 'redirect'])->name('auth.socilaite.redirect');
+Route::get('auth/{provider}/callback', [SocialLoginController::class, 'callback'])->name('auth.socilaite.callback');
 
 /* ---------------START PAGES ROUTES--------------- */
 

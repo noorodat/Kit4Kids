@@ -22,10 +22,10 @@ class ContactController extends Controller
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
-            'notes' => $request->input('notes'),
+            'note' => $request->input('note'),
         ];
-        dd($details);
-        Mail::to('razanmustafa8@gmail.com')->send(new ContactMail($details));
+    
+        Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details));
         return back()->with('message_sent', 'Your Message has been sent successfully');
     }
 

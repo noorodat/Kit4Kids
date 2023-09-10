@@ -23,6 +23,7 @@ class PaymentController extends Controller
     {
 
         session(['UserId' => $request->UserId]);
+        session(['kit' => $request->kit]);
         session(['UserPhone' => $request->phone]);
         session(['UserAdress' => $request->adress]);
         session(['UserMessage' => $request->message]);
@@ -41,7 +42,15 @@ class PaymentController extends Controller
             if ($response->isRedirect()) {
                 $response->redirect();
             } else {
-                return $response->getMessage();
+                session()->forget('UserId');
+                session()->forget('kit');
+                session()->forget('UserPhone');
+                session()->forget('UserAdress');
+                session()->forget('UserMessage');
+
+                // return $response->getMessage();
+                return redirect()->route('go-donate', ['kit' => session('kitID')])->with('error', $response->getMessage());
+
             }
 
         } catch (\Throwable $th) {
@@ -56,7 +65,6 @@ class PaymentController extends Controller
                 array(
                     'payer_id' => $request->input('PayerID'),
                     'transactionReference' => $request->input('paymentId'),
-
                 )
             );
 
@@ -68,6 +76,7 @@ class PaymentController extends Controller
 
                 $payment = new Payment();
                 $payment->donater_id = session('UserId');
+                $payment->donater_kit = session('kit');
                 $payment->donater_phone = session('UserPhone');
                 $payment->donater_address = session('UserAdress');
                 $payment->donater_message = session('UserMessage');
@@ -79,23 +88,31 @@ class PaymentController extends Controller
 
 
                 session()->forget('UserId');
+                session()->forget('kit');
                 session()->forget('UserPhone');
                 session()->forget('UserAdress');
                 session()->forget('UserMessage');
 
-                return redirect()->route('go-donate')->with('success', 'Payment is Successful.');
+                // return redirect()->route('go-donate')->with('success', 'Payment is Successful.');
+                return redirect()->route('go-donate', ['kit' => session('kitID')])->with('success', 'Payment is Successful.');
 
 
             } else {
-                return $response->getMessage();
+                // return $response->getMessage();
+                return redirect()->route('go-donate')->with('error', $response->getMessage());
+
             }
         } else {
-            return 'Payment is declined !!';
+            // return 'Payment is declined !!';
+            return redirect()->route('go-donate', ['kit' => session('kitID')])->with('error', 'Payment is declined !!');
+
         }
     }
 
     public function error()
     {
-        return 'User declined the payment !!';
+        // return 'User declined the payment !!';
+        return redirect()->route('go-donate', ['kit' => session('kitID')])->with('error', 'User declined the payment !!');
+
     }
 }

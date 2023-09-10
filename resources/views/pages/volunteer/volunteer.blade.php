@@ -32,7 +32,7 @@
                             <div class="col col-xs-12">
                                 <h2>Start a campaign</h2>
                                 <ol class="breadcrumb">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{route('go-home')}}">Home</a></li>
                                     <li>Start a campaign</li>
                                 </ol>
                             </div>
@@ -62,7 +62,8 @@
                             <div class="volunteer-item">
                                 <div class="volunteer-img-wrap">
                                     <div class="volunter-img">
-                                        <img src="{{asset('assets/images/volunteer.jpg')}}" alt="">
+                                        <h4>Choosen Campaign image</h4>
+                                        <img src="" alt="" id="campaignImage">
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +74,7 @@
                                     <form method="post" class="contact-validation-active" id="contact-form">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="First Name">
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="Full name">
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group clearfix">
                                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email">
@@ -83,11 +84,18 @@
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group form-group-in">
                                                 <label for="file">Upload campaign Image</label>
-                                                <input id="file" type="file" class="form-control" name="file">
+                                                <input id="file" type="file" class="form-control createCampaignImage" name="file">
                                                 <i class="ti-cloud-up"></i>
                                             </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <input type="number" class="form-control" name="targetMoney" id="targetMoney" placeholder="Target money (USD)">
+                                                <small style="font-size: 14px">$50 or more</small>
+                                            </div>
                                             <div class="col-lg-12 col-12 form-group">
-                                                <textarea class="form-control" name="note" id="note" placeholder="Case Description..."></textarea>
+                                                <textarea class="form-control" name="note" id="note" placeholder="Campaign Description..."></textarea>
                                             </div>
                                             <div class="submit-area col-lg-12 col-12">
                                                 <button type="submit" class="theme-btn submit-btn">Send request</button>
@@ -107,71 +115,6 @@
                     </div>
                 </div>
             </div>
-            <!-- volunteer-area start -->
-            <div class="volunteer-area v2 section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <div class="section-title section-title2 text-center">
-                                <div class="thumb-text">
-                                    <span>Volunteer</span>
-                                </div>
-                                <h2>Our Great Volunteer</h2>
-                                <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="volunteer-wrap">
-                        <div class="row">
-                            <div class="col col-md-3 col-sm-6 custom-grid col-12">
-                                <div class="volunteer-item">
-                                    <div class="volunteer-img">
-                                        <img src="{{asset('assets/images/team/1.png')}}" alt="">
-                                    </div>
-                                    <div class="volunteer-content">
-                                        <h2><a href="#">Adriane Newby</a></h2>
-                                        <span>Volunteer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-md-3 col-sm-6 custom-grid col-12">
-                                <div class="volunteer-item">
-                                    <div class="volunteer-img">
-                                        <img src="{{asset('assets/images/team/2.png')}}" alt="">
-                                    </div>
-                                    <div class="volunteer-content">
-                                        <h2><a href="#">Allene Castaneda</a></h2>
-                                        <span>Volunteer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-md-3 col-sm-6 custom-grid col-12">
-                                <div class="volunteer-item">
-                                    <div class="volunteer-img">
-                                        <img src="{{asset('assets/images/team/3.png')}}" alt="">
-                                    </div>
-                                    <div class="volunteer-content">
-                                        <h2><a href="#">Malinda Willoughby</a></h2>
-                                        <span>Volunteer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-md-3 col-sm-6 custom-grid col-12">
-                                <div class="volunteer-item">
-                                    <div class="volunteer-img">
-                                        <img src="{{asset('assets/images/team/4.png')}}" alt="">
-                                    </div>
-                                    <div class="volunteer-content">
-                                        <h2><a href="#">Wilburn Hatfield</a></h2>
-                                        <span>Volunteer</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- volunteer-area start -->
         </div>
         <!-- volunteer-area-end -->
     </div>

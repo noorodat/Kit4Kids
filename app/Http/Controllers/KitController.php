@@ -26,7 +26,6 @@ class categoryController extends Controller
     {
         return view('dashboard.kits.create');
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -101,4 +100,11 @@ class categoryController extends Controller
         Kit::destroy($id);
     return back()->with('success', ' deleted successfully.');
     }
+
+    public function goDonate(Kit $kit)
+    {
+        session(['kitID' => $kit]);
+        return view('pages.donate.donate', ['kit' => $kit]);
+    }
+
 }

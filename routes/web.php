@@ -3,13 +3,15 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Auth\SocialLoginController;
+
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,26 +37,30 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+// login by google
+Route::get('auth/{provider}/redirect', [SocialLoginController::class, 'redirect'])->name('auth.socilaite.redirect');
+Route::get('auth/{provider}/callback', [SocialLoginController::class, 'callback'])->name('auth.socilaite.callback');
 
 /* ---------------START PAGES ROUTES--------------- */
 
 // about us page
-Route::get('w', function() {
+Route::get('w', function () {
     return view('welcomeL');
 });
 // login
-Route::get('login', function() {
+Route::get('login', function () {
     return view('auth.login');
 })->name('login');
 
 // signup
-Route::get('signup', function() {
+Route::get('signup', function () {
     return view('auth.register');
 })->name('signup');
 
 // about us page
-Route::get('pages/about', function() {
+Route::get('pages/about', function () {
     return view('pages.about.about');
 })->name('go-about');
 
@@ -69,13 +75,15 @@ Route::get('pages/contact', [ContactController::class, 'contact'])->name('go-con
 Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('contact.send');
 
 // Donate us page
-Route::get('pages/causes/{kit_id}/donate', function() {
-    return view('pages.donate.donate');
-})->name('go-donate');
+
+Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
+// Route::get('pages/causes/{kit}/donate', function() {
+//     return view('pages.donate.donate');
+// })->name('go-donate');
 
 //Paypal
 Route::get('/success', [PaymentController::class, 'success']);
-Route::post('pay' ,[PaymentController::class, 'pay'])->name('payment');
+Route::post('pay', [PaymentController::class, 'pay'])->name('payment');
 
 // Events page
 Route::get('pages/events}', [CampaignController::class, 'index'])->name('go-events');
@@ -85,7 +93,7 @@ Route::get('pages/events/{campaign}/event-single', [CampaignController::class, '
 
 
 // Volunteer page
-Route::get('pages/volunteer', function() {
+Route::get('pages/volunteer', function () {
     return view('pages.volunteer.volunteer');
 })->name('go-volunteer');
 Route::get('/tables', function () {
@@ -127,9 +135,9 @@ Route::resource('dashboard/donations', DonationController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 
-// Route::get('/categories', function () {
-//     return view('dashboard.categories.index');
-// })->name('dashboard.categories.index');
+Route::get('/categories', function () {
+    return view('dashboard.categories.index');
+})->name('dashboard.categories.index');
 
 
 // Route::get('/campaign', function () {
@@ -149,4 +157,4 @@ Route::get('/kits', function () {
 Route::get('pages', [HomeController::class, 'index'])->name('go-home');
 
 // Delete event when countdown is 0
-Route::get('/delete-campaign/{campaign}', [CampaignController::class, 'delete'])->name('delete-campaign');
+Route::match(['get', 'delete'], '/delete-campaign/{campaign}', [CampaignController::class, 'delete'])->name('delete-campaign');

@@ -189,7 +189,7 @@
                         <p>Explore our selection of popular kits designed for volunteers who want to make a meaningful impact. These volunteer packages include essential resources and tools to support your volunteering efforts. Join us in making a difference in the community!</p>
                     </div>
                 </div>
-                {{-- <div class="row">
+                <div class="row">
                     @foreach ($kits->take(9) as $kit)
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="cause-item">
@@ -197,25 +197,25 @@
                                 <div class="cause-img">
                                     <img src="{{ asset('assets/images/cause/supply-kit.jpg') }}" alt="">
                                     <div class="case-btn">
-                                        <a href="{{ route('go-donate', ['kit_id' => $kit->id]) }}" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="cause-text">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->price }}</a>
+                                        <a href="{{ route('go-cause-single',  ['cat_id' => $kit ->category_id  ,'kit' => $kit]) }}">${{ $kit->price }}</a>
                                     </li>
                                 </ul>
                                 <h3>
-                                    <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->title }}</a>
+                                    <a href="{{ route('go-cause-single',  ['cat_id' => $kit ->category_id  ,'kit' => $kit]) }}">{{ $kit->title }}</a>
                                 </h3>
                                 <p>{{ $kit->description }}</p>
                             </div>
                         </div>
                     </div>
                 @endforeach
-                </div> --}}
+                </div>
             </div>
         </div>
         <!-- case-area-end -->
@@ -260,29 +260,35 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        @foreach ($Campaigns->take(3) as $Campaign)
+                        @foreach ($campaigns as $campaign)
+                        <span class="campaign_id" hidden style="display: none">{{$campaign->id}}</span>
                         <div class="event-item">
                             <div class="event-img">
-                                <img src="{{ $Campaign->image }}" alt="">
+                                <img src="{{ url($campaign->image) }}" alt="">
                             </div>
                             <div class="event-text">
                                 <div class="event-left">
                                     <div class="event-l-text">
                                         @php
-                                            $end_date = \Carbon\Carbon::parse($Campaign->end_date);
+                                            $start_date = \Carbon\Carbon::parse($campaign->start_date);
                                         @endphp
-                                        <span> {{ $end_date->format('F') }}</span>
-                                        <h4> {{ $end_date->format('d') }}</h4>
+                                        <span> {{ $start_date->format('F') }}</span>
+                                        <h4> {{ $start_date->format('d') }}</h4>
                                     </div>
                                 </div>
                                 <div class="event-right">
                                     <ul>
-                                        <li>End Date:{{ $Campaign->end_date }}</li>
-                                        <li>Target Money: ${{ $Campaign->target_money }}</li>
-                                        <li style="margin-left:30px; ">Raised Money: ${{ $Campaign->raised_money }}</li>
+                                        <li>End Date:{{ $campaign->end_date }}</li>
+                                        <li>Target Money: ${{ $campaign->target_money }}</li>
+                                        <li style="margin-left:30px; ">Raised Money: ${{ $campaign->raised_money }}</li>
                                     </ul>
-                                    <h2><a href="event.html">{{ $Campaign->title }}</a></h2>
-                                    <p>{{ $Campaign->description }}</p>
+                                    <div class="time-left">
+                                        <span>Time left:</span>
+                                        <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                                    </div>                                    <h2>
+                                        <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
+                                    </h2>
+                                    <p>{{ $campaign->description }}</p>
                                 </div>
                             </div>
                         </div>

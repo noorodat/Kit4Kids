@@ -151,4 +151,4 @@ Route::get('/kits', function () {
 Route::get('pages', [HomeController::class, 'index'])->name('go-home');
 
 // Delete event when countdown is 0
-Route::get('/delete-campaign/{campaign}', [CampaignController::class, 'delete'])->name('delete-campaign');
+Route::match(['get', 'delete'], '/delete-campaign/{campaign}', [CampaignController::class, 'delete'])->name('delete-campaign');

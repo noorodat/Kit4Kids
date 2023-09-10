@@ -65,7 +65,6 @@ class PaymentController extends Controller
                 array(
                     'payer_id' => $request->input('PayerID'),
                     'transactionReference' => $request->input('paymentId'),
-
                 )
             );
 

@@ -50,7 +50,7 @@
                             <div class="tp-case-details-text">
                                 <div id="Description">
                                     <div class="tp-case-details-img">
-                                        <img src="data:image/png;base64,{{ $kit->image }}" alt="">
+                                        <img src="{{ asset($kit->image) }}" alt="{{ $kit->title }}">
                                     </div>
                                     <div class="tp-case-content">
                                         <div class="tp-case-text-top">
@@ -81,36 +81,21 @@
                     <div class="col col-md-4 col-sm-12">
                         <div class="tp-blog-sidebar">
                             <div class="widget recent-post-widget">
-                                <h3>More</h3>
-                                <div class="posts">
-                                    <div class="post">
-                                        <div class="img-holder">
-                                            <img src="{{asset('assets/images/recent-posts/img-1.jpg')}}" alt>
-                                        </div>
-                                        <div class="details">
-                                            <h4><a href="#">Many Children are suffering a lot for food.</a></h4>
-                                            <span class="date">22 Sep 2020</span>
-                                        </div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="img-holder">
-                                            <img src="{{asset('assets/images/recent-posts/img-2.jpg')}}" alt>
-                                        </div>
-                                        <div class="details">
-                                            <h4><a href="#">Be kind for the poor people and the kids.</a></h4>
-                                            <span class="date">22 Sep 2020</span>
+                                <h3>More kits</h3>
+                                    @foreach ($moreKits as $kit)
+                                    <div class="posts">
+                                        <div class="post">
+                                            <div class="img-holder">
+                                                <a href=""><img src="{{ asset($kit->image) }}" alt></a>
+                                            </div>
+                                            <div class="details">
+                                                <h4><a href="#">{{$kit->title}}</a></h4>
+                                                <p class="fs-4">{{$kit->description}}</p>
+                                                <span class="price">${{$kit->price}}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="post">
-                                        <div class="img-holder">
-                                            <img src="{{asset('assets/images/recent-posts/img-3.jpg')}}" alt>
-                                        </div>
-                                        <div class="details">
-                                            <h4><a href="#">Be soft and kind for the poor people.</a></h4>
-                                            <span class="date">22 Sep 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
                             </div>
                         </div>
                     </div>

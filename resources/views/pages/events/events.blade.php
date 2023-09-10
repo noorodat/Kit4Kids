@@ -58,69 +58,38 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
+                        @foreach ($campaigns as $campaign)
                         <div class="event-item">
                             <div class="event-img">
-                                <img src="{{asset('assets/images/event/1.jpg')}}" alt="">
+                                <img src="{{ url($campaign->image) }}" alt="">
                             </div>
                             <div class="event-text">
                                 <div class="event-left">
                                     <div class="event-l-text">
-                                        <span>MAR</span>
-                                        <h4>28</h4>
+                                        @php
+                                            $start_date = \Carbon\Carbon::parse($campaign->start_date);
+                                        @endphp
+                                        <span> {{ $start_date->format('F') }}</span>
+                                        <h4> {{ $start_date->format('d') }}</h4>
                                     </div>
                                 </div>
                                 <div class="event-right">
                                     <ul>
-                                        <li><i class="ti-location-pin"></i> 9:00 AM - 10:00 AM</li>
-                                        <li><i class="ti-location-pin"></i> 968, Mudkarim, Pakistan.</li>
+                                        <li>End Date:{{ $campaign->end_date }}</li>
+                                        <li>Target Money: ${{ $campaign->target_money }}</li>
+                                        <li style="margin-left:30px; ">Raised Money: ${{ $campaign->raised_money }}</li>
                                     </ul>
-                                    <h2><a href="event-single.html">Fundrising event that could change some poor children.</a></h2>
-                                    <p>It is long estblished fact that a reader will be distracted aliquip exea commodo consequat velit esse cillum fugiat.</p>
+                                    <h2>
+                                        <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
+                                    </h2>
+                                    <p>{{ $campaign->description }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="event-item">
-                            <div class="event-img">
-                                <img src="{{asset('assets/images/event/2.jpg')}}" alt="">
-                            </div>
-                            <div class="event-text">
-                                <div class="event-left">
-                                    <div class="event-l-text">
-                                        <span>MAR</span>
-                                        <h4>28</h4>
-                                    </div>
-                                </div>
-                                <div class="event-right">
-                                    <ul>
-                                        <li><i class="ti-location-pin"></i> 9:00 AM - 10:00 AM</li>
-                                        <li><i class="ti-location-pin"></i> 968, Mudkarim, Pakistan.</li>
-                                    </ul>
-                                    <h2><a href="event-single.html">Many Children are suffering a lot for food.</a></h2>
-                                    <p>It is long estblished fact that a reader will be distracted aliquip exea commodo consequat velit esse cillum fugiat.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event-item">
-                            <div class="event-img">
-                                <img src="{{asset('assets/images/event/3.jpg')}}" alt="">
-                            </div>
-                            <div class="event-text">
-                                <div class="event-left">
-                                    <div class="event-l-text">
-                                        <span>MAR</span>
-                                        <h4>28</h4>
-                                    </div>
-                                </div>
-                                <div class="event-right">
-                                    <ul>
-                                        <li><i class="ti-location-pin"></i> 9:00 AM - 10:00 AM</li>
-                                        <li><i class="ti-location-pin"></i> 968, Mudkarim, Pakistan.</li>
-                                    </ul>
-                                    <h2><a href="event-single.html">Be kind for the poor people and the kids.</a></h2>
-                                    <p>It is long estblished fact that a reader will be distracted aliquip exea commodo consequat velit esse cillum fugiat.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                    </div>
+                    <div class="pagination" style="display: flex; justify-content:center">
+                        {{$campaigns->links()}}
                     </div>
                 </div>
             </div>

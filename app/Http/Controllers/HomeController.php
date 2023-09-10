@@ -8,7 +8,6 @@ use App\Models\category;
 use App\Models\Campaign;
 use App\Models\Partner;
 
-
 class HomeController extends Controller
 {
     public function index()
@@ -17,9 +16,8 @@ class HomeController extends Controller
        $kits = Kit::inRandomOrder()
        ->limit(6)
        ->get();
-       $campaigns=Campaign::all();
+       $campaigns = Campaign::inRandomOrder()->limit(4)->get();
        $Partners=Partner::all();
        return view('pages.index',compact('catagories', 'kits', 'campaigns', 'Partners'));
     }
-
 }

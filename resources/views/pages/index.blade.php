@@ -251,9 +251,9 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="section-title section-title2 text-center">
                             <div class="thumb-text">
-                                <span>EVENTS</span>
+                                <span>Campaigns</span>
                             </div>
-                            <h2>Our Upcoming Events</h2>
+                            <h2>Campaigns</h2>
                             <p>Explore our exciting calendar of upcoming events that promise to bring inspiration, education, and joy to our community. </p>
                         </div>
                     </div>

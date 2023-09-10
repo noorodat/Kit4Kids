@@ -1,4 +1,4 @@
-{{-- @extends('dashboard.dashboard_layouts.master')
+@extends('dashboard.dashboard_layouts.master')
 
 @section('title','')
 
@@ -17,32 +17,45 @@
 @section('content')
 
 <div class="card">
-        <div class="card-header">Create new User</div>
+        <div class="card-header">Create new Campaign</div>
         <div class="card-body">
-            <form action="{{ route('dashboard.users.index') }}" method="POST">
+            <form action="{{ route('campaigns.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="UserName">User Name</label>
-                    <input type="text" name="UserName" class="form-control" 
-                        placeholder="User Name">
+                    <label for="UserName">Campaign Title</label>
+                    <input type="text" name="title" class="form-control" 
+                        placeholder="Campaign Title">
                 </div>
                 <div class="form-group">
-                    <label for="UserEmail">User Email </label>
-                    <input type="email" name="UserEmail" class="form-control"
-                        placeholder="User Email">
+                    <label for="image">Campaign Image</label>
+                    <input type="file" name="image" class="form-control" 
+                        placeholder="Campaign Image">
                 </div>
                 <div class="form-group">
-                        <label for="UserPassword">User Password</label>
-                        <input type="password" name="UserPassword" class="form-control"
-                            placeholder="User Password">
+                    <label for="UserEmail">Campaign Description</label>
+                    <input type="text" name="description" class="form-control"
+                        placeholder="Campaign Description">
+                </div>
+                <div class="form-group">
+                        <label for="UserPassword">Target Money</label>
+                        <input type="number" name="target_money" class="form-control"
+                            placeholder="Target Money">
                     </div>
-       
                         <div class="form-group">
-                                <label for="Status">Status</label>
-                                <input type="text" name="Status" class="form-control"
-                                    placeholder="Admin or User">
+                                <label for="Status">End Date</label>
+                                <input type="date" name="end_date" class="form-control"
+                                    placeholder="End Date">
+                        </div>
+                        <div class="form-group">
+                                <label for="Status">Active</label>
+                                <br>
+                                <select name="active" id="">
+                                    <option value="Ended">Ended</option>
+                                    <option value="continous">continous</option>
+                                </select>
+                        </div>
                     <br>
-                    <input type="submit" value="Add User" class="btn btn-success"><br>
+                    <input type="submit" value="Add Campaign" class="btn btn-success"><br>
                 </div>
             </form>
         </div>
@@ -51,4 +64,4 @@
 
 @section('scripts')
 
-@endsection --}}
+@endsection

@@ -18,11 +18,12 @@ class CampaignController extends Controller
         // return view ('dashboard\campaign\index');
     }
 
-    public function index_campaign()
+    public function indexcampaign()
     {
-        $campaigns= Campaign::select('*');
-        // Return a view with the campaigns data
-        return view ('dashboard\campaign\index', compact('campaigns'));
+        // $campaigns= Campaign::select('*');
+        // return view ('dashboard\campaign\index', compact('campaigns'));
+        $campaigns=Campaign::all();
+        return view ('dashboard.campaign.index', compact('campaigns'));
     }
 
     public function showSingleCampaign(Campaign $campaign)
@@ -62,7 +63,8 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.campaign.create');
+
     }
 
     /**
@@ -70,8 +72,29 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campaign = new Campaign();
+    
+        $campaign->title = $request->input('title');
+        $campaign->description = $request->input('description');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageData = file_get_contents($image); // Read the binary image data
+            $campaign->image = $imageData;
+        } else {
+            $campaign->image = null;
+        }
+        $campaign->target_money = $request->input('target_money');
+        $campaign->raised_money = 0;
+        $campaign->start_date = date('Y-m-d');
+        $campaign->end_date = $request->input('end_date');
+        $campaign->active = 1;
+
+    
+        $campaign->save();
+    
+        return redirect()->route('gocampaigns')->with('success', 'Campaign created successfully');
     }
+    
 
     /**
      * Display the specified resource.
@@ -84,24 +107,44 @@ class CampaignController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Campaign $campaign)
+    public function edit(Campaign $campaign ,$id)
     {
-        //
+        $campaigns = Campaign::findOrFail($id);
+
+        return view('dashboard.campaigns.edit', compact('campaigns'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Campaign $campaign)
+    public function update(Request $request, Campaign $campaign ,$id)
     {
-        //
+        $campaigns = Campaign::findOrFail($id);
+
+        $campaigns->title = $request->input('title');
+        $campaigns->description = $request->input('description');
+        $campaigns->type = $request->input('type');
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $campaigns->image = $imageName;
+            $campaigns->save();
+
+        }
+
+        $campaigns->save();
+
+        return redirect()->route('campaigns.index')->with('success', 'Campaign updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Campaign $campaign)
+    public function destroy(Campaign $campaign ,$id)
     {
-        //
+        Campaign::destroy($id);
+        return back()->with('success', ' deleted successfully.');
     }
 }

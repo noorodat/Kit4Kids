@@ -62,7 +62,7 @@
                             <div class="volunteer-item">
                                 <div class="volunteer-img-wrap">
                                     <div class="volunter-img">
-                                        <img src="{{asset('assets/images/volunteer.jpg')}}" alt="">
+                                        <img src="" alt="" id="campaignImage">
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group form-group-in">
                                                 <label for="file">Upload campaign Image</label>
-                                                <input id="file" type="file" class="form-control" name="file">
+                                                <input id="file" type="file" class="form-control createCampaignImage" name="file">
                                                 <i class="ti-cloud-up"></i>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">

@@ -50,53 +50,59 @@
                                 <span>Donate</span>
                             </div>
                             <h2>Make a Donation</h2>
+                            <p><b>{{ $kit->title }}</b></p>
+                            <p>{{ $kit->description }}</p>
                         </div>
                         @if (session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
                             </div>
                         @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        
                         <div id="Donations" class="tab-pane">
-                             {{-- @if ($user->provider != null)
-                                {{$user->provider}}
-                            @endif --}}
-                             @if (Auth::id())
-                                {{Auth::id()}}
-                            @endif
-                            <form action="{{ route('payment') }}" method="POST">
+
+                            @if (Auth::id())
+                                {{-- @dd($kit);
+                            {{$kit->title}}
+                            {{$kit->description}} --}}
+                                <form action="{{ route('payment') }}" method="POST">
 
 
-                                @csrf
-                                <div class="tp-donations-amount">
-                                    <h2>Your Donation</h2>
-                                    <input type="number" class="form-control" name="amount" id="text"
-                                        placeholder="Enter Donation Amount">
-                                </div>
-                                <div class="tp-donations-details">
-                                    <h2>Details</h2>
-                                    <div class="row">
+                                    @csrf
+                                    <div class="tp-donations-amount">
+                                        <h2>Your Donation</h2>
+                                        <input type="number" class="form-control" name="amount" id="text"
+                                            placeholder="Enter Donation Money Amount">
+                                    </div>
+                                    <div class="tp-donations-details">
+                                        <h2>Details</h2>
+                                        <div class="row">
+
+                                            <input type="hidden" id="" name="UserId" value="{{ Auth::id() }}">
+                                            <input type="hidden" id="" name="kit" value="{{ $kit->title }}">
 
 
-                                        {{-- لا تنسا تغير المدخل الخفي الخاص باليوزر --}}
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <input type="number" class="form-control" name="phone" id="phone"
+                                                    placeholder="Phone">
+                                            </div>
 
-                                        <input type="hidden" id="UserId" name="UserId" value="{{Auth::id()}}">
-
-
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                            <input type="number" class="form-control" name="phone" id="phone"
-                                                placeholder="Phone">
-                                        </div>
-
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                            <input type="text" class="form-control" name="adress" id="Adress"
-                                                placeholder="Adress">
-                                        </div>
-                                        <div class="col-lg-12 col-12 form-group">
-                                            <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <input type="text" class="form-control" name="adress" id="Adress"
+                                                    placeholder="Adress">
+                                            </div>
+                                            <div class="col-lg-12 col-12 form-group">
+                                                <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                {{-- <div class="tp-doanation-payment">
+                                    {{-- <div class="tp-doanation-payment">
                                     <h2>Choose Your Payment Method</h2>
                                     <div class="tp-payment-area">
                                         <div class="row">
@@ -155,10 +161,12 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <div class="submit-area">
-                                    <button type="submit" class="theme-btn submit-btn">Donate Now</button>
-                                </div>
-                            </form>
+                                    <div class="submit-area">
+                                        <button type="submit" class="theme-btn submit-btn">Donate Now</button>
+                                    </div>
+                                </form>
+                            @else
+                            @endif
                         </div>
                     </div>
                 </div>

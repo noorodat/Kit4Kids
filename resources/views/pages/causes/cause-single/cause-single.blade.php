@@ -72,7 +72,7 @@
                                         </ul>
                                     </div> --}}
                                     <div class="submit-area sub-btn">
-                                        <a href="{{ route('go-donate', ['kit_id' => $kit->id]) }}" class="theme-btn submit-btn">Donate Now</a>
+                                        <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn submit-btn">Donate Now</a>
                                     </div>
                                 </div>
                             </div>

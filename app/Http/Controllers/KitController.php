@@ -32,5 +32,10 @@ class KitController extends Controller
         return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits, 'cat_id' => $cat_id]);
     }
 
+    public function goDonate(Kit $kit)
+    {
+        session(['kitID' => $kit]);
+        return view('pages.donate.donate', ['kit' => $kit]);
+    }
 }
 

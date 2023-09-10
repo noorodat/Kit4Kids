@@ -574,45 +574,26 @@
                     required: true,
                     minlength: 2
                 },
-
                 email: "required",
-
                 phone: "required",
-
                 address: "required",
+                file: {
+                    required: true,
+                    extension: "jpg|jpeg|png|gif" // Only allow image file extensions
+                },
+                subject: "required"
             },
-
             messages: {
                 name: "Please enter your name",
                 email: "Please enter your email address",
-                email: "Please enter your phone Number",
+                phone: "Please enter your phone number",
                 address: "Please enter your address",
+                file: {
+                    required: "Please select an image file",
+                    extension: "Please select a valid image file format (jpg, jpeg, png, gif)" // Customize this message
+                },
+                subject: "Please enter a subject"
             },
-
-            submitHandler: function (form) {
-                $.ajax({
-                    type: "POST",
-                    url: "mail-contact.php",
-                    data: $(form).serialize(),
-                    success: function () {
-                        $( "#loader").hide();
-                        $( "#success").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#success").slideUp( "slow" );
-                        }, 3000);
-                        form.reset();
-                    },
-                    error: function() {
-                        $( "#loader").hide();
-                        $( "#error").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#error").slideUp( "slow" );
-                        }, 3000);
-                    }
-                });
-                return false; // required to block normal submit since you used ajax
-            }
-
         });
     }
 
@@ -720,6 +701,23 @@ $(document).ready(function () {
         }, 1000); // Use bind(this) to access the current countdown element
     });
 });
+
+// Handle campaign image
+let campaignImage = document.getElementById('campaignImage');
+let createCampaignImage = document.querySelector('.createCampaignImage');
+
+createCampaignImage.onchange = () => {
+    if (createCampaignImage.files.length > 0) {
+        // Get the selected file
+        let selectedFile = createCampaignImage.files[0];
+
+        // Create a URL for the selected file
+        let objectURL = URL.createObjectURL(selectedFile);
+
+        // Set the src attribute of campaignImage to the objectURL
+        campaignImage.src = objectURL;
+    }
+}
 
 
 

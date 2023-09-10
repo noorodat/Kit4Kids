@@ -126,7 +126,7 @@
                                             <img draggable="false" src="assets/images/about/6.png" alt="" style="padding: 6px">
                                         </div>
                                         <div class="ab-text">
-                                            <h2><a href="causes-single.html">Save <br> Children.</a></h2>
+                                            <h2>Save <br> Children.</h2>
                                         </div>
                                     </div>
                                     <div class="about-icon-item">
@@ -134,7 +134,7 @@
                                             <img draggable="false" src="assets/images/about/4.png" alt="">
                                         </div>
                                         <div class="ab-text">
-                                            <h2><a href="causes-single.html">Save <br> Education.</a></h2>
+                                            <h2>Save <br> Education.</h2>
                                         </div>
                                     </div>
                                 </div>

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('raised_money');
             $table->date('start_date');
             $table->date('end_date');
+            $table->boolean('active');
         });
     }
 

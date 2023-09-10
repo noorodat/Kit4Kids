@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonationController;
@@ -119,6 +120,7 @@ Route::get('/users', function () {
 // Route:: view('dashboardadmins' , 'dashboard.admins.index');
 
 Route::resource('admins', AdminController::class);
+Route::resource('categories', CategoryController::class);
 
 Route::resource('campaigns', CampaignController::class);
 
@@ -126,9 +128,9 @@ Route::resource('dashboard/donations', DonationController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 
-Route::get('/categories', function () {
-    return view('dashboard.categories.index');
-})->name('dashboard.categories.index');
+// Route::get('/categories', function () {
+//     return view('dashboard.categories.index');
+// })->name('dashboard.categories.index');
 
 
 // Route::get('/campaign', function () {

@@ -38,82 +38,61 @@
                         #
                     </th>
                     <th style="width: 20%">
-                        Category Name
+                        Category Title
                     </th>
                     <th style="width: 30%">
                         Category Description
                     </th>
                     <th>
-                        Category type
+                        Category Image
                     </th>
                     <th style="width: 8%" class="text-center">
-                        Status
+                        Type
                     </th>
                     <th style="width: 20%">
+                        Action
                     </th>
                 </tr>
             </thead>
             <tbody>
+                @php
+                     $i=1;
+                @endphp
+                @foreach ($categories as $category)
+                    
                 <tr>
-                    <td>
-                        #
-                    </td>
-                    <td>
-                        <a>
-                            AdminLTE v3
-                        </a>
-                        <br/>
-                        <small>
-                            Created 01.01.2019
-                        </small>
-                    </td>
-                    <td>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                            </li>
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                            </li>
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                            </li>
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar04.png">
-                            </li>
-                        </ul>
-                    </td>
-                    <td class="project_progress">
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
-                            </div>
-                        </div>
-                        <small>
-                            57% Complete
-                        </small>
-                    </td>
-                    <td class="project-state">
-                        <span class="badge badge-success">Success</span>
-                    </td>
+                    <th scope="row">{{$i}}</th>
+                     <td>{{$category->title}}</td>
+                    <td>{{$category->description}}</td>
+
+                    <td><img src="{{ url('/images/' . $category->image) }}" alt="" width="20%"></td>
+                    <td>{{$category->type}}</td>
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-folder">
-                            </i>
-                            View
-                        </a>
-                        <a class="btn btn-info btn-sm" href="#">
+                       
+                        <a class="btn btn-info btn-sm" href="{{ route('categories.edit', $category->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>
+                      
+                        <form action="{{route('categories.destroy',$category->id)}}"  method="POST"  style="display: inline;">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>            
+                          </form>
                     </td>
+
+                       
+                 
+             
                 </tr>
-              
+                @php
+                $i++;
+            @endphp
+                @endforeach
+          
+
             </tbody>
         </table>
       </div>

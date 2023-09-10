@@ -2,9 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KitController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +24,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -34,10 +38,10 @@ require __DIR__.'/auth.php';
 
 /* ---------------START PAGES ROUTES--------------- */
 
-// home page
-Route::get('pages', function() {
-    return view('pages.index');
-})->name('go-home');
+// about us page
+Route::get('w', function() {
+    return view('welcomeL');
+});
 
 // about us page
 Route::get('pages/about', function() {
@@ -48,27 +52,28 @@ Route::get('pages/about', function() {
 Route::get('pages/causes/{cat_id}', [KitController::class, 'showAll'])->name('go-causes');
 
 // Show single kit
-Route::get('pages/causes/{kit_id}/cause-single', [KitController::class, 'showSingleKit'])->name('go-cause-single');
+Route::get('pages/causes/{kit}/cause-single', [KitController::class, 'showSingleKit'])->name('go-cause-single');
 
 // Contact us page
-Route::get('pages/contact', function() {
-    return view('pages.contact.contact');
-})->name('go-contact');
+Route::get('pages/contact', [ContactController::class, 'contact'])->name('go-contact');
+Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('contact.send');
+
 
 // Donate us page
 Route::get('pages/causes/{kit_id}/donate', function() {
     return view('pages.donate.donate');
 })->name('go-donate');
 
+//Paypal
+Route::get('/success', [PaymentController::class, 'success']);
+Route::post('pay' ,[PaymentController::class, 'pay'])->name('payment');
+
 // Events page
-Route::get('pages/events', function() {
-    return view('pages.events.events');
-})->name('go-events');
+Route::get('pages/events}', [CampaignController::class, 'index'])->name('go-events');
 
 // Event-single page
-Route::get('pages/events/event-single', function() {
-    return view('pages.events.event-single.event-single');
-})->name('go-event-single');
+Route::get('pages/events/{campaign}/event-single', [CampaignController::class, 'showSingleCampaign'])->name('go-event-single');
+
 
 // Volunteer page
 Route::get('pages/volunteer', function() {
@@ -77,6 +82,7 @@ Route::get('pages/volunteer', function() {
 Route::get('/tables', function () {
     return view('dashboard.dashboard_layouts.tables');
 });
+
 
 /* ---------------END PAGES ROUTES--------------- */
 
@@ -100,6 +106,10 @@ Route::get('/users', function () {
 
 Route::resource('admins', AdminController::class);
 
+Route::resource('campaigns', CampaignController::class);
+
+Route::resource('dashboard/donations', DonationController::class);
+
 Route::resource('dashboard/users', ProfileController::class);
 
 Route::get('/categories', function () {
@@ -107,16 +117,18 @@ Route::get('/categories', function () {
 })->name('dashboard.categories.index');
 
 
-Route::get('/campaign', function () {
-    return view('dashboard.campaign.index');
-})->name('dashboard.campaign.index');
+// Route::get('/campaign', function () {
+//     return view('dashboard.campaign.index');
+// })->name('dashboard.campaign.index');
 
-Route::get('/donations', function () {
-    return view('dashboard.donations.index');
-})->name('dashboard.donations.index');
+// Route::get('/donations', function () {
+//     return view('dashboard.donations.index');
+// })->name('dashboard.donations.index');
 
 Route::get('/kits', function () {
     return view('dashboard.kits.index');
 })->name('dashboard.kits.index');
 
 // ------ ENDS Routes for DASHBOARD --------------------------------
+// home page
+   Route::get('pages', [HomeController::class, 'index'])->name('go-home');

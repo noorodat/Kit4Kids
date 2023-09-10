@@ -32,7 +32,7 @@
                             <div class="col col-xs-12">
                                 <h2>Contact Us</h2>
                                 <ol class="breadcrumb">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{route('go-home')}}">Home</a></li>
                                     <li>Contact</li>
                                 </ol>
                             </div>
@@ -51,28 +51,28 @@
                             <h2>Our Contacts</h2>
                         </div>
                         <div class="contact-details">
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </p>
+                            <p>If you want to join with us As a Volunteer. Contact Us Today!</p>
                             <ul>
                                 <li>
                                     <div class="icon">
                                         <i class="ti-location-pin"></i>
                                     </div>
                                     <h5>Our Location</h5>
-                                    <p>245 King Street, Touterie Victoria 8520 Australia</p>
+                                    <p>28 Street, Irbid ,Jordan</p>
                                 </li>
                                 <li>
                                     <div class="icon">
                                         <i class="ti-mobile"></i>
                                     </div>
                                     <h5>Phone</h5>
-                                    <p>0-123-456-7890</p>
+                                    <p>0791757324</p>
                                 </li>
                                 <li>
                                     <div class="icon">
                                         <i class="ti-email"></i>
                                     </div>
                                     <h5>Email</h5>
-                                    <p>sample@gmail.com</p>
+                                    <p>hopeharbor@gmail.com</p>
                                 </li>
                             </ul>
                         </div>
@@ -83,7 +83,11 @@
                                 <h2>Quick Contact Form</h2>
                             </div>
                             <div class="contact-form">
-                                <form method="post" class="contact-validation-active" id="contact-form">
+                                @if (Session::has('message_sent'))
+                                    <div class=" alert alert-success" role="alert">{{Session::get('message_sent')}}</div>
+                                @endif
+                                <form method="post" action="{{route('contact.send')}}" class="contact-validation-active" id="contact-form enctype=multipart/form-data">
+                                    @csrf
                                     <div>
                                         <input type="text" class="form-control"  name="name" id="name" placeholder="Name*">
                                     </div>
@@ -118,8 +122,7 @@
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="contact-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.9147703055!2d-74.11976314309273!3d40.69740344223377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbd!4v1547528325671" allowfullscreen></iframe>
-                        </div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53808.193111141176!2d35.8886093988767!3d32.55252313180369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c76916dac0453%3A0x5416e113d81f7d82!2z2KXYsdio2K8!5e0!3m2!1sar!2sjo!4v1694273927683!5m2!1sar!2sjo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                        </div>
                     </div>
                 </div>
             </div> <!-- end container -->

@@ -334,7 +334,11 @@ li{
 
 .theme-btn:hover, .theme-btn-s2:hover {
   background-position: 100%!important;
-  color: #fff;
+  color: #ffffff;
+}
+.theme-btn-s2 {
+  background: -webkit-linear-gradient(left,#18b760,#e9bf3d 50%,#18b760);
+
 }
 
 .theme-btn i, .theme-btn-s2 i {
@@ -354,7 +358,9 @@ li{
 }
 .theme-btn:hover, .theme-btn-s2:hover, .theme-btn:focus, .theme-btn-s2:focus, .theme-btn:active, .theme-btn-s2:active {
   background-position: 100%!important;
-  color: #fff;
+  color: white;
+  background: -webkit-linear-gradient(left,#e9bf3d,#e9bf3d 50%,#e9bf3d);
+
 }
 
 @media (max-width: 767px) {
@@ -1155,7 +1161,11 @@ li{
 }
 
 .tp-blog-sidebar .recent-post-widget .post {
-    overflow: hidden;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .tp-blog-sidebar .recent-post-widget .posts>.post+.post {
@@ -1165,22 +1175,30 @@ li{
 }
 
 .tp-blog-sidebar .recent-post-widget .post .img-holder {
-    width: 68px;
+    width: 100%;
     float: left;
 }
 
 .tp-blog-sidebar .recent-post-widget .post .details {
-    width: calc(100% - 68px);
-    float: left;
-    padding-left: 20px;
+    text-align: center;
 }
 
 .tp-blog-sidebar .recent-post-widget .post h4 {
-    font-size: 18px;
+    font-size: 25px;
+    text-decoration: underline;
     margin: 0 0 0.3em;
     color: #444444;
     line-height: 20px;
     font-weight: 600;
+    text-align: center;
+}
+
+.tp-blog-sidebar .recent-post-widget .post p {
+    font-size: 14px;
+}
+
+.tp-blog-sidebar .recent-post-widget .post .price {
+    font-weight: normal;
 }
 
 @media (max-width: 1199px) {
@@ -3751,9 +3769,13 @@ li{
   background: #ffc039;
 }
 
+/* .features-text1{
+  font-size: 20px;
+  color: white;
+} */
 .features-icon{
-  width: 112px;
-  height: 112px;
+  width: 150px;
+  height: 150px;
   line-height: 112px;
   background: #fff;
   border-radius: 50%;
@@ -3779,6 +3801,7 @@ li{
 }
 .features-content h2 a{
   color: #fff;
+  font-size: 40px;
 }
 .features-wrap{
   padding: 100px 0 70px;
@@ -4191,10 +4214,17 @@ li{
   font-size: 18px;
 }
 .event-right ul li:first-child{
+    font-weight: bold;
   margin-right: 30px;
   color: #03b664;
 }
+
+.event-right ul li{
+    font-weight: bold;
+}
+
 .event-right ul li:last-child{
+    font-weight: bold;
   margin-right: 30px;
   color: #ffc039;
 }
@@ -4680,17 +4710,20 @@ li{
       font-size: 26px;
   }
 }
+.xl {
+  font-size: 1.5rem; /* You can adjust the size as needed */
+}
 /*--------------------------------------------------------------
 #1.4  partners-section
 --------------------------------------------------------------*/
 .partners-section{
-  background: url("../images/partners/bg.png") center center/cover no-repeat local;
+  /* background: url("../images/partners/bg.png") center center/cover no-repeat local; */
   position: relative;
   padding-bottom: 90px;
 }
 
 .partners-section:before{
-  background: -webkit-linear-gradient(left,#18b760,#e9bf3d);
+  background: -webkit-linear-gradient(left,#18b76095,#e9be3dca);
   position: absolute;
   left: 0;
   top: 0;
@@ -5834,7 +5867,7 @@ li{
   display: unset;
 }
 .sub-btn{
-  margin-top: 30px;
+  margin-top: 8px;
 }
 .sub-btn .theme-btn{
   padding-right: 27px;

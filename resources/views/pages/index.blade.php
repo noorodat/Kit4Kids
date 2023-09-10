@@ -26,16 +26,16 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slide-1.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider5.jpg">
                             <div class="container">
                                 <div data-swiper-parallax="200" class="slide-thumb">
                                     <span>GO FOR HELP</span>
                                 </div>
                                 <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>They Are Wait For Some Food.</h2>
+                                    <h2>Helping hands, happy hearts.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>It is a long established fact that a reader will be distracted the readable content of a page when looking at its layout point of using of letters, as opposed.</p>
+                                    <p>Join our dedicated team of volunteers and make a difference in the lives of students.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
@@ -48,16 +48,16 @@
                         </div> <!-- end slide-inner -->
                     </div> <!-- end swiper-slide -->
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slide-2.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider6.jpg">
                             <div class="container">
                                 <div data-swiper-parallax="200" class="slide-thumb">
                                     <span>GO FOR HELP</span>
                                 </div>
                                 <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>They Are Wait For Some Food.</h2>
+                                    <h2>Volunteers inspire greatness.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>It is a long established fact that a reader will be distracted the readable content of a page when looking at its layout point of using of letters, as opposed.</p>
+                                    <p>"Help shape the future of our students through your valuable contributions as a volunteer.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
@@ -70,16 +70,16 @@
                         </div> <!-- end slide-inner -->
                     </div> <!-- end swiper-slide -->
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slide-3.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider4.jpg">
                             <div class="container">
                                 <div data-swiper-parallax="200" class="slide-thumb">
                                     <span>GO FOR HELP</span>
                                 </div>
                                 <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>They Are Wait For Some Food.</h2>
+                                    <h2>Give your time, change lives.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>It is a long established fact that a reader will be distracted the readable content of a page when looking at its layout point of using of letters, as opposed.</p>
+                                    <p>Enrich your life while enriching the lives of students – volunteer with us today.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
@@ -104,10 +104,10 @@
                 <div class="row">
                     <div class="col col-md-5">
                         <div class="video-area">
-                            <img src="assets/images/about.jpg" alt>
-                            <div class="video-holder">
+                            <img src="assets/images/about/st.jpg" alt height="550px">
+                            {{-- <div class="video-holder">
                                 <a href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col col-md-7">
@@ -116,14 +116,14 @@
                                 <div class="thumb-text">
                                     <span>ABOUT US</span>
                                 </div>
-                                <h2>Khairah is <span>Nonprofit</span> Organization <span>For Help</span> Children.</h2>
+                                <h2>HopeHarbor is <span>Nonprofit</span> Organization <span>For Help</span> schoolchildren.</h2>
                             </div>
-                            <p>It is a long established fact that a reader will be distracted by thethe readable content off a page when looking at its layout point using Lorem Ipsum is that it has.</p>
+                            <p>HopeHarbor is a passionate nonprofit organization committed to making a positive difference in the lives of schoolchildren. Our mission is to provide hope, support, and opportunities for academic success to underserved students.</p>
                             <div class="ab-icon-area">
                                 <div class="about-icon-wrap">
                                     <div class="about-icon-item">
                                         <div class="ab-icon">
-                                            <img draggable="false" src="assets/images/about/1.png" alt="">
+                                            <img draggable="false" src="assets/images/about/6.png" alt="" style="padding: 6px">
                                         </div>
                                         <div class="ab-text">
                                             <h2><a href="causes-single.html">Save <br> Children.</a></h2>
@@ -131,10 +131,10 @@
                                     </div>
                                     <div class="about-icon-item">
                                         <div class="ab-icon ab-icon2">
-                                            <img draggable="false" src="assets/images/about/2.png" alt="">
+                                            <img draggable="false" src="assets/images/about/4.png" alt="">
                                         </div>
                                         <div class="ab-text">
-                                            <h2><a href="causes-single.html">Fresh And <br> Clean Water.</a></h2>
+                                            <h2><a href="causes-single.html">Save <br> Education.</a></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -154,46 +154,18 @@
                     <div class="col-md-12">
                         <div class="features-wrap">
                             <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                                @foreach($catagories as $catagory)
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                     <div class="features-item">
                                         <div class="features-icon">
-                                            <img draggable="false" src="assets/images/features/img-1.png" alt="">
+                                            <img draggable="false" src="{{$catagory->image}}" alt="">
                                         </div>
                                         <div class="features-content">
-                                            <h2><a href="causes-single.html">Cancer Treatment</a></h2>
+                                            <h2><a href="causes-single.html">{{$catagory->title}}</a></h2>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                                    <div class="features-item-2">
-                                        <div class="features-icon">
-                                            <img draggable="false" src="assets/images/features/img-2.png" alt="">
-                                        </div>
-                                        <div class="features-content">
-                                            <h2><a href="causes-single.html">Hospital Build</a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                                    <div class="features-item">
-                                        <div class="features-icon">
-                                            <img draggable="false" src="assets/images/features/img-4.png" alt="">
-                                        </div>
-                                        <div class="features-content">
-                                            <h2><a href="causes-single.html">Food & Build Home</a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                                    <div class="features-item-2 active">
-                                        <div class="features-icon">
-                                            <img draggable="false" src="assets/images/features/img-3.png" alt="">
-                                        </div>
-                                        <div class="features-content">
-                                            <h2><a href="causes-single.html">Environtment Recyle</a></h2>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -207,133 +179,38 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="section-title section-title2 text-center">
                         <div class="thumb-text">
-                            <span>CAUSES</span>
+                            <span>KITS</span>
                         </div>
-                        <h2>Latest Caused of Khairah.</h2>
-                        <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
+                        <h2>Popular kits of HopeHarbor.</h2>
+                        <p>Explore our selection of popular kits designed for volunteers who want to make a meaningful impact. These volunteer packages include essential resources and tools to support your volunteering efforts. Join us in making a difference in the community!</p>
                     </div>
                 </div>
                 <div class="row">
+                    @foreach ($kits->take(9) as $kit)
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="cause-item">
                             <div class="cause-top">
                                 <div class="cause-img">
-                                    <img src="assets/images/cause/img-1.png" alt="">
+                                    <img src="{{ asset('assets/images/cause/supply-kit.jpg') }}" alt="">
                                     <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <a href="{{ route('go-donate', ['kit_id' => $kit->id]) }}" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="cause-text">
                                 <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
+                                    <li>
+                                        <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->price }}</a>
+                                    </li>
                                 </ul>
-                                <h3><a href="causes.html">Financial Help for Poor Families</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
+                                <h3>
+                                    <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->title }}</a>
+                                </h3>
+                                <p>{{ $kit->description }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-2.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Education for Poor Children</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-3.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Send Child to School for a Year</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-4.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Food And Home for Children</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-5.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Pure Water For The World</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="assets/images/cause/img-6.jpg" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Recycling For Charity</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
             </div>
         </div>
@@ -351,11 +228,11 @@
                         <div class="cta-wrap">
                             <div class="cta-call">
                                 <span>Call Us!</span>
-                                <h3>00 968 469 876</h3>
+                                <h3>0791757324</h3>
                             </div>
                             <div class="cta-call">
                                 <span>E-mail Us!</span>
-                                <h3>support@gmail.com</h3>
+                                <h3>HopeHarbor@gmail.com</h3>
                             </div>
                         </div>
                     </div>
@@ -373,75 +250,39 @@
                                 <span>EVENTS</span>
                             </div>
                             <h2>Our Upcoming Events</h2>
-                            <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
+                            <p>Explore our exciting calendar of upcoming events that promise to bring inspiration, education, and joy to our community. </p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
+                        @foreach ($Campaigns->take(3) as $Campaign)
                         <div class="event-item">
                             <div class="event-img">
-                                <img src="assets/images/event/1.jpg" alt="">
+                                <img src="{{ $Campaign->image }}" alt="">
                             </div>
                             <div class="event-text">
                                 <div class="event-left">
                                     <div class="event-l-text">
-                                        <span>MAR</span>
-                                        <h4>28</h4>
+                                        @php
+                                            $end_date = \Carbon\Carbon::parse($Campaign->end_date);
+                                        @endphp
+                                        <span> {{ $end_date->format('F') }}</span>
+                                        <h4> {{ $end_date->format('d') }}</h4>
                                     </div>
                                 </div>
                                 <div class="event-right">
                                     <ul>
-                                        <li><i class="ti-location-pin"></i> 9:00 AM - 10:00 AM</li>
-                                        <li><i class="ti-location-pin"></i> 968, Mudkarim, Pakistan.</li>
+                                        <li>End Date:{{ $Campaign->end_date }}</li>
+                                        <li>Target Money: ${{ $Campaign->target_money }}</li>
+                                        <li style="margin-left:30px; ">Raised Money: ${{ $Campaign->raised_money }}</li>
                                     </ul>
-                                    <h2><a href="event.html">Fundrising event that could change some poor children.</a></h2>
-                                    <p>It is long estblished fact that a reader will be distracted aliquip exea commodo consequat velit esse cillum fugiat.</p>
+                                    <h2><a href="event.html">{{ $Campaign->title }}</a></h2>
+                                    <p>{{ $Campaign->description }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="event-item">
-                            <div class="event-img">
-                                <img src="assets/images/event/2.jpg" alt="">
-                            </div>
-                            <div class="event-text">
-                                <div class="event-left">
-                                    <div class="event-l-text">
-                                        <span>MAR</span>
-                                        <h4>28</h4>
-                                    </div>
-                                </div>
-                                <div class="event-right">
-                                    <ul>
-                                        <li><i class="ti-location-pin"></i> 9:00 AM - 10:00 AM</li>
-                                        <li><i class="ti-location-pin"></i> 968, Mudkarim, Pakistan.</li>
-                                    </ul>
-                                    <h2><a href="event.html">Many Children are suffering a lot for food.</a></h2>
-                                    <p>It is long estblished fact that a reader will be distracted aliquip exea commodo consequat velit esse cillum fugiat.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event-item">
-                            <div class="event-img">
-                                <img src="assets/images/event/3.jpg" alt="">
-                            </div>
-                            <div class="event-text">
-                                <div class="event-left">
-                                    <div class="event-l-text">
-                                        <span>MAR</span>
-                                        <h4>28</h4>
-                                    </div>
-                                </div>
-                                <div class="event-right">
-                                    <ul>
-                                        <li><i class="ti-location-pin"></i> 9:00 AM - 10:00 AM</li>
-                                        <li><i class="ti-location-pin"></i> 968, Mudkarim, Pakistan.</li>
-                                    </ul>
-                                    <h2><a href="event.html">Be kind for the poor people and the kids.</a></h2>
-                                    <p>It is long estblished fact that a reader will be distracted aliquip exea commodo consequat velit esse cillum fugiat.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -450,7 +291,7 @@
         </div>
         <!-- event-area start -->
         <!-- volunteer-area start -->
-        <div class="volunteer-area section-padding">
+        {{-- <div class="volunteer-area section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
@@ -512,7 +353,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- volunteer-area start -->
         <!-- start testimonials-section-s2 -->
         <section class="testimonials-section section-padding">
@@ -522,44 +363,68 @@
                         <div class="testimonials-slider">
                             <div class="testimonial-thumb-active">
                                 <div class="test-img">
-                                    <img src="assets/images/testimonials/img-1.png" alt>
+                                    <img src="assets/images/team/img (5).png" alt height="450px">
                                 </div>
                                 <div class="test-img">
-                                    <img src="assets/images/testimonials/img-2.png" alt>
+                                    <img src="assets/images/team/img (1).png" alt height="450px">
+                                </div>
+                                <div class="test-img">
+                                    <img src="assets/images/team/img (2).png" alt height="450px">
+                                </div>
+                                <div class="test-img">
+                                    <img src="assets/images/team/img (6).png" alt height="450px">
+                                </div>
+                                <div class="test-img">
+                                    <img src="assets/images/team/img (4).png" alt height="450px">
                                 </div>
                             </div>
                             <div class="testimonial-content-active text-center">
+                                {{-- start --}}
                                 <div class="grid">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><span><i class="fa fa-star"></i></span></li>
-                                        <li><span><i class="fa fa-star"></i></span></li>
-                                    </ul>
-                                    <p>“ There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some
-                                        form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a
-                                        passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden
-                                        in the middle of text all the loss.</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
-                                        <h5>Tawana Blackman</h5>
+                                        <h5>Razan Mustafa</h5>
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
+                                {{-- end --}}
+                                {{-- start --}}
                                 <div class="grid">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><span><i class="fa fa-star"></i></span></li>
-                                        <li><span><i class="fa fa-star"></i></span></li>
-                                    </ul>
-                                    <p>“Dicture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered”</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
-                                        <h5>Michel Jhone</h5>
+                                        <h5>Mohammad Alhouwari</h5>
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
+                                {{-- end --}}
+                                {{-- start --}}
+                                <div class="grid">
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <div class="info">
+                                        <h5>Nooraldeen Aloudat</h5>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                                {{-- end --}}
+                                {{-- start --}}
+                                <div class="grid">
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <div class="info">
+                                        <h5>Raghad Bataineh</h5>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                                {{-- end --}}
+                                {{-- start --}}
+                                <div class="grid">
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <div class="info">
+                                        <h5>Lama Nazzal</h5>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                                {{-- end --}}
+
                             </div>
                         </div>
                     </div>
@@ -574,7 +439,7 @@
         </section>
         <!-- end testimonials-section-s2 -->
         <!-- blog-area start -->
-        <div class="blog-area section-padding">
+        {{-- <div class="blog-area section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
@@ -652,7 +517,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- blog-area start -->
         <!-- start partners-section -->
         <section class="partners-section section-padding">
@@ -661,21 +526,11 @@
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="partner-grids partners-slider">
+                            @foreach ($Partners as $Partner)
                             <div class="grid">
-                                <img src="assets/images/partners/1.png" alt>
+                                <img src="{{$Partner->image}}" alt>
                             </div>
-                            <div class="grid">
-                                <img src="assets/images/partners/2.png" alt>
-                            </div>
-                            <div class="grid">
-                                <img src="assets/images/partners/3.png" alt>
-                            </div>
-                            <div class="grid">
-                                <img src="assets/images/partners/4.png" alt>
-                            </div>
-                            <div class="grid">
-                                <img src="assets/images/partners/5.png" alt>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

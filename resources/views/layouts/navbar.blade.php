@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{asset('/assets/css/owl.transitions.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/css/jquery.fancybox.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
 </head>
 
@@ -40,7 +42,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">Khai<span>rah.</span></a>
+                        <a class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">Hope<span>Harbor.</span></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>
@@ -50,13 +52,13 @@
                             </li>
                             <li><a href="{{route('go-about')}}">About</a></li>
                             <li class="menu-item-has-children">
-                                <li><a href="{{ route('go-causes', ['cat_id' => 1]) }}">Causes</a></li>
+                                <li><a href="{{ route('go-causes', ['cat_id' => 1]) }}">Kits</a></li>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="{{route('go-events')}}">Events</a>
                             </li>
                             <li>
-                                <a href="{{route('go-contact')}}">Contact</a>
+                                <a href="{{route('go-contact')}}">Contact Us</a>
                             </li>
                         </ul>
                     </div><!-- end of nav-collapse -->
@@ -75,6 +77,34 @@
                         <div class="vollenter-btn">
                             <a class="theme-btn-s2" href="{{route('go-volunteer')}}">Join a volunteer</a>
                         </div>
+                        {{-- <div class="vollenter-btn">
+                            <a class="theme-btn-s2" href="{{route('go-volunteer')}}">Login</a>
+                        </div>
+                        <div class="vollenter-btn">
+                            <a class="theme-btn-s2" href="{{route('go-volunteer')}}">Register</a>
+                        </div> --}}
+                        @if (Route::has('login'))
+                            @auth
+                                <a href="{{ url('/profile') }}" class="theme-btn-s2 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="margin: 0 10px">Profile</a>
+                                <div class="vollenter-btn">
+                                    <a class="theme-btn-s2" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>                    
+                                </div>
+                            @else
+                            <div class="vollenter-btn">
+                                <a class="theme-btn-s2" href="{{ route('login') }}">Login</a>
+                            </div>        
+                                @if (Route::has('register'))
+                                <div class="vollenter-btn">
+                                    <a class="theme-btn-s2" href="{{ route('register') }}">Register</a>
+                                </div>
+                                @endif
+                            @endauth
+                    @endif
+                    
                     </div>
                 </div><!-- end of container -->
             </nav>

@@ -18,6 +18,13 @@ class CampaignController extends Controller
         // return view ('dashboard\campaign\index');
     }
 
+    public function index_campaign()
+    {
+        $campaigns= Campaign::select('*');
+        // Return a view with the campaigns data
+        return view ('dashboard\campaign\index', compact('campaigns'));
+    }
+
     public function showSingleCampaign(Campaign $campaign)
     {
         // The $campaign parameter will already contain the Campaign object

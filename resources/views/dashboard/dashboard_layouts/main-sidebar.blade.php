@@ -129,7 +129,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="{{ route('dashboard.categories.index') }}" class="nav-link">
+                <a href="http://127.0.0.1:8000/Categories#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Categories

@@ -16,35 +16,42 @@
 
 @section('content')
 
-{{-- form --}}
 <div class="card">
-        <div class="card-header">Create new User</div>
+        <div class="card-header">Create new category</div>
         <div class="card-body">
-            <form action="{{ route('dashboard.users.index') }}" method="POST">
-                {{-- {!! csrf_field() !!} --}}
+            <form action="{{ route('CategoryStore') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="UserName">User Name</label>
-                    <input type="text" name="UserName" class="form-control" 
-                        placeholder="User Name">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" 
+                        placeholder="Title">
+                        @error('title')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                 </div>
                 <div class="form-group">
-                    <label for="UserEmail">User Email </label>
-                    <input type="email" name="UserEmail" class="form-control"
-                        placeholder="User Email">
+                    <label for="description">Description </label>
+                    <input type="text" name="description" class="form-control"
+                        placeholder="Description">
+                        @error('description')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                 </div>
                 <div class="form-group">
-                        <label for="UserPassword">User Password</label>
-                        <input type="password" name="UserPassword" class="form-control"
-                            placeholder="User Password">
-                    </div>
-       
-                        <div class="form-group">
-                                <label for="Status">Status</label>
-                                <input type="text" name="Status" class="form-control"
-                                    placeholder="Admin or User">
+                        <label for="image">Image</label>
+                        <input type="file" name="image" class="form-control"
+                            placeholder="Image">
+
                     <br>
-                    <input type="submit" value="Add User" class="btn btn-success"><br>
+                    <input type="submit" value="Add Category" class="btn btn-success"><br>
+                </div>
+                <div class="form-group">
+                    <label for="description">Type </label>
+                    <input type="text" name="type" class="form-control"
+                        placeholder="Type">
+                        @error('type')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                 </div>
             </form>
         </div>

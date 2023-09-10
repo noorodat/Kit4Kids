@@ -17,7 +17,7 @@
 @section('content')
  <!-- Main content -->
  <section class="content">
-    <a class="btn btn-primary  mb-3" href="/create">Add Category </a>
+    <a class="btn btn-primary  mb-3" href="{{route('categories.create') }}">Add Category </a>
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
@@ -37,15 +37,17 @@
                     <th style="width: 1%">
                         #
                     </th>
-                    <th style="width: 20%">
-                        Category Title
-                    </th>
-                    <th style="width: 30%">
-                        Category Description
-                    </th>
                     <th>
                         Category Image
                     </th>
+                    <th style="width: 20%">
+                        Category Title
+                    </th>
+
+                    <th style="width: 30%">
+                        Category Description
+                    </th>
+                   
                     <th style="width: 8%" class="text-center">
                         Type
                     </th>
@@ -62,10 +64,11 @@
                     
                 <tr>
                     <th scope="row">{{$i}}</th>
+                    <td><img src="{{ url('/images/' . $category->image) }}" alt="" width="40%"></td>
+
                      <td>{{$category->title}}</td>
                     <td>{{$category->description}}</td>
 
-                    <td><img src="{{ url('/images/' . $category->image) }}" alt="" width="20%"></td>
                     <td>{{$category->type}}</td>
                     <td class="project-actions text-right">
                        
@@ -79,7 +82,7 @@
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>            
+                            onclick="return confirm('Are you sure you want to delete this Category?')">Delete</button>            
                           </form>
                     </td>
 

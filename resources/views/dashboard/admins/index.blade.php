@@ -37,12 +37,13 @@
                     <th style="width: 1%">
                         #
                     </th>
-                    <th style="width: 10%">
-                        Admin Name
-                    </th>
                     <th style="width: 20%">
                         Admin Image
                     </th>
+                    <th style="width: 10%">
+                        Admin Name
+                    </th>
+                  
                     <th style="width: 20%">
                         Admin Email
                     </th>
@@ -63,8 +64,9 @@
                 @foreach ($admins as $admin )
                    <tr>
                     <th scope="row">{{$i}}</th>
+                    <td><img src="{{ url('/images/' . $admin->image) }}" alt="" width="40%"></td>
+
                     <td>{{$admin->name}}</td>
-                    <td><img src="{{ url('/images/' . $admin->image) }}" alt="" width="20%"></td>
                     <td>{{$admin->email}}</td>
                     <td>{{$admin->password}}</td>
                     <td class="project-actions text-right">

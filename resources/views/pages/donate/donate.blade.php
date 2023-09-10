@@ -57,8 +57,12 @@
                             </div>
                         @endif
                         <div id="Donations" class="tab-pane">
-
-
+                             {{-- @if ($user->provider != null)
+                                {{$user->provider}}
+                            @endif --}}
+                             @if (Auth::id())
+                                {{Auth::id()}}
+                            @endif
                             <form action="{{ route('payment') }}" method="POST">
 
 
@@ -75,7 +79,7 @@
 
                                         {{-- لا تنسا تغير المدخل الخفي الخاص باليوزر --}}
 
-                                        <input type="hidden" id="UserId" name="UserId" value="1">
+                                        <input type="hidden" id="UserId" name="UserId" value="{{Auth::id()}}">
 
 
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">

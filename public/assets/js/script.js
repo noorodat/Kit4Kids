@@ -574,19 +574,25 @@
                     required: true,
                     minlength: 2
                 },
-
                 email: "required",
-
                 phone: "required",
-
                 address: "required",
+                file: {
+                    required: true,
+                    extension: "jpg|jpeg|png|gif" // Only allow image file extensions
+                },
+                subject: "required"
             },
-
             messages: {
                 name: "Please enter your name",
                 email: "Please enter your email address",
-                phone: "Please enter your phone Number",
+                phone: "Please enter your phone number",
                 address: "Please enter your address",
+                file: {
+                    required: "Please select an image file",
+                    extension: "Please select a valid image file format (jpg, jpeg, png, gif)" // Customize this message
+                },
+                subject: "Please enter a subject"
             },
         });
     }

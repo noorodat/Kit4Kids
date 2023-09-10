@@ -8,8 +8,30 @@ use Illuminate\Support\Facades\Hash;
 
 
 
-class categoryController extends Controller
+class KitController extends Controller
 {
+
+    public function showAll($cat_id)
+    {
+        // Get kits for the specified category
+        $kits = Kit::where('category_id', $cat_id)->paginate(9);
+        // Return a view with the kits data
+        return view('pages.causes.causes', ['kits' => $kits, 'cat_id' => $cat_id]);
+    }
+
+    public function showSingleKit($cat_id, Kit $kit)
+    {
+        // No need to search again by ID
+        // Get 3 random kits to show on the single kit page
+        $moreKits = Kit::where('id', '!=', $kit->id)
+            ->where('category_id', $cat_id)
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+
+        // Return a view with the kit data
+        return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits, 'cat_id' => $cat_id]);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -31,7 +53,7 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-    
+
 
         $categories = new Kit();
 
@@ -59,10 +81,10 @@ class categoryController extends Controller
      */
     public function show(Kit $kits)
     {
-        
+
     }
 
-   
+
     public function edit($id)
     {
         $kits = Kit::findOrFail($id);
@@ -70,10 +92,10 @@ class categoryController extends Controller
         return view('dashboard.kits.edit', compact('kits'));
     }
 
-    
+
     public function update(Request $request, Kit $categories , $id)
     {
-       
+
         $categories = Kit::findOrFail($id);
 
         $categories->title = $request->input('title');

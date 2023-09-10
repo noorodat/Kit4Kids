@@ -749,23 +749,25 @@ const customAmount = document.getElementById('custom_amount');
 const customAmountRadio = document.getElementById('donation_option2');
 const firstAmountRadio = document.getElementById('donation_option1');
 
-firstAmountRadio.addEventListener('change', function () {
-    if (this.checked) {
-        customAmountInput.style.display = 'none';
-    }
-});
+if(customAmountInput) {
+    firstAmountRadio.addEventListener('change', function () {
+        if (this.checked) {
+            customAmountInput.style.display = 'none';
+        }
+    });
 
-customAmountRadio.addEventListener('change', function () {
-    if (this.checked) {
-        customAmountInput.style.display = 'block';
-    } else {
-        customAmountInput.style.display = 'none';
-    }
-});
+    customAmountRadio.addEventListener('change', function () {
+        if (this.checked) {
+            customAmountInput.style.display = 'block';
+        } else {
+            customAmountInput.style.display = 'none';
+        }
+    });
 
-customAmount.addEventListener('change', () => {
-    customAmountRadio.value = customAmount.value;
-});
+    customAmount.addEventListener('change', () => {
+        customAmountRadio.value = customAmount.value;
+    });
+}
 
 
 

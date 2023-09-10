@@ -114,9 +114,14 @@ Route::get('/users', function () {
 // Route:: view('dashboardadmins' , 'dashboard.admins.index');
 
 Route::resource('admins', AdminController::class);
+
 Route::resource('categories', CategoryController::class);
 
 Route::resource('campaigns', CampaignController::class);
+
+Route::get('dashboard/campaigns/indexcampaign',[CampaignController::class,'indexcampaign'])->name('gocampaigns');
+
+Route::resource('kits', KitController::class);
 
 Route::resource('dashboard/donations', DonationController::class);
 

@@ -38,18 +38,19 @@
                         #
                     </th>
                     <th style="width: 20%">
-                        Project Name
+                       Kit Image
                     </th>
                     <th style="width: 30%">
-                        Team Members
+                        Kit Title
                     </th>
                     <th>
-                        Project Progress
+                       Kit description
                     </th>
                     <th style="width: 8%" class="text-center">
-                        Status
+                       Kit price
                     </th>
                     <th style="width: 20%">
+                        Kit Category
                     </th>
                 </tr>
             </thead>

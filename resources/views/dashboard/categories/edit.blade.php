@@ -16,20 +16,34 @@
 
 @section('content')
 
-<form action="{{ route('dashboard.users.update') }}" method="POST">
+<div class="container-fluid">
+    <form action="{{ route('categories.update',$categories->id) }}" method="POST">
         @csrf
-        <input type="hidden" name="id" value="{{ $post->id }}">
+        @method('PUT')
+        <input type="hidden" name="id" value="{{ $categories->id }}">
         <div class="form-group">
-            <label>User Name</label>
-            <input type="text" class="form-control" name="UserName" value="{{ $post->title }}">
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" value="{{ $categories->title }}">
         </div>
         <div class="form-group">
-                <label>User Email</label>
-                <input type="email" class="form-control" name="UserEmail" value="{{ $post->title }}">
+                <label>Description</label>
+                <input type="text" class="form-control" name="description" value="{{ $categories->description }}">
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="Password" class="form-control" name="Password" value="{{ $post->title }}">
+                <label>Image</label>
+                <input type="file" class="form-control" name="image" value="{{ $categories->image }}">
+            </div>
+            <div class="form-group">
+                <label>Type</label>
+                {{-- <input type="text" class="form-control" name="type" value="{{ $categories->type }}"> --}}
+                <select name="type" id="">
+                    {{-- <option value="{{ $categories->type }}">learning</option>
+                    <option value="{{ $categories->type }}">school suplies</option>
+                    <option value="{{ $categories->type }}">service</option> --}}
+                    <option value="learning">learning</option>
+                    <option value="school suplies">school suplies</option>
+                    <option value="service">service</option>
+                </select>
             </div>
         <div class="form-group">
                 
@@ -38,6 +52,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+</div>
 
 
 @endsection

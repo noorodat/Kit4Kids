@@ -129,7 +129,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/Categories#" class="nav-link">
+                <a href="http://127.0.0.1:8000/categories" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Categories
@@ -139,7 +139,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/campaigns#" class="nav-link">
+                <a href="{{route('gocampaigns')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Campaigns
@@ -159,10 +159,40 @@
                
               </li>
               <li class="nav-item">
-                <a href="{{ route('dashboard.kits.index') }}" class="nav-link">
+                <a href="http://127.0.0.1:8000/kits#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Kits
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+               
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Partners
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+               
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Payments
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+               
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Pending Campaigns
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>

@@ -14,18 +14,12 @@ class HomeController extends Controller
     public function index()
     {
        $catagories=category::all();
-       $kits=Kit::all();
-       $Campaigns=Campaign::all();
+       $kits = Kit::inRandomOrder()
+       ->limit(6)
+       ->get();
+       $campaigns=Campaign::all();
        $Partners=Partner::all();
-       return view('pages.index',compact('catagories', 'kits', 'Campaigns', 'Partners'));
+       return view('pages.index',compact('catagories', 'kits', 'campaigns', 'Partners'));
     }
-
-
-
-
-
-
-
-
 
 }

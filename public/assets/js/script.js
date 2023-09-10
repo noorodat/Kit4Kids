@@ -680,6 +680,7 @@ function deleteCampaign(campaignId) {
             // Handle success, e.g., remove the event from the DOM
             console.log(response.message);
             // Optionally, you can also remove the event from the DOM here
+
         },
         error: function (error) {
             // Handle error, e.g., display an error message
@@ -700,10 +701,11 @@ $(document).ready(function () {
             var now = new Date().getTime(); // Get the current date and time as a timestamp
             var timeLeft = endDate - now; // Calculate the time remaining
 
-            // Check if the event has ended
+            // Check if the event has ended (current date >= end date)
             if (timeLeft <= 0) {
                 clearInterval(countdownInterval); // Stop the countdown
                 countdownElement.text('Event Ended');
+                countdownElement.closest('.event-item').hide();
 
                 // Delete the campaign when the countdown reaches 0
                 var campaignId = countdownElement.data('campaign-id');
@@ -718,7 +720,7 @@ $(document).ready(function () {
                 // Display the countdown
                 countdownElement.text(days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's');
             }
-        }, 1000); // Use bind(this) to access the current countdown element
+        }, 1000); // Update every second
     });
 });
 

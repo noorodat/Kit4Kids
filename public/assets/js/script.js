@@ -579,9 +579,12 @@
                 address: "required",
                 file: {
                     required: true,
-                    extension: "jpg|jpeg|png|gif" // Only allow image file extensions
+                    accept: "image/*" // Only allow image file types
                 },
-                subject: "required"
+                targetMoney: {
+                    required: true,
+                    min: 50 // Set the minimum value to 50
+                }
             },
             messages: {
                 name: "Please enter your name",
@@ -590,9 +593,12 @@
                 address: "Please enter your address",
                 file: {
                     required: "Please select an image file",
-                    extension: "Please select a valid image file format (jpg, jpeg, png, gif)" // Customize this message
+                    accept: "Please select a valid image file"
                 },
-                subject: "Please enter a subject"
+                targetMoney: {
+                    required: "Please enter the target money (USD)",
+                    min: "Target money must be at least 50 USD" // Customize this message
+                }
             },
         });
     }

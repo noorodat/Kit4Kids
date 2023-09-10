@@ -90,6 +90,10 @@
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                 <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone">
                                             </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <input type="number" class="form-control" name="targetMoney" id="targetMoney" placeholder="Target money (USD)">
+                                                <small style="font-size: 14px">$50 or more</small>
+                                            </div>
                                             <div class="col-lg-12 col-12 form-group">
                                                 <textarea class="form-control" name="note" id="note" placeholder="Campaign Description..."></textarea>
                                             </div>

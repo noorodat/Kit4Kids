@@ -34,6 +34,10 @@ class CampaignController extends Controller
         return view('pages.events.event-single.event-single', ['campaign' => $campaign, 'moreCampaigns' => $moreCampaigns]);
     }
 
+    public function sendCampaignToAdmin(Request $request) {
+        
+    }
+
     /**
      * Summary of deleteOnCountDown
      * @param \App\Models\Campaign $campaign

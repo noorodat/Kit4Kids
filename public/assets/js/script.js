@@ -696,6 +696,23 @@ $(document).ready(function () {
     });
 });
 
+// Handle campaign image
+let campaignImage = document.getElementById('campaignImage');
+let createCampaignImage = document.querySelector('.createCampaignImage');
+
+createCampaignImage.onchange = () => {
+    if (createCampaignImage.files.length > 0) {
+        // Get the selected file
+        let selectedFile = createCampaignImage.files[0];
+
+        // Create a URL for the selected file
+        let objectURL = URL.createObjectURL(selectedFile);
+
+        // Set the src attribute of campaignImage to the objectURL
+        campaignImage.src = objectURL;
+    }
+}
+
 
 
 

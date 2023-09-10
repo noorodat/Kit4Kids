@@ -12,7 +12,8 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        $donations=Donation::all();
+        return view ('dashboard/donations/index', compact('donations'));
     }
 
     /**
@@ -28,13 +29,13 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Donation $donation)
+    public function show()
     {
         //
     }
@@ -42,24 +43,28 @@ class DonationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Donation $donation)
+    public function edit()
     {
-        //
+       
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Donation $donation)
+    public function update()
     {
-        //
+       
+    
+      
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Donation $donation)
+    public function destroy($id)
     {
-        //
+
+        Donation::destroy($id);
+    return back()->with('success', 'Admin deleted successfully.');
     }
 }

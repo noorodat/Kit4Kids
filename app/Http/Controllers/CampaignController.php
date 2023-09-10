@@ -15,6 +15,14 @@ class CampaignController extends Controller
         $campaigns = Campaign::paginate(5);
         // Return a view with the campaigns data
         return view('pages.events.events', ['campaigns' => $campaigns]);
+        // return view ('dashboard\campaign\index');
+    }
+
+    public function index_campaign()
+    {
+        $campaigns= Campaign::select('*');
+        // Return a view with the campaigns data
+        return view ('dashboard\campaign\index', compact('campaigns'));
     }
 
     public function showSingleCampaign(Campaign $campaign)

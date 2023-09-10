@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,9 +14,19 @@ use Illuminate\View\View;
 use App\Models\Donation;
 
 
+
 class ProfileController extends Controller
 {
+
+
+    public function index()
+    {
+        $users=User::all();
+        return view ('dashboard/users/index', compact('users'));
+    }
+
     /**
+     * 
      * Display the user's profile form.
      */
   
@@ -63,5 +76,12 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function delete($id)
+    {
+
+        User::destroy($id);
+        return back()->with('success', 'Admin deleted successfully.');
     }
 }

@@ -126,7 +126,7 @@
                                             <img draggable="false" src="assets/images/about/6.png" alt="" style="padding: 6px">
                                         </div>
                                         <div class="ab-text">
-                                            <h2><a href="causes-single.html">Save <br> Children.</a></h2>
+                                            <h2>Save <br> Children.</h2>
                                         </div>
                                     </div>
                                     <div class="about-icon-item">
@@ -134,7 +134,7 @@
                                             <img draggable="false" src="assets/images/about/4.png" alt="">
                                         </div>
                                         <div class="ab-text">
-                                            <h2><a href="causes-single.html">Save <br> Education.</a></h2>
+                                            <h2>Save <br> Education.</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="cause-text">
+                            <div class="cause-text">
                                 <ul>
                                     <li>
                                         <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->price }}</a>
@@ -211,7 +211,7 @@
                                     <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->title }}</a>
                                 </h3>
                                 <p>{{ $kit->description }}</p>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 @endforeach

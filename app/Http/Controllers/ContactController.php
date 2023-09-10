@@ -17,22 +17,15 @@ class ContactController extends Controller
 
     public function sendEmail(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|email|max:255',
-        //     'phone' => 'required|string|max:20',
-        //     'address' => 'required|string|max:255',
-        //     'notes' => 'nullable|string',
-        // ]);
         $details = [
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
-            'notes' => $request->input('notes'),
+            'note' => $request->input('note'),
         ];
     
-        Mail::to('razanmustafa8@gmail.com')->send(new ContactMail($details));
+        Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details));
         return back()->with('message_sent', 'Your Message has been sent successfully');
     }
 

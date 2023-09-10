@@ -574,23 +574,49 @@
                     required: true,
                     minlength: 2
                 },
-
-                email: "required",
-
-                phone: "required",
-
-                address: "required",
+                email: {
+                    required: true,
+                    email: true // Valid email format
+                },
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 10,
+                    digits: true // Only digits allowed
+                },
+                address: {
+                    required: true,
+                    minlength: 5 // Minimum address length
+                },
+                note: {
+                    required: true, // Make "notes" field required
+                    maxlength: 255 // Maximum character limit for notes
+                }
             },
-
             messages: {
                 name: "Please enter your name",
-                email: "Please enter your email address",
-                phone: "Please enter your phone Number",
-                address: "Please enter your address",
-            },
+                email: {
+                    required: "Please enter your email address",
+                    email: "Please enter a valid email address"
+                },
+                phone: {
+                    required: "Please enter your phone number",
+                    minlength: "Phone number must be exactly 10 digits",
+                    maxlength: "Phone number must be exactly 10 digits",
+                    digits: "Phone number can only contain digits"
+                },
+                address: {
+                    required: "Please enter your address",
+                    minlength: "Address must be at least {0} characters long" // {0} will be replaced with the minlength value
+                },
+                note: {
+                    required: "Please enter notes",
+                    maxlength: "Notes must not exceed 255 characters"
+                }
+            }
         });
     }
-
+    
 
 
 

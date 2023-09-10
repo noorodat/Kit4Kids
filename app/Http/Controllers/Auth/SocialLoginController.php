@@ -35,12 +35,12 @@ class SocialLoginController extends Controller
         //         // 'password' => Hash::make(Str::random(8)),
         //     ]);
         // }
-        
+
         $UserName = $provider_user->name;
         if ($UserName == null) {
             $UserName = $provider_user->nickname;
         }
-        
+
         $user = User::updateOrCreate([
             'provider_id' => $provider_user->id,
             'provider' => $provider,

@@ -110,6 +110,9 @@
                                             <i class="ti-reload"></i>
                                         </div>
                                     </div>
+                                    @error('note')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                     <div class="clearfix error-handling-messages">
                                         <div id="success">Thank you</div>
                                         <div id="error"> Error occurred while sending email. Please try again later. </div>

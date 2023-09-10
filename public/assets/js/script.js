@@ -574,26 +574,46 @@
                     required: true,
                     minlength: 2
                 },
-                email: "required",
-                phone: "required",
-                address: "required",
-                file: {
+                email: {
                     required: true,
-                    extension: "jpg|jpeg|png|gif" // Only allow image file extensions
+                    email: true // Valid email format
                 },
-                subject: "required"
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 10,
+                    digits: true // Only digits allowed
+                },
+                address: {
+                    required: true,
+                    minlength: 5 // Minimum address length
+                },
+                note: {
+                    required: true, // Make "notes" field required
+                    maxlength: 255 // Maximum character limit for notes
+                }
             },
             messages: {
                 name: "Please enter your name",
-                email: "Please enter your email address",
-                phone: "Please enter your phone number",
-                address: "Please enter your address",
-                file: {
-                    required: "Please select an image file",
-                    extension: "Please select a valid image file format (jpg, jpeg, png, gif)" // Customize this message
+                email: {
+                    required: "Please enter your email address",
+                    email: "Please enter a valid email address"
                 },
-                subject: "Please enter a subject"
-            },
+                phone: {
+                    required: "Please enter your phone number",
+                    minlength: "Phone number must be exactly 10 digits",
+                    maxlength: "Phone number must be exactly 10 digits",
+                    digits: "Phone number can only contain digits"
+                },
+                address: {
+                    required: "Please enter your address",
+                    minlength: "Address must be at least {0} characters long" // {0} will be replaced with the minlength value
+                },
+                note: {
+                    required: "Please enter notes",
+                    maxlength: "Notes must not exceed 255 characters"
+                }
+            }
         });
     }
 

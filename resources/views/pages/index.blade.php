@@ -211,7 +211,7 @@
                                     <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->title }}</a>
                                 </h3>
                                 <p>{{ $kit->description }}</p>
-                            </div> --}}
+                            </div> 
                         </div>
                     </div>
                 @endforeach

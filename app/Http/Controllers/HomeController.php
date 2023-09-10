@@ -8,7 +8,6 @@ use App\Models\category;
 use App\Models\Campaign;
 use App\Models\Partner;
 
-
 class HomeController extends Controller
 {
     public function index()
@@ -21,5 +20,4 @@ class HomeController extends Controller
        $Partners=Partner::all();
        return view('pages.index',compact('catagories', 'kits', 'campaigns', 'Partners'));
     }
-
 }

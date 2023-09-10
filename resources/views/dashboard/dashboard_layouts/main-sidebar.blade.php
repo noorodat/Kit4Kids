@@ -139,7 +139,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="{{ route('dashboard.users.index') }}" class="nav-link">
+                <a href="http://127.0.0.1:8000/campaigns#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Campaigns
@@ -149,7 +149,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="{{ route('dashboard.donations.index') }}" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/donations" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Donations

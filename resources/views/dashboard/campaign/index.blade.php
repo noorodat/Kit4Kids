@@ -38,18 +38,28 @@
                         #
                     </th>
                     <th style="width: 20%">
-                        Campaign Name
-                    </th>
-                    <th style="width: 30%">
-                        Team Members
-                    </th>
-                    <th>
-                        Project Progress
-                    </th>
-                    <th style="width: 8%" class="text-center">
-                        Status
+                        Campaign Title
                     </th>
                     <th style="width: 20%">
+                        Campaign description
+                    </th>
+                    <th>
+                        Campaign image
+                    </th>
+                    <th style="width: 8%" class="text-center">
+                        target_money
+                    </th>
+                    <th style="width: 10%">
+                        raised_money	
+                    </th>
+                    <th style="width: 10%">
+                        start_date		
+                    </th>
+                    <th style="width: 10%">
+                        end_date	
+                    </th>
+                    <th style="width: 10%">
+                        Stutas	
                     </th>
                 </tr>
             </thead>
@@ -59,13 +69,17 @@
                         #
                     </td>
                     <td>
-                        <a>
-                            AdminLTE v3
-                        </a>
-                        <br/>
-                        <small>
-                            Created 01.01.2019
-                        </small>
+                     
+                    </td>
+                    <td>
+                     
+                    </td>
+                    <td>
+                     
+                    </td>
+                    <td>
+                     
+                    </td>
                     </td>
                     <td>
                         <ul class="list-inline">

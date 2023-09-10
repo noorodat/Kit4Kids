@@ -40,7 +40,7 @@
                     <label for="UserEmail">Admin Email </label>
                     <input type="email" name="email" class="form-control" placeholder="Admin Email">
                     <span>@error('email'){{$message}} @enderror</span>
-
+                    
 
                 </div>
                 <div class="form-group">

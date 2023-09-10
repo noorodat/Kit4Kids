@@ -1,4 +1,4 @@
-@extends('dashboard.dashboard_layouts.master')
+{{-- @extends('dashboard.dashboard_layouts.master')
 
 @section('title','')
 
@@ -44,4 +44,4 @@
 
 @section('scripts')
 
-@endsection
+@endsection --}}

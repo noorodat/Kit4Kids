@@ -1,4 +1,4 @@
-@extends('dashboard.dashboard_layouts.master')
+{{-- @extends('dashboard.dashboard_layouts.master')
 
 @section('title','')
 
@@ -16,12 +16,10 @@
 
 @section('content')
 
-{{-- form --}}
 <div class="card">
         <div class="card-header">Create new User</div>
         <div class="card-body">
             <form action="{{ route('dashboard.users.index') }}" method="POST">
-                {{-- {!! csrf_field() !!} --}}
                 @csrf
                 <div class="form-group">
                     <label for="UserName">User Name</label>
@@ -49,9 +47,8 @@
             </form>
         </div>
     </div>
-{{-- end form --}}
 @endsection
 
 @section('scripts')
 
-@endsection
+@endsection --}}

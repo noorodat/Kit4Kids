@@ -64,7 +64,7 @@
                    <tr>
                     <th scope="row">{{$i}}</th>
                     <td>{{$admin->name}}</td>
-                    <td>{{$admin->image}}</td>
+                    <td><img src="{{ url('/images/' . $admin->image) }}" alt="" width="20%"></td>
                     <td>{{$admin->email}}</td>
                     <td>{{$admin->password}}</td>
                     <td class="project-actions text-right">

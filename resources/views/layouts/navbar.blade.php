@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="vollenter-btn">
-                            <a class="theme-btn-s2" href="{{route('go-volunteer')}}">Join a volunteer</a>
+                            <a class="theme-btn-s2" href="{{route('go-volunteer')}}">Start a campaign</a>
                         </div>
                         {{-- <div class="vollenter-btn">
                             <a class="theme-btn-s2" href="{{route('go-volunteer')}}">Login</a>

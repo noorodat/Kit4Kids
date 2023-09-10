@@ -30,10 +30,10 @@
                     <div class="container">
                         <div class="row">
                             <div class="col col-xs-12">
-                                <h2>Become a Volunteer</h2>
+                                <h2>Start a campaign</h2>
                                 <ol class="breadcrumb">
                                     <li><a href="index.html">Home</a></li>
-                                    <li>Volunteer</li>
+                                    <li>Start a campaign</li>
                                 </ol>
                             </div>
                         </div> <!-- end row -->
@@ -50,9 +50,9 @@
                         <div class="col-md-6 col-md-offset-3">
                             <div class="section-title section-title2 text-center">
                                 <div class="thumb-text">
-                                    <span>Volunteer</span>
+                                    <span>Help</span>
                                 </div>
-                                <h2>Become a Volunteer</h2>
+                                <h2>Help people by starting a campaign</h2>
                                 <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group form-group-in">
-                                                <label for="file">Upload Your CV</label>
+                                                <label for="file">Upload campaign Image</label>
                                                 <input id="file" type="file" class="form-control" name="file">
                                                 <i class="ti-cloud-up"></i>
                                             </div>
@@ -90,7 +90,7 @@
                                                 <textarea class="form-control" name="note" id="note" placeholder="Case Description..."></textarea>
                                             </div>
                                             <div class="submit-area col-lg-12 col-12">
-                                                <button type="submit" class="theme-btn submit-btn">Send Message</button>
+                                                <button type="submit" class="theme-btn submit-btn">Send request</button>
                                                 <div id="loader">
                                                     <i class="ti-reload"></i>
                                                 </div>

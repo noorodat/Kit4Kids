@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\SocialLoginController;
-
+use App\Http\Controllers\categoryController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
 
@@ -109,21 +109,12 @@ Route::get('/users', function () {
 })->name('dashboard.users.index');
 
 
-// Route::get('/admins', function () {
-//     return view('dashboard.admins.index');
-// })->name('dashboard.admins.index');
 
-// Route::get('/admins.create', function () {
-//     return view('dashboard.admins.create');
-// })->name('dashboard.admins.create');
 
-// Route::get('/admin_index', [AdminController::class, 'index'])->name('dashboard.admins.index');
-
-// Route:: view('dashboardadmins' , 'dashboard.admins.index');
 
 Route::resource('admins', AdminController::class);
 
-Route::resource('categories', CategoryController::class);
+Route::resource('dashboard/categories', CategoryController::class );
 
 Route::resource('campaigns', CampaignController::class);
 
@@ -135,18 +126,7 @@ Route::resource('dashboard/donations', DonationController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 
-Route::get('/categories', function () {
-    return view('dashboard.categories.index');
-})->name('dashboard.categories.index');
 
-
-// Route::get('/campaign', function () {
-//     return view('dashboard.campaign.index');
-// })->name('dashboard.campaign.index');
-
-// Route::get('/donations', function () {
-//     return view('dashboard.donations.index');
-// })->name('dashboard.donations.index');
 
 Route::get('/kits', function () {
     return view('dashboard.kits.index');

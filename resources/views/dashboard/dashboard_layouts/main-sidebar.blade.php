@@ -129,7 +129,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/categories" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/categories#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Categories

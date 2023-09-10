@@ -666,6 +666,64 @@
 })(window.jQuery);
 
 
+// Delete event when the countdown reaches 0
+function deleteCampaign(campaignId) {
+    // Send AJAX request to delete the event
+    $.ajax({
+        type: 'DELETE',
+        url: '/delete-campaign/' + campaignId,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (response) {
+            // Handle success, e.g., remove the event from the DOM
+            console.log(response.message);
+            // Optionally, you can also remove the event from the DOM here
+        },
+        error: function (error) {
+            // Handle error, e.g., display an error message
+            console.error('Error:', error.responseJSON.error);
+        }
+    });
+}
+
+// Start event countdown
+$(document).ready(function () {
+    // Loop through each countdown element
+    $('.event-countdown').each(function () {
+        var endDate = new Date($(this).data('end-date')).getTime(); // Get the end date as a timestamp
+        var countdownElement = $(this); // Store the countdown element for later use
+
+        // Update the countdown every second
+        var countdownInterval = setInterval(function () {
+            var now = new Date().getTime(); // Get the current date and time as a timestamp
+            var timeLeft = endDate - now; // Calculate the time remaining
+
+            // Check if the event has ended
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval); // Stop the countdown
+                countdownElement.text('Event Ended');
+
+                // Delete the campaign when the countdown reaches 0
+                var campaignId = countdownElement.data('campaign-id');
+                deleteCampaign(campaignId);
+            } else {
+                // Calculate days, hours, minutes, and seconds
+                var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                // Display the countdown
+                countdownElement.text(days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's');
+            }
+        }, 1000); // Use bind(this) to access the current countdown element
+    });
+});
+
+
+
+
 
 
 

@@ -68,12 +68,11 @@
                             <div class="cause-text">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->price }}</a>
+                                        <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}">${{$kit->price}}</a>
                                     </li>
                                 </ul>
                                 <h3>
-                                    <a href="{{ route('go-cause-single', ['kit' => $kit]) }}">{{ $kit->title }}</a>
-
+                                    <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}">{{$kit->title}}</a>
                                 </h3>
                                 <p>{{ $kit->description }}</p>
                             </div>

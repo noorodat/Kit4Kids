@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -17,15 +17,17 @@ class ContactController extends Controller
 
     public function sendEmail(Request $request)
     {
-        $details= [
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'notes' => $request->notes,
+        $details = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'address' => $request->input('address'),
+            'notes' => $request->input('notes'),
         ];
+
         Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details));
-        return back()->with('message_sent','Your Message has been sent successfully');
+
+        return back()->with('message_sent', 'Your Message has been sent successfully');
     }
 
     /**

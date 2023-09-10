@@ -42,22 +42,30 @@ require __DIR__.'/auth.php';
 Route::get('w', function() {
     return view('welcomeL');
 });
+// login
+Route::get('login', function() {
+    return view('auth.login');
+})->name('login');
+
+// signup
+Route::get('signup', function() {
+    return view('auth.register');
+})->name('signup');
 
 // about us page
 Route::get('pages/about', function() {
     return view('pages.about.about');
 })->name('go-about');
 
-// Show kits based on the category
+// Show kits based on the category (discuss it with the team)
 Route::get('pages/causes/{cat_id}', [KitController::class, 'showAll'])->name('go-causes');
 
 // Show single kit
-Route::get('pages/causes/{kit}/cause-single', [KitController::class, 'showSingleKit'])->name('go-cause-single');
+Route::get('pages/causes/{cat_id}/{kit}/cause-single', [KitController::class, 'showSingleKit'])->name('go-cause-single');
 
 // Contact us page
 Route::get('pages/contact', [ContactController::class, 'contact'])->name('go-contact');
 Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('contact.send');
-
 
 // Donate us page
 Route::get('pages/causes/{kit_id}/donate', function() {
@@ -131,4 +139,7 @@ Route::get('/kits', function () {
 
 // ------ ENDS Routes for DASHBOARD --------------------------------
 // home page
-   Route::get('pages', [HomeController::class, 'index'])->name('go-home');
+Route::get('pages', [HomeController::class, 'index'])->name('go-home');
+
+// Delete event when countdown is 0
+Route::get('/delete-campaign/{campaign}', [CampaignController::class, 'delete'])->name('delete-campaign');

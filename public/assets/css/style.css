@@ -4223,6 +4223,11 @@ li{
     font-weight: bold;
 }
 
+
+.event-countdown {
+    font-size: 18px;
+}
+
 .event-right ul li:last-child{
     font-weight: bold;
   margin-right: 30px;
@@ -5426,6 +5431,11 @@ li{
 #7.0 case-details-page
 =======================================================*/
 
+.donate-categories {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+}
 
 .case-b-text {
     margin-top: 40px;
@@ -5438,6 +5448,16 @@ li{
 
 .tp-case-details-text .tp-case-text-top p {
     margin-bottom: 30px;
+}
+
+.tp-case-details-img img {
+    width: 100%;
+}
+
+.time-left {
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }
 
 .tp-case-details-tab .event-b-text {

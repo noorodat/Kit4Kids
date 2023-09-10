@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>login</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -27,19 +27,20 @@
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Login</h2>
                         <form method="POST" action="{{ route('login') }}" class="register-form" id="login-form">
                            @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="email" id="your_name" placeholder="Your Name" name="email" :value="old('email')" required autofocus autocomplete="username"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" style="color: red; list-style-type: none; padding-left:2px;"  />
+                            
 
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password"  id="your_pass" placeholder="Password" name="password" required autocomplete="current-password"/>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" style="color: red; list-style-type: none; padding-left:2px;" />
 
                             </div>
                             {{-- <div class="form-group">
@@ -57,12 +58,13 @@
                         </form>
                         <div class="social-login">
                             <span class="social-label">Or login with</span>
-                            <ul class="socials">
-                                <li><a href="{{ route('auth.socilaite.redirect', 'facebook') }}"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="{{ route('auth.socilaite.redirect', 'github') }}"><i class="display-flex-center zmdi zmdi-github"></i></a></li>
-                                <li><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            <ul style="list-style-type: none; padding-left: 2px; display: inline-block;">
+                                <li style="display: inline-block;"><a href="{{ route('auth.socilaite.redirect', 'facebook') }}"><i class="fa-brands fa-facebook-f fa-2xl" style="color: #478bff;"></i></i></a></li>
+                                <li style="display: inline-block;padding-left:15px;"><a href="{{ route('auth.socilaite.redirect', 'github') }}"><i class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
+                                <li style="display: inline-block; padding-left:15px;"><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="fa-brands fa-github fa-2xl"></i></a></li>
                             </ul>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -71,6 +73,7 @@
     </div>
 
     <!-- JS -->
+    <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>
     <script src="{{asset('/sign/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/sign/js/main.js')}}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

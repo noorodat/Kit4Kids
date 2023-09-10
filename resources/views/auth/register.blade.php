@@ -35,19 +35,19 @@
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Your Email" :value="old('email')" required autocomplete="username"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" style="color: red; list-style-type: none; padding-left:2px;"/>
 
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="pass" placeholder="Password"  required autocomplete="new-password"/>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" style="color: red; list-style-type: none; padding-left:2px;" />
 
                             </div>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" id="re_pass" placeholder="Repeat your password" name="password_confirmation" required autocomplete="new-password"/>
-                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" style="color: red; list-style-type: none; padding-left:2px;"/>
 
                             </div>
                             <div></div>

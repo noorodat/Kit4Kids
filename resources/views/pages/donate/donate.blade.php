@@ -72,6 +72,7 @@
 
                             @if (Auth::id())
                                 {{ session()->forget('Donate_login') }}
+                                {{-- {{dd(session('Donate_login'))}} --}}
 
                                 <form action="{{ route('payment') }}" method="POST">
                                     @csrf
@@ -175,6 +176,8 @@
                                 </form>
                             @else
                                 {{ session(['Donate_login' => $kit]) }}
+                                {{-- {{dd(session('Donate_login'))}} --}}
+
                                 {{-- return redirect()->route('login')->with('warning', 'Please login to continue donating.'); --}}
                                 <div class="tp-donations-amount " style="text-align: center;">
                                     <h2 class="mx-auto" style="color: red;">please login to continue</h2>

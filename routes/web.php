@@ -77,8 +77,7 @@ Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('con
 // Donate pages (if not logged in redirect to login)
 
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
-    ->name('go-donate')
-    ->middleware(['auth']);
+    ->name('go-donate');
 
 Route::get('pages/events/{campaign}/donate', [CampaignController::class, 'goDonate'])
 ->name('go-donate-campaign')

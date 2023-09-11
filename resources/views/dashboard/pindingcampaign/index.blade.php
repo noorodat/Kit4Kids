@@ -17,11 +17,10 @@
 @section('content')
  <!-- Main content -->
  <section class="content">
-    <a class="btn btn-primary  mb-3" href="{{route('campaigns.create')}}">Add Campaign </a>
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Campaign</h3>
+        <h3 class="card-title">Pinding Campaign</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">

@@ -43,7 +43,7 @@ class KitController extends Controller
         $kits->title = $request->input('title');
         $kits->description = $request->input('description');
         $kits->price = $request->input('price');
-        $categoryName = $request->input('category_name');
+        $categoryNames = $request->input('category_name');
         $category_id = $request->input('category_id');
         $kits->category_id = $category_id;
 
@@ -78,27 +78,31 @@ class KitController extends Controller
     }
 
     
-    public function update(Request $request, Kit $kits , $id)
+    public function update(Request $request, Kit $kits , $id )
     {
        
         $kits = Kit::findOrFail($id);
 
         $kits->title = $request->input('title');
         $kits->description = $request->input('description');
-        $kits->type = $request->input('type');
+        $kits->price = $request->input('price');
+        $categoryNames = $request->input('category_name');
+        $category_id = $request->input('category_id');
+        $kits->category_id = $category_id;
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
             $kits->image = $imageName;
-            $kits->save();
 
         }
 
         $kits->save();
 
         return redirect()->route('kits.index')->with('success', 'Kit updated successfully');
+        ;
     }
 
     public function destroy($id)

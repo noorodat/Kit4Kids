@@ -60,8 +60,32 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
-    {
+    // public function destroy(Request $request): RedirectResponse
+    // {
+    //     $request->validateWithBag('userDeletion', [
+    //         'password' => ['required', 'current_password'],
+    //     ]);
+
+    //     $user = $request->user();
+
+    //     Auth::logout();
+
+    //     $user->delete();
+
+    //     $request->session()->invalidate();
+    //     $request->session()->regenerateToken();
+
+    //     return Redirect::to('/');
+    // }
+
+
+
+public function destroy($id = null): RedirectResponse
+{
+    if ($id === null) {
+        // User is trying to delete their own account
+        $request = request();
+
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
@@ -75,13 +99,13 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
-    }
-
-    public function delete($id)
-    {
-
+        return Redirect::to('/')->with('success', 'Your account has been deleted successfully.');
+    } else {
+        // Admin or other authorized user is trying to delete another user's account
         User::destroy($id);
-        return back()->with('success', 'Admin deleted successfully.');
+        return back()->with('success', 'User deleted successfully.');
     }
+}
+
+
 }

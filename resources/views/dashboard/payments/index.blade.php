@@ -46,6 +46,9 @@
                     <th style="width: 15%">
                        Donater Address
                     </th>
+                    <th style="width: 15%">
+                        Donater Kit
+                     </th>
                     <th style="width: 20%">
                        Donater message
                     </th>
@@ -73,13 +76,16 @@
                 @foreach ($payments as $payment )
                    <tr>
                     <th scope="row">{{$i}}</th>
-                    @foreach ($users as $user)
-                    {{-- <td>{{$user->name}}</td> --}}
-                    <td>{{ $payment->user?->name }}</td>
-
-                    @endforeach
+                    <td>
+                      @php
+                          $user = $users->where('id', $payment->donater_id)->first();
+                      @endphp
+              
+                      {{ $user ? $user->name : 'User not found' }}
+                  </td>
                     <td>{{$payment->donater_phone}}</td>
                     <td>{{$payment->donater_address}}</td>
+                    <td>{{$payment->donater_kit}}</td>
                     <td>{{$payment->donater_message}}</td>
                     <td>{{$payment->Amount}}</td>
                     <td>{{$payment->Currency}}</td>

@@ -58,17 +58,31 @@ class PartnerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Partner $partner)
+    public function edit($id)
     {
-        //
+        $partners = Partner::findOrFail($id);
+
+        return view('dashboard.partners.edit', compact('partners'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Partner $partner)
+    public function update(Request $request, Partner $partners , $id)
     {
-        //
+        $partners = Partner::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $partners->image = $imageName;
+
+        }
+
+        $partners->save();
+
+        return redirect()->route('partners.index')->with('success', 'Kit created successfully');
     }
 
     /**

@@ -12,6 +12,7 @@ use App\Http\Controllers\categoryController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PendingCampaignController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +86,15 @@ Route::get('pages/events/{campaign}/donate', [CampaignController::class, 'goDona
 ->name('go-donate-campaign')
 ->middleware(['auth']);
 
+Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
+
+Route::get('donatelogin', function () {
+    // return redirect()->route('login')->with('warning', 'Please login to continue donating.');
+    return redirect()->route('login')->with('warning', 'Please continue login process.');
+})->name('donatelogin');
+// Route::get('pages/causes/{kit}/donate', function() {
+//     return view('pages.donate.donate');
+// })->name('go-donate');
 
 //Paypal
 Route::get('/success', [PaymentController::class, 'success']);
@@ -126,12 +136,19 @@ Route::resource('campaigns', CampaignController::class);
 
 Route::get('dashboard/campaigns/indexcampaign',[CampaignController::class,'indexcampaign'])->name('gocampaigns');
 
-Route::resource('kits', KitController::class);
+Route::resource('dashboard/kits', KitController::class);
 
 Route::resource('dashboard/donations', DonationController::class);
 
+Route::resource('dashboard/partners', PartnerController::class);
+
+Route::resource('dashboard/payments', PaymentController::class);
+
 Route::resource('dashboard/users', ProfileController::class);
 
+// Route::get('/categories', function () {
+//     return view('dashboard.categories.index');
+// })->name('dashboard.categories.index');
 
 
 Route::get('/kits', function () {

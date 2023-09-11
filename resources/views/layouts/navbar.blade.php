@@ -48,7 +48,7 @@
                         <button class="close-navbar"><i class="ti-close"></i></button>
                         <ul class="nav navbar-nav">
                             <li class="menu-item-has-children">
-                                <a @yield('home') href="{{route('go-home')}}" style="margin-right:20px; ">Home</a>
+                                <a @yield('home') href="{{route('go-home')}}" style="margin-right:15px; ">Home</a>
                             </li>
                             <li><a @yield('about') href="{{route('go-about')}}">About</a></li>
                             <li><a @yield('supplies') href="{{route('donate-supplies')}}">Donate  supplies</a></li>

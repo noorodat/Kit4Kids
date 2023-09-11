@@ -43,8 +43,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
-                                            aria-hidden="true"></i></a>
+                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">

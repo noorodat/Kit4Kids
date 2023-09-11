@@ -133,4 +133,6 @@ class AdminController extends Controller
         Admin::destroy($id);
     return back()->with('success', 'Admin deleted successfully.');
     }
+
+    
 }

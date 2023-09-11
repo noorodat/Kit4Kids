@@ -18,33 +18,42 @@
 
 {{-- form --}}
 <div class="card">
-        <div class="card-header">Create new User</div>
+        <div class="card-header">Create new Kit</div>
         <div class="card-body">
-            <form action="{{ route('dashboard.users.index') }}" method="POST">
-                {{-- {!! csrf_field() !!} --}}
+            <form action="{{ route('kits.index') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="UserName">User Name</label>
-                    <input type="text" name="UserName" class="form-control" 
-                        placeholder="User Name">
+                    <label for="UserName">Kit Title</label>
+                    <input type="text" name="title" class="form-control" 
+                        placeholder="Kit Title">
                 </div>
                 <div class="form-group">
-                    <label for="UserEmail">User Email </label>
-                    <input type="email" name="UserEmail" class="form-control"
-                        placeholder="User Email">
+                    <label for="UserEmail">Kit Description </label>
+                    <input type="text" name="description" class="form-control"
+                        placeholder="Kit Description">
                 </div>
                 <div class="form-group">
-                        <label for="UserPassword">User Password</label>
-                        <input type="password" name="UserPassword" class="form-control"
-                            placeholder="User Password">
+                        <label for="UserPassword">Kit Image</label>
+                        <input type="file" name="image" class="form-control"
+                            placeholder="Kit Image">
                     </div>
        
                         <div class="form-group">
-                                <label for="Status">Status</label>
-                                <input type="text" name="Status" class="form-control"
-                                    placeholder="Admin or User">
+                                <label for="Status">Kit Price</label>
+                                <input type="number" name="price" class="form-control"
+                                    placeholder="Kit Price">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Choose category:</label>
+                            <select name="category_id" id="category" class="form-control">
+                                @foreach ($categoryNames as $categoryName)
+                                    <option value="{{ $categoryName->id }}">{{ $categoryName->title }}</option>
+                                @endforeach
+                            </select>
+                            <input type="hidden" value="{{ $categoryName->id }}"name="category_id">
+                        </div>
                     <br>
-                    <input type="submit" value="Add User" class="btn btn-success"><br>
+                    <input type="submit" value="Add Kit" class="btn btn-success"><br>
                 </div>
             </form>
         </div>

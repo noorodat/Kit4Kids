@@ -574,45 +574,49 @@
                     required: true,
                     minlength: 2
                 },
-
-                email: "required",
-
-                phone: "required",
-
-                address: "required",
+                email: {
+                    required: true,
+                    email: true // Valid email format
+                },
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 10,
+                    digits: true // Only digits allowed
+                },
+                address: {
+                    required: true,
+                    minlength: 5 // Minimum address length
+                },
+                note: {
+                    required: true, // Make "notes" field required
+                    maxlength: 255 // Maximum character limit for notes
+                },
+                subject: {
+                    required: true,
+                }
             },
-
             messages: {
                 name: "Please enter your name",
-                email: "Please enter your email address",
-                email: "Please enter your phone Number",
-                address: "Please enter your address",
-            },
-
-            submitHandler: function (form) {
-                $.ajax({
-                    type: "POST",
-                    url: "mail-contact.php",
-                    data: $(form).serialize(),
-                    success: function () {
-                        $( "#loader").hide();
-                        $( "#success").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#success").slideUp( "slow" );
-                        }, 3000);
-                        form.reset();
-                    },
-                    error: function() {
-                        $( "#loader").hide();
-                        $( "#error").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#error").slideUp( "slow" );
-                        }, 3000);
-                    }
-                });
-                return false; // required to block normal submit since you used ajax
+                email: {
+                    required: "Please enter your email address",
+                    email: "Please enter a valid email address"
+                },
+                phone: {
+                    required: "Please enter your phone number",
+                    minlength: "Phone number must be exactly 10 digits",
+                    maxlength: "Phone number must be exactly 10 digits",
+                    digits: "Phone number can only contain digits"
+                },
+                address: {
+                    required: "Please enter your address",
+                    minlength: "Address must be at least {0} characters long" // {0} will be replaced with the minlength value
+                },
+                note: {
+                    required: "Please enter notes",
+                    maxlength: "Notes must not exceed 255 characters"
+                }
             }
-
         });
     }
 
@@ -679,6 +683,7 @@ function deleteCampaign(campaignId) {
             // Handle success, e.g., remove the event from the DOM
             console.log(response.message);
             // Optionally, you can also remove the event from the DOM here
+
         },
         error: function (error) {
             // Handle error, e.g., display an error message
@@ -699,10 +704,11 @@ $(document).ready(function () {
             var now = new Date().getTime(); // Get the current date and time as a timestamp
             var timeLeft = endDate - now; // Calculate the time remaining
 
-            // Check if the event has ended
+            // Check if the event has ended (current date >= end date)
             if (timeLeft <= 0) {
                 clearInterval(countdownInterval); // Stop the countdown
                 countdownElement.text('Event Ended');
+                countdownElement.closest('.event-item').hide();
 
                 // Delete the campaign when the countdown reaches 0
                 var campaignId = countdownElement.data('campaign-id');
@@ -717,11 +723,54 @@ $(document).ready(function () {
                 // Display the countdown
                 countdownElement.text(days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's');
             }
-        }, 1000); // Use bind(this) to access the current countdown element
+        }, 1000); // Update every second
     });
 });
 
+// Handle campaign image
+let campaignImage = document.getElementById('campaignImage');
+let createCampaignImage = document.querySelector('.createCampaignImage');
 
+if(createCampaignImage) {
+    createCampaignImage.onchange = () => {
+        if (createCampaignImage.files.length > 0) {
+            // Get the selected file
+            let selectedFile = createCampaignImage.files[0];
+
+            // Create a URL for the selected file
+            let objectURL = URL.createObjectURL(selectedFile);
+
+            // Set the src attribute of campaignImage to the objectURL
+            campaignImage.src = objectURL;
+        }
+    }
+}
+
+// Handle donation amount
+const customAmountInput = document.getElementById('custom_amount_input');
+const customAmount = document.getElementById('custom_amount');
+const customAmountRadio = document.getElementById('donation_option2');
+const firstAmountRadio = document.getElementById('donation_option1');
+
+if(customAmountInput) {
+    firstAmountRadio.addEventListener('change', function () {
+        if (this.checked) {
+            customAmountInput.style.display = 'none';
+        }
+    });
+
+    customAmountRadio.addEventListener('change', function () {
+        if (this.checked) {
+            customAmountInput.style.display = 'block';
+        } else {
+            customAmountInput.style.display = 'none';
+        }
+    });
+
+    customAmount.addEventListener('change', () => {
+        customAmountRadio.value = customAmount.value;
+    });
+}
 
 
 

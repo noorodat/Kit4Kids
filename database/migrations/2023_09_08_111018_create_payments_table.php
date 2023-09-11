@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('donater_id');
+            $table->string('donater_kit');
             $table->bigInteger('donater_phone');
             $table->string('donater_address');
             $table->string('donater_message');

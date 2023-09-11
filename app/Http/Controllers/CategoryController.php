@@ -32,23 +32,13 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
-            // Add any desired image validation rules
-            'email' => 'required|email|unique:users',
-            'password' => [
-                'required',
-                'min:8',
-                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
-            ]
-        ]);
+    
 
         $categories = new Category();
 
-        $categories->name = $request->input('name');
-        $categories->email = $request->input('email');
-        $categories->password = Hash::make ($request->input('password'));
+        $categories->title = $request->input('title');
+        $categories->description = $request->input('description');
+        $categories->type = $request->input('type');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -60,7 +50,7 @@ class categoryController extends Controller
 
         }
 
-        $categories->save();
+        // $categories->save();
 
         return redirect()->route('categories.index')->with('success', 'category created successfully');
     }
@@ -84,24 +74,12 @@ class categoryController extends Controller
     
     public function update(Request $request, Category $categories , $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
-            'email' => 'required|email|unique:users',
-            'password' => [
-                'required',
-                'min:8',
-                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
-            ]
-        ]);
-
+       
         $categories = Category::findOrFail($id);
 
-
-
-        $categories->name = $request->input('name');
-        $categories->email = $request->input('email');
-        $categories->password = Hash::make ($request->input('password'));
+        $categories->title = $request->input('title');
+        $categories->description = $request->input('description');
+        $categories->type = $request->input('type');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -114,7 +92,7 @@ class categoryController extends Controller
 
         $categories->save();
 
-        return redirect()->route('categorys.index')->with('success', 'category updated successfully');
+        return redirect()->route('categories.index')->with('success', 'category updated successfully');
     }
 
     public function destroy($id)

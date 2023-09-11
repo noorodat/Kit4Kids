@@ -91,14 +91,10 @@ Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
     ->name('go-donate-campaign')
     ->middleware(['auth']);
 
-
-
-Route::view('/donate/supplies', 'pages/donate/donate-eyes');
+// Start donate supplies routes
+Route::view('/donate/supplies', 'pages/donate/donate-eyes')->name('donate-supplies');
 Route::post('/donate/supplies', [DonationController::class, 'store'])->name('supplies');
-
-
-
-
+// End donate supplies routes
 
 
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
@@ -144,7 +140,6 @@ Route::get('/users', function () {
 
 //-------------------login admin----------------//
 
-
 // adminlogin
 Route::get('/adminLogin', [LoginController::class, 'dashLogin']);
 Route::post('/adminLogin', [LoginController::class, 'loginPost'])->name('adminLogin');
@@ -153,11 +148,6 @@ Route::get('/home', [AdminController::class, 'adminIndex']);
 // adminLogout
 Route::get('/home', [AdminController::class, 'adminIndex']);
 Route::get('/adminLogout', [adminLoginController::class, 'adminLogout'])->name('adminLogout');
-
-
-
-
-
 
 Route::resource('admins', AdminController::class);
 
@@ -178,12 +168,6 @@ Route::resource('dashboard/payments', PaymentController::class);
 Route::resource('dashboard/users', ProfileController::class);
 
 Route::resource('dashboard/pendingcampaign', PendingCampaignController::class)->names('pendingCampaignTest');
-
-
-// Route::get('/categories', function () {
-//     return view('dashboard.categories.index');
-// })->name('dashboard.categories.index');
-
 
 Route::get('/kits', function () {
     return view('dashboard.kits.index');

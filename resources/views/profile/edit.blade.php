@@ -71,7 +71,7 @@
                                 <tr>
                                     <th>Title</th>
                                     <th>Description</th>
-                                    <th>Description</th>
+                                    <th>Location</th>
                                 </tr>
                             </thead>
                             <tbody>

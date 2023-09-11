@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
+                                    <a href="{{route('donate-supplies')}}" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
                                             aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
+                                    <a href="{{route('donate-supplies')}}" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
                                             aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
+                                    <a href="{{route('donate-supplies')}}" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
                                             aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -183,7 +183,7 @@
             </div>
         </section>
         <!-- end of hero slider -->
-        <section class="about-section about-section-s2 section-padding p-t-0" style="margin-top: -250px;">
+        <section class="about-section about-section-s2 section-padding p-t-0" style="padding-top: 0">
             <div class="container">
                 <div class="row">
                     <div class="col col-md-5">
@@ -419,7 +419,7 @@
                 </div>
                 <div class="volunteer-wrap" >
                     <div class="row">
-                        
+
                         <div class="col col-md-4 col-sm-6 custom-grid col-12">
                             <div class="volunteer-item">
                                 <div class="volunteer-img">
@@ -481,7 +481,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <!-- volunteer-area start -->
         <!-- start testimonials-section-s2 -->
 
@@ -510,7 +510,7 @@
                                 </div>
                             </div>
                             <div class="testimonial-content-active text-center">
-                                
+
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -523,8 +523,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -537,8 +537,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -551,8 +551,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -565,8 +565,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -579,7 +579,7 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                
+
 
                             </div>
                         </div>

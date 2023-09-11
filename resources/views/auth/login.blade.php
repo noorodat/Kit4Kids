@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,37 +11,52 @@
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="{{asset('/sign/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('/sign/css/style.css') }}">
 </head>
-<body style="height:100vh !important; background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
+
+<body
+    style="height:100vh !important; background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
 ">
 
-    <div class="main" style="padding:50px 0 0 0;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
+    <div class="main"
+        style="padding:50px 0 0 0;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
     ">
         <!-- Sing in  Form -->
         <section class="sign-in">
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="{{asset('/sign/images/signin-image.jpg')}}" alt="sing up image"></figure>
-                        <a href="{{route('register')}}" class="signup-image-link">Don't have an account yet? Sign up!</a>
+                        <figure><img src="{{ asset('/sign/images/signin-image.jpg') }}" alt="sing up image"></figure>
+                        <a href="{{ route('register') }}" class="signup-image-link">Don't have an account yet? Sign
+                            up!</a>
                     </div>
 
                     <div class="signin-form">
+                        @if (session('warning'))
+                            <div class="">
+                                <p style="color: rgb(255, 172, 29);font-size: 20px;">{{ session('warning') }}</p>
+                            </div>
+                        @endif
                         <h2 class="form-title">Login</h2>
+
+
                         <form method="POST" action="{{ route('login') }}" class="register-form" id="login-form">
-                           @csrf
+                            @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="email" id="your_name" placeholder="Your Name" name="email" :value="old('email')" required autofocus autocomplete="username"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" style="color: red; list-style-type: none; padding-left:2px;"  />
-                            
+                                <input type="email" id="your_name" placeholder="Your Name" name="email"
+                                    :value="old('email')" required autofocus autocomplete="username" />
+                                <x-input-error :messages="$errors->get('email')" class="mt-2"
+                                    style="color: red; list-style-type: none; padding-left:2px;" />
+
 
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password"  id="your_pass" placeholder="Password" name="password" required autocomplete="current-password"/>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" style="color: red; list-style-type: none; padding-left:2px;" />
+                                <input type="password" id="your_pass" placeholder="Password" name="password" required
+                                    autocomplete="current-password" />
+                                <x-input-error :messages="$errors->get('password')" class="mt-2"
+                                    style="color: red; list-style-type: none; padding-left:2px;" />
 
                             </div>
                             {{-- <div class="form-group">
@@ -48,23 +64,32 @@
                                 <label for="remember-me" class="label-agree-term" name="remember"><span><span></span></span>Remember me</label>
                             </div> --}}
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                                <input type="submit" name="signin" id="signin" class="form-submit"
+                                    value="Log in" />
                             </div>
                             @if (Route::has('password.request'))
-                                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                                        {{ __('Forgot your password?') }}
-                                    </a>
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    href="{{ route('password.request') }}">
+                                    {{ __('Forgot your password?') }}
+                                </a>
                             @endif
                         </form>
                         <div class="social-login">
                             <span class="social-label">Or login with</span>
                             <ul style="list-style-type: none; padding-left: 2px; display: inline-block;">
-                                <li style="display: inline-block;"><a href="{{ route('auth.socilaite.redirect', 'facebook') }}"><i class="fa-brands fa-facebook-f fa-2xl" style="color: #478bff;"></i></i></a></li>
-                                <li style="display: inline-block;padding-left:15px;"><a href="{{ route('auth.socilaite.redirect', 'github') }}"><i class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
-                                <li style="display: inline-block; padding-left:15px;"><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="fa-brands fa-github fa-2xl"></i></a></li>
+                                <li style="display: inline-block;"><a
+                                        href="{{ route('auth.socilaite.redirect', 'facebook') }}"><i
+                                            class="fa-brands fa-facebook-f fa-2xl" style="color: #478bff;"></i></i></a>
+                                </li>
+                                <li style="display: inline-block;padding-left:15px;"><a
+                                        href="{{ route('auth.socilaite.redirect', 'github') }}"><i
+                                            class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
+                                <li style="display: inline-block; padding-left:15px;"><a
+                                        href="{{ route('auth.socilaite.redirect', 'google') }}"><i
+                                            class="fa-brands fa-github fa-2xl"></i></a></li>
                             </ul>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -74,9 +99,10 @@
 
     <!-- JS -->
     <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>
-    <script src="{{asset('/sign/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('/sign/js/main.js')}}"></script>
+    <script src="{{ asset('/sign/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('/sign/js/main.js') }}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
 
 

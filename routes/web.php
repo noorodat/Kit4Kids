@@ -77,6 +77,11 @@ Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('con
 // Donate us page
 
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
+
+Route::get('donatelogin', function () {
+    // return redirect()->route('login')->with('warning', 'Please login to continue donating.');
+    return redirect()->route('login')->with('warning', 'Please continue login process.');
+})->name('donatelogin');
 // Route::get('pages/causes/{kit}/donate', function() {
 //     return view('pages.donate.donate');
 // })->name('go-donate');
@@ -129,9 +134,9 @@ Route::resource('dashboard/donations', DonationController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 
-Route::get('/categories', function () {
-    return view('dashboard.categories.index');
-})->name('dashboard.categories.index');
+// Route::get('/categories', function () {
+//     return view('dashboard.categories.index');
+// })->name('dashboard.categories.index');
 
 
 // Route::get('/campaign', function () {

@@ -28,13 +28,13 @@
                 @csrf
                 <div class="form-group">
                     <label for="UserName">Campaign Title</label>
-                    <input type="text" name="title" class="form-control" 
+                    <input type="text" name="title" class="form-control"
                         placeholder="Campaign Title">
                         <span>@error('title'){{$message}} @enderror</span>
                 </div>
                 <div class="form-group">
                     <label for="image">Campaign Image</label>
-                    <input type="file" name="image" class="form-control" 
+                    <input type="file" name="image" class="form-control"
                         placeholder="Campaign Image">
                         <span>@error('image'){{$message}} @enderror</span>
                 </div>
@@ -56,16 +56,6 @@
                                 <input type="date" name="end_date" class="form-control"
                                     placeholder="End Date">
                                     <span>@error('end_date'){{$message}} @enderror</span>
-
-
-                        </div>
-                        <div class="form-group">
-                                <label for="Status">Active</label>
-                                <br>
-                                <select name="active" id="">
-                                    <option value="Ended">Ended</option>
-                                    <option value="continous">continous</option>
-                                </select>
                         </div>
                     <br>
                     <input type="submit" value="Add Campaign" class="btn btn-success"><br>

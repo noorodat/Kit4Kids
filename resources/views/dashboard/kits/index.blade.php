@@ -34,22 +34,22 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th style="width: 1%">
+                    <th>
                         #
                     </th>
-                    <th style="width: 20%">
+                    <th>
                        Kit Image
                     </th>
-                    <th style="width: 10%">
+                    <th>
                         Kit Title
                     </th>
-                    <th style="width: 30%">
+                    <th>
                        Kit description
                     </th>
-                    <th style="width: 8%" class="text-center">
+                    <th class="text-center">
                        Kit price
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         Kit Category
                     </th>
                 </tr>
@@ -58,10 +58,9 @@
                 @php
                 $i=1;
            @endphp
-           @foreach ( $kits as $kit )
-        
-           <tr>
+           @foreach ($kits as $kit)
 
+           <tr>
 
                <th scope="row">{{$i}}</th>
                <td><img src="{{ url('/images/' . $kit->image) }}" alt="" width="40%"></td>
@@ -71,11 +70,7 @@
                <td>{{$kit->price}}</td>
 
                <td>
-                @php
-                    $category = $categories->where('id', $kit->category_id)->first();
-                @endphp
-        
-                {{ $category ? $category->title : 'Category not found' }}
+                {{$kit->category->title}}
             </td>
 
                {{-- @foreach ( $categories as $category )
@@ -84,35 +79,35 @@
 
                @endforeach --}}
 
-              
                <td class="project-actions text-right">
-                  
+
                    <a class="btn btn-info btn-sm" href="{{ route('kits.edit', $kit->id) }}">
                        <i class="fas fa-pencil-alt">
                        </i>
                        Edit
                    </a>
-                 
+
                    <form action="{{route('kits.destroy',$kit->id)}}"  method="POST"  style="display: inline;">
                        @method('DELETE')
                        @csrf
                        <button type="submit" class="btn btn-danger"
-                       onclick="return confirm('Are you sure you want to delete this Kit?')">Delete</button>            
+                       onclick="return confirm('Are you sure you want to delete this Kit?')">Delete</button>
                      </form>
                </td>
 
-                 
-           
+
+
            </tr>
            @php
            $i++;
        @endphp
 
            @endforeach
-              
+
             </tbody>
         </table>
       </div>
+
       <!-- /.card-body -->
     </div>
     <!-- /.card -->

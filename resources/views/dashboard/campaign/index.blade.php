@@ -34,33 +34,33 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th style="width: 1%">
+                    <th>
                         #
                     </th>
                     <th>
                         Campaign image
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         Campaign Title
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         Campaign description
                     </th>
-                    
-                    <th style="width: 8%" class="text-center">
+
+                    <th class="text-center">
                         target_money
                     </th>
-                    <th style="width: 10%">
-                        raised_money	
+                    <th>
+                        raised_money
                     </th>
-                    <th style="width: 10%">
-                        start_date		
+                    <th>
+                        start_date
                     </th>
-                    <th style="width: 10%">
-                        end_date	
+                    <th>
+                        end_date
                     </th>
-                    <th style="width: 10%">
-                        Stutas	
+                    <th>
+                        Stutas
                     </th>
                 </tr>
             </thead>
@@ -69,9 +69,9 @@
                      $i=1;
                 @endphp
                 @foreach ( $campaigns as $campaign )
-                    
+
                 <tr>
-                   
+
                     <th scope="row">{{$i}}</th>
                     <td><img src="{{ url('/images/' . $campaign->image) }}" alt="" width="70%"></td>
 
@@ -84,23 +84,23 @@
                     <td>{{$campaign->end_date}}</td>
                     <td>{{$campaign->active}}</td>
                     <td class="project-actions text-right">
-                       
+
                         <a class="btn btn-info btn-sm" href="{{ route('campaigns.edit', $campaign->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                      
+
                         <form action="{{route('campaigns.destroy',$campaign->id)}}"  method="POST"  style="display: inline;">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete this Category?')">Delete</button>            
+                            onclick="return confirm('Are you sure you want to delete this Category?')">Delete</button>
                           </form>
                     </td>
 
-                      
-                
+
+
                 </tr>
                 @php
                 $i++;

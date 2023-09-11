@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('donater_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('donater_kit');
             $table->bigInteger('donater_phone');
             $table->string('donater_address');
@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string('Currency');
             $table->timestamps();
 
-            $table->foreign('donater_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
         });
     }

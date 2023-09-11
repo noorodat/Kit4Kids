@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Events')
+@section('title', 'Event')
 
 @section('content')
 
@@ -49,7 +49,7 @@
                             <div class="tp-case-details-text">
                                 <div id="Description">
                                     <div class="tp-case-details-img">
-                                        <img src="{{ url($campaign->image) }}" alt="">
+                                        <img src="{{ url('/images/' . $campaign->image) }}" alt="" width="300px">
                                     </div>
                                     <div class="tp-case-content">
                                         <div class="tp-case-text-top">

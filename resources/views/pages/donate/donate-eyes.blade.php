@@ -71,14 +71,8 @@
 
                             @if (Auth::id())
                                 {{-- {{ session()->forget('Donate_login') }} --}}
-
-                                <form action="{{ route('supplies') }}" method="POST">
+                                <form action="{{ route('supplies') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    {{-- <div class="tp-donations-amount">
-                                        <h2>Your Supplies Donation</h2>
-                                        <input type="number" class="form-control" name="amount" id="donation_option1" value="" checked>
-                                        <label for="donation_option1" style="font-size: 30px"></label>
-                                    </div> --}}
                                     <div class="tp-donations-details">
                                         <h2>Supplies Details</h2>
                                         <div class="row">
@@ -108,7 +102,7 @@
                                             </div> --}}
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                 <select class="form-control" name="city" id="city" required>
-                                                  <option value="" disabled selected>Select an Address</option>
+                                                  <option value="" disabled selected>Select a city</option>
                                                   <option value="Amman">Amman</option>
                                                   <option value="Ajloun">Ajloun</option>
                                                   <option value="Jerash">Jerash</option>

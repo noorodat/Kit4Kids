@@ -83,7 +83,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
         <!-- /.card-body -->

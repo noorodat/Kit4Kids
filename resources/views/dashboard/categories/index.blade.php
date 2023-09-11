@@ -34,24 +34,24 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th style="width: 1%">
+                    <th>
                         #
                     </th>
                     <th>
                         Category Image
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         Category Title
                     </th>
 
-                    <th style="width: 30%">
+                    <th>
                         Category Description
                     </th>
-                   
-                    <th style="width: 8%" class="text-center">
+
+                    <th class="text-center">
                         Type
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         Action
                     </th>
                 </tr>
@@ -61,7 +61,7 @@
                      $i=1;
                 @endphp
                 @foreach ($categories as $category)
-                    
+
                 <tr>
                     <th scope="row">{{$i}}</th>
                     <td><img src="{{ url('/images/' . $category->image) }}" alt="" width="40%"></td>
@@ -71,30 +71,30 @@
 
                     <td>{{$category->type}}</td>
                     <td class="project-actions text-right">
-                       
+
                         <a class="btn btn-info btn-sm" href="{{ route('categories.edit', $category->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                      
+
                         <form action="{{route('categories.destroy',$category->id)}}"  method="POST"  style="display: inline;">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete this Category?')">Delete</button>            
+                            onclick="return confirm('Are you sure you want to delete this Category?')">Delete</button>
                           </form>
                     </td>
 
-                       
-                 
-             
+
+
+
                 </tr>
                 @php
                 $i++;
             @endphp
                 @endforeach
-          
+
 
             </tbody>
         </table>

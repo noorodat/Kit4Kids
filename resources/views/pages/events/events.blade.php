@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
-@section('title', 'Events')
+@section('title', 'Campaigns')
+
+@section('event')
+ class="active"
+@endsection
 
 @section('content')
 
@@ -32,7 +36,7 @@
                             <div class="col col-xs-12">
                                 <h2>Campaigns</h2>
                                 <ol class="breadcrumb">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{route('go-home')}}">Home</a></li>
                                     <li>Events</li>
                                 </ol>
                             </div>
@@ -60,43 +64,43 @@
                     <div class="col-12">
                         @foreach ($campaigns as $campaign)
                         <span class="campaign_id" hidden style="display: none">{{$campaign->id}}</span>
-                        <div class="event-item">
-                            <div class="event-img">
-                                <img src="{{ url($campaign->image) }}" alt="">
-                            </div>
-                            <div class="event-text">
-                                <div class="event-left">
-                                    <div class="event-l-text">
-                                        @php
-                                            $start_date = \Carbon\Carbon::parse($campaign->start_date);
-                                        @endphp
-                                        <span> {{ $start_date->format('F') }}</span>
-                                        <h4> {{ $start_date->format('d') }}</h4>
-                                    </div>
+                            <div class="event-item">
+                                <div class="event-img">
+                                    <img src="{{ url('/images/' . $campaign->image) }}" width="300px">
                                 </div>
-                                <div class="event-right">
-                                    <ul>
-                                        <li>End Date:{{ $campaign->end_date }}</li>
-                                        <li class="target_money_ele">Target Money: ${{ $campaign->target_money }}</li>
-                                        <li style="margin-left:30px;" class="raised_money_ele" id="{{$campaign->id}}">Raised Money: ${{ $campaign->raised_money }}</li>
-                                    </ul>
-                                    @if($campaign->raised_money >= $campaign->target_money)
-                                        <script>
-                                            var raised_money = document.getElementById('{{$campaign->id}}');
-                                            raised_money.style = "color: green; margin-left: 30px;";
-                                        </script>
-                                    @endif
-                                    <div class="time-left">
-                                        <span>Time left:</span>
-                                        <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                                    <div class="event-text">
+                                        <div class="event-left">
+                                            <div class="event-l-text">
+                                                @php
+                                                    $start_date = \Carbon\Carbon::parse($campaign->start_date);
+                                                @endphp
+                                                <span> {{ $start_date->format('F') }}</span>
+                                                <h4> {{ $start_date->format('d') }}</h4>
+                                            </div>
+                                        </div>
+                                        <div class="event-right">
+                                            <ul>
+                                                <li>End Date:{{ $campaign->end_date }}</li>
+                                                <li class="target_money_ele">Target Money: ${{ $campaign->target_money }}</li>
+                                                <li style="margin-left:30px;" class="raised_money_ele" id="{{$campaign->id}}">Raised Money: ${{ $campaign->raised_money }}</li>
+                                            </ul>
+                                            @if($campaign->raised_money >= $campaign->target_money)
+                                                <script>
+                                                    var raised_money = document.getElementById('{{$campaign->id}}');
+                                                    raised_money.style = "color: green; margin-left: 30px;";
+                                                </script>
+                                            @endif
+                                            <div class="time-left">
+                                                <span>Time left:</span>
+                                                <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                                            </div>
+                                            <h2>
+                                                <a style="text-decoration: underline" href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
+                                            </h2>
+                                            <p>{{ $campaign->description }}</p>
+                                        </div>
                                     </div>
-                                    <h2>
-                                        <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
-                                    </h2>
-                                    <p>{{ $campaign->description }}</p>
-                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                     <div class="pagination" style="display: flex; justify-content:center">

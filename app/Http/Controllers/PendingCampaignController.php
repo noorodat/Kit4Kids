@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class PendingCampaignController extends Controller
 {
+
+    public function index()
+    {
+        
+        $pendingcampaigns=PendingCampaign::all();
+        return view ('dashboard/pindingcampaign/index', compact('pendingcampaigns'));
+    }
         // Send pending campaign function
         public function sendPendingCampaign(Request $request)
         {
@@ -35,5 +42,12 @@ class PendingCampaignController extends Controller
 
             // Redirect to the "go-home" route with a success message
             return redirect()->route('go-home')->with('success', 'Campaign saved successfully.');
+        }
+
+        public function destroy($id)
+        {
+    
+            PendingCampaign::destroy($id);
+        return back()->with('success', 'Admin deleted successfully.');
         }
 }

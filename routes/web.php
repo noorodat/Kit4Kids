@@ -145,6 +145,9 @@ Route::resource('dashboard/payments', PaymentController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 
+Route::resource('dashboard/pindingcampaign', PendingCampaignController::class);
+
+
 // Route::get('/categories', function () {
 //     return view('dashboard.categories.index');
 // })->name('dashboard.categories.index');

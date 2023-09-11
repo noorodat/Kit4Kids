@@ -189,7 +189,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/pindingcampaign#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Pending Campaigns

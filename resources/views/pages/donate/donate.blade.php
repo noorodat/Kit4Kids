@@ -51,12 +51,12 @@
                             </div>
                             <h2>Make a Donation</h2>
                             <div class="image">
-                                <img src="{{asset($kit->image)}}" alt="" width="250px" style="padding: 10px">
+                                <img src="{{ asset($kit->image) }}" alt="" width="250px" style="padding: 10px">
                             </div>
                             <p><b>{{ $kit->title }}</b></p>
                             <p>Price: ${{ $kit->price }}</p>
                         </div>
-                        @if (session('success'))
+                        {{-- @if (session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
                             </div>
@@ -66,27 +66,28 @@
                             <div class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
-                        @endif
+                        @endif --}}
 
                         <div id="Donations" class="tab-pane">
 
                             @if (Auth::id())
-                                {{ session()->forget('Donate_login') }}
-                                {{-- {{dd(session('Donate_login'))}} --}}
-
+                                {{-- {{ session()->forget('currenturl') }} --}}
                                 <form action="{{ route('payment') }}" method="POST">
                                     @csrf
                                     <div class="tp-donations-amount">
                                         <h2>Your Donation (USD)</h2>
-                                        <input type="radio" class="form-control" name="amount" id="donation_option1" value="{{$kit->price}}" checked>
-                                        <label for="donation_option1" style="font-size: 30px">${{$kit->price}}</label>
+                                        <input type="radio" class="form-control" name="amount" id="donation_option1"
+                                            value="{{ $kit->price }}" checked>
+                                        <label for="donation_option1" style="font-size: 30px">${{ $kit->price }}</label>
                                     </div>
                                     <div class="tp-donations-amount">
                                         <h2>Donate with a custom?</h2>
-                                        <input type="radio" class="form-control" name="amount" id="donation_option2" min="10">
+                                        <input type="radio" class="form-control" name="amount" id="donation_option2"
+                                            min="10">
                                         <label for="donation_option2">Donate with a custom amount</label>
                                         <div id="custom_amount_input" style="display: none;">
-                                            <input type="number" class="form-control"  id="custom_amount" placeholder="Enter Custom Donation Amount" min="{{$kit->price + 1}}">
+                                            <input type="number" class="form-control" id="custom_amount"
+                                                placeholder="Enter Custom Donation Amount" min="{{ $kit->price + 1 }}">
                                         </div>
                                     </div>
                                     <div class="tp-donations-details">
@@ -112,74 +113,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <div class="tp-doanation-payment">
-                                    <h2>Choose Your Payment Method</h2>
-                                    <div class="tp-payment-area">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="tp-payment-option" id="open4">
-                                                    <div class="tp-payment-select">
-                                                        <ul>
-                                                            <li class="addToggle">
-                                                                <input id="add" type="radio" checked="checked" name="payment" value="30">
-                                                                <label for="add">Payment By Card</label>
-                                                            </li>
-                                                            <li class="removeToggle">
-                                                                <input id="remove" type="radio" name="payment" value="30">
-                                                                <label for="remove">Offline Donation</label>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div id="open5" class="payment-name">
-                                                        <ul>
-                                                            <li class="visa"><input id="1" type="radio" name="size" value="30">
-                                                                <label for="1"><img src="{{asset('assets/images/checkout/img-1.png')}}" alt=""></label>
-                                                            </li>
-                                                            <li class="mas"><input id="2" type="radio" name="size" value="30">
-                                                                <label for="2"><img src="{{asset('assets/images/checkout/img-2.png')}}" alt=""></label>
-                                                            </li>
-                                                            <li class="ski"><input id="3" type="radio" name="size" value="30">
-                                                                <label for="3"><img src="{{asset('assets/images/checkout/img-3.png')}}" alt=""></label>
-                                                            </li>
-                                                            <li class="pay"><input id="4" type="radio" name="size" value="30">
-                                                                <label for="4"><img src="{{asset('assets/images/checkout/img-4.png')}}" alt=""></label>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="contact-form form-style">
-                                                            <div class="row">
-                                                                <div class="col-lg-6 col-md-12 col-12">
-                                                                    <label>Card holder Name</label>
-                                                                    <input type="text" placeholder="" name="name">
-                                                                </div>
-                                                                <div class="col-lg-6 col-md-12 col-12">
-                                                                    <label>Card Number</label>
-                                                                    <input type="text" placeholder="" name="card">
-                                                                </div>
-                                                                <div class="col-lg-6 col-md-12 col-12">
-                                                                    <label>CVV</label>
-                                                                    <input type="text" placeholder="" name="CVV">
-                                                                </div>
-                                                                <div class="col-lg-6 col-md-12 col-12">
-                                                                    <label>Expire Date</label>
-                                                                    <input type="text" placeholder="" name="date">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
                                     <div class="submit-area">
                                         <button type="submit" class="theme-btn submit-btn">Donate Now</button>
                                     </div>
                                 </form>
                             @else
-                                {{ session(['Donate_login' => $kit]) }}
-                                {{-- {{dd(session('Donate_login'))}} --}}
-
-                                {{-- return redirect()->route('login')->with('warning', 'Please login to continue donating.'); --}}
+                                {{-- @php
+                                    $currenturl = url()->full();
+                                    session(['currenturl' => $currenturl]);
+                                    // dd(session('currenturl'));
+                                @endphp --}}
                                 <div class="tp-donations-amount " style="text-align: center;">
                                     <h2 class="mx-auto" style="color: red;">please login to continue</h2>
                                     <a href="{{ route('donatelogin') }}" class="theme-btn-s3">LOGIN</a>

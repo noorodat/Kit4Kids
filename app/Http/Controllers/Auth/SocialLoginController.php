@@ -51,6 +51,10 @@ class SocialLoginController extends Controller
 
         Auth::login($user);
 
+        if (session('currenturl')) {
+            return redirect(session('currenturl'));
+        }
+
         return redirect('/pages');
     }
 }

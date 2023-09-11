@@ -34,7 +34,7 @@
                             <div class="col col-xs-12">
                                 <h2>About Us</h2>
                                 <ol class="breadcrumb">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{route('go-home')}}">Home</a></li>
                                     <li>About</li>
                                 </ol>
                             </div>
@@ -45,54 +45,54 @@
         </section>
         <!-- end page-title -->
         <!-- end of hero slider -->
-        <section class="about-section about-section-s2 section-padding p-t-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-md-5">
-                        <div class="video-area">
-                            <img src="{{asset('/assets/images/about.jpg')}}" alt>
-                            <div class="video-holder">
-                                <a href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-md-7">
-                        <div class="about-text">
-                            <div class="section-title">
-                                <div class="thumb-text">
-                                    <span>ABOUT US</span>
-                                </div>
-                                <h2>Khairah is <span>Nonprofit</span> Organization <span>For Help</span> Children.</h2>
-                            </div>
-                            <p>It is a long established fact that a reader will be distracted by thethe readable content off a page when looking at its layout point using Lorem Ipsum is that it has.</p>
-                            <div class="ab-icon-area">
-                                <div class="about-icon-wrap">
-                                    <div class="about-icon-item">
-                                        <div class="ab-icon">
-                                            <img draggable="false" src="{{asset('/assets/images/about/1.png')}}" alt="">
-                                        </div>
-                                        <div class="ab-text">
-                                            <h2><a href="causes-single.html">Save <br> Children.</a></h2>
-                                        </div>
-                                    </div>
-                                    <div class="about-icon-item">
-                                        <div class="ab-icon ab-icon2">
-                                            <img draggable="false" src="{{asset('/assets/images/about/2.png')}}" alt="">
-                                        </div>
-                                        <div class="ab-text">
-                                            <h2><a href="causes-single.html">Fresh And <br> Clean Water.</a></h2>
-                                        </div>
-                                    </div>
+                <!-- end of hero slider -->
+                <section class="about-section about-section-s2 section-padding p-t-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-md-5">
+                                <div class="video-area">
+                                    <img src="{{ asset('assets/images/about/st.jpg') }}" alt height="550px">
+                                    {{-- <div class="video-holder">
+                                        <a href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
+                                    </div> --}}
                                 </div>
                             </div>
+                            <div class="col col-md-7">
+                                <div class="about-text">
+                                    <div class="section-title">
+                                        <div class="thumb-text">
+                                            <span>ABOUT US</span>
+                                        </div>
+                                        <h2>HopeHarbor is <span>Nonprofit</span> Organization <span>For Help</span> schoolchildren.</h2>
+                                    </div>
+                                    <p>HopeHarbor is a passionate nonprofit organization committed to making a positive difference in the lives of schoolchildren. Our mission is to provide hope, support, and opportunities for academic success to underserved students.</p>
+                                    <div class="ab-icon-area">
+                                        <div class="about-icon-wrap">
+                                            <div class="about-icon-item">
+                                                <div class="ab-icon">
+                                                    <img draggable="false" src="{{ asset('assets/images/about/6.png') }}" alt="" style="padding: 6px">
+                                                </div>
+                                                <div class="ab-text">
+                                                    <h2>Save <br> Children.</h2>
+                                                </div>
+                                            </div>
+                                            <div class="about-icon-item">
+                                                <div class="ab-icon ab-icon2">
+                                                    <img draggable="false" src="{{ asset('assets/images/about/4.png') }}" alt="">
+                                                </div>
+                                                <div class="ab-text">
+                                                    <h2>Save <br> Education.</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div> <!-- end container -->
-        </section>
-        <!-- end about-section -->
+                    </div> <!-- end container -->
+                </section>        <!-- end about-section -->
         <!-- features-area start -->
-        <div class="features-area">
+        {{-- <div class="features-area">
             <div class="container">
                 <div class="col-12">
                 </div>
@@ -157,11 +157,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- features-area end -->
 
         <!-- volunteer-area start -->
-        <div class="volunteer-area section-padding">
+        {{-- <div class="volunteer-area section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
@@ -223,8 +223,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- volunteer-area start -->
+        <!-- start testimonials-section-s2 -->
         <!-- start testimonials-section-s2 -->
         <section class="testimonials-section section-padding">
             <div class="container">
@@ -233,54 +234,78 @@
                         <div class="testimonials-slider">
                             <div class="testimonial-thumb-active">
                                 <div class="test-img">
-                                    <img src="{{asset('/assets/images/testimonials/img-1.png')}}" alt="">
+                                    <img src="{{asset('assets/images/team/img (5).png')}} " alt height="450px">
                                 </div>
                                 <div class="test-img">
-                                    <img src="{{asset('/assets/images/testimonials/img-2.png')}}" alt="">
+                                    <img src="{{asset('assets/images/team/img (1).png')}}" alt height="450px">
+                                </div>
+                                <div class="test-img">
+                                    <img src="{{asset('assets/images/team/img (2).png')}}" alt height="450px">
+                                </div>
+                                <div class="test-img">
+                                    <img src="{{asset('assets/images/team/img (6).png')}}" alt height="450px">
+                                </div>
+                                <div class="test-img">
+                                    <img src="{{asset('assets/images/team/img (4).png')}}" alt height="450px">
                                 </div>
                             </div>
                             <div class="testimonial-content-active text-center">
+                                {{-- start --}}
                                 <div class="grid">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><span><i class="fa fa-star"></i></span></li>
-                                        <li><span><i class="fa fa-star"></i></span></li>
-                                    </ul>
-                                    <p>“ There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some
-                                        form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a
-                                        passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden
-                                        in the middle of text all the loss.</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
-                                        <h5>Tawana Blackman</h5>
+                                        <h5>Razan Mustafa</h5>
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
+                                {{-- end --}}
+                                {{-- start --}}
                                 <div class="grid">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><span><i class="fa fa-star"></i></span></li>
-                                        <li><span><i class="fa fa-star"></i></span></li>
-                                    </ul>
-                                    <p>“Dicture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered”</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
-                                        <h5>Michel Jhone</h5>
+                                        <h5>Mohammad Alhouwari</h5>
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
+                                {{-- end --}}
+                                {{-- start --}}
+                                <div class="grid">
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <div class="info">
+                                        <h5>Nooraldeen Aloudat</h5>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                                {{-- end --}}
+                                {{-- start --}}
+                                <div class="grid">
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <div class="info">
+                                        <h5>Raghad Bataineh</h5>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                                {{-- end --}}
+                                {{-- start --}}
+                                <div class="grid">
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <div class="info">
+                                        <h5>Lama Nazzal</h5>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                                {{-- end --}}
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div> <!-- end container -->
             <div class="testi-shape">
-                <img src="{{asset('/assets/images/testimonials/img-3.png')}}" alt="">
+                <img src="{{asset('assets/images/testimonials/img-3.png')}}" alt="">
             </div>
             <div class="testi-shape2">
-                <img src="{{asset('/assets/images/ts.png')}}" alt="">
+                <img src="assets/images/ts.png" alt="">
             </div>
         </section>
         <!-- end testimonials-section-s2 -->
@@ -321,32 +346,24 @@
         </div>
         <!-- .tp-counter-area end -->
         <!-- start partners-section -->
+        <!-- start partners-section -->
         <section class="partners-section section-padding">
             <h2 class="hidden">Partners</h2>
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="partner-grids partners-slider">
+                            @foreach ($Partners as $Partner)
                             <div class="grid">
-                                <img src="{{asset('/assets/images/partners/1.png')}}" alt>
+                                <img src="{{asset($Partner->image)}}" alt>
                             </div>
-                            <div class="grid">
-                                <img src="{{asset('/assets/images/partners/2.png')}}" alt>
-                            </div>
-                            <div class="grid">
-                                <img src="{{asset('/assets/images/partners/3.png')}}" alt>
-                            </div>
-                            <div class="grid">
-                                <img src="{{asset('/assets/images/partners/4.png')}}" alt>
-                            </div>
-                            <div class="grid">
-                                <img src="{{asset('/assets/images/partners/5.png')}}" alt>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div> <!-- end container -->
         </section>
+        <!-- end partners-section -->
         <!-- end partners-section -->
         <!-- start tp-site-footer -->
 

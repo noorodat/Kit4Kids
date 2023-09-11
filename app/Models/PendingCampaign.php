@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Campaign extends Model
+class PendingCampaign extends Model
 {
     public $timestamps = false;
     use HasFactory;
     protected $fillable = [
-        'title',
-        'description',
         'image',
+        'title',
+        'fullName',
+        'email',
+        'phone',
         'target_money',
-        'raised_money',
-        'start_date',
-        'end_date',
-        'active',
+        'description',
+        'user_id',
     ];
 }

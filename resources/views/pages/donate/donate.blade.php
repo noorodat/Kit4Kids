@@ -50,8 +50,11 @@
                                 <span>Donate</span>
                             </div>
                             <h2>Make a Donation</h2>
+                            <div class="image">
+                                <img src="{{asset($kit->image)}}" alt="" width="250px" style="padding: 10px">
+                            </div>
                             <p><b>{{ $kit->title }}</b></p>
-                            <p>{{ $kit->description }}</p>
+                            <p>Price: ${{ $kit->price }}</p>
                         </div>
                         @if (session('success'))
                             <div class="alert alert-success">
@@ -73,9 +76,17 @@
                                 <form action="{{ route('payment') }}" method="POST">
                                     @csrf
                                     <div class="tp-donations-amount">
-                                        <h2>Your Donation</h2>
-                                        <input type="number" class="form-control" name="amount" id="text"
-                                            placeholder="Enter Donation Money Amount">
+                                        <h2>Your Donation (USD)</h2>
+                                        <input type="radio" class="form-control" name="amount" id="donation_option1" value="{{$kit->price}}" checked>
+                                        <label for="donation_option1" style="font-size: 30px">${{$kit->price}}</label>
+                                    </div>
+                                    <div class="tp-donations-amount">
+                                        <h2>Donate with a custom?</h2>
+                                        <input type="radio" class="form-control" name="amount" id="donation_option2" min="10">
+                                        <label for="donation_option2">Donate with a custom amount</label>
+                                        <div id="custom_amount_input" style="display: none;">
+                                            <input type="number" class="form-control"  id="custom_amount" placeholder="Enter Custom Donation Amount" min="{{$kit->price + 1}}">
+                                        </div>
                                     </div>
                                     <div class="tp-donations-details">
                                         <h2>Details</h2>

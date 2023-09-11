@@ -591,6 +591,9 @@
                 note: {
                     required: true, // Make "notes" field required
                     maxlength: 255 // Maximum character limit for notes
+                },
+                subject: {
+                    required: true,
                 }
             },
             messages: {
@@ -728,17 +731,45 @@ $(document).ready(function () {
 let campaignImage = document.getElementById('campaignImage');
 let createCampaignImage = document.querySelector('.createCampaignImage');
 
-createCampaignImage.onchange = () => {
-    if (createCampaignImage.files.length > 0) {
-        // Get the selected file
-        let selectedFile = createCampaignImage.files[0];
+if(createCampaignImage) {
+    createCampaignImage.onchange = () => {
+        if (createCampaignImage.files.length > 0) {
+            // Get the selected file
+            let selectedFile = createCampaignImage.files[0];
 
-        // Create a URL for the selected file
-        let objectURL = URL.createObjectURL(selectedFile);
+            // Create a URL for the selected file
+            let objectURL = URL.createObjectURL(selectedFile);
 
-        // Set the src attribute of campaignImage to the objectURL
-        campaignImage.src = objectURL;
+            // Set the src attribute of campaignImage to the objectURL
+            campaignImage.src = objectURL;
+        }
     }
+}
+
+// Handle donation amount
+const customAmountInput = document.getElementById('custom_amount_input');
+const customAmount = document.getElementById('custom_amount');
+const customAmountRadio = document.getElementById('donation_option2');
+const firstAmountRadio = document.getElementById('donation_option1');
+
+if(customAmountInput) {
+    firstAmountRadio.addEventListener('change', function () {
+        if (this.checked) {
+            customAmountInput.style.display = 'none';
+        }
+    });
+
+    customAmountRadio.addEventListener('change', function () {
+        if (this.checked) {
+            customAmountInput.style.display = 'block';
+        } else {
+            customAmountInput.style.display = 'none';
+        }
+    });
+
+    customAmount.addEventListener('change', () => {
+        customAmountRadio.value = customAmount.value;
+    });
 }
 
 

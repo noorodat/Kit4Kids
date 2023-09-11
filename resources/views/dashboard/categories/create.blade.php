@@ -19,7 +19,7 @@
 <div class="card">
         <div class="card-header">Create new category</div>
         <div class="card-body">
-            <form action="{{ route('CategoryStore') }}" method="POST">
+            <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="title">Title</label>
@@ -47,11 +47,17 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Type </label>
-                    <input type="text" name="type" class="form-control"
+                    {{-- <input type="text" name="type" class="form-control"
                         placeholder="Type">
                         @error('type')
                         <span class="text-danger">{{$message}}</span>
-                        @enderror
+                        @enderror --}}
+                        <br>
+                        <select name="type" id="">
+                            <option value="service">learning</option>
+                            <option value="service">school suplies</option>
+                            <option value="service">service</option>
+                        </select>
                 </div>
             </form>
         </div>

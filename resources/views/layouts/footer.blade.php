@@ -23,10 +23,9 @@
                                 </div>
                                 <ul>
                                     <li><a href="{{route('go-about')}}">About Us</a></li>
-                                    <li><a href="{{ route('go-causes', ['cat_id' => 1]) }}">Our Kits</a></li>
-                                    <li><a href="{{route('go-volunteer')}}">Our Volunteer</a></li>
+                                    <li><a href="{{route('go-volunteer')}}">Start a campaign</a></li>
                                     <li><a href="{{route('go-contact')}}">Contact Us</a></li>
-                                    <li><a href="{{route('go-events')}}">Our Event</a></li>
+                                    <li><a href="{{route('go-events')}}">Campaigns</a></li>
                                 </ul>                            </div>
                         </div>
                         <div class="col col-lg-3 col-lg-offset-1 col-md-3 col-sm-6">

@@ -77,16 +77,9 @@
                         <div class="social-login">
                             <span class="social-label">Or login with</span>
                             <ul style="list-style-type: none; padding-left: 2px; display: inline-block;">
-                                <li style="display: inline-block;"><a
-                                        href="{{ route('auth.socilaite.redirect', 'facebook') }}"><i
-                                            class="fa-brands fa-facebook-f fa-2xl" style="color: #478bff;"></i></i></a>
-                                </li>
-                                <li style="display: inline-block;padding-left:15px;"><a
-                                        href="{{ route('auth.socilaite.redirect', 'github') }}"><i
-                                            class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
-                                <li style="display: inline-block; padding-left:15px;"><a
-                                        href="{{ route('auth.socilaite.redirect', 'google') }}"><i
-                                            class="fa-brands fa-github fa-2xl"></i></a></li>
+                                <li style="display: inline-block;"><a href="{{ route('auth.socilaite.redirect', 'facebook') }}"><i class="fa-brands fa-facebook-f fa-2xl" style="color: #478bff;"></i></i></a></li>
+                                <li style="display: inline-block;padding-left:15px;"><a href="{{ route('auth.socilaite.redirect', 'github') }}"><i class="fa-brands fa-github fa-2xl"></i></a></li>
+                                <li style="display: inline-block; padding-left:15px;"><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
                             </ul>
                         </div>
 

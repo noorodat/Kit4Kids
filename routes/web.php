@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\SocialLoginController;
-
+use App\Http\Controllers\categoryController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
 
@@ -74,7 +74,15 @@ Route::get('pages/causes/{cat_id}/{kit}/cause-single', [KitController::class, 's
 Route::get('pages/contact', [ContactController::class, 'contact'])->name('go-contact');
 Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('contact.send');
 
-// Donate us page
+// Donate pages (if not logged in redirect to login)
+
+Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
+    ->name('go-donate')
+    ->middleware(['auth']);
+
+Route::get('pages/events/{campaign}/donate', [CampaignController::class, 'goDonate'])
+->name('go-donate-campaign')
+->middleware(['auth']);
 
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
 
@@ -96,11 +104,15 @@ Route::get('pages/events}', [CampaignController::class, 'index'])->name('go-even
 // Event-single page
 Route::get('pages/events/{campaign}/event-single', [CampaignController::class, 'showSingleCampaign'])->name('go-event-single');
 
+// Send Pending Campaign Route
+Route::post('/pages', [CampaignController::class, 'sendPendingCampaign'])->name('sendData');
 
 // Volunteer page
 Route::get('pages/volunteer', function () {
     return view('pages.volunteer.volunteer');
-})->name('go-volunteer');
+})->name('go-volunteer')
+->middleware(['auth']);
+
 Route::get('/tables', function () {
     return view('dashboard.dashboard_layouts.tables');
 });
@@ -108,27 +120,21 @@ Route::get('/tables', function () {
 
 /* ---------------END PAGES ROUTES--------------- */
 
-// ------ START Routes for DASHBOARD --------------------------------
+/* ---------------START Routes for DASHBOARD--------------- */
 Route::get('/users', function () {
     return view('dashboard.users.index');
 })->name('dashboard.users.index');
 
 
-// Route::get('/admins', function () {
-//     return view('dashboard.admins.index');
-// })->name('dashboard.admins.index');
-
-// Route::get('/admins.create', function () {
-//     return view('dashboard.admins.create');
-// })->name('dashboard.admins.create');
-
-// Route::get('/admin_index', [AdminController::class, 'index'])->name('dashboard.admins.index');
-
-// Route:: view('dashboardadmins' , 'dashboard.admins.index');
-
 Route::resource('admins', AdminController::class);
 
+Route::resource('dashboard/categories', CategoryController::class );
+
 Route::resource('campaigns', CampaignController::class);
+
+Route::get('dashboard/campaigns/indexcampaign',[CampaignController::class,'indexcampaign'])->name('gocampaigns');
+
+Route::resource('kits', KitController::class);
 
 Route::resource('dashboard/donations', DonationController::class);
 
@@ -138,14 +144,6 @@ Route::resource('dashboard/users', ProfileController::class);
 //     return view('dashboard.categories.index');
 // })->name('dashboard.categories.index');
 
-
-// Route::get('/campaign', function () {
-//     return view('dashboard.campaign.index');
-// })->name('dashboard.campaign.index');
-
-// Route::get('/donations', function () {
-//     return view('dashboard.donations.index');
-// })->name('dashboard.donations.index');
 
 Route::get('/kits', function () {
     return view('dashboard.kits.index');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
 use App\Models\Payment;
+use App\Models\User;
+use App\Models\Campaign;
 
 class PaymentController extends Controller
 {
@@ -22,11 +24,15 @@ class PaymentController extends Controller
     public function pay(Request $request)
     {
 
+
         session(['UserId' => $request->UserId]);
+        session(['type' => $request->type]);
         session(['kit' => $request->kit]);
         session(['UserPhone' => $request->phone]);
         session(['UserAdress' => $request->adress]);
         session(['UserMessage' => $request->message]);
+        session(['amount' => $request->amount]);
+        session(['campaign_id'  => $request->campaign_id]);
 
         try {
 
@@ -47,6 +53,9 @@ class PaymentController extends Controller
                 session()->forget('UserPhone');
                 session()->forget('UserAdress');
                 session()->forget('UserMessage');
+                session()->forget('type');
+                session()->forget('amount');
+                session()->forget('campaign_id');
 
                 // return $response->getMessage();
                 return redirect()->route('go-donate', ['kit' => session('kitID')])->with('error', $response->getMessage());
@@ -75,16 +84,31 @@ class PaymentController extends Controller
                 $arr = $response->getData();
 
                 $payment = new Payment();
-                $payment->donater_id = session('UserId');
-                $payment->donater_kit = session('kit');
-                $payment->donater_phone = session('UserPhone');
-                $payment->donater_address = session('UserAdress');
-                $payment->donater_message = session('UserMessage');
-                $payment->amount = $arr['transactions'][0]['amount']['total'];
-                $payment->currency = env('PAYPAL_CURRENCY');
 
+                    $payment->donater_id = session('UserId');
+                    $payment->donater_kit = session('kit');
+                    $payment->donater_phone = session('UserPhone');
+                    $payment->donater_address = session('UserAdress');
+                    $payment->donater_message = session('UserMessage');
+                    $payment->amount = $arr['transactions'][0]['amount']['total'];
+                    $payment->currency = env('PAYPAL_CURRENCY');
 
-                $payment->save();
+                    $payment->save();
+
+                    if (session('type') == 'campaign') {
+                        $campaignId = session('campaign_id'); // Assuming you have a session variable for campaign_id
+                        $amountToAdd = session('amount'); // Assuming you have a session variable for amount
+
+                        // Find the campaign by campaign_id
+                        $campaign = Campaign::find($campaignId);
+
+                        if ($campaign) {
+                            // Update the raised_money column
+                            $campaign->raised_money += $amountToAdd;
+                            $campaign->save();
+
+                        }
+                    }
 
 
                 session()->forget('UserId');
@@ -92,9 +116,13 @@ class PaymentController extends Controller
                 session()->forget('UserPhone');
                 session()->forget('UserAdress');
                 session()->forget('UserMessage');
+                session()->forget('type');
+                session()->forget('amount');
+                session()->forget('campaign_id');
+
 
                 // return redirect()->route('go-donate')->with('success', 'Payment is Successful.');
-                return redirect()->route('go-donate', ['kit' => session('kitID')])->with('success', 'Payment is Successful.');
+                return redirect()->route('go-home')->with('success', 'Payment is Successful.');
 
 
             } else {
@@ -113,6 +141,62 @@ class PaymentController extends Controller
     {
         // return 'User declined the payment !!';
         return redirect()->route('go-donate', ['kit' => session('kitID')])->with('error', 'User declined the payment !!');
+    }
 
+
+    public function index()
+    {
+        $payments=Payment::all();
+        $users=User::all();
+
+        return view ('dashboard/payments/index', compact('payments', 'users'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+
+
+
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Payment $payment)
+    {
+
+    }
+
+
+    public function edit($id)
+    {
+        // $kits = Kit::findOrFail($id);
+
+        // return view('dashboard.kits.edit', compact('kits'));
+    }
+
+
+    public function update()
+    {
+
+
+    }
+
+    public function destroy($id)
+    {
+
+        // Kit::destroy($id);
+        // return back()->with('success', ' deleted successfully.');
     }
 }

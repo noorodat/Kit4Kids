@@ -772,7 +772,13 @@ if(customAmountInput) {
     });
 }
 
+// Change raised money color when it reaches the target goal
+const target_money = document.querySelectorAll('.target_money');
+const raised_money = document.querySelectorAll('.raised_money');
 
+if(target_money && raised_money) {
+    
+}
 
 
 

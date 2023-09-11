@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
@@ -279,8 +279,8 @@
                                 <div class="event-right">
                                     <ul>
                                         <li>End Date:{{ $campaign->end_date }}</li>
-                                        <li>Target Money: ${{ $campaign->target_money }}</li>
-                                        <li style="margin-left:30px; ">Raised Money: ${{ $campaign->raised_money }}</li>
+                                        <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
+                                        <li style="margin-left:30px;" class="raised_money">Raised Money: ${{ $campaign->raised_money }}</li>
                                     </ul>
                                     <div class="time-left">
                                         <span>Time left:</span>

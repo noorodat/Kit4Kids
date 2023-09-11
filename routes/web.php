@@ -11,6 +11,8 @@ use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PendingCampaignController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,9 +81,9 @@ Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('con
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
     ->name('go-donate');
 
-Route::get('pages/events/{campaign}/donate', [CampaignController::class, 'goDonate'])
-->name('go-donate-campaign')
-->middleware(['auth']);
+    Route::get('pages/events/{campaign}/donate-supplies', [CampaignController::class, 'goDonate'])
+    ->name('go-donate-campaign')
+    ->middleware(['auth']);
 
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
 
@@ -104,7 +106,7 @@ Route::get('pages/events}', [CampaignController::class, 'index'])->name('go-even
 Route::get('pages/events/{campaign}/event-single', [CampaignController::class, 'showSingleCampaign'])->name('go-event-single');
 
 // Send Pending Campaign Route
-Route::post('/pages', [CampaignController::class, 'sendPendingCampaign'])->name('sendData');
+Route::post('/pages', [PendingCampaignController::class, 'sendPendingCampaign'])->name('sendData');
 
 // Volunteer page
 Route::get('pages/volunteer', function () {
@@ -133,9 +135,13 @@ Route::resource('campaigns', CampaignController::class);
 
 Route::get('dashboard/campaigns/indexcampaign',[CampaignController::class,'indexcampaign'])->name('gocampaigns');
 
-Route::resource('kits', KitController::class);
+Route::resource('dashboard/kits', KitController::class);
 
 Route::resource('dashboard/donations', DonationController::class);
+
+Route::resource('dashboard/partners', PartnerController::class);
+
+Route::resource('dashboard/payments', PaymentController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 

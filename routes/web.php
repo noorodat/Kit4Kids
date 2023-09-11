@@ -86,6 +86,16 @@ Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
     ->name('go-donate-campaign')
     ->middleware(['auth']);
 
+
+
+Route::view('/donate/supplies', 'pages/donate/donate-eyes');
+Route::post('/donate/supplies', [DonationController::class, 'store'])->name('supplies');
+
+
+
+
+
+
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
 
 Route::get('donatelogin', function () {

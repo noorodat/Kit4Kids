@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,9 +121,13 @@ Route::resource('campaigns', CampaignController::class);
 
 Route::get('dashboard/campaigns/indexcampaign',[CampaignController::class,'indexcampaign'])->name('gocampaigns');
 
-Route::resource('kits', KitController::class);
+Route::resource('dashboard/kits', KitController::class);
 
 Route::resource('dashboard/donations', DonationController::class);
+
+Route::resource('dashboard/partners', PartnerController::class);
+
+Route::resource('dashboard/payments', PaymentController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Partner;
 use Illuminate\Http\Request;
 
@@ -12,7 +11,10 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        //
+
+        $partners=Partner::all();
+        return view ('dashboard/partners/index', compact('partners'));
+
     }
 
     /**
@@ -20,7 +22,8 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.partners.create');
+
     }
 
     /**
@@ -28,7 +31,20 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $partners = new Partner();
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $partners->image = $imageName;
+
+        }
+
+        $partners->save();
+
+        return redirect()->route('partners.index')->with('success', 'Kit created successfully');
     }
 
     /**
@@ -58,8 +74,10 @@ class PartnerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Partner $partner)
+    public function destroy($id)
     {
-        //
+        
+        Partner::destroy($id);
+        return back()->with('success', ' deleted successfully.');
     }
 }

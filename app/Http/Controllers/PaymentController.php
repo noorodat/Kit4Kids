@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
 use App\Models\Payment;
+use App\Models\User;
 
 class PaymentController extends Controller
 {
@@ -114,5 +115,62 @@ class PaymentController extends Controller
         // return 'User declined the payment !!';
         return redirect()->route('go-donate', ['kit' => session('kitID')])->with('error', 'User declined the payment !!');
 
+    }
+
+
+    public function index()
+    {
+        $payments=Payment::all();
+        $users=User::all();
+
+        return view ('dashboard/payments/index', compact('payments', 'users'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+       
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+    
+
+      
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Payment $payment)
+    {
+        
+    }
+
+   
+    public function edit($id)
+    {
+        // $kits = Kit::findOrFail($id);
+
+        // return view('dashboard.kits.edit', compact('kits'));
+    }
+
+    
+    public function update()
+    {
+       
+      
+    }
+
+    public function destroy($id)
+    {
+
+        // Kit::destroy($id);
+        // return back()->with('success', ' deleted successfully.');
     }
 }

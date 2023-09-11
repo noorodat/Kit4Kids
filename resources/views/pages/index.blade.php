@@ -35,11 +35,13 @@
                                     <h2>Helping hands, happy hearts.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>Join our dedicated team of volunteers and make a difference in the lives of students.</p>
+                                    <p>Join our dedicated team of volunteers and make a difference in the lives of students.
+                                    </p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
+                                            aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">
@@ -47,6 +49,81 @@
                             </div>
                         </div> <!-- end slide-inner -->
                     </div> <!-- end swiper-slide -->
+
+
+
+                    @if (session('success'))
+                        <style>
+                            .popup-warning {
+                                position: fixed;
+                                top: 15%;
+                                left: 40%;
+                                background-color: #19be03;
+                                color: #ffffff;
+                                padding: 20px 30px;
+                                border-radius: 5px;
+                                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+                                opacity: 1;
+                                transition: opacity 0.5s ease-in-out;
+                            }
+                            .popup-warning.fade-out {
+                                opacity: 0;
+                            }
+                        </style>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var alert = document.createElement('div');
+                                alert.className = 'popup-warning';
+                                alert.textContent = "{{ session('success') }}";
+                                document.body.appendChild(alert);
+
+                                setTimeout(function() {
+                                    alert.classList.add('fade-out');
+                                }, 5000);
+
+                                setTimeout(function() {
+                                    alert.remove();
+                                }, 10000);
+                            });
+                        </script>
+                    @endif
+                    @if (session('error'))
+                        <style>
+                            .popup-warning {
+                                position: fixed;
+                                top: 15%;
+                                left: 40%;
+                                background-color: #b90019;
+                                color: #ffffff;
+                                padding: 20px 30px;
+                                border-radius: 5px;
+                                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+                                opacity: 1;
+                                transition: opacity 0.5s ease-in-out;
+                            }
+                            .popup-warning.fade-out {
+                                opacity: 0;
+                            }
+                        </style>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var alert = document.createElement('div');
+                                alert.className = 'popup-warning';
+                                alert.textContent = "{{ session('error') }}";
+                                document.body.appendChild(alert);
+
+                                setTimeout(function() {
+                                    alert.classList.add('fade-out');
+                                }, 5000);
+
+                                setTimeout(function() {
+                                    alert.remove();
+                                }, 10000);
+                            });
+                        </script>
+                    @endif
+
+
                     <div class="swiper-slide">
                         <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider6.jpg">
                             <div class="container">
@@ -57,11 +134,13 @@
                                     <h2>Volunteers inspire greatness.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>"Help shape the future of our students through your valuable contributions as a volunteer.</p>
+                                    <p>"Help shape the future of our students through your valuable contributions as a
+                                        volunteer.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
+                                            aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">
@@ -83,7 +162,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    <a href="#" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
+                                            aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
@@ -116,14 +196,18 @@
                                 <div class="thumb-text">
                                     <span>ABOUT US</span>
                                 </div>
-                                <h2>HopeHarbor is <span>Nonprofit</span> Organization <span>For Help</span> schoolchildren.</h2>
+                                <h2>HopeHarbor is <span>Nonprofit</span> Organization <span>For Help</span> schoolchildren.
+                                </h2>
                             </div>
-                            <p>HopeHarbor is a passionate nonprofit organization committed to making a positive difference in the lives of schoolchildren. Our mission is to provide hope, support, and opportunities for academic success to underserved students.</p>
+                            <p>HopeHarbor is a passionate nonprofit organization committed to making a positive difference
+                                in the lives of schoolchildren. Our mission is to provide hope, support, and opportunities
+                                for academic success to underserved students.</p>
                             <div class="ab-icon-area">
                                 <div class="about-icon-wrap">
                                     <div class="about-icon-item">
                                         <div class="ab-icon">
-                                            <img draggable="false" src="assets/images/about/6.png" alt="" style="padding: 6px">
+                                            <img draggable="false" src="assets/images/about/6.png" alt=""
+                                                style="padding: 6px">
                                         </div>
                                         <div class="ab-text">
                                             <h2>Save <br> Children.</h2>
@@ -155,15 +239,17 @@
                         <h2 class="donate-categories">How do you want to help?</h2>
                         <div class="features-wrap">
                             <div class="row">
-                                @foreach($catagories as $catagory)
+                                @foreach ($catagories as $catagory)
                                     <a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                             <div class="features-item">
                                                 <div class="features-icon">
-                                                    <img draggable="false" src="{{$catagory->image}}" alt="">
+                                                    <img draggable="false" src="{{ $catagory->image }}" alt="">
                                                 </div>-
                                                 <div class="features-content">
-                                                    <h2><a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">{{$catagory->title}}</a></h2>
+                                                    <h2><a
+                                                            href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">{{ $catagory->title }}</a>
+                                                    </h2>
                                                 </div>
                                                 {{-- <div class="features-text1">{{$kit->description}}</div> --}}
                                             </div>
@@ -186,35 +272,40 @@
                             <span>KITS</span>
                         </div>
                         <h2>Popular kits of HopeHarbor.</h2>
-                        <p>Explore our selection of popular kits designed for volunteers who want to make a meaningful impact. These volunteer packages include essential resources and tools to support your volunteering efforts. Join us in making a difference in the community!</p>
+                        <p>Explore our selection of popular kits designed for volunteers who want to make a meaningful
+                            impact. These volunteer packages include essential resources and tools to support your
+                            volunteering efforts. Join us in making a difference in the community!</p>
                     </div>
                 </div>
                 <div class="row">
                     @foreach ($kits->take(9) as $kit)
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="{{ asset('assets/images/cause/supply-kit.jpg') }}" alt="">
-                                    <div class="case-btn">
-                                        <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="cause-item">
+                                <div class="cause-top">
+                                    <div class="cause-img">
+                                        <img src="{{ asset('assets/images/cause/supply-kit.jpg') }}" alt="">
+                                        <div class="case-btn">
+                                            <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn">Donate
+                                                Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li>
-                                        <a href="{{ route('go-cause-single',  ['cat_id' => $kit ->category_id  ,'kit' => $kit]) }}">${{ $kit->price }}</a>
-                                    </li>
-                                </ul>
-                                <h3>
-                                    <a href="{{ route('go-cause-single',  ['cat_id' => $kit ->category_id  ,'kit' => $kit]) }}">{{ $kit->title }}</a>
-                                </h3>
-                                <p>{{ $kit->description }}</p>
+                                <div class="cause-text">
+                                    <ul>
+                                        <li>
+                                            <a
+                                                href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}">${{ $kit->price }}</a>
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a
+                                            href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}">{{ $kit->title }}</a>
+                                    </h3>
+                                    <p>{{ $kit->description }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -254,44 +345,49 @@
                                 <span>Campaigns</span>
                             </div>
                             <h2>Campaigns</h2>
-                            <p>Explore our exciting calendar of upcoming events that promise to bring inspiration, education, and joy to our community. </p>
+                            <p>Explore our exciting calendar of upcoming events that promise to bring inspiration,
+                                education, and joy to our community. </p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
                         @foreach ($campaigns as $campaign)
-                        <span class="campaign_id" hidden style="display: none">{{$campaign->id}}</span>
-                        <div class="event-item">
-                            <div class="event-img">
-                                <img src="{{ url($campaign->image) }}" alt="">
-                            </div>
-                            <div class="event-text">
-                                <div class="event-left">
-                                    <div class="event-l-text">
-                                        @php
-                                            $start_date = \Carbon\Carbon::parse($campaign->start_date);
-                                        @endphp
-                                        <span> {{ $start_date->format('F') }}</span>
-                                        <h4> {{ $start_date->format('d') }}</h4>
+                            <span class="campaign_id" hidden style="display: none">{{ $campaign->id }}</span>
+                            <div class="event-item">
+                                <div class="event-img">
+                                    <img src="{{ url($campaign->image) }}" alt="">
+                                </div>
+                                <div class="event-text">
+                                    <div class="event-left">
+                                        <div class="event-l-text">
+                                            @php
+                                                $start_date = \Carbon\Carbon::parse($campaign->start_date);
+                                            @endphp
+                                            <span> {{ $start_date->format('F') }}</span>
+                                            <h4> {{ $start_date->format('d') }}</h4>
+                                        </div>
+                                    </div>
+                                    <div class="event-right">
+                                        <ul>
+                                            <li>End Date:{{ $campaign->end_date }}</li>
+                                            <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
+                                            <li style="margin-left:30px;" class="raised_money">Raised Money:
+                                                ${{ $campaign->raised_money }}</li>
+                                        </ul>
+                                        <div class="time-left">
+                                            <span>Time left:</span>
+                                            <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}"
+                                                data-campaign-id="{{ $campaign->id }}"></h5>
+                                        </div>
+                                        <h2>
+                                            <a
+                                                href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
+                                        </h2>
+                                        <p>{{ $campaign->description }}</p>
                                     </div>
                                 </div>
-                                <div class="event-right">
-                                    <ul>
-                                        <li>End Date:{{ $campaign->end_date }}</li>
-                                        <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
-                                        <li style="margin-left:30px;" class="raised_money">Raised Money: ${{ $campaign->raised_money }}</li>
-                                    </ul>
-                                    <div class="time-left">
-                                        <span>Time left:</span>
-                                        <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
-                                    </div>                                    <h2>
-                                        <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
-                                    </h2>
-                                    <p>{{ $campaign->description }}</p>
-                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -391,7 +487,12 @@
                             <div class="testimonial-content-active text-center">
                                 {{-- start --}}
                                 <div class="grid">
-                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
+                                        support a cause, organization, or community without expecting financial
+                                        compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to
+                                        make a positive impact on the world. They play a crucial role in various sectors,
+                                        including nonprofit organizations, healthcare, education, environmental
+                                        conservation, disaster relief, and more.</p>
                                     <div class="info">
                                         <h5>Razan Mustafa</h5>
                                         <p>Volunteer</p>
@@ -400,7 +501,12 @@
                                 {{-- end --}}
                                 {{-- start --}}
                                 <div class="grid">
-                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
+                                        support a cause, organization, or community without expecting financial
+                                        compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to
+                                        make a positive impact on the world. They play a crucial role in various sectors,
+                                        including nonprofit organizations, healthcare, education, environmental
+                                        conservation, disaster relief, and more.</p>
                                     <div class="info">
                                         <h5>Mohammad Alhouwari</h5>
                                         <p>Volunteer</p>
@@ -409,7 +515,12 @@
                                 {{-- end --}}
                                 {{-- start --}}
                                 <div class="grid">
-                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
+                                        support a cause, organization, or community without expecting financial
+                                        compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to
+                                        make a positive impact on the world. They play a crucial role in various sectors,
+                                        including nonprofit organizations, healthcare, education, environmental
+                                        conservation, disaster relief, and more.</p>
                                     <div class="info">
                                         <h5>Nooraldeen Aloudat</h5>
                                         <p>Volunteer</p>
@@ -418,7 +529,12 @@
                                 {{-- end --}}
                                 {{-- start --}}
                                 <div class="grid">
-                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
+                                        support a cause, organization, or community without expecting financial
+                                        compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to
+                                        make a positive impact on the world. They play a crucial role in various sectors,
+                                        including nonprofit organizations, healthcare, education, environmental
+                                        conservation, disaster relief, and more.</p>
                                     <div class="info">
                                         <h5>Raghad Bataineh</h5>
                                         <p>Volunteer</p>
@@ -427,7 +543,12 @@
                                 {{-- end --}}
                                 {{-- start --}}
                                 <div class="grid">
-                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
+                                    <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
+                                        support a cause, organization, or community without expecting financial
+                                        compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to
+                                        make a positive impact on the world. They play a crucial role in various sectors,
+                                        including nonprofit organizations, healthcare, education, environmental
+                                        conservation, disaster relief, and more.</p>
                                     <div class="info">
                                         <h5>Lama Nazzal</h5>
                                         <p>Volunteer</p>
@@ -537,9 +658,9 @@
                     <div class="col col-xs-12">
                         <div class="partner-grids partners-slider">
                             @foreach ($Partners as $Partner)
-                            <div class="grid">
-                                <img src="{{$Partner->image}}" alt>
-                            </div>
+                                <div class="grid">
+                                    <img src="{{ $Partner->image }}" alt>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -548,4 +669,4 @@
         </section>
         <!-- end partners-section -->
 
-@endsection
+    @endsection

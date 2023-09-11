@@ -121,18 +121,17 @@ class PaymentController extends Controller
                 session()->forget('campaign_id');
 
 
-                // return redirect()->route('go-donate')->with('success', 'Payment is Successful.');
-                return redirect()->route('go-home')->with('success', 'Payment is Successful.');
-
+                // return redirect()->route('go-donate', ['kit' => session('kitID')])->with('success', 'Payment is Successful.');
+                return redirect()->route('go-home')->with('success', 'Payment is Successful, thank you ❤️');
 
             } else {
                 // return $response->getMessage();
-                return redirect()->route('go-donate')->with('error', $response->getMessage());
-
+                // return redirect()->route('go-donate')->with('error', $response->getMessage());
+                return redirect()->route('go-home')->with('error', $response->getMessage());
             }
         } else {
             // return 'Payment is declined !!';
-            return redirect()->route('go-donate', ['kit' => session('kitID')])->with('error', 'Payment is declined !!');
+                return redirect()->route('go-home')->with('error', 'Payment is declined !!');
 
         }
     }
@@ -140,7 +139,7 @@ class PaymentController extends Controller
     public function error()
     {
         // return 'User declined the payment !!';
-        return redirect()->route('go-donate', ['kit' => session('kitID')])->with('error', 'User declined the payment !!');
+        return redirect()->route('go-home')->with('error', 'User declined the payment !!');
     }
 
 

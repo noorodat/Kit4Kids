@@ -146,7 +146,7 @@ Route::resource('dashboard/payments', PaymentController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 
-Route::resource('dashboard/pindingcampaign', PendingCampaignController::class);
+Route::resource('dashboard/pendingcampaign', PendingCampaignController::class)->names('pendingCampaignTest');
 
 
 // Route::get('/categories', function () {

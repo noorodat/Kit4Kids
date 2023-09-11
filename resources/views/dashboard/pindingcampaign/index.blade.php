@@ -42,8 +42,7 @@
                             <th>Campaign Title</th>
                             <th>Campaign description</th>
                             <th class="text-center">target_money</th>
-                            <th>end_date</th>
-                            <th>Approve or decline</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,15 +52,23 @@
                         @foreach ($pendingcampaigns as $pendingcampaign)
                         <tr>
                             <th scope="row">{{$i}}</th>
-                            <td><img src="{{ url('/images/' . $pendingcampaign->image) }}" alt=""
-                                    width="70%"></td>
-                            <td>{{$pendingcampaign->title}}</td>
-                            <td>{{$pendingcampaign->description}}</td>
+                            <td><img src="{{ url('/images/' . $pendingcampaign->image) }}" alt="" width=""></td>
+                            <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->title}}</td>
+                            <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->description}}</td>
                             <td>{{$pendingcampaign->target_money}}</td>
-                            <td>{{$pendingcampaign->end_date}}</td>
-                            <td class="project-actions text-right">
-                                
-                                {{-- <form action="{{route('pendingcampaign.destroy',$pendingcampaign->id)}}"
+
+                            <td class="project-actions text-right" style="display: flex; flex-direction:column; gap:10px">
+                                <form action="{{route('pendingCampaignTest.store',$pendingcampaign->id)}}"
+                                method="POST" style="display: inline;" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="pending_campaign_id" value="{{ $pendingcampaign->id }}">
+
+                                <label for="end_date">end date</label>
+                                <input type="date" name="end_date" id="end_date">
+                                <button type="submit" class="btn btn-success"
+                                    onclick="return confirm('Are you sure you want to delete this Category?')">Approve</button>
+                            </form>
+                                {{-- <form action="{{route('pindingcampaign.destroy',$pendingcampaign->id)}}"
                                     method="POST" style="display: inline;">
                                     @method('DELETE')
                                     @csrf
@@ -76,6 +83,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                
             </div>
         </div>
         <!-- /.card-body -->

@@ -31,14 +31,14 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-        
+
         $request->session()->regenerate();
 
-        if (session('Donate_login')) {
-            return redirect()->route('go-donate', ['kit' => session('Donate_login')]);
+        if (session('currenturl')) {
+            return redirect(session('currenturl'));
         }
-        
- 
+
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -52,6 +52,11 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+
+        if (session('currenturl')) {
+            return redirect(session('currenturl'));
+        }
 
         // return redirect('w');
         return redirect('/pages');

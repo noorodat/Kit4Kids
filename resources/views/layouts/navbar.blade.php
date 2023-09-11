@@ -63,7 +63,7 @@
                         </ul>
                     </div><!-- end of nav-collapse -->
                     <div class="cart-search-contact">
-                        <div class="header-search-form-wrapper">
+                        {{-- <div class="header-search-form-wrapper">
                             <button class="search-toggle-btn"><i class="fi flaticon-magnifying-glass"></i></button>
                             <div class="header-search-form">
                                 <form>
@@ -73,7 +73,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="vollenter-btn">
                             <a class="theme-btn-s2" href="{{route('go-volunteer')}}">Start a campaign</a>
                         </div>
@@ -110,3 +110,7 @@
             </nav>
         </header>
         <!-- end of header -->
+@php
+    $currenturl = url()->full();
+    session(['currenturl' => $currenturl]);
+@endphp

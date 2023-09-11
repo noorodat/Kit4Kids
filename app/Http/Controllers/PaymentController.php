@@ -85,7 +85,7 @@ class PaymentController extends Controller
 
                 $payment = new Payment();
 
-                    $payment->donater_id = session('UserId');
+                    $payment->user_id = session('UserId');
                     $payment->donater_kit = session('kit');
                     $payment->donater_phone = session('UserPhone');
                     $payment->donater_address = session('UserAdress');
@@ -145,20 +145,10 @@ class PaymentController extends Controller
 
     public function index()
     {
+        $paymentsWithUsers = Payment::with('user')->get();
 
-        // $user = User::all(); // Replace $userId with the actual user ID you want to retrieve payments for.
 
-        // // Get the payments associated with the user
-        // $payments = $user->payments;
-    
-        // return view('dashboard/payments/index', ['user' => $user, 'payments' => $payments]);
-    
-
-        $payments=Payment::all();
-        $users=User::all();
-        
-
-        return view ('dashboard/payments/index', compact('payments', 'users'));
+        return view('dashboard/payments/index', compact('paymentsWithUsers'));
     }
 
     /**

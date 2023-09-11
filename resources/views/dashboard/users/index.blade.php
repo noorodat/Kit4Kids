@@ -33,22 +33,16 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th style="width: 1%">
+                    <th>
                         #
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         User Name
                     </th>
-                    <th style="width: 30%">
+                    <th>
                         User Email
                     </th>
                     <th>
-                       User Password
-                    </th>
-                    {{-- <th style="width: 8%" class="text-center">
-                        Status
-                    </th> --}}
-                    <th style="width: 10%">
                         Action
                     </th>
                 </tr>
@@ -62,17 +56,16 @@
                     <th scope="row">{{$i}}</th>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->password}}</td>
-                    <td class="project-actions text-right">
+                    <td class="project-actions text-right" style="display: flex; justify-contnet:center">
 
                       <form action="{{route('users.destroy',$user->id)}}"  method="POST"  style="display: inline;">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger"
-                        onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>            
+                        onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
                       </form>
-                       
-                      
+
+
                     </td>
                 </tr>
                 @endforeach

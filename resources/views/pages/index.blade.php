@@ -362,7 +362,7 @@
                             <span class="campaign_id" hidden style="display: none">{{ $campaign->id }}</span>
                             <div class="event-item">
                                 <div class="event-img">
-                                    <img src="{{ url($campaign->image) }}" alt="">
+                                    <img src="{{ url('/images/' . $campaign->image) }}" alt="" width="300px">
                                 </div>
                                 <div class="event-text">
                                     <div class="event-left">

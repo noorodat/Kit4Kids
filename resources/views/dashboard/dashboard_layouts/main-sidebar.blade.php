@@ -3,23 +3,23 @@
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
           <img src="{{ asset('dashboard-assets/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          
+
           <span class="brand-text font-weight-light">HopeHarbor</span>
         </a>
-    
+
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
               <img src="{{ asset('dashboard-assets/img/body.png') }}" class="img-circle elevation-2" alt="User Image">
-              
+
             </div>
             <div class="info">
               <a href="#" class="d-block">Admin name should be here</a>
             </div>
           </div>
-    
+
           <!-- SidebarSearch Form -->
           <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
@@ -31,7 +31,7 @@
               </div>
             </div>
           </div>
-    
+
           <!-- Sidebar Menu -->
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -52,13 +52,13 @@
                       <p>website home</p>
                     </a>
                   </li>
-                 
-                 
+
+
                 </ul>
               </li>
-             
+
               <li class="nav-item">
-             
+
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="pages/layout/top-nav.html" class="nav-link">
@@ -110,33 +110,33 @@
                   </li>
                 </ul>
               </li>
-           
-                 
-             
-            
-        
+
+
+
+
+
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/dashboard/users#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/users" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                     <p>Users</p>
                 </a>
             </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/admins#" class="nav-link">
+                <a href="http://127.0.0.1:8000/admins" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Admins</p>
                 </a>
-               
+
               </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/dashboard/categories#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/categories" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Categories
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-               
+
               </li>
               <li class="nav-item">
                 <a href="{{route('gocampaigns')}}" class="nav-link">
@@ -146,7 +146,7 @@
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-               
+
               </li>
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/dashboard/donations" class="nav-link">
@@ -156,37 +156,37 @@
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-               
+
               </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/dashboard/kits#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/kits" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Kits
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-               
+
               </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/dashboard/partners#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/partners" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Partners
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-               
+
               </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/dashboard/payments#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/payments" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Payments
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-               
+
               </li>
               <li class="nav-item">
                 <a href="{{route('pendingCampaignTest.index')}}" class="nav-link">
@@ -196,10 +196,10 @@
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-               
+
               </li>
-              
-            
+
+
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon far fa-envelope"></i>
@@ -229,9 +229,9 @@
                   </li>
                 </ul>
               </li>
-            
-             
-            
+
+
+
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
@@ -247,10 +247,10 @@
                       <p>General Elements</p>
                     </a>
                   </li>
-                
+
                 </ul>
               </li>
-          
+
           </nav>
           <!-- /.sidebar-menu -->
         </div>

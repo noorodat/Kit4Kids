@@ -41,16 +41,16 @@
                 <label for="category">Choose category:</label>
 
                 <select name="category_id" id="category" class="form-control">
-                    @foreach ($kits as $kit)
-                        <option value="{{ $kits->categories?->name }}"></option>
+                    <option value="$kits->category->id">{{$kits->category->title}}</option>
+                    @foreach ($categories as $category)
+                    @if($kits->category->id != $category->id)
+                        <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endif
                     @endforeach
                 </select>
-                <input type="hidden" value="{{ $kits->categories?->id }}"name="category_id">
             </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
-
-
 
 @endsection
 

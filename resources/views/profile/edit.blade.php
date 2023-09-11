@@ -45,7 +45,7 @@
                                     <tr>
                                         <td>{{ $payment->donater_kit }}</td>
                                         <td>{{ $payment->donater_message }}</td>
-                                        <td>{{ $payment->Amount }}</td>
+                                        <td>${{ $payment->Amount }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -63,7 +63,7 @@
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg mt-6 space-y-6 tp-donations-details" style="width: 80%; margin: 0 auto; text-align: center;">
                 <div class="max-w-xl">
                     <h2 class="text-lg font-medium text-gray-900">
-                        {{ __('Your Donations') }}
+                        {{ __('Your donated supplies') }}
                     </h2>
                     @if (count($donations) > 0)
                         <table>
@@ -85,7 +85,7 @@
                             </tbody>
                         </table>
                     @else
-                        <p>No donations found.</p>
+                        <p>No supplies found.</p>
                     @endif
                     </table>
                 </div>

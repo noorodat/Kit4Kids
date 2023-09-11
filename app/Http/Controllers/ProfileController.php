@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Donation;
+use App\Models\Payment;
 
 
 
@@ -34,10 +35,12 @@ class ProfileController extends Controller
     {
         $id = Auth::id();
         $donations = Donation::where('user_id', $id)->get();
+        $payments = Payment::where('donater_id', $id)->get();
     
         return view('profile.edit', [
             'user' => $request->user(),
             'donations'=>$donations,
+            'payments'=>$payments,
         ]);
     }
 

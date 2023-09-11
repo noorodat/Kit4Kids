@@ -42,23 +42,23 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">Hope<span>Harbor.</span></a>
+                        <a style="margin-right:40px; " class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">Hope<span>Harbor.</span></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>
                         <ul class="nav navbar-nav">
                             <li class="menu-item-has-children">
-                                <a class="active" href="{{route('go-home')}}">Home</a>
+                                <a @yield('home') href="{{route('go-home')}}" style="margin-right:20px; ">Home</a>
                             </li>
-                            <li><a href="{{route('go-about')}}">About</a></li>
+                            <li><a @yield('about') href="{{route('go-about')}}">About</a></li>
                             {{-- <li class="menu-item-has-children">
                                 <li><a href="{{ route('go-causes', ['cat_id' => 1]) }}">Kits</a></li>
                             </li> --}}
                             <li class="menu-item-has-children">
-                                <a href="{{route('go-events')}}">Campaigns</a>
+                                <a @yield('event') href="{{route('go-events')}}">Campaigns</a>
                             </li>
                             <li>
-                                <a href="{{route('go-contact')}}">Contact Us</a>
+                                <a @yield('contact') href="{{route('go-contact')}}">Contact Us</a>
                             </li>
                         </ul>
                     </div><!-- end of nav-collapse -->

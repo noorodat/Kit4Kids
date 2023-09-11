@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
 @section('title', 'Contact')
-
+@section('contact')
+ class="active"
+@endsection
 @section('content')
 
 

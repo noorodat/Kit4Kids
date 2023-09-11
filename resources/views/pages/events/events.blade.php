@@ -2,6 +2,10 @@
 
 @section('title', 'Events')
 
+@section('event')
+ class="active"
+@endsection
+
 @section('content')
 
 
@@ -32,7 +36,7 @@
                             <div class="col col-xs-12">
                                 <h2>Campaigns</h2>
                                 <ol class="breadcrumb">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{route('go-home')}}">Home</a></li>
                                     <li>Events</li>
                                 </ol>
                             </div>

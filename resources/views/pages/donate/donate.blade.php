@@ -72,6 +72,7 @@
 
                             @if (Auth::id())
                                 {{ session()->forget('Donate_login') }}
+                                {{-- {{dd(session('Donate_login'))}} --}}
 
                                 <form action="{{ route('payment') }}" method="POST">
                                     @csrf
@@ -94,19 +95,20 @@
 
                                             <input type="hidden" id="" name="UserId" value="{{ Auth::id() }}">
                                             <input type="hidden" id="" name="kit" value="{{ $kit->title }}">
+                                            <input type="hidden" id="" name="type" value="kit">
 
 
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                 <input type="number" class="form-control" name="phone" id="phone"
-                                                    placeholder="Phone">
+                                                    placeholder="Phone" required>
                                             </div>
 
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                 <input type="text" class="form-control" name="adress" id="Adress"
-                                                    placeholder="Adress">
+                                                    placeholder="Adress" required>
                                             </div>
                                             <div class="col-lg-12 col-12 form-group">
-                                                <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
+                                                <textarea required class="form-control" name="message" id="message" placeholder="Message"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -175,6 +177,8 @@
                                 </form>
                             @else
                                 {{ session(['Donate_login' => $kit]) }}
+                                {{-- {{dd(session('Donate_login'))}} --}}
+
                                 {{-- return redirect()->route('login')->with('warning', 'Please login to continue donating.'); --}}
                                 <div class="tp-donations-amount " style="text-align: center;">
                                     <h2 class="mx-auto" style="color: red;">please login to continue</h2>
@@ -193,10 +197,10 @@
 @endsection
 
 
-{{-- 
-    
+{{--
+
             if (session('Donate_login')) {
             return redirect()->route('go-donate', ['kit' => session('Donate_login')]);
         }
-    
+
     --}}

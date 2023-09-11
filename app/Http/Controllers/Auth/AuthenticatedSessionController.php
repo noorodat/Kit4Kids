@@ -17,6 +17,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
+        if (session('Donate_login')) {
+            return redirect()->route('go-donate', ['kit' => session('Donate_login')]);
+        }
+
         return view('auth.login');
     }
 
@@ -29,6 +33,10 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         
         $request->session()->regenerate();
+
+        if (session('Donate_login')) {
+            return redirect()->route('go-donate', ['kit' => session('Donate_login')]);
+        }
         
  
         return redirect()->intended(RouteServiceProvider::HOME);

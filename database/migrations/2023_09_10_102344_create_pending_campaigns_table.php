@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pending_campaigns', function (Blueprint $table) {
             $table->id();
-            $table->binary('image');
+            $table->string('image');
             $table->string('title');
             $table->string('fullName');
             $table->string('email');

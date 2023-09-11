@@ -776,5 +776,3 @@ if(customAmountInput) {
 
 
 
-
-

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
-use App\Models\PendingCampaign;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 
 
 class CampaignController extends Controller
@@ -36,10 +35,6 @@ class CampaignController extends Controller
         $moreCampaigns = Campaign::where('id', '!=', $campaign->id)->inRandomOrder()->limit(3)->get();
         // Return a view with the campaign data
         return view('pages.events.event-single.event-single', ['campaign' => $campaign, 'moreCampaigns' => $moreCampaigns]);
-    }
-
-    public function sendCampaignToAdmin(Request $request) {
-
     }
 
     /**
@@ -108,44 +103,12 @@ class CampaignController extends Controller
 
         return redirect()->route('gocampaigns')->with('success', 'Campaign created successfully');
     }
-
     public function goDonate(Campaign $campaign)
     {
         session(['donationType' => 'campaign']);
         session(['campaign' => $campaign]);
-        return view('pages.donate.donate', ['campaign' => $campaign]);
+        return view('pages.donate.donate-supplies', ['campaign' => $campaign]);
     }
-
-    // Send pending campaign function
-    public function sendPendingCampaign(Request $request)
-    {
-
-        $campaign = new PendingCampaign();
-        // Get the currently authenticated user's ID
-        $userId = Auth::id();
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageData = file_get_contents($image); // Read the binary image data
-            $campaign->image = $imageData;
-        } else {
-            $campaign->image = null;
-        }
-
-        $campaign->title = $request->input('subject');
-        $campaign->fullName = $request->input('name');
-        $campaign->email = $request->input('email');
-        $campaign->phone = $request->input('phone');
-        $campaign->target_money	= $request->input('targetMoney');
-        $campaign->description	= $request->input('note');
-        $campaign->user_id	= $userId;
-
-        $campaign->save();
-
-        // Redirect to the "go-home" route with a success message
-        return redirect()->route('go-home')->with('success', 'Campaign saved successfully.');
-    }
-
 
     /**
      * Display the specified resource.

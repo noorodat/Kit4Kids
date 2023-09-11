@@ -75,9 +75,22 @@ Route::get('pages/causes/{cat_id}/{kit}/cause-single', [KitController::class, 's
 Route::get('pages/contact', [ContactController::class, 'contact'])->name('go-contact');
 Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('contact.send');
 
-// Donate us page
+// Donate pages (if not logged in redirect to login)
+
+Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
+    ->name('go-donate')
+    ->middleware(['auth']);
+
+Route::get('pages/events/{campaign}/donate', [CampaignController::class, 'goDonate'])
+->name('go-donate-campaign')
+->middleware(['auth']);
 
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
+
+Route::get('donatelogin', function () {
+    // return redirect()->route('login')->with('warning', 'Please login to continue donating.');
+    return redirect()->route('login')->with('warning', 'Please continue login process.');
+})->name('donatelogin');
 // Route::get('pages/causes/{kit}/donate', function() {
 //     return view('pages.donate.donate');
 // })->name('go-donate');
@@ -92,11 +105,15 @@ Route::get('pages/events}', [CampaignController::class, 'index'])->name('go-even
 // Event-single page
 Route::get('pages/events/{campaign}/event-single', [CampaignController::class, 'showSingleCampaign'])->name('go-event-single');
 
+// Send Pending Campaign Route
+Route::post('/pages', [CampaignController::class, 'sendPendingCampaign'])->name('sendData');
 
 // Volunteer page
 Route::get('pages/volunteer', function () {
     return view('pages.volunteer.volunteer');
-})->name('go-volunteer');
+})->name('go-volunteer')
+->middleware(['auth']);
+
 Route::get('/tables', function () {
     return view('dashboard.dashboard_layouts.tables');
 });
@@ -104,13 +121,10 @@ Route::get('/tables', function () {
 
 /* ---------------END PAGES ROUTES--------------- */
 
-// ------ START Routes for DASHBOARD --------------------------------
+/* ---------------START Routes for DASHBOARD--------------- */
 Route::get('/users', function () {
     return view('dashboard.users.index');
 })->name('dashboard.users.index');
-
-
-
 
 
 Route::resource('admins', AdminController::class);
@@ -131,6 +145,9 @@ Route::resource('dashboard/payments', PaymentController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
 
+// Route::get('/categories', function () {
+//     return view('dashboard.categories.index');
+// })->name('dashboard.categories.index');
 
 
 Route::get('/kits', function () {

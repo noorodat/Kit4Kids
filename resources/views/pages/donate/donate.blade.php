@@ -71,12 +71,9 @@
                         <div id="Donations" class="tab-pane">
 
                             @if (Auth::id())
-                                {{-- @dd($kit);
-                            {{$kit->title}}
-                            {{$kit->description}} --}}
+                                {{ session()->forget('Donate_login') }}
+
                                 <form action="{{ route('payment') }}" method="POST">
-
-
                                     @csrf
                                     <div class="tp-donations-amount">
                                         <h2>Your Donation (USD)</h2>
@@ -177,6 +174,12 @@
                                     </div>
                                 </form>
                             @else
+                                {{ session(['Donate_login' => $kit]) }}
+                                {{-- return redirect()->route('login')->with('warning', 'Please login to continue donating.'); --}}
+                                <div class="tp-donations-amount " style="text-align: center;">
+                                    <h2 class="mx-auto" style="color: red;">please login to continue</h2>
+                                    <a href="{{ route('donatelogin') }}" class="theme-btn-s3">LOGIN</a>
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -188,3 +191,12 @@
     </div>
 
 @endsection
+
+
+{{-- 
+    
+            if (session('Donate_login')) {
+            return redirect()->route('go-donate', ['kit' => session('Donate_login')]);
+        }
+    
+    --}}

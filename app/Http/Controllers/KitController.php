@@ -107,4 +107,12 @@ class KitController extends Controller
         Kit::destroy($id);
         return back()->with('success', ' deleted successfully.');
     }
+
+    public function goDonate(Kit $kit)
+    {
+        session(['donationType' => 'kit']);
+        session(['kitID' => $kit]);
+        return view('pages.donate.donate', ['kit' => $kit]);
+    }
+
 }

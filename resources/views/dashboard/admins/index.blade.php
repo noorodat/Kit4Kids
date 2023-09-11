@@ -31,28 +31,22 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <table class="table table-striped projects">
+        <table class="table table-striped projects text-center">
             <thead>
                 <tr>
-                    <th style="width: 1%">
+                    <th>
                         #
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         Admin Image
                     </th>
-                    <th style="width: 10%">
+                    <th >
                         Admin Name
                     </th>
-                  
-                    <th style="width: 20%">
+                    <th>
                         Admin Email
                     </th>
-                    <th style="width: 20%">
-                        Admin Password
-
-                    </th>
-                   
-                    <th style="width: 15%">
+                    <th>
                         Action
                     </th>
                 </tr>
@@ -64,24 +58,23 @@
                 @foreach ($admins as $admin )
                    <tr>
                     <th scope="row">{{$i}}</th>
-                    <td><img src="{{ url('/images/' . $admin->image) }}" alt="" width="40%"></td>
+                    <td><img src="{{ url('/images/' . $admin->image) }}" alt="" width="200px"></td>
 
                     <td>{{$admin->name}}</td>
                     <td>{{$admin->email}}</td>
-                    <td>{{$admin->password}}</td>
                     <td class="project-actions text-right">
-                       
+
                         <a class="btn btn-info btn-sm" href="{{ route('admins.edit', $admin->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                      
+
                         <form action="{{route('admins.destroy',$admin->id)}}"  method="POST"  style="display: inline;">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>            
+                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>
                           </form>
                     </td>
                 </tr>

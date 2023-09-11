@@ -17,8 +17,7 @@ class KitController extends Controller
     public function index()
     {
         $kits=Kit::all();
-        $categories=Category::all();
-        return view ('dashboard/kits/index', compact('kits','categories'));
+        return view ('dashboard/kits/index', compact('kits'));
     }
 
     public function showAll($cat_id)
@@ -41,7 +40,7 @@ class KitController extends Controller
 
         // Return a view with the kit data
         return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits, 'cat_id' => $cat_id]);
-    }   
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -95,36 +94,35 @@ class KitController extends Controller
     public function edit($id)
     {
         $kits = Kit::findOrFail($id);
-
-        return view('dashboard.kits.edit', compact('kits'));
+        $categories = Category::all();
+        return view('dashboard.kits.edit', compact('kits', 'categories'));
     }
 
-    public function update(Request $request, Kit $kits , $id )
+    public function update(Request $request, $id)
     {
+        $kit = Kit::with('category')->findOrFail($id);
 
-        $kits = Kit::findOrFail($id);
-
-        $kits->title = $request->input('title');
-        $kits->description = $request->input('description');
-        $kits->price = $request->input('price');
-        $categoryNames = $request->input('category_name');
+        $kit->title = $request->input('title');
+        $kit->description = $request->input('description');
+        $kit->price = $request->input('price');
         $category_id = $request->input('category_id');
-        $kits->category_id = $category_id;
-
+        $kit->category_id = $category_id;
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
-            $kits->image = $imageName;
-
+            $image->move(public_path('images'), $imageName);
+            $kit->image = $imageName;
         }
 
-        $kits->save();
+        $kit->save();
+
+        // Access the associated category
+        $category = $kit->category;
 
         return redirect()->route('kits.index')->with('success', 'Kit updated successfully');
-        ;
     }
+
 
     public function destroy($id)
     {

@@ -33,22 +33,22 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th style="width: 1%">
+                    <th>
                         #
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         Title
                     </th>
-                    <th style="width: 30%">
+                    <th>
                         Description
                     </th>
                     <th>
                        Type
                     </th>
-                    <th style="width: 8%" class="text-center">
+                    <th class="text-center">
                         User
                     </th>
-                    <th style="width: 10%">
+                    <th>
                         Actions
                     </th>
                 </tr>
@@ -70,10 +70,10 @@
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger"
-                        onclick="return confirm('Are you sure you want to delete this donation?')">Delete</button>            
+                        onclick="return confirm('Are you sure you want to delete this donation?')">Delete</button>
                       </form>
-                       
-                      
+
+
                     </td>
                 </tr>
                 @endforeach

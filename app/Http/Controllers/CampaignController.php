@@ -80,18 +80,15 @@ class CampaignController extends Controller
             'end_date' => 'required|date|after_or_equal:today',
         ]);
 
-
-
-
         $campaign->title = $request->input('title');
         $campaign->description = $request->input('description');
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageData = file_get_contents($image); // Read the binary image data
-            $campaign->image = $imageData;
-        } else {
-            $campaign->image = null;
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $campaign->image = $imageName;
         }
+
         $campaign->target_money = $request->input('target_money');
         $campaign->raised_money = 0;
         $campaign->start_date = date('Y-m-d');

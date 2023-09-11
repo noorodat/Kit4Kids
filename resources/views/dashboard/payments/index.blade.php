@@ -34,73 +34,62 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th style="width: 1%">
+                    <th>
                         #
                     </th>
-                    <th style="width: 15%">
+                    <th>
                         Donater Name
                      </th>
-                    <th style="width: 15%">
+                    <th >
                        Donater Phone
                     </th>
-                    <th style="width: 15%">
+                    <th>
                        Donater Address
                     </th>
-                    <th style="width: 15%">
+                    <th>
                         Donater Kit
                      </th>
-                    <th style="width: 20%">
+                    <th>
                        Donater message
                     </th>
-                    <th style="width: 5%">
+                    <th>
                         Amount
                     </th>
-                    <th style="width: 5%">
+                    <th>
                         Currency
                     </th>
-                    <th style="width: 10%">
-                        Created at
-                    </th>
-                    <th style="width: 20%">
-                        Updated at
-                    </th>
-                    
-                   
-                  
+
+
+
                 </tr>
             </thead>
             <tbody>
                 @php
                      $i=1;
                 @endphp
-                @foreach ($payments as $payment )
+                @foreach ($paymentsWithUsers as $paymentWithUser)
+                {{-- {{dd($userWithPayment)}} --}}
                    <tr>
                     <th scope="row">{{$i}}</th>
                     <td>
-                      @php
-                          $user = $users->where('id', $payment->donater_id)->first();
-                      @endphp
-              
-                      {{ $user ? $user->name : 'User not found' }}
+                        {{$paymentWithUser->user->name}}
                   </td>
-                    <td>{{$payment->donater_phone}}</td>
-                    <td>{{$payment->donater_address}}</td>
-                    <td>{{$payment->donater_kit}}</td>
-                    <td>{{$payment->donater_message}}</td>
-                    <td>{{$payment->Amount}}</td>
-                    <td>{{$payment->Currency}}</td>
-                    <td>{{$payment->created_at}}</td>
-                    <td>{{$payment->updated_at}}</td>
+                    <td>{{$paymentWithUser->donater_phone}}</td>
+                    <td>{{$paymentWithUser->donater_address}}</td>
+                    <td>{{$paymentWithUser->donater_kit}}</td>
+                    <td style="max-width: 30ch;">{{$paymentWithUser->donater_message}}</td>
+                    <td>{{$paymentWithUser->Amount}}</td>
+                    <td>{{$paymentWithUser->Currency}}</td>
 
                     <td class="project-actions text-right">
-                       
-{{--                        
-                      
+
+{{--
+
                         <form action="{{route('partners.destroy',$payment->id)}}"  method="POST"  style="display: inline;">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>            
+                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>
                           </form> --}}
                     </td>
                 </tr>
@@ -108,7 +97,7 @@
                 $i++;
             @endphp
                 @endforeach
-               
+
             </tbody>
 
         </table>

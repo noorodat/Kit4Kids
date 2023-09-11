@@ -13,7 +13,7 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function adminIndex()
+    public function index()
     {
         $admins=Admin::all();
         return view ('dashboard/admins/index', compact('admins'));
@@ -36,7 +36,7 @@ class AdminController extends Controller
             'name' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
             // Add any desired image validation rules
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:admins',
             'password' => [
                 'required',
                 'min:8',
@@ -57,7 +57,6 @@ class AdminController extends Controller
             $admins->image = $imageName;
             // $storedPath = $uploadedFile->store('public/photo');
             $admins->save();
-
         }
 
         $admins->save();
@@ -131,8 +130,8 @@ class AdminController extends Controller
     {
 
         Admin::destroy($id);
-    return back()->with('success', 'Admin deleted successfully.');
+        return back()->with('success', 'Admin deleted successfully.');
     }
 
-    
+
 }

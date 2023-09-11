@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Payment;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -52,12 +53,11 @@ class User extends Authenticatable
     }
     public function payments()
     {
-        return $this->hasMany(Payment::class, 'donor_id', 'id');
-
+        return $this->hasMany(Payment::class, 'user_id'); // Assuming 'user_id' is the foreign key in the payments table
     }
     public function user()
-     { 
-        return $this->belongsTo(User::class); 
+     {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

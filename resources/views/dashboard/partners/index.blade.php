@@ -34,15 +34,12 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th style="width: 1%">
+                    <th>
                         #
                     </th>
-                    <th style="width: 20%">
+                    <th>
                         Partner Image
                     </th>
-                    
-                   
-                  
                 </tr>
             </thead>
             <tbody>
@@ -54,18 +51,18 @@
                     <th scope="row">{{$i}}</th>
                     <td><img src="{{ url('/images/' . $partner->image) }}" alt="" width="40%"></td>
                     <td class="project-actions text-right">
-                       
+
                         <a class="btn btn-info btn-sm" href="{{ route('partners.edit', $partner->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                      
+
                         <form action="{{route('partners.destroy',$partner->id)}}"  method="POST"  style="display: inline;">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>            
+                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>
                           </form>
                     </td>
                 </tr>
@@ -73,7 +70,7 @@
                 $i++;
             @endphp
                 @endforeach
-               
+
             </tbody>
 
         </table>

@@ -17,7 +17,7 @@ class SocialLoginController extends Controller
 {
     public function redirect($provider)
     {
-         return Socialite::driver($provider)->redirect();
+        return Socialite::driver($provider)->redirect();
     }
     public function callback($provider)
     {
@@ -40,14 +40,28 @@ class SocialLoginController extends Controller
         if ($UserName == null) {
             $UserName = $provider_user->nickname;
         }
+        $oldUser = User::where(['email' => $provider_user->email])->first();
 
-        $user = User::updateOrCreate([
-            'provider_id' => $provider_user->id,
-            'provider' => $provider,
-        ], [
-            'name' => $UserName,
-            'email' => $provider_user->email,
-        ]);
+        if ($oldUser) {
+            $user = User::updateOrCreate([
+                'provider_id' => $provider_user->id,
+                'provider' => $provider,
+            ], [
+                'email' => $provider_user->email,
+            ]);
+
+        } else {
+
+            $user = User::updateOrCreate([
+                'provider_id' => $provider_user->id,
+                'provider' => $provider,
+            ], [
+
+                'name' => $UserName,
+
+                'email' => $provider_user->email,
+            ]);
+        }
 
         Auth::login($user);
 

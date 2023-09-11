@@ -13,7 +13,7 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function adminIndex()
     {
         $admins=Admin::all();
         return view ('dashboard/admins/index', compact('admins'));

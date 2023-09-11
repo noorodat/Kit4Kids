@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashHomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LoginController ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +23,11 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/dashboard', function () {
+    return view('welcome-dashboard');
 });
 
 // Route::get('/dashboard', function () {
@@ -99,6 +104,22 @@ Route::get('/tables', function () {
 Route::get('/users', function () {
     return view('dashboard.users.index');
 })->name('dashboard.users.index');
+
+//-------------------login admin----------------//
+
+
+// adminlogin
+Route::get('/adminLogin', [LoginController::class, 'dashLogin']);
+Route::post('/adminLogin', [LoginController::class, 'loginPost'])->name('adminLogin');
+Route::get('/home', [AdminController::class, 'adminIndex']);
+
+// adminLogout
+Route::get('/home', [AdminController::class, 'adminIndex']);
+Route::get('/adminLogout', [adminLoginController::class, 'adminLogout'])->name('adminLogout');
+
+
+
+
 
 
 // Route::get('/admins', function () {

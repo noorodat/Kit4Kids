@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
 @section('title', 'about us')
-
+@section('about')
+ class="active"
+@endsection
 @section('content')
 
 <body>

@@ -1,11 +1,11 @@
 <section>
-    <header>
+    <header style="text-align: center;">
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Profile Information') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Update your account's profile information") }}
         </p>
     </header>
 
@@ -13,17 +13,26 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 tp-donations-details" style="width: 80%; margin: 0 auto;">
         @csrf
         @method('patch')
 
-        <div>
+
+         {{-- @if ($user->provider == null) --}}
+         @if ($user->provider)
+             <h2 style="text-align: center;">Welcome, {{ $user->provider }}-User</h2>
+         @endif
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
-        <div>
+
+        @if ($user->provider == null)
+            
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -47,8 +56,16 @@
             @endif
         </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        @else
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+            <h3><b>{{ __('Email') }}</b></h3>
+            <p class="mt-1 text-sm text-gray-600">
+            {{ __("$user->email") }}
+        </p>
+        </div>     
+        @endif  
+        <div class="flex items-center gap-4 mx-auto">
+            <x-primary-button style="margin: 0 auto; display: block;">{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -62,3 +79,19 @@
         </div>
     </form>
 </section>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+</style>

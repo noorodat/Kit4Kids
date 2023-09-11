@@ -13,6 +13,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PendingCampaignController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -160,6 +161,7 @@ Route::get('/kits', function () {
 // ------ ENDS Routes for DASHBOARD --------------------------------
 // home page
 Route::get('pages', [HomeController::class, 'index'])->name('go-home');
+Route::get('pages/about', [AboutController::class, 'index'])->name('go-about');
 
 // Delete event when countdown is 0
 Route::match(['get', 'delete'], '/delete-campaign/{campaign}', [CampaignController::class, 'delete'])->name('delete-campaign');

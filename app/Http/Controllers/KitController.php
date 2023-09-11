@@ -99,7 +99,6 @@ class KitController extends Controller
         return view('dashboard.kits.edit', compact('kits'));
     }
 
-
     public function update(Request $request, Kit $kits , $id )
     {
 

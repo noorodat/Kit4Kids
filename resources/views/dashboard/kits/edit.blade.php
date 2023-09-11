@@ -16,28 +16,40 @@
 
 @section('content')
 
-<form action="{{ route('dashboard.users.update') }}" method="POST">
+<div class="container-fluid">
+    <form action="{{ route('kits.update',$kits->id) }}" method="POST">
         @csrf
-        <input type="hidden" name="id" value="{{ $post->id }}">
+        @method('PUT')
+        <input type="hidden" name="id" value="{{ $kits->id }}">
         <div class="form-group">
-            <label>User Name</label>
-            <input type="text" class="form-control" name="UserName" value="{{ $post->title }}">
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" value="{{ $kits->title }}">
         </div>
         <div class="form-group">
-                <label>User Email</label>
-                <input type="email" class="form-control" name="UserEmail" value="{{ $post->title }}">
+                <label>Description</label>
+                <input type="text" class="form-control" name="description" value="{{ $kits->description }}">
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="Password" class="form-control" name="Password" value="{{ $post->title }}">
+                <label>Image</label>
+                <input type="file" class="form-control" name="image" value="{{ $kits->image }}">
             </div>
-        <div class="form-group">
-                
-            <label>Action</label>
-         
-        </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="number" class="form-control" name="price" value="{{ $kits->price }}">
+            </div>
+            <div class="form-group">
+                <label for="category">Choose category:</label>
+
+                <select name="category_id" id="category" class="form-control">
+                    @foreach ($kits as $kit)
+                        <option value="{{ $kits->categories?->name }}"></option>
+                    @endforeach
+                </select>
+                <input type="hidden" value="{{ $kits->categories?->id }}"name="category_id">
+            </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+
 
 
 @endsection

@@ -159,7 +159,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="http://127.0.0.1:8000/kits#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/kits#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Kits
@@ -169,7 +169,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/partners#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Partners
@@ -179,7 +179,7 @@
                
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="http://127.0.0.1:8000/dashboard/payments#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Payments

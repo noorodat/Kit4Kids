@@ -16,6 +16,12 @@
 
 @section('content')
 
+<style>
+    span{
+        color: red
+    }
+</style>
+
 {{-- form --}}
 <div class="card">
         <div class="card-header">Create new Admin</div>

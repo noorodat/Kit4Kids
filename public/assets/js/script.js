@@ -591,6 +591,9 @@
                 note: {
                     required: true, // Make "notes" field required
                     maxlength: 255 // Maximum character limit for notes
+                },
+                subject: {
+                    required: true,
                 }
             },
             messages: {
@@ -768,8 +771,6 @@ if(customAmountInput) {
         customAmountRadio.value = customAmount.value;
     });
 }
-
-
 
 
 

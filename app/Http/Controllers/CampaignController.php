@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
+
+
 class CampaignController extends Controller
 {
     /**
@@ -33,10 +35,6 @@ class CampaignController extends Controller
         $moreCampaigns = Campaign::where('id', '!=', $campaign->id)->inRandomOrder()->limit(3)->get();
         // Return a view with the campaign data
         return view('pages.events.event-single.event-single', ['campaign' => $campaign, 'moreCampaigns' => $moreCampaigns]);
-    }
-
-    public function sendCampaignToAdmin(Request $request) {
-        
     }
 
     /**
@@ -73,7 +71,18 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         $campaign = new Campaign();
-    
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|nullable|image', // Assuming you're expecting an image file
+            'target_money' => 'required|numeric|min:0',
+            'end_date' => 'required|date|after_or_equal:today',
+        ]);
+
+
+
+
         $campaign->title = $request->input('title');
         $campaign->description = $request->input('description');
         if ($request->hasFile('image')) {
@@ -89,12 +98,17 @@ class CampaignController extends Controller
         $campaign->end_date = $request->input('end_date');
         $campaign->active = 1;
 
-    
+
         $campaign->save();
-    
+
         return redirect()->route('gocampaigns')->with('success', 'Campaign created successfully');
     }
-    
+    public function goDonate(Campaign $campaign)
+    {
+        session(['donationType' => 'campaign']);
+        session(['campaign' => $campaign]);
+        return view('pages.donate.donate-supplies', ['campaign' => $campaign]);
+    }
 
     /**
      * Display the specified resource.
@@ -107,23 +121,36 @@ class CampaignController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Campaign $campaign ,$id)
+    public function edit($id)
     {
         $campaigns = Campaign::findOrFail($id);
 
-        return view('dashboard.campaigns.edit', compact('campaigns'));
+        return view('dashboard.campaign.edit', compact('campaigns'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Campaign $campaign ,$id)
+    public function update(Request $request,$id)
     {
-        $campaigns = Campaign::findOrFail($id);
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|nullable|image', // Assuming you're expecting an image file
+            'target_money' => 'required|numeric|min:0',
+            'end_date' => 'required|date|after_or_equal:today',
+        ]);
 
+
+
+        $campaigns = Campaign::findOrFail($id);
         $campaigns->title = $request->input('title');
         $campaigns->description = $request->input('description');
-        $campaigns->type = $request->input('type');
+        $campaigns->target_money = $request->input('target_money');
+        // $campaigns->raised_money = $request->input('raised_money');
+        // $campaigns->start_date = $request->input('start_date');
+        $campaigns->end_date = $request->input('end_date');
+        $campaigns->active = $request->input('Status');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -136,13 +163,13 @@ class CampaignController extends Controller
 
         $campaigns->save();
 
-        return redirect()->route('campaigns.index')->with('success', 'Campaign updated successfully');
+        return redirect()->route('gocampaigns')->with('success', 'Campaign updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Campaign $campaign ,$id)
+    public function destroy($id)
     {
         Campaign::destroy($id);
         return back()->with('success', ' deleted successfully.');

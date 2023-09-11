@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kit;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -10,6 +11,15 @@ use Illuminate\Support\Facades\Hash;
 
 class KitController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $kits=Kit::all();
+        $categories=Category::all();
+        return view ('dashboard/kits/index', compact('kits','categories'));
+    }
 
     public function showAll($cat_id)
     {
@@ -32,22 +42,17 @@ class KitController extends Controller
         // Return a view with the kit data
         return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits, 'cat_id' => $cat_id]);
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $kits=Kit::all();
-        return view ('dashboard/kits/index', compact('kits'));
-    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('dashboard.kits.create');
+        $categoryNames=Category::all();
+
+        return view('dashboard.kits.create',compact('categoryNames'));
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -55,31 +60,33 @@ class KitController extends Controller
     {
 
 
-        $categories = new Kit();
+        $kits = new Kit();
 
-        $categories->title = $request->input('title');
-        $categories->description = $request->input('description');
-        $categories->type = $request->input('type');
+        $kits->title = $request->input('title');
+        $kits->description = $request->input('description');
+        $kits->price = $request->input('price');
+        $categoryNames = $request->input('category_name');
+        $category_id = $request->input('category_id');
+        $kits->category_id = $category_id;
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
-            $categories->image = $imageName;
-            // $storedPath = $uploadedFile->store('public/photo');
-            $categories->save();
+            $kits->image = $imageName;
 
         }
 
-        // $categories->save();
+        $kits->save();
 
-        return redirect()->route('kits.index')->with('success', 'kit created successfully');
+        return redirect()->route('kits.index')->with('success', 'Kit created successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Kit $kits)
+    public function show(Kit $kit)
     {
 
     }
@@ -93,38 +100,43 @@ class KitController extends Controller
     }
 
 
-    public function update(Request $request, Kit $categories , $id)
+    public function update(Request $request, Kit $kits , $id )
     {
 
-        $categories = Kit::findOrFail($id);
+        $kits = Kit::findOrFail($id);
 
-        $categories->title = $request->input('title');
-        $categories->description = $request->input('description');
-        $categories->type = $request->input('type');
+        $kits->title = $request->input('title');
+        $kits->description = $request->input('description');
+        $kits->price = $request->input('price');
+        $categoryNames = $request->input('category_name');
+        $category_id = $request->input('category_id');
+        $kits->category_id = $category_id;
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
-            $categories->image = $imageName;
-            $categories->save();
+            $kits->image = $imageName;
 
         }
 
-        $categories->save();
+        $kits->save();
 
-        return redirect()->route('categories.index')->with('success', 'kit updated successfully');
+        return redirect()->route('kits.index')->with('success', 'Kit updated successfully');
+        ;
     }
 
     public function destroy($id)
     {
 
         Kit::destroy($id);
-    return back()->with('success', ' deleted successfully.');
+        return back()->with('success', ' deleted successfully.');
     }
 
     public function goDonate(Kit $kit)
     {
+        session(['donationType' => 'kit']);
         session(['kitID' => $kit]);
         return view('pages.donate.donate', ['kit' => $kit]);
     }

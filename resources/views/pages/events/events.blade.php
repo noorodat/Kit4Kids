@@ -77,9 +77,15 @@
                                 <div class="event-right">
                                     <ul>
                                         <li>End Date:{{ $campaign->end_date }}</li>
-                                        <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
-                                        <li style="margin-left:30px;" class="raised_money">Raised Money: ${{ $campaign->raised_money }}</li>
+                                        <li class="target_money_ele">Target Money: ${{ $campaign->target_money }}</li>
+                                        <li style="margin-left:30px;" class="raised_money_ele" id="{{$campaign->id}}">Raised Money: ${{ $campaign->raised_money }}</li>
                                     </ul>
+                                    @if($campaign->raised_money >= $campaign->target_money)
+                                        <script>
+                                            var raised_money = document.getElementById('{{$campaign->id}}');
+                                            raised_money.style = "color: green; margin-left: 30px;";
+                                        </script>
+                                    @endif
                                     <div class="time-left">
                                         <span>Time left:</span>
                                         <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>

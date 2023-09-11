@@ -59,8 +59,10 @@
                                                 <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
                                             </div>
                                             <ul class="p-2">
-                                                <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
-                                                <li class="raised_money">Raised Money: ${{ $campaign->raised_money }}</li>
+                                                <li class="target_money_ele">Target Money: ${{ $campaign->target_money }}</li>
+                                                <li class="raised_money_ele">Raised Money: ${{ $campaign->raised_money }}</li>
+                                                <input type="hidden" value="{{ $campaign->target_money }}" class="target_money">
+                                                <input type="hidden" value="{{ $campaign->raised_money }}" class="raised_money">
                                             </ul>
                                             <div class="case-bb-text">
                                                 <h3>Event Mission</h3>
@@ -91,8 +93,10 @@
                                                 <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
                                             </div>
                                             <div style="text-align: left">
-                                                <h5 class="target_money">Target Money: ${{ $campaign->target_money }}</h5>
-                                                <h5 class="raised_money">Raised Money: ${{ $campaign->raised_money }}</h5>
+                                                <h5 class="target_money_ele">Target Money: ${{ $campaign->target_money }}</h5>
+                                                <input type="hidden" value="{{ $campaign->target_money }}" class="target_money">
+                                                <input type="hidden" value="{{ $campaign->raised_money }}" class="raised_money">
+                                                <h5 class="raised_money_ele">Raised Money: ${{ $campaign->raised_money }}</h5>
                                             </div>
                                         </div>
                                     </div>

@@ -279,8 +279,10 @@
                                 <div class="event-right">
                                     <ul>
                                         <li>End Date:{{ $campaign->end_date }}</li>
-                                        <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
-                                        <li style="margin-left:30px;" class="raised_money">Raised Money: ${{ $campaign->raised_money }}</li>
+                                        <li class="target_money_ele" value="{{ $campaign->target_money }}">Target Money: ${{ $campaign->target_money }}</li>
+                                        <li class="raised_money_ele" style="margin-left:30px;" value="{{ $campaign->raised_money }}">Raised Money: ${{ $campaign->raised_money }}</li>
+                                        <input type="hidden" value="{{ $campaign->target_money }}" class="target_money">
+                                        <input type="hidden" value="{{ $campaign->raised_money }}" class="raised_money">
                                     </ul>
                                     <div class="time-left">
                                         <span>Time left:</span>

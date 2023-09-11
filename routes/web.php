@@ -82,9 +82,9 @@ Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
     ->name('go-donate')
     ->middleware(['auth']);
 
-Route::get('pages/events/{campaign}/donate', [CampaignController::class, 'goDonate'])
-->name('go-donate-campaign')
-->middleware(['auth']);
+    Route::get('pages/events/{campaign}/donate-supplies', [CampaignController::class, 'goDonate'])
+    ->name('go-donate-campaign')
+    ->middleware(['auth']);
 
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
 

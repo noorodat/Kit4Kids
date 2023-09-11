@@ -21,13 +21,35 @@ class KitController extends Controller
         return view ('dashboard/kits/index', compact('kits','categories'));
     }
 
+    public function showAll($cat_id)
+    {
+        // Get kits for the specified category
+        $kits = Kit::where('category_id', $cat_id)->paginate(9);
+        // Return a view with the kits data
+        return view('pages.causes.causes', ['kits' => $kits, 'cat_id' => $cat_id]);
+    }
+
+    public function showSingleKit($cat_id, Kit $kit)
+    {
+        // No need to search again by ID
+        // Get 3 random kits to show on the single kit page
+        $moreKits = Kit::where('id', '!=', $kit->id)
+            ->where('category_id', $cat_id)
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+
+        // Return a view with the kit data
+        return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits, 'cat_id' => $cat_id]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         $categoryNames=Category::all();
-        
+
         return view('dashboard.kits.create',compact('categoryNames'));
     }
 
@@ -36,7 +58,7 @@ class KitController extends Controller
      */
     public function store(Request $request)
     {
-    
+
 
         $kits = new Kit();
 
@@ -66,10 +88,10 @@ class KitController extends Controller
      */
     public function show(Kit $kit)
     {
-        
+
     }
 
-   
+
     public function edit($id)
     {
         $kits = Kit::findOrFail($id);
@@ -77,10 +99,10 @@ class KitController extends Controller
         return view('dashboard.kits.edit', compact('kits'));
     }
 
-    
+
     public function update(Request $request, Kit $kits , $id)
     {
-       
+
         $kits = Kit::findOrFail($id);
 
         $kits->title = $request->input('title');

@@ -58,13 +58,16 @@
                                                 <span>Time left:</span>
                                                 <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
                                             </div>
+                                            <ul class="p-2">
+                                                <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
+                                                <li class="raised_money">Raised Money: ${{ $campaign->raised_money }}</li>
+                                            </ul>
                                             <div class="case-bb-text">
                                                 <h3>Event Mission</h3>
                                                 <p>{{$campaign->description}}</p>
                                             </div>
                                             <div class="submit-area sub-btn">
-                                                <a href="{{ route('go-donate-campaign', ['campaign' => $campaign]) }}" class="theme-btn submit-btn">Donate Now</a>
-                                            </div>
+                                                <a href="{{ route('go-donate-campaign', ['campaign' => $campaign]) }}" class="theme-btn submit-btn">Donate Now</a>                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -86,6 +89,10 @@
                                             <div class="time-left">
                                                 <span>Time left:</span>
                                                 <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                                            </div>
+                                            <div style="text-align: left">
+                                                <h5 class="target_money">Target Money: ${{ $campaign->target_money }}</h5>
+                                                <h5 class="raised_money">Raised Money: ${{ $campaign->raised_money }}</h5>
                                             </div>
                                         </div>
                                     </div>

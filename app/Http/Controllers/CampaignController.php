@@ -92,12 +92,11 @@ class CampaignController extends Controller
 
         return redirect()->route('gocampaigns')->with('success', 'Campaign created successfully');
     }
-
     public function goDonate(Campaign $campaign)
     {
         session(['donationType' => 'campaign']);
         session(['campaign' => $campaign]);
-        return view('pages.donate.donate', ['campaign' => $campaign]);
+        return view('pages.donate.donate-supplies', ['campaign' => $campaign]);
     }
 
     /**

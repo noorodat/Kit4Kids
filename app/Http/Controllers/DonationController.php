@@ -29,7 +29,9 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-      
+        $donation = new Donation();
+        
+
     }
 
     /**
@@ -45,7 +47,7 @@ class DonationController extends Controller
      */
     public function edit()
     {
-       
+
     }
 
     /**
@@ -53,9 +55,9 @@ class DonationController extends Controller
      */
     public function update()
     {
-       
-    
-      
+
+
+
     }
 
     /**
@@ -67,4 +69,7 @@ class DonationController extends Controller
         Donation::destroy($id);
     return back()->with('success', 'Admin deleted successfully.');
     }
+
 }
+
+

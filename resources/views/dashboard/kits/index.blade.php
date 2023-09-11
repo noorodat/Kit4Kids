@@ -69,12 +69,20 @@
                 <td>{{$kit->title}}</td>
                <td>{{$kit->description}}</td>
                <td>{{$kit->price}}</td>
-               {{-- <td>{{$category->title}}</td> --}}
-               @foreach ( $categories as $category )
+
+               <td>
+                @php
+                    $category = $categories->where('id', $kit->category_id)->first();
+                @endphp
+        
+                {{ $category ? $category->title : 'Category not found' }}
+            </td>
+
+               {{-- @foreach ( $categories as $category )
 
                <td>{{ $kit->category?->title }}</td>
 
-               @endforeach
+               @endforeach --}}
 
               
                <td class="project-actions text-right">

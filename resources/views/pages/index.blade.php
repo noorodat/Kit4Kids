@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('title', 'Home')
+@section('home')
+ class="active"
+@endsection
 
 @section('content')
 
@@ -131,7 +134,8 @@
                                     <span>GO FOR HELP</span>
                                 </div>
                                 <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>Volunteers inspire greatness.</h2>
+                                    <h2>Volunteers ignite inspiration.
+                                    </h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
                                     <p>"Help shape the future of our students through your valuable contributions as a
@@ -179,7 +183,7 @@
             </div>
         </section>
         <!-- end of hero slider -->
-        <section class="about-section about-section-s2 section-padding p-t-0">
+        <section class="about-section about-section-s2 section-padding p-t-0" style="margin-top: -250px;">
             <div class="container">
                 <div class="row">
                     <div class="col col-md-5">
@@ -237,7 +241,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="donate-categories">How do you want to help?</h2>
-                        <div class="features-wrap">
+                        <div class="features-wrap" style="padding:10px;">
                             <div class="row">
                                 @foreach ($catagories as $catagory)
                                     <a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">
@@ -248,8 +252,11 @@
                                                 </div>-
                                                 <div class="features-content">
                                                     <h2><a
-                                                            href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">{{ $catagory->title }}</a>
-                                                    </h2>
+                                                            href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}" >{{ $catagory->title }}
+                                                            <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
+
+                                                        </a>
+                                                        </h2>
                                                 </div>
                                                 {{-- <div class="features-text1">{{$kit->description}}</div> --}}
                                             </div>
@@ -266,7 +273,7 @@
         <!-- case-area-start -->
         <div class="case-area section-padding">
             <div class="container">
-                <div class="col-md-6 col-md-offset-3">
+                <div >
                     <div class="section-title section-title2 text-center">
                         <div class="thumb-text">
                             <span>KITS</span>
@@ -387,22 +394,6 @@
                                         <p>{{ $campaign->description }}</p>
                                     </div>
                                 </div>
-                                <div class="event-right">
-                                    <ul>
-                                        <li>End Date:{{ $campaign->end_date }}</li>
-                                        <li class="target_money_ele" value="{{ $campaign->target_money }}">Target Money: ${{ $campaign->target_money }}</li>
-                                        <li class="raised_money_ele" style="margin-left:30px;" value="{{ $campaign->raised_money }}">Raised Money: ${{ $campaign->raised_money }}</li>
-                                        <input type="hidden" value="{{ $campaign->target_money }}" class="target_money">
-                                        <input type="hidden" value="{{ $campaign->raised_money }}" class="raised_money">
-                                    </ul>
-                                    <div class="time-left">
-                                        <span>Time left:</span>
-                                        <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
-                                    </div>                                    <h2>
-                                        <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
-                                    </h2>
-                                    <p>{{ $campaign->description }}</p>
-                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -413,61 +404,76 @@
         </div>
         <!-- event-area start -->
         <!-- volunteer-area start -->
-        {{-- <div class="volunteer-area section-padding">
+        <div class="volunteer-area section-padding" >
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+                    <div>
                         <div class="section-title section-title2 text-center">
                             <div class="thumb-text">
                                 <span>Volunteer</span>
                             </div>
-                            <h2>Our Great Volunteer</h2>
-                            <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
+                            <h2>Our Great Team</h2>
+                            <p>Dedicated volunteers, diverse talents, one mission: making a difference together.</p>
                         </div>
                     </div>
                 </div>
-                <div class="volunteer-wrap">
+                <div class="volunteer-wrap" >
                     <div class="row">
-                        <div class="col col-md-3 col-sm-6 custom-grid col-12">
+                        
+                        <div class="col col-md-4 col-sm-6 custom-grid col-12">
                             <div class="volunteer-item">
                                 <div class="volunteer-img">
-                                    <img src="assets/images/team/1.png" alt="">
+                                    <img src="assets/images/team/img (2).png" height="300px" alt="">
                                 </div>
                                 <div class="volunteer-content">
-                                    <h2><a href="volunteer.html">Adriane Newby</a></h2>
+                                    <h2><a href="">Nooraldeen Aloudat</a></h2>
                                     <span>Volunteer</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col col-md-3 col-sm-6 custom-grid col-12">
+                        <div class="col col-md-4 col-sm-6 custom-grid col-12">
                             <div class="volunteer-item">
                                 <div class="volunteer-img">
-                                    <img src="assets/images/team/2.png" alt="">
+                                    <img src="assets/images/team/img (1).png" height="300px" alt="">
                                 </div>
                                 <div class="volunteer-content">
-                                    <h2><a href="volunteer.html">Allene Castaneda</a></h2>
+                                    <h2><a href="">Mohammad Alhouwari</a></h2>
                                     <span>Volunteer</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col col-md-3 col-sm-6 custom-grid col-12">
+                        <div class="col col-md-4 col-sm-6 custom-grid col-12">
                             <div class="volunteer-item">
                                 <div class="volunteer-img">
-                                    <img src="assets/images/team/3.png" alt="">
+                                    <img src="assets/images/team/img (5).png" height="300px" alt="">
                                 </div>
                                 <div class="volunteer-content">
-                                    <h2><a href="volunteer.html">Malinda Willoughby</a></h2>
+                                    <h2><a href="volunteer.html">Razan Mustafa</a></h2>
                                     <span>Volunteer</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col col-md-3 col-sm-6 custom-grid col-12">
+
+                        <div class="col col-md-2 col-sm-6 custom-grid col-12"></div>
+
+                        <div class="col col-md-4 col-sm-6 custom-grid col-12">
                             <div class="volunteer-item">
                                 <div class="volunteer-img">
-                                    <img src="assets/images/team/4.png" alt="">
+                                    <img src="assets/images/team/img (3).png" height="300px" style="margin-top: 40px" alt="">
                                 </div>
                                 <div class="volunteer-content">
-                                    <h2><a href="volunteer.html">Wilburn Hatfield</a></h2>
+                                    <h2><a href="">Raghad Bataineh</a></h2>
+                                    <span>Volunteer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-md-4 col-sm-6 custom-grid col-12">
+                            <div class="volunteer-item">
+                                <div class="volunteer-img">
+                                    <img src="assets/images/team/img (4).png" height="300px" style="margin-top: 40px" alt="">
+                                </div>
+                                <div class="volunteer-content">
+                                    <h2><a href="">Lama Nazzal</a></h2>
                                     <span>Volunteer</span>
                                 </div>
                             </div>
@@ -475,10 +481,13 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div> 
         <!-- volunteer-area start -->
         <!-- start testimonials-section-s2 -->
-        <section class="testimonials-section section-padding">
+
+
+
+        {{-- <section class="testimonials-section section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">
@@ -501,7 +510,7 @@
                                 </div>
                             </div>
                             <div class="testimonial-content-active text-center">
-                                {{-- start --}}
+                                
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -514,8 +523,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
-                                {{-- start --}}
+                                
+                                
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -528,8 +537,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
-                                {{-- start --}}
+                                
+                                
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -542,8 +551,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
-                                {{-- start --}}
+                                
+                                
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -556,8 +565,8 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
-                                {{-- start --}}
+                                
+                                
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to
                                         support a cause, organization, or community without expecting financial
@@ -570,7 +579,7 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
+                                
 
                             </div>
                         </div>
@@ -583,7 +592,9 @@
             <div class="testi-shape2">
                 <img src="assets/images/ts.png" alt="">
             </div>
-        </section>
+        </section> --}}
+
+
         <!-- end testimonials-section-s2 -->
         <!-- blog-area start -->
         {{-- <div class="blog-area section-padding">
@@ -686,3 +697,4 @@
         <!-- end partners-section -->
 
     @endsection
+    <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>

@@ -39,6 +39,38 @@
                         <h2 class="text-lg font-medium text-gray-900">
                             {{ __('Your Donations') }}
                         </h2>
+                        @if (count($payments) > 0)
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($payments as $payment)
+                                        <tr>
+                                            <td>{{ $payment->title }}</td>
+                                            <td>{{ $payment->donater_message }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @else
+                            <p>No Payment found.</p>
+                        @endif
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    <div class="max-w-xl">
+                        <h2 class="text-lg font-medium text-gray-900">
+                            {{ __('Your Donations') }}
+                        </h2>
                         @if (count($donations) > 0)
                             <table>
                                 <thead>
@@ -62,6 +94,8 @@
                         </table>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </x-app-layout>

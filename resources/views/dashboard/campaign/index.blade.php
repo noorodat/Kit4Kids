@@ -73,7 +73,7 @@
                 <tr>
                    
                     <th scope="row">{{$i}}</th>
-                    <td><img src="{{ url('/images/' . $campaign->image) }}" alt="" width="40%"></td>
+                    <td><img src="{{ url('/images/' . $campaign->image) }}" alt="" width="70%"></td>
 
                      <td>{{$campaign->title}}</td>
                     <td>{{$campaign->description}}</td>
@@ -85,13 +85,13 @@
                     <td>{{$campaign->active}}</td>
                     <td class="project-actions text-right">
                        
-                        <a class="btn btn-info btn-sm" href="{{ route('categories.edit', $campaign->id) }}">
+                        <a class="btn btn-info btn-sm" href="{{ route('campaigns.edit', $campaign->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
                       
-                        <form action="{{route('categories.destroy',$campaign->id)}}"  method="POST"  style="display: inline;">
+                        <form action="{{route('campaigns.destroy',$campaign->id)}}"  method="POST"  style="display: inline;">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"

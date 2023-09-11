@@ -41,7 +41,7 @@ class KitController extends Controller
 
         // Return a view with the kit data
         return view('pages.causes.cause-single.cause-single', ['kit' => $kit, 'moreKits' => $moreKits, 'cat_id' => $cat_id]);
-    }
+    }   
 
     /**
      * Show the form for creating a new resource.
@@ -98,7 +98,6 @@ class KitController extends Controller
 
         return view('dashboard.kits.edit', compact('kits'));
     }
-
 
     public function update(Request $request, Kit $kits , $id )
     {

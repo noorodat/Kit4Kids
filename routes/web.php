@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashHomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LoginController ;
 use App\Http\Controllers\PendingCampaignController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AboutController;
@@ -26,8 +28,11 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/dashboard', function () {
+    return view('welcome-dashboard');
 });
 
 // Route::get('/dashboard', function () {
@@ -86,6 +91,16 @@ Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
     ->name('go-donate-campaign')
     ->middleware(['auth']);
 
+
+
+Route::view('/donate/supplies', 'pages/donate/donate-eyes');
+Route::post('/donate/supplies', [DonationController::class, 'store'])->name('supplies');
+
+
+
+
+
+
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
 
 Route::get('donatelogin', function () {
@@ -127,6 +142,22 @@ Route::get('/users', function () {
     return view('dashboard.users.index');
 })->name('dashboard.users.index');
 
+//-------------------login admin----------------//
+
+
+// adminlogin
+Route::get('/adminLogin', [LoginController::class, 'dashLogin']);
+Route::post('/adminLogin', [LoginController::class, 'loginPost'])->name('adminLogin');
+Route::get('/home', [AdminController::class, 'adminIndex']);
+
+// adminLogout
+Route::get('/home', [AdminController::class, 'adminIndex']);
+Route::get('/adminLogout', [adminLoginController::class, 'adminLogout'])->name('adminLogout');
+
+
+
+
+
 
 Route::resource('admins', AdminController::class);
 
@@ -145,6 +176,9 @@ Route::resource('dashboard/partners', PartnerController::class);
 Route::resource('dashboard/payments', PaymentController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
+
+Route::resource('dashboard/pendingcampaign', PendingCampaignController::class)->names('pendingCampaignTest');
+
 
 // Route::get('/categories', function () {
 //     return view('dashboard.categories.index');

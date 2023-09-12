@@ -357,7 +357,7 @@
                         <div class="partner-grids partners-slider">
                             @foreach ($Partners as $Partner)
                             <div class="grid">
-                                <img src="{{asset($Partner->image)}}" alt>
+                                <img src="{{url('/images/' .$Partner->image)}}" alt>
                             </div>
                             @endforeach
                         </div>

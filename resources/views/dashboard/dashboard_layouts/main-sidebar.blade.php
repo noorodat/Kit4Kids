@@ -133,7 +133,7 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Categories
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
 
@@ -143,7 +143,7 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Campaigns
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
 
@@ -153,7 +153,7 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Donations
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
 
@@ -163,7 +163,7 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Kits
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
 
@@ -173,7 +173,7 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Partners
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
 
@@ -183,7 +183,7 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Payments
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
 
@@ -193,7 +193,7 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Pending Campaigns
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
 
@@ -205,7 +205,7 @@
                   <i class="nav-icon far fa-envelope"></i>
                   <p>
                     Mailbox
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -237,7 +237,7 @@
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
                     Forms
-                    <i class="fas fa-angle-left right"></i>
+
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -256,3 +256,7 @@
         </div>
         <!-- /.sidebar -->
       </aside>
+
+      @if(!session('loginname'))
+        {{redirect()->route('adminLogin')}}
+      @endif

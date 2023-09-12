@@ -59,7 +59,7 @@
                         <div class="cause-item">
                             <div class="cause-top">
                                 <div class="cause-img">
-                                    <img src="{{ asset('assets/images/cause/supply-kit.jpg') }}" alt="">
+                                    <img src="{{ url('/images/' . $kit->image) }}" alt="">
                                     <div class="case-btn">
                                         <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>

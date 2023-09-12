@@ -32,7 +32,7 @@ Route::get('/', [HomeController::class, 'index'])->name('go-home');
 
 Route::get('/dashboard', function () {
     return view('welcome-dashboard');
-});
+})->middleware('admin');
 
 
 // Route::get('/dashboard', function () {
@@ -143,11 +143,11 @@ Route::get('/users', function () {
 // adminlogin
 Route::get('/adminLogin', [LoginController::class, 'dashLogin']);
 Route::post('/adminLogin', [LoginController::class, 'loginPost'])->name('adminLogin');
-Route::get('/home', [AdminController::class, 'adminIndex']);
+// Route::get('/home', [AdminController::class, 'adminIndex']);
 
 // adminLogout
-Route::get('/home', [AdminController::class, 'adminIndex']);
-Route::get('/adminLogout', [adminLoginController::class, 'adminLogout'])->name('adminLogout');
+// Route::get('/home', [AdminController::class, 'adminIndex']);
+Route::get('/adminLogout', [LoginController::class, 'adminLogout'])->name('adminLogout');
 
 Route::resource('admins', AdminController::class);
 

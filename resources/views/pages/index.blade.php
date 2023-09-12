@@ -248,7 +248,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                             <div class="features-item">
                                                 <div class="features-icon">
-                                                    <img draggable="false" src="{{ $catagory->image }}" alt="">
+                                                    <img draggable="false" src="{{ url('/images/' . $catagory->image) }}" alt="">
                                                 </div>-
                                                 <div class="features-content">
                                                     <h2><a
@@ -290,7 +290,7 @@
                             <div class="cause-item">
                                 <div class="cause-top">
                                     <div class="cause-img">
-                                        <img src="{{ asset('assets/images/cause/supply-kit.jpg') }}" alt="">
+                                        <img src="{{ url('/images/' . $kit->image) }}" alt="">
                                         <div class="case-btn">
                                             <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn">Donate
                                                 Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
@@ -308,8 +308,7 @@
                                         <a
                                             href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}">{{ $kit->title }}</a>
                                     </h3>
-                                    <p>{{ $kit->description }}</p>
-                                </div>
+                                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 35ch;">{{ $kit->description }}</p>                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -379,9 +378,15 @@
                                         <ul>
                                             <li>End Date:{{ $campaign->end_date }}</li>
                                             <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
-                                            <li style="margin-left:30px;" class="raised_money">Raised Money:
+                                            <li id="{{$campaign->id}}" style="margin-left:30px;" class="raised_money">Raised Money:
                                                 ${{ $campaign->raised_money }}</li>
                                         </ul>
+                                        @if($campaign->raised_money >= $campaign->target_money)
+                                        <script>
+                                            var raised_money = document.getElementById('{{$campaign->id}}');
+                                            raised_money.style = "color: green; margin-left: 30px;";
+                                        </script>
+                                    @endif
                                         <div class="time-left">
                                             <span>Time left:</span>
                                             <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}"
@@ -686,7 +691,7 @@
                         <div class="partner-grids partners-slider">
                             @foreach ($Partners as $Partner)
                                 <div class="grid">
-                                    <img src="{{ $Partner->image }}" alt>
+                                    <img src="{{ url('/images/' . $Partner->image) }}" alt>
                                 </div>
                             @endforeach
                         </div>

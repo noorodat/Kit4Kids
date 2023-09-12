@@ -51,7 +51,7 @@
                             </div>
                             <h2>Make a Donation</h2>
                             <div class="image">
-                                <img src="{{ asset($kit->image) }}" alt="" width="250px" style="padding: 10px">
+                                <img src="{{ url('/images/' . $kit->image) }}"" alt="" width="250px" style="padding: 10px">
                             </div>
                             <p><b>{{ $kit->title }}</b></p>
                             <p>Price: ${{ $kit->price }}</p>
@@ -87,7 +87,7 @@
                                         <label for="donation_option2">Donate with a custom amount</label>
                                         <div id="custom_amount_input" style="display: none;">
                                             <input type="number" class="form-control" id="custom_amount"
-                                                placeholder="Enter Custom Donation Amount" min="{{ $kit->price + 1 }}">
+                                                placeholder="Enter Custom Donation Amount" min="1">
                                         </div>
                                     </div>
                                     <div class="tp-donations-details">

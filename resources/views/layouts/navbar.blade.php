@@ -50,8 +50,8 @@
                             <li class="menu-item-has-children">
                                 <a @yield('home') href="{{route('go-home')}}" style="margin-right:15px; ">Home</a>
                             </li>
-                            <li><a @yield('about') href="{{route('go-about')}}">About</a></li>
-                            <li><a @yield('supplies') href="{{route('donate-supplies')}}">Donate  supplies</a></li>
+                            <li><a  @yield('about')  href="{{route('go-about')}}">About</a> </li>
+                            <li><a  @yield('supply') href="{{route('donate-supplies')}}">Donate supplies</a></li>
                             {{-- <li class="menu-item-has-children">
                                 <li><a href="{{ route('go-causes', ['cat_id' => 1]) }}">Kits</a></li>
                             </li> --}}

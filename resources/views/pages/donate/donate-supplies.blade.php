@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+
+
 @section('title', 'Donate supplies')
 
 @section('content')

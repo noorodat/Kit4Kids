@@ -2,6 +2,10 @@
 
 @section('title', 'Donate supplies')
 
+@section('supply')
+   class="active"
+@endsection
+
 @section('content')
 
     <div class="page-wrapper">

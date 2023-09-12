@@ -25,7 +25,7 @@
         </div>
         <!-- end preloader -->
         <!-- start of hero -->
-        <section class="hero-slider hero-style-1 hero-style-v2">
+        <section class="hero-slider hero-style-1 hero-style-v2" style="height: 750px;">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -183,7 +183,7 @@
             </div>
         </section>
         <!-- end of hero slider -->
-        <section class="about-section about-section-s2 section-padding p-t-0" style="padding-top: 0">
+        <section class="about-section about-section-s2 section-padding p-t-0" style="padding-top: 0;">
             <div class="container">
                 <div class="row">
                     <div class="col col-md-5">

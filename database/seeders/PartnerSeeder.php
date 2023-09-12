@@ -14,30 +14,30 @@ class PartnerSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('partners')->delete();
-        DB::table('partners')->insert([
-            [
-                'image' => 'assets/images/partners/img (1).png',
-            ],
-            [
-                'image' => 'assets/images/partners/img (2).png',
-            ],
-            [
-                'image' => 'assets/images/partners/img (3).png',
-            ],
-            [
-                'image' => 'assets/images/partners/img (4).png',
-            ],
-            [
-                'image' => 'assets/images/partners/img (5).png',
-            ],
-            [
-                'image' => 'assets/images/partners/img (1).png',
-            ],
-            [
-                'image' => 'assets/images/partners/img (6).png',
-            ],
-            
-        ]);
+        // DB::table('partners')->delete();
+        // DB::table('partners')->insert([
+        //     [
+        //         'image' => 'assets/images/partners/img (1).png',
+        //     ],
+        //     [
+        //         'image' => 'assets/images/partners/img (2).png',
+        //     ],
+        //     [
+        //         'image' => 'assets/images/partners/img (3).png',
+        //     ],
+        //     [
+        //         'image' => 'assets/images/partners/img (4).png',
+        //     ],
+        //     [
+        //         'image' => 'assets/images/partners/img (5).png',
+        //     ],
+        //     [
+        //         'image' => 'assets/images/partners/img (1).png',
+        //     ],
+        //     [
+        //         'image' => 'assets/images/partners/img (6).png',
+        //     ],
+
+        // ]);
     }
 }

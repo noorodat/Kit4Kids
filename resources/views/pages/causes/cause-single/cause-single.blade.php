@@ -50,7 +50,7 @@
                             <div class="tp-case-details-text">
                                 <div id="Description">
                                     <div class="tp-case-details-img">
-                                        <img src="{{ asset($kit->image) }}" alt="{{ $kit->title }}">
+                                        <img src="{{ url('/images/' . $kit->image) }}" alt="{{ $kit->title }}">
                                     </div>
                                     <div class="tp-case-content">
                                         <div class="tp-case-text-top">
@@ -86,7 +86,7 @@
                                     <div class="posts">
                                         <div class="post">
                                             <div class="img-holder">
-                                                <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}"><img src="{{ asset($kit->image) }}" alt></a>
+                                                <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}"><img src="{{ url('/images/' . $kit->image) }}" alt></a>
                                             </div>
                                             <div class="details">
                                                 <h4>

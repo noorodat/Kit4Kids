@@ -84,7 +84,7 @@
                                     @foreach ($moreCampaigns as $campaign)
                                     <div class="post">
                                         <div class="img-holder">
-                                            <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}"><img src="{{ asset($campaign->image) }}" alt></a>
+                                            <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}"><img src="{{ url('/images/' . $campaign->image) }}" alt></a>
                                         </div>
                                         <div class="details">
                                             <h4><a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{$campaign->title}}</a></h4>

@@ -4697,6 +4697,17 @@ li {
     }
 }
 
+.event-item .event-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-item .event-img img {
+    width: 100%;
+    height: 100%;
+}
+
 .testimonials-section .testimonial-thumb-active img {
     -webkit-transform: scale(0.8);
     -ms-transform: scale(0.8);

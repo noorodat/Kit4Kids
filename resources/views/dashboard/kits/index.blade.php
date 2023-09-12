@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <table class="table table-striped projects">
+        <table class="table table-striped projects text-center">
             <thead>
                 <tr>
                     <th>
@@ -51,6 +51,9 @@
                     </th>
                     <th>
                         Kit Category
+                    </th>
+                    <th>
+                        Action
                     </th>
                 </tr>
             </thead>

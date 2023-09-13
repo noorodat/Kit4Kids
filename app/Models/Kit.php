@@ -10,6 +10,7 @@ class Kit extends Model
 {
     public $timestamps = false;
     use HasFactory;
+    
 
     public function category()
     {

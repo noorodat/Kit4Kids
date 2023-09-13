@@ -57,8 +57,6 @@ class KitController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $kits = new Kit();
 
         $kits->title = $request->input('title');

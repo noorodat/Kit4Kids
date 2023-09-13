@@ -25,12 +25,11 @@ class ContactController extends Controller
             'notes' => $request->input('notes'),
         ];
 
-        // dd($details);
-
-        $input =$request ->all();
+        $input = $request ->all();
         Contact::create($input);
 
-        Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details));
+        $emailContent = $details['notes']; // Customize the content for contact
+        Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details, $emailContent));
         return back()->with('message_sent', 'Your Message has been sent successfully');
     }
 

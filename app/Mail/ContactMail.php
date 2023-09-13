@@ -13,22 +13,30 @@ class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
+    public $content;
     /**
      * Create a new message instance.
      */
-    public function __construct($details)
+    public function __construct($details = "", $content = "")
     {
-        $this->details =$details;
+        $this->details = $details;
+        $this->content = $content;
     }
 
     /**
      * Get the message envelope.
      */
-    public function build()
-    {
-        return $this->subject('Contact Message')->view('pages.email.contactMail');
+public function build()
+{
+    if ($this->content === "Thanks for your donation") {
+        return $this->subject('Thank you for your donation')
+                    ->view('pages.email.contactMail', ['content' => $this->content]);
+    } else {
+        return $this->subject('Contact us')
+                    ->view('pages.email.contactMail', ['content' => $this->content]);
     }
-    
+}
+
     // public function envelope(): Envelope
     // {
     //     return new Envelope(

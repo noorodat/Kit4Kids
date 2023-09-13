@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('donater_kit');
             $table->bigInteger('donater_phone');
             $table->string('donater_address');
-            $table->string('donater_message');
+            $table->text('donater_message');
             $table->float('Amount', 10, 2);
             $table->string('Currency');
             $table->timestamps();

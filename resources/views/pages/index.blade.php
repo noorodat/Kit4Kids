@@ -243,6 +243,27 @@
                         <h2 class="donate-categories">How do you want to help?</h2>
                         <div class="features-wrap" style="padding:10px;">
                             <div class="row">
+                                <a href="">
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                        <div class="features-item">
+                                            <div class="features-icon">
+                                                <img draggable="false" src="{{asset('assets/images/categories/fanical-donation-category.webp')}}" alt="">
+                                            </div>
+                                            <div class="features-content">
+                                                <h2><a
+                                                        href="" > Financial donation <br>
+                                                        <br><button style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
+                                                            <span>Donate Now</span>
+                                                            <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
+                                                        </button>
+
+                                                    </a>
+                                                    </h2>
+                                            </div>
+                                            {{-- <div class="features-text1">{{$kit->description}}</div> --}}
+                                        </div>
+                                    </div>
+                                </a>
                                 @foreach ($catagories as $catagory)
                                     <a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">
                                         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
@@ -295,8 +316,9 @@
                                     <div class="cause-img">
                                         <img src="{{ url('/images/' . $kit->image) }}" alt="">
                                         <div class="case-btn">
-                                            <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn">Donate
-                                                Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                            <a href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}" class="theme-btn">More details
+                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -311,7 +333,7 @@
                                         <a
                                             href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}">{{ $kit->title }}</a>
                                     </h3>
-                                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 35ch;">{{ $kit->description }}</p>                                </div>
+                                    <p>{{ \Illuminate\Support\Str::limit($kit->description, 65, '...') }}</p>                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -389,7 +411,7 @@
                                             var raised_money = document.getElementById('{{$campaign->id}}');
                                             raised_money.style = "color: green; margin-left: 30px;";
                                         </script>
-                                    @endif
+                                        @endif
                                         <div class="time-left">
                                             <span>Time left:</span>
                                             <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}"
@@ -399,7 +421,7 @@
                                             <a
                                                 href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
                                         </h2>
-                                        <p>{{ $campaign->description }}</p>
+                                        <p>{{ \Illuminate\Support\Str::limit($campaign->description, 240, '...') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -499,7 +521,7 @@
             <h2>Our Achievements</h2>
             <p>Discover our remarkable journey and accomplishments.</p>
         </div>
-        
+
         <div class="tp-counter-area">
             <div class="container">
                 <div class="row">

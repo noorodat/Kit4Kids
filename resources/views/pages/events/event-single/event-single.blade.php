@@ -44,7 +44,7 @@
         <div class="tp-case-details-area section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col col-md-8">
+                    <div class="col {{ count($moreCampaigns) > 0 ? 'col-md-8' : 'col-md-12' }}">
                         <div class="tp-case-details-wrap">
                             <div class="tp-case-details-text">
                                 <div id="Description">
@@ -76,35 +76,38 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col col-md-4 col-sm-12">
-                        <div class="tp-blog-sidebar">
-                            <div class="widget recent-post-widget">
-                                <h3>More Events</h3>
-                                <div class="posts">
-                                    @foreach ($moreCampaigns as $campaign)
-                                    <div class="post">
-                                        <div class="img-holder">
-                                            <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}"><img src="{{ url('/images/' . $campaign->image) }}" alt></a>
-                                        </div>
-                                        <div class="details">
-                                            <h4><a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{$campaign->title}}</a></h4>
-                                            <div class="time-left">
-                                                <span>Time left:</span>
-                                                <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                    @if (count($moreCampaigns) > 0)
+
+                        <div class="col col-md-4 col-sm-12">
+                            <div class="tp-blog-sidebar">
+                                <div class="widget recent-post-widget">
+                                    <h3>More Events</h3>
+                                    <div class="posts">
+                                        @foreach ($moreCampaigns as $campaign)
+                                        <div class="post">
+                                            <div class="img-holder">
+                                                <a href="{{ route('go-event-single', ['campaign' => $campaign]) }}"><img src="{{ url('/images/' . $campaign->image) }}" alt></a>
                                             </div>
-                                            <div style="text-align: left">
-                                                <h5 class="target_money_ele">Target Money: ${{ $campaign->target_money }}</h5>
-                                                <input type="hidden" value="{{ $campaign->target_money }}" class="target_money">
-                                                <input type="hidden" value="{{ $campaign->raised_money }}" class="raised_money">
-                                                <h5 class="raised_money_ele">Raised Money: ${{ $campaign->raised_money }}</h5>
+                                            <div class="details">
+                                                <h4><a href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{$campaign->title}}</a></h4>
+                                                <div class="time-left">
+                                                    <span>Time left:</span>
+                                                    <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                                                </div>
+                                                <div style="text-align: left">
+                                                    <h5 class="target_money_ele">Target Money: ${{ $campaign->target_money }}</h5>
+                                                    <input type="hidden" value="{{ $campaign->target_money }}" class="target_money">
+                                                    <input type="hidden" value="{{ $campaign->raised_money }}" class="raised_money">
+                                                    <h5 class="raised_money_ele">Raised Money: ${{ $campaign->raised_money }}</h5>
+                                                </div>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>

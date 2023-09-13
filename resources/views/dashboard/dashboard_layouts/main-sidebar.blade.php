@@ -226,6 +226,6 @@
         <!-- /.sidebar -->
       </aside>
 
-      @if(!session('loginname'))
+      @if(session('loginname'))
         {{redirect()->route('adminLogin')}}
       @endif

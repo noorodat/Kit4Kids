@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kits', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->string('image');
             $table->integer('price');
             $table->unsignedBigInteger('category_id');

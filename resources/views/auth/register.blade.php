@@ -12,16 +12,14 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{asset('/sign/css/style.css')}}">
 </head>
-<body style="height:100vh !important ;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
-">
+<body style="height:100vh !important ;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));">
 
-    <div class="main" style="padding:50px 0 0 0;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
-    ">
+    <div class="main" style="padding:50px 0 0 0;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));">
 
         <!-- Sign up form -->
         <section class="signup">
             <div class="container">
-                <div class="signup-content">
+                <div class="signup-content" style="padding-bottom: 20px ">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
                         <form method="POST" action="{{ route('register') }}" class="register-form" id="register-form">
@@ -51,18 +49,24 @@
 
                             </div>
                             <div></div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
                             </div>
+                            {{-- <div style="margin-top: 25px; text-align:center">
+                                <span class="social-label" style="font-size: 19px; font-family:Georgia, 'Times New Roman', Times, serif" > Or Signup with :</span> 
+                                <br>
+                                <ul style="list-style-type: none; padding-left: 0px; display: inline-block;">
+                                    <li style="display: inline-block; font-size: 17px"><a href="{{ route('auth.socilaite.redirect', 'github') }}"><i class="fa-brands fa-github fa-2xl"></i></a></li>
+                                    <li style="display: inline-block; padding-left:15px; font-size: 17px;"><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
+                                </ul>
+                            </div> --}}
+                           
                             
                         </form>
                     </div>
-                    <div class="signup-image">
-                        <figure><img src="{{asset('/sign/images/signup-image.jpg')}}" alt="sing up image"></figure>
+                    <div class="signup-image" style="margin-top: 0">
+                        <h1 style="text-align:right; margin:0"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> <a style="text-decoration: none; color:black;" href="{{route('go-home')}}">Home</a></h1>
+                        <figure style="margin-top:20px"><img src="{{asset('/sign/images/signup-image.jpg')}}" alt="sing up image"></figure>
                         <a href="{{route('login')}}" class="signup-image-link">Do you have account? Login Now</a>
                     </div>
                 </div>
@@ -70,6 +74,8 @@
     </div>
 
     <!-- JS -->
+    <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>
+
     <script src="{{asset('/sign/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/sign/js/main.js')}}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

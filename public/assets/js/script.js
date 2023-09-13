@@ -588,7 +588,7 @@
                     // required: true,
                     minlength: 5 // Minimum address length
                 },
-                note: {
+                notes: {
                     required: true, // Make "notes" field required
                     maxlength: 255 // Maximum character limit for notes
                 },

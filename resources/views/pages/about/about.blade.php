@@ -183,7 +183,7 @@
                                 <div class="volunteer-img">
                                     <img src="{{asset('/assets/images/team/1.png')}}" alt="">
                                 </div>
-                                <div class="volunteer-content">
+                                <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                     <h2><a href="volunteer.html">Adriane Newby</a></h2>
                                     <span>Volunteer</span>
                                 </div>
@@ -194,7 +194,7 @@
                                 <div class="volunteer-img">
                                     <img src="{{asset('/assets/images/team/2.png')}}" alt="">
                                 </div>
-                                <div class="volunteer-content">
+                                <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                     <h2><a href="volunteer.html">Allene Castaneda</a></h2>
                                     <span>Volunteer</span>
                                 </div>
@@ -205,7 +205,7 @@
                                 <div class="volunteer-img">
                                     <img src="{{asset('/assets/images/team/3.png')}}" alt="">
                                 </div>
-                                <div class="volunteer-content">
+                                <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                     <h2><a href="volunteer.html">Malinda Willoughby</a></h2>
                                     <span>Volunteer</span>
                                 </div>
@@ -216,7 +216,7 @@
                                 <div class="volunteer-img">
                                     <img src="{{asset('/assets/images/team/4.png')}}" alt="">
                                 </div>
-                                <div class="volunteer-content">
+                                <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                     <h2><a href="volunteer.html">Wilburn Hatfield</a></h2>
                                     <span>Volunteer</span>
                                 </div>
@@ -229,7 +229,7 @@
         <!-- volunteer-area start -->
         <!-- start testimonials-section-s2 -->
         <!-- start testimonials-section-s2 -->
-        <section class="testimonials-section section-padding">
+        {{-- <section class="testimonials-section section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">
@@ -252,7 +252,6 @@
                                 </div>
                             </div>
                             <div class="testimonial-content-active text-center">
-                                {{-- start --}}
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
@@ -260,8 +259,6 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
-                                {{-- start --}}
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
@@ -269,8 +266,6 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
-                                {{-- start --}}
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
@@ -278,8 +273,6 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
-                                {{-- start --}}
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
@@ -287,8 +280,6 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
-                                {{-- start --}}
                                 <div class="grid">
                                     <p>A volunteer is an individual who willingly offers their time, skills, and efforts to support a cause, organization, or community without expecting financial compensation. Volunteers are driven by a sense of altruism, empathy, and a desire to make a positive impact on the world. They play a crucial role in various sectors, including nonprofit organizations, healthcare, education, environmental conservation, disaster relief, and more.</p>
                                     <div class="info">
@@ -296,7 +287,6 @@
                                         <p>Volunteer</p>
                                     </div>
                                 </div>
-                                {{-- end --}}
 
                             </div>
                         </div>
@@ -309,9 +299,99 @@
             <div class="testi-shape2">
                 <img src="assets/images/ts.png" alt="">
             </div>
-        </section>
+        </section> --}}
+        <div
+         style="background: linear-gradient(80deg,rgba(255, 192, 57, 0.542), rgba(55, 191, 96, 0.673),rgba(7, 23, 56, 0.466)); "
+         >
+            <div class="volunteer-area section-padding" >
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <div class="section-title section-title2 text-center">
+                                <div class="thumb-text">
+                                    <span>Volunteer</span>
+                                </div>
+                                <h2>Our Great Team</h2>
+                                <p style="color: black;">Dedicated volunteers, diverse talents, one mission: making a difference together.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="volunteer-wrap" >
+                        <div class="row">
+    
+                            <div class="col col-md-4 col-sm-6 custom-grid col-12">
+                                <div class="volunteer-item">
+                                    <div class="volunteer-img">
+                                        <img src="{{asset('assets/images/team/img (2).png')}}" height="300px" alt="">
+                                    </div>
+                                    <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
+                                        <h2><a>Nooraldeen Aloudat</a></h2>
+                                        <span style="color: black;">Volunteer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-md-4 col-sm-6 custom-grid col-12">
+                                <div class="volunteer-item">
+                                    <div class="volunteer-img">
+                                        <img src="{{asset('assets/images/team/img (1).png')}}" height="300px" alt="">
+                                    </div>
+                                    <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
+                                        <h2><a>Mohammad Alhouwari</a></h2>
+                                        <span style="color: black;">Volunteer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-md-4 col-sm-6 custom-grid col-12">
+                                <div class="volunteer-item">
+                                    <div class="volunteer-img">
+                                        <img src="{{asset('assets/images/team/img (5).png')}}" height="300px" alt="">
+                                    </div>
+                                    <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
+                                        <h2><a>Razan Mustafa</a></h2>
+                                        <span style="color: black;">Volunteer</span>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col col-md-2 col-sm-6 custom-grid col-12"></div>
+    
+                            <div class="col col-md-4 col-sm-6 custom-grid col-12">
+                                <div class="volunteer-item">
+                                    <div class="volunteer-img">
+                                        <img src="{{asset('assets/images/team/img (3).png')}}" height="300px" style="margin-top: 40px" alt="">
+                                    </div>
+                                    <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
+                                        <h2><a>Raghad Bataineh</a></h2>
+                                        <span style="color: black;">Volunteer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-md-4 col-sm-6 custom-grid col-12">
+                                <div class="volunteer-item">
+                                    <div class="volunteer-img">
+                                        <img src="{{asset('assets/images/team/img (4).png')}}" height="300px" style="margin-top: 40px" alt="">
+                                    </div>
+                                    <div class="volunteer-content" style="background-color:rgba(255, 255, 255, 0.16)">
+                                        <h2><a>Lama Nazzal</a></h2>
+                                        <span style="color: black;" >Volunteer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
         <!-- end testimonials-section-s2 -->
         <!-- .tp-counter-area start -->
+        <div class="section-title section-title2 text-center" style="margin: 100px 0 0 0; padding:0 !important;">
+            <div class="thumb-text">
+                <span>Achievements</span>
+            </div>
+            <h2>Our Achievements</h2>
+            <p>Dedicated volunteers, diverse talents, one mission: making a difference together.</p>
+        </div>
+        
         <div class="tp-counter-area">
             <div class="container">
                 <div class="row">
@@ -349,8 +429,8 @@
         <!-- .tp-counter-area end -->
         <!-- start partners-section -->
         <!-- start partners-section -->
-        <section class="partners-section section-padding">
-            <h2 class="hidden">Partners</h2>
+        <section class="partners-section ">
+            <h4 style="color:#513d2f !important; text-align:center; font-size:50px !important; padding:60px 20px">Our Partners</h4>
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">
@@ -363,7 +443,7 @@
                         </div>
                     </div>
                 </div>
-            </div> <!-- end container -->
+            </div> 
         </section>
         <!-- end partners-section -->
         <!-- end partners-section -->

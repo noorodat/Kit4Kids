@@ -65,7 +65,7 @@
                         @foreach ($campaigns as $campaign)
                         <span class="campaign_id" hidden style="display: none">{{$campaign->id}}</span>
                             <div class="event-item">
-                                <div class="event-img">
+                                <div class="event-img" style="width: 300px !important;">
                                     <img src="{{ url('/images/' . $campaign->image) }}" width="300px">
                                 </div>
                                     <div class="event-text">

@@ -29,7 +29,7 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider5.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider9-transformed.jpeg">
                             <div class="container">
                                 <div data-swiper-parallax="200" class="slide-thumb">
                                     <span>GO FOR HELP</span>
@@ -252,8 +252,11 @@
                                                 </div>-
                                                 <div class="features-content">
                                                     <h2><a
-                                                            href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}" >{{ $catagory->title }}
-                                                            <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
+                                                            href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}" >{{ $catagory->title }} <br>
+                                                            <br><button style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
+                                                                <span>Donate Now</span>
+                                                                <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
+                                                            </button>
 
                                                         </a>
                                                         </h2>
@@ -361,8 +364,8 @@
                         @foreach ($campaigns as $campaign)
                             <span class="campaign_id" hidden style="display: none">{{ $campaign->id }}</span>
                             <div class="event-item">
-                                <div class="event-img">
-                                    <img src="{{ url('/images/' . $campaign->image) }}" alt="" width="300px">
+                                <div class="event-img" style="width: 300px !important;">
+                                    <img src="{{ url('/images/' . $campaign->image) }}" alt="">
                                 </div>
                                 <div class="event-text">
                                     <div class="event-left">
@@ -409,7 +412,8 @@
         </div>
         <!-- event-area start -->
         <!-- volunteer-area start -->
-        <div class="volunteer-area section-padding" >
+        {{-- impotant dont delet this ************************************************************* --}}
+        {{-- <div class="volunteer-area section-padding" >
             <div class="container">
                 <div class="row">
                     <div>
@@ -486,7 +490,51 @@
                     </div>
                 </div>
             </div>
+        </div> --}}
+        <!-- .tp-counter-area start -->
+        <div class="section-title section-title2 text-center" style="margin: 100px 0 0 0; padding:0 !important;">
+            <div class="thumb-text">
+                <span>Achievements</span>
+            </div>
+            <h2>Our Achievements</h2>
+            <p>Discover our remarkable journey and accomplishments.</p>
         </div>
+        
+        <div class="tp-counter-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="tp-counter-grids">
+                            <div class="grid">
+                                <div>
+                                    <h2><span class="odometer" data-count="6200">00</span>+</h2>
+                                </div>
+                                <p>Donation</p>
+                            </div>
+                            <div class="grid">
+                                <div>
+                                    <h2><span class="odometer" data-count="80">00</span>+</h2>
+                                </div>
+                                <p>Fund Raised</p>
+                            </div>
+                            <div class="grid">
+                                <div>
+                                    <h2><span class="odometer" data-count="245">00</span>+</h2>
+                                </div>
+                                <p>Volunteers</p>
+                            </div>
+                            <div class="grid">
+                                <div>
+                                    <h2><span class="odometer" data-count="605">00</span>+</h2>
+                                </div>
+                                <p>Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .tp-counter-area end -->
         <!-- volunteer-area start -->
         <!-- start testimonials-section-s2 -->
 
@@ -683,8 +731,8 @@
         </div> --}}
         <!-- blog-area start -->
         <!-- start partners-section -->
-        <section class="partners-section section-padding">
-            <h2 class="hidden">Partners</h2>
+        <section class="partners-section ">
+            <h4 style="color:#000000 !important; text-align:center; font-size:60px !important; padding: 60px 20px ">Our Partners</h4>
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">

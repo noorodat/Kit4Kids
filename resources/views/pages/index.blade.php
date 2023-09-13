@@ -503,32 +503,32 @@
         <div class="tp-counter-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="">
                         <div class="tp-counter-grids">
-                            <div class="grid">
+                            <div class="grid" >
                                 <div>
-                                    <h2><span class="odometer" data-count="6200">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{$donation}}">00</span>+</h2>
                                 </div>
-                                <p>Donation</p>
+                                <p>In-kind Donations</p>
                             </div>
-                            <div class="grid">
+                            <div class="grid" >
                                 <div>
-                                    <h2><span class="odometer" data-count="80">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{$totalSum}}">00</span> <span style="font-size:50px " >$</span> </h2>
                                 </div>
-                                <p>Fund Raised</p>
+                                <p>Financial Donations</p>
                             </div>
-                            <div class="grid">
+                            <div class="grid" >
                                 <div>
-                                    <h2><span class="odometer" data-count="245">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{$user}}">00</span>+</h2>
                                 </div>
-                                <p>Volunteers</p>
+                                <p>Donaters</p>
                             </div>
-                            <div class="grid">
+                            {{-- <div class="grid">
                                 <div>
                                     <h2><span class="odometer" data-count="605">00</span>+</h2>
                                 </div>
                                 <p>Projects</p>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

@@ -28,10 +28,10 @@
                         placeholder="Kit Title">
                 </div>
                 <div class="form-group">
-                    <label for="UserEmail">Kit Description </label>
-                    <input type="text" name="description" class="form-control"
-                        placeholder="Kit Description">
+                    <label for="description">Kit Description</label>
+                    <textarea name="description" class="form-control" placeholder="Kit Description"></textarea>
                 </div>
+                
                 <div class="form-group">
                         <label for="UserPassword">Kit Image</label>
                         <input type="file" name="image" class="form-control"

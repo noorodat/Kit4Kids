@@ -40,10 +40,10 @@
                 </div>
                 <div class="form-group">
                     <label for="UserEmail">Campaign Description</label>
-                    <input type="text" name="description" class="form-control"
-                        placeholder="Campaign Description">
-                        <span>@error('description'){{$message}} @enderror</span>
+                    <textarea name="description" class="form-control" placeholder="Campaign Description"></textarea>
+                    <span>@error('description'){{ $message }} @enderror</span>
                 </div>
+                
                 <div class="form-group">
                         <label for="UserPassword">Target Money</label>
                         <input type="number" name="target_money" class="form-control"

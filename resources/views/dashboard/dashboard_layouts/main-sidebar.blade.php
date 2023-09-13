@@ -1,12 +1,12 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar  elevation-4" style="background-color: #071738 " >
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-          <img src="{{ asset('dashboard-assets/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">
 
           <span class="brand-text font-weight-light">HopeHarbor</span>
         </a>
-
+       
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
@@ -16,7 +16,9 @@
 
             </div>
             <div class="info">
-              <a href="#" class="d-block">Admin name should be here</a>
+              <a href=" {{ route('admins.index')}}" class="d-block">Admin name should be here
+              
+              </a>
             </div>
           </div>
 
@@ -38,13 +40,7 @@
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
               <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Main
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
+                
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{ route('go-home') }}" class="nav-link active">

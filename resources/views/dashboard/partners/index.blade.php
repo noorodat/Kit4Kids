@@ -49,7 +49,7 @@
                 @foreach ($partners as $partner )
                    <tr>
                     <th scope="row">{{$i}}</th>
-                    <td><img src="{{ url('/images/' . $partner->image) }}" alt="" width="40%"></td>
+                    <td><img src="{{ url('/images/' . $partner->image) }}" alt="" width="100px" height="100px"></td>
                     <td class="project-actions text-right">
 
                         <a class="btn btn-info btn-sm" href="{{ route('partners.edit', $partner->id) }}">

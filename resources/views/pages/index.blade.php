@@ -523,12 +523,12 @@
                                 </div>
                                 <p>Donaters</p>
                             </div>
-                            {{-- <div class="grid">
+                            <div class="grid">
                                 <div>
-                                    <h2><span class="odometer" data-count="605">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{$event}}">00</span>+</h2>
                                 </div>
-                                <p>Projects</p>
-                            </div> --}}
+                                <p>Campaigns</p>
+                            </div>
                         </div>
                     </div>
                 </div>

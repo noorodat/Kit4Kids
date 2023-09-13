@@ -383,49 +383,49 @@
             </div> 
         </div>
         <!-- end testimonials-section-s2 -->
-        <!-- .tp-counter-area start -->
-        <div class="section-title section-title2 text-center" style="margin: 100px 0 0 0; padding:0 !important;">
-            <div class="thumb-text">
-                <span>Achievements</span>
-            </div>
-            <h2>Our Achievements</h2>
-            <p>Dedicated volunteers, diverse talents, one mission: making a difference together.</p>
-        </div>
-        
-        <div class="tp-counter-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="tp-counter-grids">
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="6200">00</span>+</h2>
+                <!-- .tp-counter-area start -->
+                <div class="section-title section-title2 text-center" style="margin: 100px 0 0 0; padding:0 !important;">
+                    <div class="thumb-text">
+                        <span>Achievements</span>
+                    </div>
+                    <h2>Our Achievements</h2>
+                    <p>Discover our remarkable journey and accomplishments.</p>
+                </div>
+                
+                <div class="tp-counter-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="">
+                                <div class="tp-counter-grids">
+                                    <div class="grid" >
+                                        <div>
+                                            <h2><span class="odometer" data-count="{{$donation}}">00</span>+</h2>
+                                        </div>
+                                        <p>In-kind Donations</p>
+                                    </div>
+                                    <div class="grid" >
+                                        <div>
+                                            <h2><span class="odometer" data-count="{{$totalSum}}">00</span> <span style="font-size:50px " >$</span> </h2>
+                                        </div>
+                                        <p>Financial Donations</p>
+                                    </div>
+                                    <div class="grid" >
+                                        <div>
+                                            <h2><span class="odometer" data-count="{{$user}}">00</span>+</h2>
+                                        </div>
+                                        <p>Donaters</p>
+                                    </div>
+                                    <div class="grid">
+                                        <div>
+                                            <h2><span class="odometer" data-count="{{$event}}">00</span>+</h2>
+                                        </div>
+                                        <p>Campaigns</p>
+                                    </div>
                                 </div>
-                                <p>Donation</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="80">00</span>+</h2>
-                                </div>
-                                <p>Fund Raised</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="245">00</span>+</h2>
-                                </div>
-                                <p>Volunteers</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="605">00</span>+</h2>
-                                </div>
-                                <p>Projects</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
         <!-- .tp-counter-area end -->
         <!-- start partners-section -->
         <!-- start partners-section -->

@@ -98,13 +98,13 @@
                                         <input type="email" class="form-control" name="email" id="email" placeholder="Email*">
                                     </div>
                                     <div>
-                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone*">
+                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
                                     </div>
                                     <div>
-                                        <input type="text" class="form-control"  name="address" id="address" placeholder="Address*">
+                                        <input type="text" class="form-control"  name="address" id="address" placeholder="Address">
                                     </div>
                                     <div class="comment-area">
-                                        <textarea  name="note"  id="note" placeholder="Case description*"></textarea>
+                                        <textarea  name="notes"  id="note" placeholder="Case description*"></textarea>
                                     </div>
                                     <div class="submit-area">
                                         <button type="submit" class="theme-btn">Submit Now</button>
@@ -112,7 +112,7 @@
                                             <i class="ti-reload"></i>
                                         </div>
                                     </div>
-                                    @error('note')
+                                    @error('notes')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                     <div class="clearfix error-handling-messages">

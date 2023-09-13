@@ -64,10 +64,16 @@
 
                 <tr>
                     <th scope="row">{{$i}}</th>
-                    <td><img src="{{ url('/images/' . $category->image) }}" alt="" width="40%"></td>
+                    <td><img src="{{ url('/images/' . $category->image) }}" alt="" width="100px" height="100px"></td>
 
                      <td>{{$category->title}}</td>
-                    <td>{{$category->description}}</td>
+                    <td>
+                        <div class="description-wrapper">
+                            <span class="short-description">{{ Str::limit($category->description, 100) }}</span>
+                            <span class="full-description" style="display: none;">{{ $category->description }}</span>
+                        </div>
+                        <a href="#" class="read-more">Read More</a>
+                    </td>
 
                     <td>{{$category->type}}</td>
                     <td class="project-actions text-right">

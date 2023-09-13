@@ -32,3 +32,28 @@
 <script type="text/javascript"  src="{{URL::asset('dashboard-assets/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script type="text/javascript"  src="{{URL::asset('dashboard-assets/js/demo.js')}}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const readMoreLinks = document.querySelectorAll('.read-more');
+
+      readMoreLinks.forEach(function (link) {
+          link.addEventListener('click', function (e) {
+              e.preventDefault();
+
+              const descriptionWrapper = this.previousElementSibling;
+              const shortDescription = descriptionWrapper.querySelector('.short-description');
+              const fullDescription = descriptionWrapper.querySelector('.full-description');
+
+              if (shortDescription.style.display === 'none') {
+                  shortDescription.style.display = 'inline';
+                  fullDescription.style.display = 'none';
+                  this.innerText = 'Read More';
+              } else {
+                  shortDescription.style.display = 'none';
+                  fullDescription.style.display = 'inline';
+                  this.innerText = 'Read Less';
+              }
+          });
+      });
+  });
+</script>

@@ -3,7 +3,7 @@
 @section('title', 'Donate supplies')
 
 @section('supply')
-   class="active"
+    class="active"
 @endsection
 
 @section('content')
@@ -35,7 +35,7 @@
                                 <h2>Donate Now</h2>
                                 <ol class="breadcrumb">
                                     <li><a href="index.html">Home</a></li>
-                                    <li>Donate</li>
+                                    <li>Donate-Supplies</li>
                                 </ol>
                             </div>
                         </div> <!-- end row -->
@@ -51,9 +51,12 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="section-title section-title2 text-center">
                             <div class="thumb-text">
-                                <span>Donate</span>
+                                <span>Supplies</span>
                             </div>
-                            <h2>Make a Donation</h2>
+                            <h2>Make a Supplies Donation</h2>
+                            <p>Provide a helping hand to students in need by making a supplies donation for school kits!
+                                Your generosity equips them with essential tools, opening doors to a world of learning. Join
+                                us in shaping a better tomorrow!</p>
                             {{-- <div class="image">
                                 <img src="{{asset($campaign->image)}}" alt="" width="250px" style="padding: 10px">
                             </div> --}}
@@ -77,59 +80,66 @@
                                 {{-- {{ session()->forget('Donate_login') }} --}}
                                 <form action="{{ route('supplies') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="tp-donations-details">
-                                        <h2>Supplies Details</h2>
-                                        <div class="row">
+                                    <div class="tp-donations-amount">
 
-                                            <input type="hidden" id="" name="UserId" value="{{ Auth::id() }}">
+                                        <div class="tp-donations-details">
+                                            <h2>Supplies Details</h2>
+                                            <div class="row">
 
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                                <!-- Input for title (string) -->
-                                                <input type="text" class="form-control" name="title" id="title" required placeholder="Title">
-                                            </div>
+                                                <input type="hidden" id="" name="UserId"
+                                                    value="{{ Auth::id() }}">
 
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                                <input type="number" class="form-control" name="phone" id="phone"
-                                                required placeholder="Phone">
-                                            </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                    <!-- Input for title (string) -->
+                                                    <input type="text" class="form-control" name="title" id="title"
+                                                        required placeholder="Title">
+                                                </div>
 
-
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                                <input type="file" class="form-control" name="image" id="image" accept="image/*" required>
-                                            </div>
-
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                    <input type="number" class="form-control" name="phone" id="phone"
+                                                        required placeholder="Phone">
+                                                </div>
 
 
-                                            {{-- <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                    <input type="file" class="form-control" name="image" id="image"
+                                                        accept="image/*" required>
+                                                </div>
+
+
+
+                                                {{-- <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                 <input type="text" class="form-control" name="adress" id="Adress"
                                                 required placeholder="Adress">
                                             </div> --}}
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                                <select class="form-control" name="city" id="city" required>
-                                                  <option value="" disabled selected>Select a city</option>
-                                                  <option value="Amman">Amman</option>
-                                                  <option value="Ajloun">Ajloun</option>
-                                                  <option value="Jerash">Jerash</option>
-                                                  <option value="Mafraq">Mafraq</option>
-                                                  <option value="Balqa">Balqa</option>
-                                                  <option value="Zarqa">Zarqa</option>
-                                                  <option value="Madaba">Madaba</option>
-                                                  <option value="Karak">Karak</option>
-                                                  <option value="Tafilah">Tafilah</option>
-                                                  <option value="Maan">Ma'an</option>
-                                                  <option value="Aqaba">Aqaba</option>
-                                                </select>
-                                              </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                    <select class="form-control" name="city" id="city" required>
+                                                        <option value="" disabled selected>Select a city</option>
+                                                        <option value="Irbid">Irbid</option>
+                                                        <option value="Amman">Amman</option>
+                                                        <option value="Ajloun">Ajloun</option>
+                                                        <option value="Jerash">Jerash</option>
+                                                        <option value="Mafraq">Mafraq</option>
+                                                        <option value="Balqa">Balqa</option>
+                                                        <option value="Zarqa">Zarqa</option>
+                                                        <option value="Madaba">Madaba</option>
+                                                        <option value="Karak">Karak</option>
+                                                        <option value="Tafilah">Tafilah</option>
+                                                        <option value="Maan">Ma'an</option>
+                                                        <option value="Aqaba">Aqaba</option>
+                                                    </select>
+                                                </div>
 
 
 
-                                            <div class="col-lg-12 col-12 form-group">
-                                                <textarea required class="form-control" name="Description" id="Description" placeholder="Description"></textarea>
+                                                <div class="col-lg-12 col-12 form-group">
+                                                    <textarea required class="form-control" name="Description" id="Description" placeholder="Description"></textarea>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="submit-area">
-                                        <button type="submit" class="theme-btn submit-btn">Donate Now</button>
+                                        <div class="submit-area">
+                                            <button type="submit" class="theme-btn submit-btn">Donate Now</button>
+                                        </div>
                                     </div>
                                 </form>
                             @else
@@ -150,4 +160,3 @@
     </div>
 
 @endsection
-

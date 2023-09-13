@@ -22,8 +22,13 @@ class ContactController extends Controller
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
-            'note' => $request->input('note'),
+            'notes' => $request->input('notes'),
         ];
+
+        // dd($details);
+
+        $input =$request ->all();
+        Contact::create($input);
 
         Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details));
         return back()->with('message_sent', 'Your Message has been sent successfully');

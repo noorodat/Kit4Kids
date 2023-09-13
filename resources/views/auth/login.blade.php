@@ -1,3 +1,10 @@
+{{-- @extends('layouts.master')
+
+
+@section('title', 'login') --}}
+
+
+{{-- @section('content') --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,20 +22,23 @@
 </head>
 
 <body
-    style="height:100vh !important; background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
-">
-
+    style="height:100vh !important; background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));">
     <div class="main"
-        style="padding:50px 0 0 0;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));
-    ">
+        style="padding:33px 0 0 0;background: linear-gradient(45deg, rgb(55, 191, 96), rgb(7, 23, 56), rgb(255, 192, 57));">
         <!-- Sing in  Form -->
         <section class="sign-in">
+
             <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="{{ asset('/sign/images/signin-image.jpg') }}" alt="sing up image"></figure>
-                        <a href="{{ route('register') }}" class="signup-image-link">Don't have an account yet? Sign
-                            up!</a>
+                <div style="text-align: center">
+                    <a  class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo2.png')}}" alt="logo"></a>
+                </div>
+
+                <div class="signin-content" style="padding: 30px">
+                    <div class="signin-image " style="margin-top: 0">
+                        <h1 style="text-align:left; margin:0"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> <a style="text-decoration: none; color:black;" href="{{route('go-home')}}">Home</a></h1>
+
+                        <figure style="margin-top:20px"><img src="{{ asset('/sign/images/signin-image.jpg') }}" alt="sing up image"></figure>
+                        <a href="{{ route('register') }}" class="signup-image-link">Don't have an account yet? Sign up!</a>
                     </div>
 
                     <div class="signin-form">
@@ -74,12 +84,13 @@
                                 </a>
                             @endif
                         </form>
-                        <div class="social-login">
-                            <span class="social-label">Or login with</span>
-                            <ul style="list-style-type: none; padding-left: 2px; display: inline-block;">
+                        <div style="margin-top: 30px; text-align:center">
+                            <span class="social-label" style="font-size: 19px; font-family:Georgia, 'Times New Roman', Times, serif" > Or login with :</span> 
+                            <br>
+                            <ul style="list-style-type: none; padding-left: 0px; display: inline-block;">
                                 {{-- <li style="display: inline-block;"><a href="{{ route('auth.socilaite.redirect', 'facebook') }}"><i class="fa-brands fa-facebook-f fa-2xl" style="color: #478bff;"></i></i></a></li> --}}
-                                <li style="display: inline-block;padding-left:15px;"><a href="{{ route('auth.socilaite.redirect', 'github') }}"><i class="fa-brands fa-github fa-2xl"></i></a></li>
-                                <li style="display: inline-block; padding-left:15px;"><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
+                                <li style="display: inline-block; font-size: 17px"><a href="{{ route('auth.socilaite.redirect', 'github') }}"><i class="fa-brands fa-github fa-2xl"></i></a></li>
+                                <li style="display: inline-block; padding-left:15px; font-size: 17px;"><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
                             </ul>
                         </div>
 
@@ -99,11 +110,11 @@
 </html>
 
 
+{{-- @endsection --}}
 
 
 
 {{--
-
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />

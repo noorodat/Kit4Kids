@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
+use App\Models\EventAll;
 use Illuminate\Http\Request;
 
 
@@ -71,6 +72,7 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         $campaign = new Campaign();
+        $eventall = new EventAll();
 
         $request->validate([
             'title' => 'required|string|max:255',
@@ -81,6 +83,7 @@ class CampaignController extends Controller
         ]);
 
         $campaign->title = $request->input('title');
+        $eventall->title = $request->input('title');
         $campaign->description = $request->input('description');
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -97,6 +100,8 @@ class CampaignController extends Controller
 
 
         $campaign->save();
+        $eventall->save();
+
 
         return redirect()->route('gocampaigns')->with('success', 'Campaign created successfully');
     }

@@ -745,6 +745,7 @@ li {
     height: 100%;
     position: fixed;
     z-index: 1000;
+    top: 0;
 }
 
 .preloader .sk-cube-grid {
@@ -5208,6 +5209,8 @@ li {
         font-size: 35px;
     }
 }
+
+
 
 
 /*=========================================

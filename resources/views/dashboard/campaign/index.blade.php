@@ -76,7 +76,14 @@
                     <td><img src="{{ url('/images/' . $campaign->image) }}" alt="" width="70%"></td>
 
                      <td>{{$campaign->title}}</td>
-                    <td>{{$campaign->description}}</td>
+                    {{-- <td>{{$campaign->description}}</td> --}}
+                    <td>
+                        <div class="description-wrapper">
+                            <span class="short-description">{{ Str::limit($campaign->description, 100) }}</span>
+                            <span class="full-description" style="display: none;">{{ $campaign->description }}</span>
+                        </div>
+                        <a href="#" class="read-more">Read More</a>
+                    </td>
 
                     <td>{{$campaign->target_money}}</td>
                     <td>{{$campaign->raised_money}}</td>

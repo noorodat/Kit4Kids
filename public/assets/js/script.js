@@ -579,16 +579,16 @@
                     email: true // Valid email format
                 },
                 phone: {
-                    required: true,
+                    // required: true,
                     minlength: 10,
                     maxlength: 10,
                     digits: true // Only digits allowed
                 },
                 address: {
-                    required: true,
+                    // required: true,
                     minlength: 5 // Minimum address length
                 },
-                note: {
+                notes: {
                     required: true, // Make "notes" field required
                     maxlength: 255 // Maximum character limit for notes
                 },

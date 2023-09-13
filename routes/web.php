@@ -96,6 +96,10 @@ Route::view('/donate/supplies', 'pages/donate/donate-eyes')->name('donate-suppli
 Route::post('/donate/supplies', [DonationController::class, 'store'])->name('supplies');
 // End donate supplies routes
 
+// Start donate financial routes
+Route::view('/donate/financial', 'pages/donate/donate-financial')->name('donate-financial');
+// End donate financial routes
+
 
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])->name('go-donate');
 
@@ -166,6 +170,8 @@ Route::resource('dashboard/partners', PartnerController::class);
 Route::resource('dashboard/payments', PaymentController::class);
 
 Route::resource('dashboard/users', ProfileController::class);
+
+Route::resource('dashboard', dashHomeController::class);
 
 Route::resource('dashboard/pendingcampaign', PendingCampaignController::class)->names('pendingCampaignTest');
 

@@ -245,7 +245,7 @@
                             <div class="row">
                                 @foreach ($catagories as $catagory)
                                     <a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                             <div class="features-item">
                                                 <div class="features-icon">
                                                     <img draggable="false" src="{{ url('/images/' . $catagory->image) }}" alt="">
@@ -504,31 +504,31 @@
         <div class="tp-counter-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="">
                         <div class="tp-counter-grids">
-                            <div class="grid">
+                            <div class="grid" >
                                 <div>
-                                    <h2><span class="odometer" data-count="6200">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{$donation}}">00</span>+</h2>
                                 </div>
-                                <p>Donation</p>
+                                <p>In-kind Donations</p>
+                            </div>
+                            <div class="grid" >
+                                <div>
+                                    <h2><span class="odometer" data-count="{{$totalSum}}">00</span> <span style="font-size:50px " >$</span> </h2>
+                                </div>
+                                <p>Financial Donations</p>
+                            </div>
+                            <div class="grid" >
+                                <div>
+                                    <h2><span class="odometer" data-count="{{$user}}">00</span>+</h2>
+                                </div>
+                                <p>Donaters</p>
                             </div>
                             <div class="grid">
                                 <div>
-                                    <h2><span class="odometer" data-count="80">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{$event}}">00</span>+</h2>
                                 </div>
-                                <p>Fund Raised</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="245">00</span>+</h2>
-                                </div>
-                                <p>Volunteers</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="605">00</span>+</h2>
-                                </div>
-                                <p>Projects</p>
+                                <p>Campaigns</p>
                             </div>
                         </div>
                     </div>

@@ -61,7 +61,13 @@
                     <tr>
                     <th scope="row">{{$i}}</th>
                     <td>{{ $donation->title }}</td>
-                    <td>{{ $donation->description }}</td>
+                    <td>
+                      <div class="description-wrapper">
+                          <span class="short-description">{{ Str::limit($donation->description, 100) }}</span>
+                          <span class="full-description" style="display: none;">{{ $donation->description }}</span>
+                      </div>
+                      <a href="#" class="read-more">Read More</a>
+                  </td>
                     <td>{{ $donation->type }}</td>
                     <td>{{ $donation->user->name }}</td>
                     <td class="project-actions text-right">

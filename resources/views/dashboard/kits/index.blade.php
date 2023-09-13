@@ -43,7 +43,7 @@
                     <th>
                         Kit Title
                     </th>
-                    <th>
+                    <th style="width: 30%">
                        Kit description
                     </th>
                     <th class="text-center">
@@ -66,10 +66,16 @@
            <tr>
 
                <th scope="row">{{$i}}</th>
-               <td><img src="{{ url('/images/' . $kit->image) }}" alt="" width="40%"></td>
+               <td><img src="{{ url('/images/' . $kit->image) }}" alt="" width="100px" height="100x"></td>
 
                 <td>{{$kit->title}}</td>
-               <td>{{$kit->description}}</td>
+               <td>
+                <div class="description-wrapper">
+                    <span class="short-description">{{ Str::limit($kit->description, 100) }}</span>
+                    <span class="full-description" style="display: none;">{{ $kit->description }}</span>
+                </div>
+                <a href="#" class="read-more">Read More</a>
+            </td>
                <td>{{$kit->price}}</td>
 
                <td>

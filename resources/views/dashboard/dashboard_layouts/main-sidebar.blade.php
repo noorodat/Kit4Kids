@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar  elevation-4" style="background-color: #071738 " >
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
           <img src="{{ asset('dashboard-assets/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -48,7 +48,7 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{ route('go-home') }}" class="nav-link active">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="nav-icon fas fa-home"></i>
                       <p>website home</p>
                     </a>
                   </li>
@@ -113,24 +113,29 @@
 
 
 
-
+              <li class="nav-item">
+                <a href="http://127.0.0.1:8000/dashboard" class="nav-link">
+                  <i class="nav-icon fas fa-home"></i>
+                    <p>Dashboard home</p>
+                </a>
+            </li>
 
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/dashboard/users" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
+                  <i class="nav-icon fas fa-user"></i>
                     <p>Users</p>
                 </a>
             </li>
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/admins" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
+                  <i class="nav-icon fas fa-user"></i>
                   <p>Admins</p>
                 </a>
 
               </li>
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/dashboard/categories" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
+                  <i class="nav-icon fas fa-folder-open"></i>
                   <p>
                     Categories
 
@@ -150,7 +155,7 @@
               </li>
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/dashboard/donations" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
+                  <i class="nav-icon fas fa-money-bill"></i>
                   <p>
                     Donations
 
@@ -170,7 +175,7 @@
               </li>
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/dashboard/partners" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
+                  <i class="nav-icon fas fa-users"></i>
                   <p>
                     Partners
 
@@ -180,8 +185,7 @@
               </li>
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/dashboard/payments" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
-                  <p>
+                  <i class="nav-icon fas fa-credit-card"></i>
                     Payments
 
                   </p>
@@ -215,41 +219,10 @@
                       <p>Inbox</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="pages/mailbox/compose.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Compose</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/mailbox/read-mail.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Read</p>
-                    </a>
-                  </li>
+                 
                 </ul>
               </li>
 
-
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>
-                    Forms
-
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/forms/general.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>General Elements</p>
-                    </a>
-                  </li>
-
-                </ul>
-              </li>
 
           </nav>
           <!-- /.sidebar-menu -->

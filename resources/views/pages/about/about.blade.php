@@ -183,7 +183,7 @@
                                 <div class="volunteer-img">
                                     <img src="{{asset('/assets/images/team/1.png')}}" alt="">
                                 </div>
-                                <div class="volunteer-content">
+                                <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                     <h2><a href="volunteer.html">Adriane Newby</a></h2>
                                     <span>Volunteer</span>
                                 </div>
@@ -194,7 +194,7 @@
                                 <div class="volunteer-img">
                                     <img src="{{asset('/assets/images/team/2.png')}}" alt="">
                                 </div>
-                                <div class="volunteer-content">
+                                <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                     <h2><a href="volunteer.html">Allene Castaneda</a></h2>
                                     <span>Volunteer</span>
                                 </div>
@@ -205,7 +205,7 @@
                                 <div class="volunteer-img">
                                     <img src="{{asset('/assets/images/team/3.png')}}" alt="">
                                 </div>
-                                <div class="volunteer-content">
+                                <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                     <h2><a href="volunteer.html">Malinda Willoughby</a></h2>
                                     <span>Volunteer</span>
                                 </div>
@@ -216,7 +216,7 @@
                                 <div class="volunteer-img">
                                     <img src="{{asset('/assets/images/team/4.png')}}" alt="">
                                 </div>
-                                <div class="volunteer-content">
+                                <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                     <h2><a href="volunteer.html">Wilburn Hatfield</a></h2>
                                     <span>Volunteer</span>
                                 </div>
@@ -312,7 +312,7 @@
                                     <span>Volunteer</span>
                                 </div>
                                 <h2>Our Great Team</h2>
-                                <p>Dedicated volunteers, diverse talents, one mission: making a difference together.</p>
+                                <p style="color: black;">Dedicated volunteers, diverse talents, one mission: making a difference together.</p>
                             </div>
                         </div>
                     </div>
@@ -324,9 +324,9 @@
                                     <div class="volunteer-img">
                                         <img src="{{asset('assets/images/team/img (2).png')}}" height="300px" alt="">
                                     </div>
-                                    <div class="volunteer-content">
+                                    <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                         <h2><a>Nooraldeen Aloudat</a></h2>
-                                        <span>Volunteer</span>
+                                        <span style="color: black;">Volunteer</span>
                                     </div>
                                 </div>
                             </div>
@@ -335,9 +335,9 @@
                                     <div class="volunteer-img">
                                         <img src="{{asset('assets/images/team/img (1).png')}}" height="300px" alt="">
                                     </div>
-                                    <div class="volunteer-content">
+                                    <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                         <h2><a>Mohammad Alhouwari</a></h2>
-                                        <span>Volunteer</span>
+                                        <span style="color: black;">Volunteer</span>
                                     </div>
                                 </div>
                             </div>
@@ -346,9 +346,9 @@
                                     <div class="volunteer-img">
                                         <img src="{{asset('assets/images/team/img (5).png')}}" height="300px" alt="">
                                     </div>
-                                    <div class="volunteer-content">
+                                    <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                         <h2><a>Razan Mustafa</a></h2>
-                                        <span>Volunteer</span>
+                                        <span style="color: black;">Volunteer</span>
                                     </div>
                                 </div>
                             </div>
@@ -360,9 +360,9 @@
                                     <div class="volunteer-img">
                                         <img src="{{asset('assets/images/team/img (3).png')}}" height="300px" style="margin-top: 40px" alt="">
                                     </div>
-                                    <div class="volunteer-content">
+                                    <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                         <h2><a>Raghad Bataineh</a></h2>
-                                        <span>Volunteer</span>
+                                        <span style="color: black;">Volunteer</span>
                                     </div>
                                 </div>
                             </div>
@@ -371,9 +371,9 @@
                                     <div class="volunteer-img">
                                         <img src="{{asset('assets/images/team/img (4).png')}}" height="300px" style="margin-top: 40px" alt="">
                                     </div>
-                                    <div class="volunteer-content">
+                                    <div class="volunteer-content" style="background-color:rgba(255, 255, 255, 0.16)">
                                         <h2><a>Lama Nazzal</a></h2>
-                                        <span>Volunteer</span>
+                                        <span style="color: black;" >Volunteer</span>
                                     </div>
                                 </div>
                             </div>

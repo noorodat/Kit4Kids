@@ -71,6 +71,7 @@ class PaymentController extends Controller
 
     public function success(request $request)
     {
+
         if ($request->input('paymentId') && $request->input('PayerID')) {
             $transaction = $this->gateway->completePurchase(
                 array(
@@ -113,15 +114,20 @@ class PaymentController extends Controller
                     }
 
                     $details = [
-                        'kitName' => $request->input('name'),
+                        'name' => $request->input('name'),
                         'email' => $request->input('email'),
                         'phone' => $request->input('phone'),
                         'address' => $request->input('address'),
-                        'note' => $request->input('note'),
+                        'notes' => $request->input('note'),
                     ];
 
-                    Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details));
-                    return back()->with('message_sent', 'Your Message has been sent successfully');
+                    // Send an email to the donater to thank him
+                    $user_id = session('UserId');
+                    $user = User::find($user_id);
+                    if ($user) {
+                        $emailContent = "Thanks for your donation"; // Customize the content for payment
+                        Mail::to($user->email)->send(new ContactMail($details, $emailContent));
+                    }
 
                 session()->forget('UserId');
                 session()->forget('kit');

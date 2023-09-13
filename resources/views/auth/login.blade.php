@@ -35,7 +35,7 @@
 
                 <div class="signin-content" style="padding: 30px">
                     <div class="signin-image " style="margin-top: 0">
-                        <h1 style="text-align:left; margin:0"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> <a style="text-decoration: none; color:black;" href="{{route('go-home')}}">Home</a></h1>
+                        <h1 style="text-align:left; margin:0"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> <a style=" color:black;" href="{{route('go-home')}}">Home</a></h1>
 
                         <figure style="margin-top:20px"><img src="{{ asset('/sign/images/signin-image.jpg') }}" alt="sing up image"></figure>
                         <a href="{{ route('register') }}" class="signup-image-link">Don't have an account yet? Sign up!</a>

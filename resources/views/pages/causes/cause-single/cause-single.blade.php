@@ -45,32 +45,22 @@
         <div class="tp-case-details-area section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col col-md-8">
+                    <div class="col text-center {{ count($moreKits) > 0 ? 'col-md-8' : 'col-md-12' }}">
                         <div class="tp-case-details-wrap">
                             <div class="tp-case-details-text">
                                 <div id="Description">
                                     <div class="tp-case-details-img">
-                                        <img src="{{ url('/images/' . $kit->image) }}" alt="{{ $kit->title }}">
+                                        <img src="{{ url('/images/' . $kit->image) }}" alt="{{ $kit->title }}" style="width: 500px">
                                     </div>
                                     <div class="tp-case-content">
                                         <div class="tp-case-text-top">
                                             <h2>{{$kit->title}}</h2>
+                                            <h4>${{$kit->price}}</h4>
                                             <div class="case-b-text">
                                                 <p>{{$kit->description}}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- Will discuss this with the team --}}
-                                    {{-- <div class="case-bb-text">
-                                        <h4>This package includes:</h4>
-                                        <ul>
-                                            <li>The wise man therefore always holds in these matters.</li>
-                                            <li>In a free hour, when our power of choice and when nothing.</li>
-                                            <li>Else he endures pains to avoid worse pains.</li>
-                                            <li>We denounce with righteous indignation and dislike men. </li>
-                                            <li>Which is the same as saying through.</li>
-                                        </ul>
-                                    </div> --}}
                                     <div class="submit-area sub-btn">
                                         <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn submit-btn">Donate Now</a>
                                     </div>
@@ -78,6 +68,7 @@
                             </div>
                         </div>
                     </div>
+                    @if (count($moreKits) > 0)
                     <div class="col col-md-4 col-sm-12">
                         <div class="tp-blog-sidebar">
                             <div class="widget recent-post-widget">
@@ -92,7 +83,7 @@
                                                 <h4>
                                                     <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}">{{$kit->title}}</a>
                                                 </h4>
-                                                <p class="fs-4">{{$kit->description}}</p>
+                                                <p>{{ \Illuminate\Support\Str::limit($kit->description, 40, '...') }}</p>
                                                 <span class="price">${{$kit->price}}</span>
                                             </div>
                                         </div>
@@ -101,6 +92,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

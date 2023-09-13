@@ -61,8 +61,9 @@
                                 <div class="cause-img">
                                     <img src="{{ url('/images/' . $kit->image) }}" alt="">
                                     <div class="case-btn">
-                                        <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn">Donate Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                    </div>
+                                        <a href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}" class="theme-btn">More details
+                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                       </a>                                    </div>
                                 </div>
                             </div>
                             <div class="cause-text">
@@ -74,7 +75,7 @@
                                 <h3>
                                     <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}">{{$kit->title}}</a>
                                 </h3>
-                                <p>{{ $kit->description }}</p>
+                                <p>{{ \Illuminate\Support\Str::limit($kit->description, 40, '...') }}</p>
                             </div>
                         </div>
                     </div>

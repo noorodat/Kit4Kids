@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('description');
+            $table->text('description');
             $table->string('image');
             $table->integer('target_money');
             $table->integer('raised_money');

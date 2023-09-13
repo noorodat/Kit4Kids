@@ -12,22 +12,19 @@ class dashHomeController extends Controller
 
 
 {
+    public function Index()
+    {
+        $kitCount = Kit::count();
+        $userCount = User::count();
+        $adminCount = Admin::count();
+        $donationCount = Donation::count();
 
-    public function Index(){
-
-        $kits=Kit::all();
-        $users=User::all();
-        $admins=Admin::all();
-        $donations=Donation::all();
-
-
-
-        return view('dashboard.welcome-dashboard', compact('kits', 'users', 'admins', 'donations'));
+        return view('dashboard.welcome-dashboard', compact('kitCount', 'userCount', 'adminCount', 'donationCount'));
     }
-    
 
-    
-public function adminIndex(){
-    return view('dashboard.dashlog.home');
-}
+
+    public function adminIndex()
+    {
+        return view('dashboard.dashlog.home');
+    }
 }

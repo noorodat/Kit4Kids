@@ -29,7 +29,7 @@ class ContactController extends Controller
 
         $input =$request ->all();
         Contact::create($input);
-    
+
         Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details));
         return back()->with('message_sent', 'Your Message has been sent successfully');
     }

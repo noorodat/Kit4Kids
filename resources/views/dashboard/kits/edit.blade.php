@@ -17,7 +17,7 @@
 @section('content')
 
 <div class="container-fluid">
-    <form action="{{ route('kits.update',$kits->id) }}" method="POST">
+    <form action="{{ route('kits.update',$kits->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <input type="hidden" name="id" value="{{ $kits->id }}">

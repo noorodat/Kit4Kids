@@ -19,7 +19,10 @@
         <!-- Sign up form -->
         <section class="signup">
             <div class="container">
-                <div class="signup-content" style="padding-bottom: 20px ">
+                <div style="text-align: center">
+                    <a  class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo2.png')}}" alt="logo"></a>
+                </div>
+                <div class="signup-content" style="padding: 20px ">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
                         <form method="POST" action="{{ route('register') }}" class="register-form" id="register-form">
@@ -60,12 +63,12 @@
                                     <li style="display: inline-block; padding-left:15px; font-size: 17px;"><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
                                 </ul>
                             </div> --}}
-                           
+                
                             
                         </form>
                     </div>
                     <div class="signup-image" style="margin-top: 0">
-                        <h1 style="text-align:right; margin:0"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> <a style="text-decoration: none; color:black;" href="{{route('go-home')}}">Home</a></h1>
+                        <h1 style="text-align:right; margin:0"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> <a style="color:black;" href="{{route('go-home')}}">Home</a></h1>
                         <figure style="margin-top:20px"><img src="{{asset('/sign/images/signup-image.jpg')}}" alt="sing up image"></figure>
                         <a href="{{route('login')}}" class="signup-image-link">Do you have account? Login Now</a>
                     </div>

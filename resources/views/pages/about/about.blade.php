@@ -358,7 +358,7 @@
                             <div class="col col-md-4 col-sm-6 custom-grid col-12">
                                 <div class="volunteer-item">
                                     <div class="volunteer-img">
-                                        <img src="{{asset('assets/images/team/img (3).png')}}" height="300px" style="margin-top: 40px" alt="">
+                                        <img src="{{asset('assets/images/team/img (6).png')}}" height="300px" style="margin-top: 40px" alt="">
                                     </div>
                                     <div class="volunteer-content"  style="background-color:rgba(255, 255, 255, 0.16)">
                                         <h2><a>Raghad Bataineh</a></h2>

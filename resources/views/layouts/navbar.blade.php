@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +41,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a style="margin-right:90px; " class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">Hope<span>Harbor.</span></a>
+                        <a style="margin-right:70px; " class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">Hope<span>Harbor.</span></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>
@@ -52,7 +51,6 @@
                             </li>
                             <li><a  @yield('about')  href="{{route('go-about')}}">About</a> </li>
                             <li><a  @yield('supply') href="{{route('donate-supplies')}}">Donate supplies</a></li>
-                            <li><a  @yield('financial') href="{{route('donate-financial')}}">Donate Financial</a></li>
                             {{-- <li class="menu-item-has-children">
                                 <li><a href="{{ route('go-ca uses', ['cat_id' => 1]) }}">Kits</a></li>
                             </li> --}}

@@ -74,7 +74,7 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>{{ $donationCount }}<sup style="font-size: 20px"></sup></h3>
+              <h3>{{ $paymentCount }}<sup style="font-size: 20px"></sup></h3>
 
               <p>Donations</p>
             </div>

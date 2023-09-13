@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\User;
 use App\Models\Donation;
 use App\Models\Kit;
+use App\Models\Payment;
 
 class dashHomeController extends Controller
 
@@ -17,9 +18,9 @@ class dashHomeController extends Controller
         $kitCount = Kit::count();
         $userCount = User::count();
         $adminCount = Admin::count();
-        $donationCount = Donation::count();
+        $paymentCount = Payment::count();
 
-        return view('dashboard.welcome-dashboard', compact('kitCount', 'userCount', 'adminCount', 'donationCount'));
+        return view('dashboard.welcome-dashboard', compact('kitCount', 'userCount', 'adminCount', 'paymentCount'));
     }
 
 

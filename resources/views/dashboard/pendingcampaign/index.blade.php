@@ -58,7 +58,7 @@
                             <td>{{$pendingcampaign->target_money}}</td>
 
                             <td class="project-actions text-right" style="display: flex; flex-direction:column; gap:10px">
-                                <form action="{{route('pendingCampaignTest.store',$pendingcampaign->id)}}"
+                                <form action="{{route('pendingcampaign.store',$pendingcampaign->id)}}"
                                 method="POST" style="display: inline;" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="pending_campaign_id" value="{{ $pendingcampaign->id }}">
@@ -68,13 +68,13 @@
                                 <button type="submit" class="btn btn-success"
                                     onclick="return confirm('Are you sure you want to delete this Category?')">Approve</button>
                             </form>
-                                {{-- <form action="{{route('pindingcampaign.destroy',$pendingcampaign->id)}}"
+                                <form action="{{route('pendingcampaign.destroy',$pendingcampaign->id)}}"
                                     method="POST" style="display: inline;">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-danger"
                                         onclick="return confirm('Are you sure you want to delete this Category?')">Delete</button>
-                                </form> --}}
+                                </form>
                             </td>
                         </tr>
                         @php

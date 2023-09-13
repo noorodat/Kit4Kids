@@ -51,7 +51,6 @@
                             </li>
                             <li><a  @yield('about')  href="{{route('go-about')}}">About</a> </li>
                             <li><a  @yield('supply') href="{{route('donate-supplies')}}">Donate supplies</a></li>
-                            <li><a  @yield('financial') href="{{route('donate-financial')}}">Donate Financial</a></li>
                             {{-- <li class="menu-item-has-children">
                                 <li><a href="{{ route('go-ca uses', ['cat_id' => 1]) }}">Kits</a></li>
                             </li> --}}

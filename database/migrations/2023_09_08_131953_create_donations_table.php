@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('title');
             $table->string('phone');
-            $table->string('description');
+            $table->text('description');
             $table->string('type');
             $table->unsignedBigInteger('user_id');
 

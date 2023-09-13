@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class dashHomeController extends Controller
 {
-public function adminIndex(){
+public function adminIndex() {
     return view('dashboard.dashlog.home');
 }
 }

@@ -7,6 +7,8 @@ use Omnipay\Omnipay;
 use App\Models\Payment;
 use App\Models\User;
 use App\Models\Campaign;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 class PaymentController extends Controller
 {
@@ -110,6 +112,16 @@ class PaymentController extends Controller
                         }
                     }
 
+                    $details = [
+                        'kitName' => $request->input('name'),
+                        'email' => $request->input('email'),
+                        'phone' => $request->input('phone'),
+                        'address' => $request->input('address'),
+                        'note' => $request->input('note'),
+                    ];
+
+                    Mail::to('hopeharpor@gmail.com')->send(new ContactMail($details));
+                    return back()->with('message_sent', 'Your Message has been sent successfully');
 
                 session()->forget('UserId');
                 session()->forget('kit');
@@ -119,7 +131,6 @@ class PaymentController extends Controller
                 session()->forget('type');
                 session()->forget('amount');
                 session()->forget('campaign_id');
-
 
                 // return redirect()->route('go-donate', ['kit' => session('kitID')])->with('success', 'Payment is Successful.');
                 return redirect()->route('go-home')->with('success', 'Payment is Successful, thank you ❤️');

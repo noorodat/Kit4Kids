@@ -295,8 +295,9 @@
                                     <div class="cause-img">
                                         <img src="{{ url('/images/' . $kit->image) }}" alt="">
                                         <div class="case-btn">
-                                            <a href="{{ route('go-donate', ['kit' => $kit]) }}" class="theme-btn">Donate
-                                                Now<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                            <a href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}" class="theme-btn">More details
+                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -311,7 +312,7 @@
                                         <a
                                             href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}">{{ $kit->title }}</a>
                                     </h3>
-                                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 35ch;">{{ $kit->description }}</p>                                </div>
+                                    <p>{{ \Illuminate\Support\Str::limit($kit->description, 65, '...') }}</p>                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -389,7 +390,7 @@
                                             var raised_money = document.getElementById('{{$campaign->id}}');
                                             raised_money.style = "color: green; margin-left: 30px;";
                                         </script>
-                                    @endif
+                                        @endif
                                         <div class="time-left">
                                             <span>Time left:</span>
                                             <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}"
@@ -399,7 +400,7 @@
                                             <a
                                                 href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
                                         </h2>
-                                        <p>{{ $campaign->description }}</p>
+                                        <p>{{ \Illuminate\Support\Str::limit($campaign->description, 240, '...') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -499,7 +500,7 @@
             <h2>Our Achievements</h2>
             <p>Discover our remarkable journey and accomplishments.</p>
         </div>
-        
+
         <div class="tp-counter-area">
             <div class="container">
                 <div class="row">

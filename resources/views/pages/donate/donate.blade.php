@@ -45,16 +45,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="section-title section-title2 text-center">
+                        <div class="section-title section-title2 text-center" style="margin-bottom: 20px">
                             <div class="thumb-text">
                                 <span>Donate</span>
                             </div>
                             <h2>Make a Donation</h2>
-                            <div class="image">
-                                <img src="{{ url('/images/' . $kit->image) }}"" alt="" width="250px" style="padding: 10px">
+                            <div class="donation-content">
+
+                                <div class="image">
+                                    <img src="{{ url('/images/' . $kit->image) }}"" alt="" width="250px" style="padding: 10px">
+                                </div>
+                                <p><b>{{ $kit->title }}</b></p>
+                                <div class="btns text-center">
+                                    <button class="myBtn decreasePackageBtn"><i class="fa-solid fa-minus"></i></button>
+                                    <span id="packageCount" style="padding: 10px; font-size: 25px">1</span>
+                                    <button class="myBtn addPackageBtn"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                                <p style="font-weight: bold; color:black; margin-top:10px;" id="priceDesc">Price: ${{ $kit->price }}</p>
                             </div>
-                            <p><b>{{ $kit->title }}</b></p>
-                            <p>Price: ${{ $kit->price }}</p>
                         </div>
                         {{-- @if (session('success'))
                             <div class="alert alert-success">
@@ -74,21 +82,9 @@
                                 {{-- {{ session()->forget('currenturl') }} --}}
                                 <form action="{{ route('payment') }}" method="POST">
                                     @csrf
-                                    <div class="tp-donations-amount">
+                                    <div class="tp-donations-amount" style="display: none">
                                         <h2>Your Donation (USD)</h2>
-                                        <input type="radio" class="form-control" name="amount" id="donation_option1"
-                                            value="{{ $kit->price }}" checked>
-                                        <label for="donation_option1" style="font-size: 30px">${{ $kit->price }}</label>
-                                    </div>
-                                    <div class="tp-donations-amount">
-                                        <h2>Donate with a custom?</h2>
-                                        <input type="radio" class="form-control" name="amount" id="donation_option2"
-                                            min="10">
-                                        <label for="donation_option2">Donate with a custom amount</label>
-                                        <div id="custom_amount_input" style="display: none;">
-                                            <input type="number" class="form-control" id="custom_amount"
-                                                placeholder="Enter Custom Donation Amount" min="1">
-                                        </div>
+                                        <input class="package-price" id="package-price-input" type="hidden" class="form-control" name="amount" id="donation_option1" value="{{ $kit->price }}" readonly>
                                     </div>
                                     <div class="tp-donations-details">
                                         <h2>Details</h2>

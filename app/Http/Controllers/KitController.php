@@ -57,9 +57,15 @@ class KitController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $kits = new Kit();
+
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
+            'description' => 'required',
+            'price' => 'required',
+           
+        ]);
 
         $kits->title = $request->input('title');
         $kits->description = $request->input('description');
@@ -68,6 +74,7 @@ class KitController extends Controller
         $category_id = $request->input('category_id');
         $kits->category_id = $category_id;
 
+        
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -78,7 +85,6 @@ class KitController extends Controller
         }
 
         $kits->save();
-
         return redirect()->route('kits.index')->with('success', 'Kit created successfully');
     }
 
@@ -100,13 +106,17 @@ class KitController extends Controller
 
     public function update(Request $request, $id)
     {
+
+      
         $kit = Kit::with('category')->findOrFail($id);
 
         $kit->title = $request->input('title');
         $kit->description = $request->input('description');
         $kit->price = $request->input('price');
-        $category_id = $request->input('category_id');
-        $kit->category_id = $category_id;
+        $kit->category_id = $request->input('category_id'); // Assuming 'UserId' is the field name in your form
+
+        // $category_id = $request->input('category_id');
+        // $kit->category_id = $category_id;
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');

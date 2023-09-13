@@ -40,14 +40,16 @@
             <div class="form-group">
                 <label for="category">Choose category:</label>
 
+             
                 <select name="category_id" id="category" class="form-control">
-                    <option value="$kits->category->id">{{$kits->category->title}}</option>
+                    <option value="{{ $kits->category->id }}" selected>{{ $kits->category->title }}</option>
                     @foreach ($categories as $category)
-                    @if($kits->category->id != $category->id)
-                        <option value="{{$category->id}}">{{$category->title}}</option>
+                        @if ($kits->category->id != $category->id)
+                            <option value="{{ $category->id }}">{{ $category->title }}</option>
                         @endif
                     @endforeach
                 </select>
+                
             </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

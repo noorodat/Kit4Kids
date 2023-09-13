@@ -41,9 +41,11 @@
                         <label for="image">Image</label>
                         <input type="file" name="image" class="form-control"
                             placeholder="Image">
+                            @error('image')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
 
-                    <br>
-                    <input type="submit" value="Add Category" class="btn btn-success"><br>
+                    
                 </div>
                 <div class="form-group">
                     <label for="description">Type </label>
@@ -59,6 +61,9 @@
                             <option value="service">service</option>
                         </select>
                 </div>
+
+                <br>
+                    <input type="submit" value="Add Category" class="btn btn-success"><br>
             </form>
         </div>
     </div>

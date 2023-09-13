@@ -245,7 +245,7 @@
                             <div class="row">
                                 @foreach ($catagories as $catagory)
                                     <a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                             <div class="features-item">
                                                 <div class="features-icon">
                                                     <img draggable="false" src="{{ url('/images/' . $catagory->image) }}" alt="">

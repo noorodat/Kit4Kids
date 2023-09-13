@@ -68,6 +68,15 @@ class KitController extends Controller
         $category_id = $request->input('category_id');
         $kits->category_id = $category_id;
 
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
+            'description' => 'required',
+            'price' => 'required',
+            'category_name' => 'required',
+           
+        ]);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -78,7 +87,7 @@ class KitController extends Controller
         }
 
         $kits->save();
-
+        dd($kits);
         return redirect()->route('kits.index')->with('success', 'Kit created successfully');
     }
 

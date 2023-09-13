@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="{{route('donate-supplies')}}" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
+                                    <a href="{{route('donate-supplies')}} class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
                                             aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -251,7 +251,7 @@
                                             </div>
                                             <div class="features-content">
                                                 <h2><a
-                                                        href="" > Financial donation <br>
+                                                        href="" > Financial  <br>
                                                         <br><button style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
                                                             <span>Donate Now</span>
                                                             <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
@@ -270,7 +270,7 @@
                                             <div class="features-item">
                                                 <div class="features-icon">
                                                     <img draggable="false" src="{{ url('/images/' . $catagory->image) }}" alt="">
-                                                </div>-
+                                                </div>
                                                 <div class="features-content">
                                                     <h2><a
                                                             href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}" >{{ $catagory->title }} <br>
@@ -278,7 +278,6 @@
                                                                 <span>Donate Now</span>
                                                                 <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
                                                             </button>
-
                                                         </a>
                                                         </h2>
                                                 </div>
@@ -287,6 +286,26 @@
                                         </div>
                                     </a>
                                 @endforeach
+                                <a href="">
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                        <div class="features-item">
+                                            <div class="features-icon">
+                                                <img draggable="false" src="{{asset('assets/images/categories/supply-removebg-preview.png')}}" alt="">
+                                            </div>
+                                            <div class="features-content">
+                                                <h2><a
+                                                        href="" > Supplies  <br>
+                                                        <br><button style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
+                                                            <span>Donate Now</span>
+                                                            <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
+                                                        </button>
+                                                    </a>
+                                                    </h2>
+                                            </div>
+                                            {{-- <div class="features-text1">{{$kit->description}}</div> --}}
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -333,7 +352,7 @@
                                         <a
                                             href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}">{{ $kit->title }}</a>
                                     </h3>
-                                    <p>{{ \Illuminate\Support\Str::limit($kit->description, 65, '...') }}</p>                                </div>
+                                    <p>{{ \Illuminate\Support\Str::limit($kit->description, 40, '...') }}</p>                                </div>
                             </div>
                         </div>
                     @endforeach

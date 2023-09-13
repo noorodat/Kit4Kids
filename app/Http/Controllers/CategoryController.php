@@ -33,8 +33,17 @@ class categoryController extends Controller
     public function store(Request $request)
     {
     
+        
 
         $categories = new Category();
+
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
+            'description' => 'required',
+           
+        ]);
 
         $categories->title = $request->input('title');
         $categories->description = $request->input('description');

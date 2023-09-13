@@ -75,7 +75,7 @@
                                 <h3>
                                     <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}">{{$kit->title}}</a>
                                 </h3>
-                                <p>{{ \Illuminate\Support\Str::limit($kit->description, 65, '...') }}</p>
+                                <p>{{ \Illuminate\Support\Str::limit($kit->description, 40, '...') }}</p>
                             </div>
                         </div>
                     </div>

@@ -45,16 +45,17 @@
         <div class="tp-case-details-area section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col {{ count($moreKits) > 0 ? 'col-md-8' : 'col-md-12' }}">
+                    <div class="col text-center {{ count($moreKits) > 0 ? 'col-md-8' : 'col-md-12' }}">
                         <div class="tp-case-details-wrap">
                             <div class="tp-case-details-text">
                                 <div id="Description">
                                     <div class="tp-case-details-img">
-                                        <img src="{{ url('/images/' . $kit->image) }}" alt="{{ $kit->title }}">
+                                        <img src="{{ url('/images/' . $kit->image) }}" alt="{{ $kit->title }}" style="width: 500px">
                                     </div>
                                     <div class="tp-case-content">
                                         <div class="tp-case-text-top">
                                             <h2>{{$kit->title}}</h2>
+                                            <h4>${{$kit->price}}</h4>
                                             <div class="case-b-text">
                                                 <p>{{$kit->description}}</p>
                                             </div>
@@ -82,7 +83,7 @@
                                                 <h4>
                                                     <a href="{{ route('go-cause-single', ['cat_id' => $cat_id, 'kit' => $kit]) }}">{{$kit->title}}</a>
                                                 </h4>
-                                                <p>{{ \Illuminate\Support\Str::limit($kit->description, 65, '...') }}</p>
+                                                <p>{{ \Illuminate\Support\Str::limit($kit->description, 40, '...') }}</p>
                                                 <span class="price">${{$kit->price}}</span>
                                             </div>
                                         </div>

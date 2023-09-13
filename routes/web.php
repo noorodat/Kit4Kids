@@ -177,6 +177,7 @@ Route::resource('dashboard', dashHomeController::class);
 
 Route::resource('pendingcampaign', PendingCampaignController::class);
 
+// Route::resource('dashboard/pindingcampaign', PendingCampaignController::class)->names('pendingCampaignTest');
 
 Route::get('/kits', function () {
     return view('dashboard.kits.index');

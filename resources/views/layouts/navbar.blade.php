@@ -41,7 +41,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a style="margin-right:90px; " class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">Hope<span>Harbor.</span></a>
+                        <a style="margin-right:70px; " class="navbar-brand" href="{{route('go-home')}}"><img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">Hope<span>Harbor.</span></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>

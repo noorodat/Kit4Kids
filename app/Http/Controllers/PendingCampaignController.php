@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PendingCampaign;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Campaign;
+use App\Models\EventAll;
 use Illuminate\Support\Facades\DB;
 
 class PendingCampaignController extends Controller
@@ -23,15 +24,17 @@ class PendingCampaignController extends Controller
 
             $campaign = new PendingCampaign();
             // Get the currently authenticated user's ID
+            $eventall = new EventAll();
             $userId = Auth::id();
-
+            
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageName = time() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
                 $campaign->image = $imageName;
             }
-
+            
+            $eventall->title = $request->input('subject');
             $campaign->title = $request->input('subject');
             $campaign->fullName = $request->input('name');
             $campaign->email = $request->input('email');
@@ -41,6 +44,9 @@ class PendingCampaignController extends Controller
             $campaign->user_id	= $userId;
 
             $campaign->save();
+
+            
+            $eventall->save();
 
             // Redirect to the "go-home" route with a success message
             return redirect()->route('go-home')->with('success', 'Campaign saved successfully.');

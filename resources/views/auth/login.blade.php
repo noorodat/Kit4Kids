@@ -1,3 +1,10 @@
+{{-- @extends('layouts.master')
+
+
+@section('title', 'login') --}}
+
+
+{{-- @section('content') --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,6 +106,7 @@
 </html>
 
 
+{{-- @endsection --}}
 
 
 

@@ -21,13 +21,13 @@
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-       
+
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-       
-              <h3>{{ count($users) }}<sup style="font-size: 20px"></sup></h3>
+
+              <h3>{{ $userCount }}<sup style="font-size: 20px"></sup></h3>
 
 
 
@@ -45,7 +45,7 @@
           <div class="small-box bg-success">
             <div class="inner">
               {{-- <h3>53<sup style="font-size: 20px">%</sup></h3> --}}
-              <h3>{{ count($kits) }}<sup style="font-size: 20px"></sup></h3>
+              <h3>{{ $kitCount }}<sup style="font-size: 20px"></sup></h3>
               <p> Kits</p>
             </div>
             <div class="icon">
@@ -59,7 +59,7 @@
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>{{ count($admins) }}<sup style="font-size: 20px"></sup></h3>
+              <h3>{{ $adminCount }}<sup style="font-size: 20px"></sup></h3>
 
               <p>Admin-Numbers</p>
             </div>
@@ -74,7 +74,7 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>{{ count($donations) }}<sup style="font-size: 20px"></sup></h3>
+              <h3>{{ $donationCount }}<sup style="font-size: 20px"></sup></h3>
 
               <p>Donations</p>
             </div>
@@ -86,7 +86,7 @@
         </div>
         <br>
         <br>
-       
+
         <!-- ./col -->
       </div>
       <!-- /.row -->
@@ -94,7 +94,7 @@
       <div class="row">
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
-          
+
 
           <!-- DIRECT CHAT -->
           <div class="card direct-chat direct-chat-primary">
@@ -305,8 +305,8 @@
 
           <!-- Map card -->
           <div class="card bg-gradient-primary">
-            
-           
+
+
             </div>
             <!-- /.card-body-->
             <div class="card-footer bg-transparent">
@@ -332,7 +332,7 @@
           </div>
           <!-- /.card -->
 
-       
+
         </section>
         <!-- right col -->
       </div>

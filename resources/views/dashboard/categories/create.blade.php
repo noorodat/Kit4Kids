@@ -30,13 +30,13 @@
                         @enderror
                 </div>
                 <div class="form-group">
-                    <label for="description">Description </label>
-                    <input type="text" name="description" class="form-control"
-                        placeholder="Description">
-                        @error('description')
-                        <span class="text-danger">{{$message}}</span>
-                        @enderror
+                    <label for="description">Description</label>
+                    <textarea name="description" class="form-control" placeholder="Description"></textarea>
+                    @error('description')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
+                
                 <div class="form-group">
                         <label for="image">Image</label>
                         <input type="file" name="image" class="form-control"

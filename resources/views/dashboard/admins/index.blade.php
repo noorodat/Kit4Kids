@@ -58,7 +58,7 @@
                 @foreach ($admins as $admin )
                    <tr>
                     <th scope="row">{{$i}}</th>
-                    <td><img src="{{ url('/images/' . $admin->image) }}" alt="" width="200px"></td>
+                    <td><img src="{{ url('/images/' . $admin->image) }}" alt="" width="100px" height="100px"></td>
 
                     <td>{{$admin->name}}</td>
                     <td>{{$admin->email}}</td>

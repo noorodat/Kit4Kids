@@ -60,7 +60,7 @@
                                     <li style="display: inline-block; padding-left:15px; font-size: 17px;"><a href="{{ route('auth.socilaite.redirect', 'google') }}"><i class="fa-brands fa-google fa-2xl" style="color: #ff2e2e;"></i></a></li>
                                 </ul>
                             </div> --}}
-                           
+                
                             
                         </form>
                     </div>

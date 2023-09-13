@@ -27,4 +27,5 @@ class dashHomeController extends Controller
     {
         return view('dashboard.dashlog.home');
     }
+
 }

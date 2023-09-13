@@ -21,7 +21,7 @@ class AdminController extends Controller
     public function indexmain_sidebar()
     {
         $admins=Admin::all();
-        return view ('dashboard/dachboard_layouts/main-sidebar', compact('admins'));
+        return view ('dashboard/dashboard_layouts/main-sidebar', compact('admins'));
     }
 
     /**

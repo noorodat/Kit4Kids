@@ -87,6 +87,7 @@
     {{-- <script src="assets/js/script.js"></script> --}}
     <script src="{{asset('/assets/js/script.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> --}}
     <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>
 </body>
 

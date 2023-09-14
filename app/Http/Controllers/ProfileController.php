@@ -115,10 +115,14 @@ public function destroy($id = null): RedirectResponse
     {
         // Fetch the user and project information
         $user = auth()->user(); // You can adjust this to retrieve the user as needed
-        $projects = $user->projects; // Assuming you have a relationship set up
+        // $projects = $user->projects; // Assuming you have a relationship set up
+
+        $id = Auth::id();
+        $donations = Donation::where('user_id', $id)->get();
+        $payments = Payment::where('user_id', $id)->get();
 
         // Load the HTML template
-        $html = view('\pages\temp', compact('user', 'projects'));
+        $html = view('\pages\temp', compact('user', 'donations', 'payments'));
 
         // Generate PDF
         $pdf = PDF::loadHTML($html);

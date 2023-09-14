@@ -32,15 +32,17 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button style="margin: 0 auto; display: block;">{{ __('Save') }}</x-primary-button>
+            <x-primary-button style="margin: 0 auto; display: block; background-color: #39c060; border-color: #e9bf3d; color: white; padding: 0 20px;">{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'password-updated')
+                <br>
                 <p
                     x-data="{ show: true }"
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
+                    class="text-sm text-gray-600" 
+                    style="color: green; text-align: center;"
                 >{{ __('Saved.') }}</p>
             @endif
         </div>

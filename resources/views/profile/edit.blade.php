@@ -26,13 +26,19 @@
                 </div>
             </div> --}}
             <br>
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg mt-6 space-y-6 tp-donations-details" style="width: 80%; margin: 0 auto; text-align: center;">
+            @if (count($payments) > 0 || count($donations) > 0)
+                <a href="{{ route('certificate.download') }}" class="btn btn-primary"
+                    style="background-color: #39c060; border-color: #e9bf3d;margin: auto; width: 190px; display: block;">Download
+                    Participation Certificate</a>
+            @endif
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg mt-6 space-y-6 tp-donations-details"
+                style="width: 80%; margin: 0 auto; text-align: center;">
                 <div class="max-w-xl">
                     <h2 class="text-lg font-medium text-gray-900">
                         {{ __('Your Donations') }}
                     </h2>
                     @if (count($payments) > 0)
-                        <table>
+                        <table id="payment-table">
                             <thead>
                                 <tr>
                                     <th>Title</th>
@@ -50,6 +56,8 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        {{-- <button id="payment-pdf">Download as PDF</button> --}}
                     @else
                         <p>No Payment found.</p>
                     @endif
@@ -60,13 +68,14 @@
 
 
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg mt-6 space-y-6 tp-donations-details" style="width: 80%; margin: 0 auto; text-align: center;">
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg mt-6 space-y-6 tp-donations-details"
+                style="width: 80%; margin: 0 auto; text-align: center;">
                 <div class="max-w-xl">
                     <h2 class="text-lg font-medium text-gray-900">
                         {{ __('Your donated supplies') }}
                     </h2>
                     @if (count($donations) > 0)
-                        <table>
+                        <table id="donate-table">
                             <thead>
                                 <tr>
                                     <th>Title</th>
@@ -84,6 +93,8 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        {{-- <button id="donate-pdf">Download as PDF</button> --}}
                     @else
                         <p>No supplies found.</p>
                     @endif
@@ -95,4 +106,6 @@
         </div>
     </div>
     {{-- </x-app-layout> --}}
+
+
 @endsection

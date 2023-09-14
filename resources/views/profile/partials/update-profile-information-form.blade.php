@@ -20,7 +20,7 @@
 
          {{-- @if ($user->provider == null) --}}
          @if ($user->provider)
-             <h2 style="text-align: center;">Welcome, {{ $user->provider }}-User</h2>
+             <h2 style="text-align: center;">Welcome, {{$user->name}}</h2>
          @endif
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
@@ -65,15 +65,17 @@
         </div>     
         @endif  
         <div class="flex items-center gap-4 mx-auto">
-            <x-primary-button style="margin: 0 auto; display: block;">{{ __('Save') }}</x-primary-button>
+            <x-primary-button style="margin: 0 auto; display: block; background-color: #39c060; border-color: #e9bf3d; color: white; padding: 0 20px;">{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
+                <br>
                 <p
                     x-data="{ show: true }"
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
+                    class="text-sm text-gray-600" 
+                    style="color: green; text-align: center;"
                 >{{ __('Saved.') }}</p>
             @endif
         </div>

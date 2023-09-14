@@ -15,11 +15,14 @@
               <img src="{{ asset('dashboard-assets/img/body.png') }}" class="img-circle elevation-2" alt="User Image">
 
             </div>
-            {{-- <div class="info">
-              <a href=" {{ route('admins.index')}}" class="d-block">Admin name should be here
-      
-              </a>
-            </div> --}}
+            
+            <div class="info">
+            <a href="{{ route('admins.index') }}" class="d-block">
+            {{-- {{$admins->name}}  --}}
+            </a>
+             </div>
+            
+
           </div>
 
           <!-- SidebarSearch Form -->

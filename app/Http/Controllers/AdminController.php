@@ -18,10 +18,11 @@ class AdminController extends Controller
         $admins=Admin::all();
         return view ('dashboard/admins/index', compact('admins'));
     }
+
     public function indexmain_sidebar()
     {
         $admins=Admin::all();
-        return view ('dashboard/dachboard_layouts/main-sidebar', compact('admins'));
+        return view ('dashboard.dahboard_layouts.main-sidebar', compact('admins'));
     }
 
     /**

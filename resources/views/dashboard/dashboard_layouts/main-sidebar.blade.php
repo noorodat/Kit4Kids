@@ -5,7 +5,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="" class="brand-link">
           <img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">
 
           <span class="brand-text font-weight-light">HopeHarbor</span>
@@ -31,7 +31,7 @@
           </div>
 
           <!-- SidebarSearch Form -->
-          <div class="form-inline">
+          {{-- <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
               <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
               <div class="input-group-append">
@@ -40,7 +40,7 @@
                 </button>
               </div>
             </div>
-          </div>
+          </div> --}}
 
           <!-- Sidebar Menu -->
           <nav class="mt-2">
@@ -206,22 +206,12 @@
 
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon far fa-envelope"></i>
+                <a href="http://127.0.0.1:8000/dashboard/contactus" class="nav-link">
+                   <i class="nav-icon far fa-envelope"></i>
                   <p>
                     Mailbox
-
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/mailbox/mailbox.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Inbox</p>
-                    </a>
-                  </li>
-
-                </ul>
               </li>
 
 

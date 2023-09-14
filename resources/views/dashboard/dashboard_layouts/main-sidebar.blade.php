@@ -1,3 +1,7 @@
+      {{-- @if(!session('loginname'))
+        {{redirect()->route('adminLogin')}}
+      @endif --}}
+
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
@@ -6,7 +10,7 @@
 
           <span class="brand-text font-weight-light">HopeHarbor</span>
         </a>
-       
+
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
@@ -43,7 +47,7 @@
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
               <li class="nav-item menu-open">
-                
+
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{ route('go-home') }}" class="nav-link active">
@@ -192,15 +196,13 @@
 
               </li>
               <li class="nav-item">
-                <a href="{{route('pendingCampaignTest.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
-                  <p>
-                    Pending Campaigns
-
-                  </p>
+                <a href="{{ route('pendingcampaign.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-table"></i>
+                    <p>
+                        Pending Campaigns
+                    </p>
                 </a>
-
-              </li>
+            </li>
 
 
               <li class="nav-item">
@@ -218,7 +220,7 @@
                       <p>Inbox</p>
                     </a>
                   </li>
-                 
+
                 </ul>
               </li>
 
@@ -229,6 +231,4 @@
         <!-- /.sidebar -->
       </aside>
 
-      @if(session('loginname'))
-        {{redirect()->route('adminLogin')}}
-      @endif
+

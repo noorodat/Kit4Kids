@@ -2,7 +2,7 @@
 
 @section('title', 'Home')
 @section('home')
- class="active"
+    class="active"
 @endsection
 
 @section('content')
@@ -29,7 +29,8 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/slider/slider9-transformed.jpeg">
+                        <div class="slide-inner slide-bg-image"
+                            data-background="assets/images/slider/slider9-transformed.jpeg">
                             <div class="container">
                                 <div data-swiper-parallax="200" class="slide-thumb">
                                     <span>GO FOR HELP</span>
@@ -43,7 +44,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="{{route('donate-supplies')}} class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
+                                    <a href="{{route('donate-supplies')}}" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
                                             aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -69,6 +70,7 @@
                                 opacity: 1;
                                 transition: opacity 0.5s ease-in-out;
                             }
+
                             .popup-warning.fade-out {
                                 opacity: 0;
                             }
@@ -104,6 +106,7 @@
                                 opacity: 1;
                                 transition: opacity 0.5s ease-in-out;
                             }
+
                             .popup-warning.fade-out {
                                 opacity: 0;
                             }
@@ -143,8 +146,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="{{route('donate-supplies')}}" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
-                                            aria-hidden="true"></i></a>
+                                    <a href="{{ route('donate-supplies') }}" class="theme-btn">Donate Supplies<i
+                                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">
@@ -166,8 +169,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="{{route('donate-supplies')}}" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
-                                            aria-hidden="true"></i>
+                                    <a href="{{ route('donate-supplies') }}" class="theme-btn">Donate Supplies<i
+                                            class="fa fa-angle-double-right" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
@@ -242,23 +245,26 @@
                     <div class="col-md-12">
                         <h2 class="donate-categories">How do you want to help?</h2>
                         <div class="features-wrap" style="padding:10px;">
-                            <div class="row">
+                            <div class="row" style="display: flex; justify-content: center;">
                                 <a href="">
                                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                         <div class="features-item">
                                             <div class="features-icon">
-                                                <img draggable="false" src="{{asset('assets/images/categories/fanical-donation-category.webp')}}" alt="">
+                                                <img draggable="false"
+                                                    src="{{ asset('assets/images/categories/fanical-donation-category.webp') }}"
+                                                    alt="">
                                             </div>
                                             <div class="features-content">
-                                                <h2><a
-                                                        href="" > Financial  <br>
-                                                        <br><button style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
+                                                <h2><a h href="{{ route('donate-financial') }}"> Financial <br>
+                                                        <br><button
+                                                            style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
                                                             <span>Donate Now</span>
-                                                            <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
+                                                            <span class="fa-solid fa-arrow-right fa-sm"
+                                                                style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
                                                         </button>
 
                                                     </a>
-                                                    </h2>
+                                                </h2>
                                             </div>
                                             {{-- <div class="features-text1">{{$kit->description}}</div> --}}
                                         </div>
@@ -269,17 +275,20 @@
                                         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                             <div class="features-item">
                                                 <div class="features-icon">
-                                                    <img draggable="false" src="{{ url('/images/' . $catagory->image) }}" alt="">
+                                                    <img draggable="false" src="{{ url('/images/' . $catagory->image) }}"
+                                                        alt="">
                                                 </div>
                                                 <div class="features-content">
-                                                    <h2><a
-                                                            href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}" >{{ $catagory->title }} <br>
-                                                            <br><button style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
+                                                    <h2><a href="{{ route('go-causes', ['cat_id' => $catagory->id]) }}">{{ $catagory->title }}
+                                                            <br>
+                                                            <br><button
+                                                                style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
                                                                 <span>Donate Now</span>
-                                                                <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
+                                                                <span class="fa-solid fa-arrow-right fa-sm"
+                                                                    style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
                                                             </button>
                                                         </a>
-                                                        </h2>
+                                                    </h2>
                                                 </div>
                                                 {{-- <div class="features-text1">{{$kit->description}}</div> --}}
                                             </div>
@@ -290,17 +299,20 @@
                                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                         <div class="features-item">
                                             <div class="features-icon">
-                                                <img draggable="false" src="{{asset('assets/images/categories/supply-removebg-preview.png')}}" alt="">
+                                                <img draggable="false"
+                                                    src="{{ asset('assets/images/categories/supply-removebg-preview.png') }}"
+                                                    alt="">
                                             </div>
                                             <div class="features-content">
-                                                <h2><a
-                                                        href="" > Supplies  <br>
-                                                        <br><button style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
+                                                <h2><a href=""> Supplies <br>
+                                                        <br><button
+                                                            style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
                                                             <span>Donate Now</span>
-                                                            <span class="fa-solid fa-arrow-right fa-sm" style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
+                                                            <span class="fa-solid fa-arrow-right fa-sm"
+                                                                style="color: #ffffff; display: inline-block; vertical-align:middle;"></span>
                                                         </button>
                                                     </a>
-                                                    </h2>
+                                                </h2>
                                             </div>
                                             {{-- <div class="features-text1">{{$kit->description}}</div> --}}
                                         </div>
@@ -316,7 +328,7 @@
         <!-- case-area-start -->
         <div class="case-area section-padding">
             <div class="container">
-                <div >
+                <div>
                     <div class="section-title section-title2 text-center">
                         <div class="thumb-text">
                             <span>KITS</span>
@@ -335,8 +347,9 @@
                                     <div class="cause-img">
                                         <img src="{{ url('/images/' . $kit->image) }}" alt="">
                                         <div class="case-btn">
-                                            <a href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}" class="theme-btn">More details
-                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                            <a href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}"
+                                                class="theme-btn">More details
+                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -352,7 +365,8 @@
                                         <a
                                             href="{{ route('go-cause-single', ['cat_id' => $kit->category_id, 'kit' => $kit]) }}">{{ $kit->title }}</a>
                                     </h3>
-                                    <p>{{ \Illuminate\Support\Str::limit($kit->description, 40, '...') }}</p>                                </div>
+                                    <p>{{ \Illuminate\Support\Str::limit($kit->description, 40, '...') }}</p>
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -422,14 +436,15 @@
                                         <ul>
                                             <li>End Date:{{ $campaign->end_date }}</li>
                                             <li class="target_money">Target Money: ${{ $campaign->target_money }}</li>
-                                            <li id="{{$campaign->id}}" style="margin-left:30px;" class="raised_money">Raised Money:
+                                            <li id="{{ $campaign->id }}" style="margin-left:30px;" class="raised_money">
+                                                Raised Money:
                                                 ${{ $campaign->raised_money }}</li>
                                         </ul>
-                                        @if($campaign->raised_money >= $campaign->target_money)
-                                        <script>
-                                            var raised_money = document.getElementById('{{$campaign->id}}');
-                                            raised_money.style = "color: green; margin-left: 30px;";
-                                        </script>
+                                        @if ($campaign->raised_money >= $campaign->target_money)
+                                            <script>
+                                                var raised_money = document.getElementById('{{ $campaign->id }}');
+                                                raised_money.style = "color: green; margin-left: 30px;";
+                                            </script>
                                         @endif
                                         <div class="time-left">
                                             <span>Time left:</span>
@@ -546,27 +561,28 @@
                 <div class="row">
                     <div class="">
                         <div class="tp-counter-grids">
-                            <div class="grid" >
+                            <div class="grid">
                                 <div>
-                                    <h2><span class="odometer" data-count="{{$donation}}">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{ $donation }}">00</span>+</h2>
                                 </div>
                                 <p>In-kind Donations</p>
                             </div>
-                            <div class="grid" >
+                            <div class="grid">
                                 <div>
-                                    <h2><span class="odometer" data-count="{{$totalSum}}">00</span> <span style="font-size:50px " >$</span> </h2>
+                                    <h2><span class="odometer" data-count="{{ $totalSum }}">00</span> <span
+                                            style="font-size:50px ">$</span> </h2>
                                 </div>
                                 <p>Financial Donations</p>
                             </div>
-                            <div class="grid" >
+                            <div class="grid">
                                 <div>
-                                    <h2><span class="odometer" data-count="{{$user}}">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{ $user }}">00</span>+</h2>
                                 </div>
                                 <p>Donaters</p>
                             </div>
                             <div class="grid">
                                 <div>
-                                    <h2><span class="odometer" data-count="{{$event}}">00</span>+</h2>
+                                    <h2><span class="odometer" data-count="{{ $event }}">00</span>+</h2>
                                 </div>
                                 <p>Campaigns</p>
                             </div>
@@ -773,7 +789,8 @@
         <!-- blog-area start -->
         <!-- start partners-section -->
         <section class="partners-section ">
-            <h4 style="color:#000000 !important; text-align:center; font-size:60px !important; padding: 60px 20px ">Our Partners</h4>
+            <h4 style="color:#000000 !important; text-align:center; font-size:60px !important; padding: 60px 20px ">Our
+                Partners</h4>
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">

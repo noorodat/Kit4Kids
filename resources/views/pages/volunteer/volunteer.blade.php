@@ -99,8 +99,8 @@
                                                 <textarea class="form-control" name="note" id="note" placeholder="Campaign Description..."></textarea>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group form-group-in" style="width: 100%">
-                                                <label for="file">Upload a campaign Image</label>
-                                                <input id="file" type="file" class="form-control createCampaignImage" name="image" required>
+                                                <label for="pdf-file">Notarized Documents</label>
+                                                <input id="pdf-file" type="file" class="form-control campaignPdfFile" name="authPdfFile" required>
                                                 <i class="ti-cloud-up"></i>
                                             </div>
                                             <div class="submit-area col-lg-12 col-12">

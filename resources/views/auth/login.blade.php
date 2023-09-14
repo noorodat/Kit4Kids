@@ -85,7 +85,7 @@
                             @endif
                         </form>
                         <div style="margin-top: 30px; text-align:center">
-                            <span class="social-label" style="font-size: 19px; font-family:Georgia, 'Times New Roman', Times, serif" > Or login with :</span> 
+                            <span class="social-label" style="font-size: 19px; font-family:Georgia, 'Times New Roman', Times, serif" > Or login with :</span>
                             <br>
                             <ul style="list-style-type: none; padding-left: 0px; display: inline-block;">
                                 {{-- <li style="display: inline-block;"><a href="{{ route('auth.socilaite.redirect', 'facebook') }}"><i class="fa-brands fa-facebook-f fa-2xl" style="color: #478bff;"></i></i></a></li> --}}

@@ -10,7 +10,7 @@
   </head>
   <body>
     <!-- Pills navs -->
-<section class="vh-100" style="background-color: rgba(89, 136, 107, 0.8);">
+<section class="vh-100" style="background-color: rgba(6, 51, 73, 0.8);">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -21,7 +21,7 @@
             @if (Session::has('error'))
                 <div class="alert alert-danger" role="alert">
                     {{ Session::get('error') }}
-                </div>         
+                </div>
             @endif
 
             <!-- Add a <form> element to wrap your form elements -->
@@ -40,7 +40,7 @@
 
               <!-- You can add any additional form elements here -->
 
-             <button class="btn btn-lg btn-block text-white" type="submit" style="background-color: #59886b;">Log in</button>
+             <button class="btn btn-lg btn-block text-white" type="submit" style="background-color: #042e4b;">Log in</button>
 </form>
             <!-- End of the form -->
 

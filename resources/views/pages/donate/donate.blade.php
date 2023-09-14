@@ -128,7 +128,7 @@
                                     // dd(session('currenturl'));
                                 @endphp --}}
                                 <div class="tp-donations-amount " style="text-align: center;">
-                                    <h2 class="mx-auto" style="color: red;">please login to continue</h2>
+                                    <h2 class="mx-auto" style="color: red;">please login to continue your donation</h2>
                                     <a href="{{ route('donatelogin') }}" class="theme-btn-s3">LOGIN</a>
                                 </div>
                             @endif

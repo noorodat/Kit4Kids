@@ -32,6 +32,7 @@ class LoginController extends Controller
             if (Hash::check($credentials['password'], $admin->password)) {
                 // Password matches, log in the user
                 session()->put('loginname', $admin->name);
+                session()->put('loginimage', $admin->image);
 
                 // Retrieve the admin's name from the session (optional)
                 // $name = session('loginname');
@@ -48,6 +49,7 @@ class LoginController extends Controller
     public function adminLogout()
     {
         session()->forget('loginname');
+        session()->forget('loginimage');
 
         return redirect()->route('adminLogin');
     }

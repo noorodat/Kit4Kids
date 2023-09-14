@@ -16,14 +16,18 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="{{ asset('dashboard-assets/img/body.png') }}" class="img-circle elevation-2" alt="User Image">
+              {{-- <img src="{{ asset('dashboard-assets/img/body.png') }}" class="img-circle elevation-2" alt="User Image"> --}}
+              <img src="{{ url('/images/' . session('loginimage')) }}" class="img-circle elevation-2" alt="User Image">
 
             </div>
-            {{-- <div class="info">
-              <a href=" {{ route('admins.index')}}" class="d-block">Admin name should be here
+            
+            <div class="info">
+            <a href="{{ route('admins.index') }}" class="d-block">
+            {{session('loginname')}}
+            </a>
+             </div>
+            
 
-              </a>
-            </div> --}}
           </div>
 
           <!-- SidebarSearch Form -->

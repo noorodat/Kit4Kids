@@ -34,11 +34,12 @@
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Campaign image</th>
+                            <th>Notarized File</th>
                             <th>Campaign Title</th>
                             <th>Campaign description</th>
                             <th class="text-center">target_money</th>
@@ -52,7 +53,10 @@
                         @foreach ($pendingcampaigns as $pendingcampaign)
                         <tr>
                             <th scope="row">{{$i}}</th>
-                            <td><img src="{{ url('/images/' . $pendingcampaign->image) }}" alt="" width=""></td>
+                            <td><img src="{{ url('/images/' . $pendingcampaign->image) }}" alt="" width="350px"></td>
+                            <td>
+                                <a href="{{url('/campaignPdf/' . $pendingcampaign->auth_file)}}" target="_blank" class="btn btn-primary">Show File</a>
+                            </td>
                             <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->title}}</td>
                             <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->description}}</td>
                             <td>{{$pendingcampaign->target_money}}</td>

@@ -18,45 +18,51 @@ class PendingCampaignController extends Controller
         $pendingcampaigns = PendingCampaign::all();
         return view('dashboard.pendingcampaign.index', compact('pendingcampaigns'));
     }
-        // Send pending campaign function
+    // Send pending campaign function
     public function sendPendingCampaign(Request $request)
     {
-
         $campaign = new PendingCampaign();
-        // Get the currently authenticated user's ID
         $eventall = new EventAll();
         $userId = Auth::id();
 
+        // Upload the image file if it's present
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $image->move(public_path('images'), $imageName);
             $campaign->image = $imageName;
         }
 
-        $eventall->title = $request->input('subject');
-        $campaign->title = $request->input('subject');
+        // Upload the PDF file if it exists
+        if ($request->hasFile('authPdfFile')) {
+            $pdfFile = $request->file('authPdfFile');
+            $authPdfFile = time() . '.' . $pdfFile->getClientOriginalExtension();
+            $pdfFile->move(public_path('campaignPdf'), $authPdfFile);
+            $campaign->auth_file = $authPdfFile;
+        }
+
         $campaign->fullName = $request->input('name');
+        $campaign->title = $request->input('subject');
         $campaign->email = $request->input('email');
         $campaign->phone = $request->input('phone');
-        $campaign->target_money	= $request->input('targetMoney');
-        $campaign->description	= $request->input('note');
-        $campaign->user_id	= $userId;
+        $campaign->target_money = $request->input('targetMoney');
+        $campaign->description = $request->input('note');
+        $campaign->user_id = $userId;
 
         $campaign->save();
 
-
+        // Set the 'title' field in the eventall object and save it
+        $eventall->title = $request->input('subject');
         $eventall->save();
 
         // Redirect to the "go-home" route with a success message
-        return redirect()->route('go-home')->with('success', 'Campaign saved successfully.');
+        return redirect()->route('go-home')->with('success', 'Campaign Sent for approval.');
     }
 
-        public function show($id)
+    public function show($id)
     {
 
-        return view ('dashboard/campaign/index', compact('pendingcampaigns'));
-
+        return view('dashboard/campaign/index', compact('pendingcampaigns'));
     }
 
     public function destroy($id)
@@ -66,7 +72,8 @@ class PendingCampaignController extends Controller
         return back()->with('success', 'pinding Campaign deleted successfully.');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         // Retrieve the pending campaign ID from the form data
         $id = $request->input('pending_campaign_id');
 
@@ -99,6 +106,4 @@ class PendingCampaignController extends Controller
         // Return a success response or redirect to a different page
         return redirect()->route('go-home');
     }
-
-
 }

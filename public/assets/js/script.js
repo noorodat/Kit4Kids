@@ -590,31 +590,50 @@
                 },
                 notes: {
                     required: true, // Make "notes" field required
-                    maxlength: 255 // Maximum character limit for notes
+                },
+                note: {
+                    required: true, // Make "notes" field required
                 },
                 subject: {
                     required: true,
-                }
+                },
+                authPdfFile: {
+                    required: true,
+                    accept: "application/pdf" // Only accept PDF files
+                },
+                targetMoney: {
+                    required: true,
+                    minValue: 50,
+                },
             },
             messages: {
                 name: "Please enter your name",
                 email: {
                     required: "Please enter your email address",
-                    email: "Please enter a valid email address"
+                    email: "Please enter a valid email address",
                 },
                 phone: {
                     required: "Please enter your phone number",
                     minlength: "Phone number must be exactly 10 digits",
                     maxlength: "Phone number must be exactly 10 digits",
-                    digits: "Phone number can only contain digits"
+                    digits: "Phone number can only contain digits",
                 },
                 address: {
                     required: "Please enter your address",
-                    minlength: "Address must be at least {0} characters long" // {0} will be replaced with the minlength value
+                    minlength: "Address must be at least {0} characters long", // {0} will be replaced with the minlength value
                 },
                 note: {
-                    required: "Please enter notes",
-                    maxlength: "Notes must not exceed 255 characters"
+                    required: "Please enter the description",
+                },
+                notes: {
+                    required: "Please enter the description",
+                },
+                authPdfFile: {
+                    required: "Please upload the pdf file",
+                    accept: "The file must be pdf",
+                },
+                targetMoney: {
+                    minValue: "Minumun target is $50",
                 }
             }
         });

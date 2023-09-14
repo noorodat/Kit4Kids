@@ -5,7 +5,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="" class="brand-link">
           <img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">
 
           <span class="brand-text font-weight-light">HopeHarbor</span>
@@ -16,18 +16,22 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="{{ asset('dashboard-assets/img/body.png') }}" class="img-circle elevation-2" alt="User Image">
+              {{-- <img src="{{ asset('dashboard-assets/img/body.png') }}" class="img-circle elevation-2" alt="User Image"> --}}
+              <img src="{{ url('/images/' . session('loginimage')) }}" class="img-circle elevation-2" alt="User Image">
 
             </div>
-            {{-- <div class="info">
-              <a href=" {{ route('admins.index')}}" class="d-block">Admin name should be here
+            
+            <div class="info">
+            <a href="{{ route('admins.index') }}" class="d-block">
+            {{session('loginname')}}
+            </a>
+             </div>
+            
 
-              </a>
-            </div> --}}
           </div>
 
           <!-- SidebarSearch Form -->
-          <div class="form-inline">
+          {{-- <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
               <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
               <div class="input-group-append">
@@ -36,7 +40,7 @@
                 </button>
               </div>
             </div>
-          </div>
+          </div> --}}
 
           <!-- Sidebar Menu -->
           <nav class="mt-2">
@@ -157,8 +161,7 @@
                 <a href="http://127.0.0.1:8000/dashboard/donations" class="nav-link">
                   <i class="nav-icon fas fa-money-bill"></i>
                   <p>
-                    Donations
-
+                    Supplies
                   </p>
                 </a>
 
@@ -203,22 +206,12 @@
 
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon far fa-envelope"></i>
+                <a href="http://127.0.0.1:8000/dashboard/contactus" class="nav-link">
+                   <i class="nav-icon far fa-envelope"></i>
                   <p>
                     Mailbox
-
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/mailbox/mailbox.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Inbox</p>
-                    </a>
-                  </li>
-
-                </ul>
               </li>
 
 

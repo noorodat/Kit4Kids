@@ -44,8 +44,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="{{ route('donate-supplies') }}" class="theme-btn">Donate Supplies<i
-                                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    <a href="{{ route('donate-financial') }}" class="theme-btn">Financial donation<i class="fa fa-angle-double-right"
+                                            aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">
@@ -246,7 +246,7 @@
                         <h2 class="donate-categories">How do you want to help?</h2>
                         <div class="features-wrap" style="padding:10px;">
                             <div class="row" style="display: flex; justify-content: center;">
-                                <a href="">
+                                <a href="{{ route('donate-financial') }}">
                                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                         <div class="features-item">
                                             <div class="features-icon">
@@ -255,7 +255,7 @@
                                                     alt="">
                                             </div>
                                             <div class="features-content">
-                                                <h2><a h href="{{ route('donate-financial') }}"> Financial <br>
+                                                <h2><a href="{{ route('donate-financial') }}"> Financial <br>
                                                         <br><button
                                                             style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
                                                             <span>Donate Now</span>
@@ -295,7 +295,7 @@
                                         </div>
                                     </a>
                                 @endforeach
-                                <a href="">
+                                <a href="{{ route('donate-supplies') }}">
                                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                         <div class="features-item">
                                             <div class="features-icon">
@@ -304,7 +304,7 @@
                                                     alt="">
                                             </div>
                                             <div class="features-content">
-                                                <h2><a href=""> Supplies <br>
+                                                <h2><a href="{{ route('donate-supplies') }}"> Supplies <br>
                                                         <br><button
                                                             style="padding: 3px 10px; background-color:rgb(6,23,56); font-size:20px;">
                                                             <span>Donate Now</span>
@@ -419,7 +419,7 @@
                         @foreach ($campaigns as $campaign)
                             <span class="campaign_id" hidden style="display: none">{{ $campaign->id }}</span>
                             <div class="event-item">
-                                <div class="event-img" style="width: 300px !important;">
+                                <div class="event-img" style="">
                                     <img src="{{ url('/images/' . $campaign->image) }}" alt="">
                                 </div>
                                 <div class="event-text">

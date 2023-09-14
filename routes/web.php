@@ -31,8 +31,12 @@ use App\Http\Controllers\AboutController;
 Route::get('/', [HomeController::class, 'index'])->name('go-home');
 
 Route::get('/dashboard', function () {
-    return view('welcome-dashboard');
-})->middleware('admin');
+    if (session('loginname')) {
+        return view('welcome-dashboard');
+    }
+    // return view('welcome-dashboard');
+    return view('dashboard.dashlog.login');
+})->middleware(['admin']);
 
 
 // Route::get('/dashboard', function () {
@@ -153,27 +157,30 @@ Route::post('/adminLogin', [LoginController::class, 'loginPost'])->name('adminLo
 // Route::get('/home', [AdminController::class, 'adminIndex']);
 Route::get('/adminLogout', [LoginController::class, 'adminLogout'])->name('adminLogout');
 
+
+
+
 Route::resource('admins', AdminController::class);
-Route::get('dashboard/admins/indexmain_sidebar',[AdminController::class,'indexmain_sidebar'])->name('admininfo');
+// Route::get('dashboard/admins/indexmain_sidebar',[AdminController::class,'indexmain_sidebar'])->name('admininfo');
+Route::resource('dashboard/contactus', ContactController::class);
 
-
-Route::resource('dashboard/categories', CategoryController::class );
+Route::resource('dashboard/categories', CategoryController::class )->middleware(['admin']);
 
 Route::resource('campaigns', CampaignController::class);
 
-Route::get('dashboard/campaigns/indexcampaign',[CampaignController::class,'indexcampaign'])->name('gocampaigns');
+Route::get('dashboard/campaigns/indexcampaign',[CampaignController::class,'indexcampaign'])->name('gocampaigns')->middleware(['admin']);
 
-Route::resource('dashboard/kits', KitController::class);
+Route::resource('dashboard/kits', KitController::class)->middleware(['admin']);
 
-Route::resource('dashboard/donations', DonationController::class);
+Route::resource('dashboard/donations', DonationController::class)->middleware(['admin']);
 
-Route::resource('dashboard/partners', PartnerController::class);
+Route::resource('dashboard/partners', PartnerController::class)->middleware(['admin']);
 
-Route::resource('dashboard/payments', PaymentController::class);
+Route::resource('dashboard/payments', PaymentController::class)->middleware(['admin']);
 
-Route::resource('dashboard/users', ProfileController::class);
+Route::resource('dashboard/users', ProfileController::class)->middleware(['admin']);
 
-Route::resource('dashboard', dashHomeController::class);
+Route::resource('dashboard', dashHomeController::class)->middleware(['admin']);
 
 Route::resource('pendingcampaign', PendingCampaignController::class);
 

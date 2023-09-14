@@ -20,7 +20,7 @@
 
          {{-- @if ($user->provider == null) --}}
          @if ($user->provider)
-             <h2 style="text-align: center;">Welcome, {{$user->name}}</h2>
+             <h2 style="text-align: center;">Welcome, {{ $user->name }}</h2>
          @endif
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
@@ -31,7 +31,7 @@
 
 
         @if ($user->provider == null)
-            
+
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
@@ -62,8 +62,8 @@
             <p class="mt-1 text-sm text-gray-600">
             {{ __("$user->email") }}
         </p>
-        </div>     
-        @endif  
+        </div>
+        @endif
         <div class="flex items-center gap-4 mx-auto">
             <x-primary-button style="margin: 0 auto; display: block; background-color: #39c060; border-color: #e9bf3d; color: white; padding: 0 20px;">{{ __('Save') }}</x-primary-button>
 

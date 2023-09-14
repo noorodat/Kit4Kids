@@ -44,8 +44,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="{{route('donate-supplies')}}" class="theme-btn">Donate Supplies<i class="fa fa-angle-double-right"
-                                            aria-hidden="true"></i></a>
+                                    <a href="{{ route('donate-supplies') }}" class="theme-btn">Donate Supplies<i
+                                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">
@@ -807,5 +807,5 @@
         </section>
         <!-- end partners-section -->
 
+        <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>
     @endsection
-    <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>

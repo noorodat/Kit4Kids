@@ -61,10 +61,10 @@ class KitController extends Controller
 
         $request->validate([
             'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp |max:2048',
             'description' => 'required',
             'price' => 'required',
-           
+
         ]);
 
         $kits->title = $request->input('title');
@@ -74,7 +74,7 @@ class KitController extends Controller
         $category_id = $request->input('category_id');
         $kits->category_id = $category_id;
 
-        
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -107,7 +107,7 @@ class KitController extends Controller
     public function update(Request $request, $id)
     {
 
-      
+
         $kit = Kit::with('category')->findOrFail($id);
 
         $kit->title = $request->input('title');

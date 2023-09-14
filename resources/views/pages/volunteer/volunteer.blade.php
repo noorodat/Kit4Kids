@@ -81,7 +81,7 @@
                                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Campaign title" required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group form-group-in">
                                                 <label for="file">Upload campaign Image</label>

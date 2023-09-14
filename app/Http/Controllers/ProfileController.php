@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF; // Import the PDF facade
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
@@ -109,6 +110,29 @@ public function destroy($id = null): RedirectResponse
         return back()->with('success', 'User deleted successfully.');
     }
 }
+
+    public function download()
+    {
+        // Fetch the user and project information
+        $user = auth()->user(); // You can adjust this to retrieve the user as needed
+        // $projects = $user->projects; // Assuming you have a relationship set up
+
+        $id = Auth::id();
+        $donations = Donation::where('user_id', $id)->get();
+        $payments = Payment::where('user_id', $id)->get();
+
+        // Load the HTML template
+        $html = view('\pages\temp', compact('user', 'donations', 'payments'));
+
+        // Generate PDF
+        $pdf = PDF::loadHTML($html);
+
+        // Optional: Set PDF options
+        // $pdf->setOption('isPhpEnabled', true);
+
+        // Save or download the PDF
+        return $pdf->download('participation_certificate.pdf');
+    }
 
 
 }

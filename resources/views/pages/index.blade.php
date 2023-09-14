@@ -807,5 +807,5 @@
         </section>
         <!-- end partners-section -->
 
+        <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>
     @endsection
-    <script src="https://kit.fontawesome.com/65d53f33a7.js" crossorigin="anonymous"></script>

@@ -157,8 +157,7 @@
                 <a href="http://127.0.0.1:8000/dashboard/donations" class="nav-link">
                   <i class="nav-icon fas fa-money-bill"></i>
                   <p>
-                    Donations
-
+                    Supplies
                   </p>
                 </a>
 

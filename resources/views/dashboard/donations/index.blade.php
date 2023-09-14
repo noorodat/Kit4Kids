@@ -30,11 +30,11 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <table class="table table-striped projects">
+        <table class="table table-striped projects text-center">
             <thead>
                 <tr>
                     <th>
-                        #
+                        Image
                     </th>
                     <th>
                         Title
@@ -43,7 +43,10 @@
                         Description
                     </th>
                     <th>
-                       Type
+                       Location
+                    </th>
+                    <th>
+                       Phone
                     </th>
                     <th class="text-center">
                         User
@@ -59,7 +62,7 @@
                 @endphp
                     @foreach ($donations as $donation)
                     <tr>
-                    <th scope="row">{{$i}}</th>
+                    <td><img src="{{ url('/images/' . $donation->image) }}" width="250px" alt=""></td>
                     <td>{{ $donation->title }}</td>
                     <td>
                       <div class="description-wrapper">
@@ -69,13 +72,14 @@
                       <a href="#" class="read-more">Read More</a>
                   </td>
                     <td>{{ $donation->type }}</td>
+                    <td>{{ $donation->phone }}</td>
                     <td>{{ $donation->user->name }}</td>
-                    <td class="project-actions text-right">
+                    <td class="project-actions">
 
                       <form action="{{route('donations.destroy',$donation->id)}}"  method="POST"  style="display: inline;">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn btn-danger"
+                        <button type="submit" class="btn btn-danger" style="display: flex;"
                         onclick="return confirm('Are you sure you want to delete this donation?')">Delete</button>
                       </form>
 

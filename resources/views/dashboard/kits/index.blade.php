@@ -76,7 +76,7 @@
                 </div>
                 <a href="#" class="read-more">Read More</a>
             </td>
-               <td>{{$kit->price}}</td>
+               <td>${{$kit->price}}</td>
 
                <td>
                 {{$kit->category->title}}

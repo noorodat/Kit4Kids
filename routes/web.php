@@ -162,7 +162,7 @@ Route::get('/adminLogout', [LoginController::class, 'adminLogout'])->name('admin
 
 Route::resource('admins', AdminController::class);
 // Route::get('dashboard/admins/indexmain_sidebar',[AdminController::class,'indexmain_sidebar'])->name('admininfo');
-
+Route::resource('dashboard/contactus', ContactController::class);
 
 Route::resource('dashboard/categories', CategoryController::class )->middleware(['admin']);
 

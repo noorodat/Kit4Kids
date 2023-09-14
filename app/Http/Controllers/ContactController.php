@@ -38,7 +38,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return view('dashboard/contactus/index', compact('contacts'));
     }
 
     /**

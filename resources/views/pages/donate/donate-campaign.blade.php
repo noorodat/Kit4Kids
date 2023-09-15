@@ -136,9 +136,12 @@
                                 <div class="popupCampaign">
                                     <div class="innerCampaign">
                                          <button class="closeBtn"><i class="fa-solid fa-x"></i></button>
-                                        <form action="#">
+                                        <form action="{{ route('payment') }}" method="POST">
                                             @csrf
                                             <h2 class="mt-0">More</h2>
+                                            @php
+                                                $campaignData =[];
+                                            @endphp
                                             <div class="CampaignContainer">
                                             <div class="CampaignCard">
                                                 <div class="image campaignImage">
@@ -151,47 +154,12 @@
                                                  </div>
                                                  <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
                                                  <label for="Campaign{{$campaign->id}}">Donate: $</label>
-                                                <input type="number" id="Campaign{{$campaign->id}}" name="Campaign{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
+                                                <input type="number" id="{{$campaign->id}}" name="{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
+                                                @php
+                                                array_push($campaignData, $campaign->id);
+                                            @endphp
                                             </div>
-                                            <div class="CampaignCard">
-                                                <div class="image campaignImage">
-                                                    <img src="{{ url('/images/' . $campaign->image) }}" alt="">
-                                                </div>
-                                                <p><b>{{ $campaign->title }}</b></p>
-                                                <div class="time-left time-left-center">
-                                                    <span>Time left:</span>
-                                                    <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
-                                                 </div>
-                                                 <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
-                                                 <label for="Campaign{{$campaign->id}}">Donate: $</label>
-                                                <input type="number" id="Campaign{{$campaign->id}}" name="Campaign{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
-                                            </div>
-                                            <div class="CampaignCard">
-                                                <div class="image campaignImage">
-                                                    <img src="{{ url('/images/' . $campaign->image) }}" alt="">
-                                                </div>
-                                                <p><b>{{ $campaign->title }}</b></p>
-                                                <div class="time-left time-left-center">
-                                                    <span>Time left:</span>
-                                                    <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
-                                                 </div>
-                                                 <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
-                                                 <label for="Campaign{{$campaign->id}}">Donate: $</label>
-                                                <input type="number" id="Campaign{{$campaign->id}}" name="Campaign{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
-                                            </div>
-                                            <div class="CampaignCard">
-                                                <div class="image campaignImage">
-                                                    <img src="{{ url('/images/' . $campaign->image) }}" alt="">
-                                                </div>
-                                                <p><b>{{ $campaign->title }}</b></p>
-                                                <div class="time-left time-left-center">
-                                                    <span>Time left:</span>
-                                                    <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
-                                                 </div>
-                                                 <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
-                                                 <label for="Campaign{{$campaign->id}}">Donate: $</label>
-                                                <input type="number" id="Campaign{{$campaign->id}}" name="Campaign{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
-                                            </div>
+                                           
                                             @foreach ( $moreCampaigns as $moreCampaign )
                                             @php
                                                 $max_amount = $moreCampaign->target_money -  $moreCampaign->raised_money;
@@ -207,7 +175,10 @@
                                                  </div>
                                                  <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
                                                  <label for="Campaign{{$moreCampaign->id}}">Donate: $</label>
-                                                <input type="number" id="Campaign{{$moreCampaign->id}}" name="Campaign{{$moreCampaign->id}}" value="0" max="{{$max_amount}}" min="1">
+                                                <input type="number" id="{{$moreCampaign->id}}" name="{{$moreCampaign->id}}" value="0" max="{{$max_amount}}" min="1">
+                                                @php
+                                                array_push($campaignData, $moreCampaign->id);
+                                            @endphp
                                             </div>
                                             @endforeach
                                             </div>
@@ -218,6 +189,7 @@
                                         </form>
                                     </div>
                                 </div>
+                                {{session(['campaignData' => $campaignData])}}
                             {{-- end  popup Campaign --}}
                             @else
                                 {{ session(['Donate_login' => $campaign]) }}

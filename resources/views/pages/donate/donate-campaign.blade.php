@@ -147,7 +147,7 @@
                                                     <span>Time left:</span>
                                                     <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
                                                  </div>
-                                                 <sup>Max allowed donation: ${{$max_amount}}</sup>
+                                                 <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
                                                  <label for="Campaign{{$campaign->id}}">Donate: $</label>
                                                 <input type="number" id="Campaign{{$campaign->id}}" name="Campaign{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
                                             </div>
@@ -162,9 +162,9 @@
                                                     <span>Time left:</span>
                                                     <h5 class="event-countdown" data-end-date="{{ $moreCampaign->end_date }}" data-campaign-id="{{ $moreCampaign->id }}"></h5>
                                                  </div>
-                                                 <sup>Max allowed donation: ${{$max_amount}}</sup>
+                                                 <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
                                                  <label for="Campaign{{$moreCampaign->id}}">Donate: $</label>
-                                                <input type="number" id="Campaign{{$moreCampaign->id}}" name="Campaign{{$moreCampaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
+                                                <input type="number" id="Campaign{{$moreCampaign->id}}" name="Campaign{{$moreCampaign->id}}" value="0" max="{{$max_amount}}" min="1">
                                             </div>
                                             @endforeach
                                             </div>

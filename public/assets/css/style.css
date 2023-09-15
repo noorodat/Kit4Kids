@@ -7349,13 +7349,28 @@ li {
     display: none;
 }
 
-.popup .inner ,.popupCampaign .innerCampaign {
+.popup .inner  {
     position: relative;
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 20px;
-    width: 50%;
-    height: 70%;
+    width: 40%;
+    height: 40%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: inset 0 0 7px 0 #e9bf3d ,0 0 20px 0  #18b760;
+}
+.popupCampaign .innerCampaign {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 80%;
+    height: 80%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -7386,13 +7401,13 @@ li {
     column-gap: 10px;
     overflow-x: scroll;
     width: 100%;
-    height: 350px;
+    height: 400px;
 }
 .CampaignCard{
     border: 1px solid #18b760;
     border-radius: 10px;
-    width: 200px;
-    height: 300px;
+    width: 240px;
+    height: 330px;
 }
 
 

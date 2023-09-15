@@ -200,7 +200,7 @@
                                                 <div class="image campaignImage">
                                                     <img src="{{ url('/images/' . $moreCampaign->image) }}" alt="">
                                                 </div>
-                                                <p><b>{{ $campaign->title }}</b></p>
+                                                <p><b>{{ $moreCampaign->title }}</b></p>
                                                 <div class="time-left time-left-center">
                                                     <span>Time left:</span>
                                                     <h5 class="event-countdown" data-end-date="{{ $moreCampaign->end_date }}" data-campaign-id="{{ $moreCampaign->id }}"></h5>

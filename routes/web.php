@@ -91,7 +91,7 @@ Route::post('/message_sent', [ContactController::class, 'sendEmail'])->name('con
 Route::get('pages/causes/{kit}/donate', [KitController::class, 'goDonate'])
     ->name('go-donate');
 
-    Route::get('pages/events/{campaign}/donate-supplies', [CampaignController::class, 'goDonate'])
+    Route::get('pages/events/{campaign}/donate-campaign', [CampaignController::class, 'goDonate'])
     ->name('go-donate-campaign')
     ->middleware(['auth']);
 

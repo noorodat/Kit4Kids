@@ -97,7 +97,7 @@
                                             <h2>
                                                 <a style="text-decoration: underline" href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
                                             </h2>
-                                            <p>{{ $campaign->description }}</p>
+                                            <p>{{ \Illuminate\Support\Str::limit($campaign->description, 240, '...') }}</p>
                                         </div>
                                     </div>
                             </div>

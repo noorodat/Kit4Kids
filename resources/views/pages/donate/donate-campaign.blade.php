@@ -2,7 +2,7 @@
 
 
 
-@section('title', 'Donate supplies')
+@section('title', 'Donate Campaign')
 
 @section('content')
 

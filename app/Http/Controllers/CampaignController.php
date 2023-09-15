@@ -109,7 +109,7 @@ class CampaignController extends Controller
     {
         session(['donationType' => 'campaign']);
         session(['campaign' => $campaign]);
-        return view('pages.donate.donate-supplies', ['campaign' => $campaign]);
+        return view('pages.donate.donate-campaign', ['campaign' => $campaign]);
     }
 
     /**

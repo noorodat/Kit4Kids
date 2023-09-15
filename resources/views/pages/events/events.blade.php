@@ -64,7 +64,7 @@
                     <div class="col-12">
                         @foreach ($campaigns as $campaign)
                         <span class="campaign_id" hidden style="display: none">{{$campaign->id}}</span>
-                            <div class="event-item">
+                            <div class="event-item" style="grid-template-columns: 30% 70%; grid-template-rows: 200px; display: grid;">
                                 <div class="event-img" style="width: 300px !important;">
                                     <img src="{{ url('/images/' . $campaign->image) }}" width="300px">
                                 </div>
@@ -97,7 +97,7 @@
                                             <h2>
                                                 <a style="text-decoration: underline" href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
                                             </h2>
-                                            <p>{{ $campaign->description }}</p>
+                                            <p style="width: 60ch; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{ $campaign->description }}</p>
                                         </div>
                                     </div>
                             </div>

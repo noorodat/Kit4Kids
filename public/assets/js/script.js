@@ -833,6 +833,7 @@ if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
 
         $('.closeBtn').click(function() {
             $('.popup').fadeOut();
+            $('.popupCampaign').fadeOut();
         });
 
         $('.inner').click(function(e) {
@@ -842,14 +843,24 @@ if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
         $('.popup').click(function() {
             $('.popup').fadeOut();
         })
+
+        // popup Submit
         $('#popupMaxSubmit').click(function() {
             document.getElementById('donation_option1').value=maxCampaignMoney.value;
         });
 
+        // popup More Campaign
         $('#popupMoreCampaign').click(function () {
             $('.popup').fadeOut();
             $('.popupCampaign').fadeIn();
         });
+        $('.innerCampaign').click(function (e) {
+            e.stopPropagation();
+        })
+
+        $('.popupCampaign').click(function () {
+            $('.popupCampaign').fadeOut();
+        })
 
     }
 }

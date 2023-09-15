@@ -109,7 +109,8 @@ class CampaignController extends Controller
     {
         session(['donationType' => 'campaign']);
         session(['campaign' => $campaign]);
-        return view('pages.donate.donate-campaign', ['campaign' => $campaign]);
+        $moreCampaigns = Campaign::where('id', '!=', $campaign->id)->get();
+        return view('pages.donate.donate-campaign', ['campaign' => $campaign, 'moreCampaigns' => $moreCampaigns]);
     }
 
     /**

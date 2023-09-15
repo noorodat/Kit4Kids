@@ -132,14 +132,49 @@
                                 </div>
                             {{-- End popup --}}
                                 </form>
+                            {{-- start  popup Campaign --}}
                                 <div class="popupCampaign">
                                     <div class="innerCampaign">
                                          <button class="closeBtn"><i class="fa-solid fa-x"></i></button>
-
-                                        
+                                        <form action="#">
+                                            @csrf
+                                            <h2 class="mt-0">more</h2>
+                                            <div class="CampaignContainer">
+                                            <div class="CampaignCard">
+                                                <img src="{{ url('/images/' . $campaign->image) }}" alt="" width="150px" height="150px" style="padding: 10px">
+                                                <p><b>{{ $campaign->title }}</b></p>
+                                                <div class="time-left time-left-center">
+                                                    <span>Time left:</span>
+                                                    <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                                                 </div>
+                                                 <sup>Max allowed donation: ${{$max_amount}}</sup>
+                                                 <label for="Campaign{{$campaign->id}}">Donate: $</label>
+                                                <input type="number" id="Campaign{{$campaign->id}}" name="Campaign{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
+                                            </div>
+                                            @foreach ( $moreCampaigns as $moreCampaign )
+                                            @php
+                                                $max_amount = $moreCampaign->target_money -  $moreCampaign->raised_money;
+                                            @endphp                                   
+                                            <div class="CampaignCard">
+                                                <img src="{{ url('/images/' . $moreCampaign->image) }}" alt="" width="150px" height="150px" style="padding: 10px">
+                                                <p><b>{{ $campaign->title }}</b></p>
+                                                <div class="time-left time-left-center">
+                                                    <span>Time left:</span>
+                                                    <h5 class="event-countdown" data-end-date="{{ $moreCampaign->end_date }}" data-campaign-id="{{ $moreCampaign->id }}"></h5>
+                                                 </div>
+                                                 <sup>Max allowed donation: ${{$max_amount}}</sup>
+                                                 <label for="Campaign{{$moreCampaign->id}}">Donate: $</label>
+                                                <input type="number" id="Campaign{{$moreCampaign->id}}" name="Campaign{{$moreCampaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
+                                            </div>
+                                            @endforeach
+                                            </div>
+                                            <div class="submit-area">
+                                                <button type="submit" id="donateCampaign" class="theme-btn submit-btn">Donate Now</button>
+                                            </div>                                            
+                                        </form> 
                                     </div>
                                 </div>
-
+                            {{-- end  popup Campaign --}}
                             @else
                                 {{ session(['Donate_login' => $campaign]) }}
                                 {{-- return redirect()->route('login')->with('warning', 'Please login to continue donating.'); --}}

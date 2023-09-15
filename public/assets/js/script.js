@@ -771,8 +771,11 @@ const packagePrice = document.querySelector('.package-price');
 const addPackageBtn = document.querySelector('.addPackageBtn');
 const removePackageBtn = document.querySelector('.decreasePackageBtn');
 const priceDescription = document.getElementById('priceDesc');
-const packagePriceInputValue = document.getElementById('package-price-input').value;
-console.log(packagePriceInputValue)
+const packagePriceInputValue = document.getElementById('package-price-input');
+if(packagePriceInputValue) {
+    packagePriceInputValue = document.getElementById('package-price-input').value
+}
+
 if (packagePrice && addPackageBtn && removePackageBtn) {
 
     // Handle add package button
@@ -792,6 +795,55 @@ if (packagePrice && addPackageBtn && removePackageBtn) {
     });
 }
 /* ----------------------- End Handle donation amount ----------------------- */
+
+// Start handle button type on donate campaign
+
+const submitDonationBtn = document.getElementById('donateCampaign');
+const mainCampaignInput = document.getElementById('donation_option1');
+const maxCampaignMoney = document.getElementById('maxAmout');
+const targetCampaignMoney = document.getElementById('targetMoney');
+const raisedCampaignMoney = document.getElementById('raisdMoney');
+
+if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
+    mainCampaignInput.addEventListener('keyup', () => {
+        if (parseFloat(mainCampaignInput.value) > parseFloat(maxCampaignMoney.value)) {
+            if (submitDonationBtn.getAttribute('type') !== 'button') {
+                submitDonationBtn.setAttribute('type', 'button');
+            }
+            if (!submitDonationBtn.hasEventListener) {
+                submitDonationBtn.addEventListener('click', buttonClickHandler);
+                submitDonationBtn.hasEventListener = true;
+            }
+        } else {
+            if (submitDonationBtn.getAttribute('type') !== 'submit') {
+                submitDonationBtn.setAttribute('type', 'submit');
+            }
+            if (submitDonationBtn.hasEventListener) {
+                submitDonationBtn.removeEventListener('click', buttonClickHandler);
+                submitDonationBtn.hasEventListener = false;
+            }
+        }
+    });
+
+    function buttonClickHandler() {
+
+        
+
+        $('.popup').fadeIn();
+
+        $('.closeBtn').click(function() {
+            $('.popup').fadeOut();
+        });
+
+        $('.inner').click(function(e) {
+            e.stopPropagation();
+        })
+
+        $('.popup').click(function() {
+            $('.popup').fadeOut();
+        })
+    }
+}
 
 
 

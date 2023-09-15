@@ -4003,7 +4003,7 @@ li {
 #0.8 case-area
 =====================================*/
 .section-title2 {
-    margin-bottom: 90px;
+    margin-bottom: 60px;
 }
 
 .section-title2 .thumb-text {
@@ -5746,6 +5746,11 @@ li {
     display: flex;
     gap: 5px;
     align-items: center;
+
+}
+
+.time-left-center {
+    justify-content: center;
 }
 
 .tp-case-details-tab .event-b-text {
@@ -7331,7 +7336,54 @@ li {
 }
 
 
+/* Start popup */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.412);
+    display: none;
+}
+
+.popup .inner {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    border-radius: 20px;
+}
+
+.closeBtn {
+    outline: none;
+    border: none;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: -16px;
+}
+
+.closeBtn i {
+    color: white;
+}
+
+
+/* End popup */
+
 
 /*----------------------------------------------
 end*
 -----------------------------------------------*/
+

@@ -16,7 +16,6 @@ class PaymentController extends Controller
 
     public function __construct()
     {
-
         $this->gateway = Omnipay::create('PayPal_Rest');
         $this->gateway->setClientId(env('PAYPAL_CLIENT_ID'));
         $this->gateway->setSecret(env('PAYPAL_CLIENT_SECRET'));
@@ -25,7 +24,6 @@ class PaymentController extends Controller
 
     public function pay(Request $request)
     {
-
 
         session(['UserId' => $request->UserId]);
         session(['type' => $request->type]);
@@ -37,7 +35,6 @@ class PaymentController extends Controller
         session(['campaign_id'  => $request->campaign_id]);
 
         try {
-
             $response = $this->gateway->purchase(
                 array(
                     'amount' => $request->amount,
@@ -109,10 +106,10 @@ class PaymentController extends Controller
                             // Update the raised_money column
                             $campaign->raised_money += $amountToAdd;
                             $campaign->save();
-
                         }
                     }
 
+                    // Send an email to the donater to thank him
                     $details = [
                         'name' => $request->input('name'),
                         'email' => $request->input('email'),
@@ -121,7 +118,6 @@ class PaymentController extends Controller
                         'notes' => $request->input('note'),
                     ];
 
-                    // Send an email to the donater to thank him
                     $user_id = session('UserId');
                     $user = User::find($user_id);
                     if ($user) {
@@ -129,14 +125,14 @@ class PaymentController extends Controller
                         Mail::to($user->email)->send(new ContactMail($details, $emailContent));
                     }
 
-                session()->forget('UserId');
-                session()->forget('kit');
-                session()->forget('UserPhone');
-                session()->forget('UserAdress');
-                session()->forget('UserMessage');
-                session()->forget('type');
-                session()->forget('amount');
-                session()->forget('campaign_id');
+                    session()->forget('UserId');
+                    session()->forget('kit');
+                    session()->forget('UserPhone');
+                    session()->forget('UserAdress');
+                    session()->forget('UserMessage');
+                    session()->forget('type');
+                    session()->forget('amount');
+                    session()->forget('campaign_id');
 
                 // return redirect()->route('go-donate', ['kit' => session('kitID')])->with('success', 'Payment is Successful.');
                 return redirect()->route('go-home')->with('success', 'Payment is Successful, thank you ❤️');

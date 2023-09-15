@@ -32,7 +32,7 @@
                             <div class="col col-xs-12">
                                 <h2>Donate Now</h2>
                                 <ol class="breadcrumb">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{route('go-home')}}">Home</a></li>
                                     <li>Donate</li>
                                 </ol>
                             </div>
@@ -53,9 +53,14 @@
                             </div>
                             <h2>Make a Donation</h2>
                             <div class="image">
-                                <img src="{{asset($campaign->image)}}" alt="" width="250px" style="padding: 10px">
+                                <img src="{{ url('/images/' . $campaign->image) }}" alt="" width="250px" style="padding: 10px">
                             </div>
                             <p><b>{{ $campaign->title }}</b></p>
+                            <div class="time-left time-left-center">
+                                <span>Time left:</span>
+                                <h5 class="event-countdown" data-end-date="{{ $campaign->end_date }}" data-campaign-id="{{ $campaign->id }}"></h5>
+                            </div>
+                            <p>Raised money: ${{$campaign->raised_money}}</p>
                         </div>
                         @if (session('success'))
                             <div class="alert alert-success">
@@ -76,8 +81,15 @@
 
                                 <form action="{{ route('payment') }}" method="POST">
                                     @csrf
+                                    @php
+                                        $max_amount = $campaign->target_money -  $campaign->raised_money;
+                                    @endphp
+                                    <input type="hidden" value="{{$max_amount}}" id="maxAmout">
+                                    <input type="hidden" value="{{$campaign->target_money}}" id="targetMoney">
+                                    <input type="hidden" value="{{$campaign->raised_money}}" id="raisdMoney">
                                     <div class="tp-donations-amount">
                                         <h2>Your Donation (USD)</h2>
+                                        <p>Max allowed donation: ${{$max_amount}}</p>
                                         <input type="number" class="form-control" name="amount" id="donation_option1" value="" checked>
                                         <label for="donation_option1" style="font-size: 30px"></label>
                                     </div>
@@ -106,9 +118,21 @@
                                         </div>
                                     </div>
                                     <div class="submit-area">
-                                        <button type="submit" class="theme-btn submit-btn">Donate Now</button>
+                                        <button type="submit" id="donateCampaign" class="theme-btn submit-btn">Donate Now</button>
                                     </div>
+                            {{-- Start popup --}}
+                                <div class="popup">
+                                    <div class="inner">
+                                        <button class="closeBtn"><i class="fa-solid fa-x"></i></button>
+                                            <h2 class="text-center">You're donating more than what's needed to reach our goal!</h2>
+                                            <h3 class="text-center">Would you like to support other campaigns as well and make an even bigger impact? </h3>
+                                            <button type="submit" id="popupMaxSubmit">Donate this campaign ${{$max_amount}}</button>
+                                            <button>Donate more campaigns</button>
+                                    </div>
+                                </div>
+                            {{-- End popup --}}
                                 </form>
+
                             @else
                                 {{ session(['Donate_login' => $campaign]) }}
                                 {{-- return redirect()->route('login')->with('warning', 'Please login to continue donating.'); --}}

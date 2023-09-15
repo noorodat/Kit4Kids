@@ -198,7 +198,4 @@ Route::get('pages/about', [AboutController::class, 'index'])->name('go-about');
 Route::match(['get', 'delete'], '/delete-campaign/{campaign}', [CampaignController::class, 'delete'])->name('delete-campaign');
 
 
-
-
-
 Route::get('/certificate/download',[ProfileController::class, 'download'])->name('certificate.download');

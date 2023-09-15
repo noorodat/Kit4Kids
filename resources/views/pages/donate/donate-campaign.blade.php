@@ -138,9 +138,9 @@
                                          <button class="closeBtn"><i class="fa-solid fa-x"></i></button>
                                         <form action="#">
                                             @csrf
-                                            <h2 class="mt-0">more</h2>
-                                            <div class="CampaignContainer">
-                                            <div class="CampaignCard">
+                                            <h2 class="mt-0">More</h2>
+                                            <div class="CampaignContainer row">
+                                            <div class="CampaignCard  col-12">
                                                 <img src="{{ url('/images/' . $campaign->image) }}" alt="" width="150px" height="150px" style="padding: 10px">
                                                 <p><b>{{ $campaign->title }}</b></p>
                                                 <div class="time-left time-left-center">
@@ -154,8 +154,8 @@
                                             @foreach ( $moreCampaigns as $moreCampaign )
                                             @php
                                                 $max_amount = $moreCampaign->target_money -  $moreCampaign->raised_money;
-                                            @endphp                                   
-                                            <div class="CampaignCard">
+                                            @endphp
+                                            <div class="CampaignCard col-12">
                                                 <img src="{{ url('/images/' . $moreCampaign->image) }}" alt="" width="150px" height="150px" style="padding: 10px">
                                                 <p><b>{{ $campaign->title }}</b></p>
                                                 <div class="time-left time-left-center">
@@ -170,8 +170,8 @@
                                             </div>
                                             <div class="submit-area">
                                                 <button type="submit" id="donateCampaign" class="theme-btn submit-btn">Donate Now</button>
-                                            </div>                                            
-                                        </form> 
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             {{-- end  popup Campaign --}}

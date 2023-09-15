@@ -94,7 +94,7 @@
                                         <label for="donation_option1" style="font-size: 30px"></label>
                                     </div>
                                     <div class="tp-donations-details">
-                                        <h2>Details</h2>
+                                        <h2>Details (optional)</h2>
                                         <div class="row">
 
                                             <input type="hidden" id="" name="UserId" value="{{ Auth::id() }}">
@@ -105,15 +105,15 @@
 
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                 <input type="number" class="form-control" name="phone" id="phone"
-                                                required placeholder="Phone">
+                                                placeholder="Phone">
                                             </div>
 
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                 <input type="text" class="form-control" name="adress" id="Adress"
-                                                required placeholder="Adress">
+                                                 placeholder="Adress">
                                             </div>
                                             <div class="col-lg-12 col-12 form-group">
-                                                <textarea required class="form-control" name="message" id="message" placeholder="Message"></textarea>
+                                                <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -138,6 +138,8 @@
                                          <button class="closeBtn"><i class="fa-solid fa-x"></i></button>
                                         <form action="{{ route('payment') }}" method="POST">
                                             @csrf
+                                            <input type="hidden" id="" name="UserId" value="{{ Auth::id() }}">
+                                            <input type="hidden" id="" name="type" value="campaign">
                                             <h2 class="mt-0">More</h2>
                                             @php
                                                 $campaignData =[];
@@ -154,12 +156,12 @@
                                                  </div>
                                                  <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
                                                  <label for="Campaign{{$campaign->id}}">Donate: $</label>
-                                                <input type="number" id="{{$campaign->id}}" name="{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="1">
+                                                <input type="number" id="{{$campaign->id}}" name="{{$campaign->id}}" value="{{$max_amount}}" max="{{$max_amount}}" min="0">
                                                 @php
                                                 array_push($campaignData, $campaign->id);
                                             @endphp
                                             </div>
-                                           
+
                                             @foreach ( $moreCampaigns as $moreCampaign )
                                             @php
                                                 $max_amount = $moreCampaign->target_money -  $moreCampaign->raised_money;
@@ -175,7 +177,7 @@
                                                  </div>
                                                  <p><sup>Max allowed donation: ${{$max_amount}}</sup></p>
                                                  <label for="Campaign{{$moreCampaign->id}}">Donate: $</label>
-                                                <input type="number" id="{{$moreCampaign->id}}" name="{{$moreCampaign->id}}" value="0" max="{{$max_amount}}" min="1">
+                                                <input type="number" id="{{$moreCampaign->id}}" name="{{$moreCampaign->id}}" value="0" max="{{$max_amount}}" min="0">
                                                 @php
                                                 array_push($campaignData, $moreCampaign->id);
                                             @endphp

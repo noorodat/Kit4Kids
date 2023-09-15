@@ -18,12 +18,12 @@
         <div class="row">
             <div class="col-md-6">
                 <h4>Thank you very much from <b>HOPEHARBOR.</b></h4>
-                <p>Name: mohammad</p>
-                <p>Email: mohammad@example.com</p>
+                <p>Name: {{ Auth::user()->name }}</p>
+                <p>Email: {{ Auth::user()->email }}</p>
             </div>
         </div>
-
-        <table class="table mt-4">
+        <h3>Financial donations</h3>
+        <table class="table mt-4" border="1">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -41,7 +41,8 @@
                 @endforeach
             </tbody>
         </table>
-        <table class="table mt-4">
+        <h4>In-kind donations</h4>
+        <table class="table mt-4" border="1">
             <thead>
                 <tr>
                     <th>Title</th>

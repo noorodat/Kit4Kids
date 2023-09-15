@@ -24,56 +24,72 @@ class PaymentController extends Controller
 
     public function pay(Request $request)
     {
+        $totalAmount = 0;
+        $donatedCampaignsnames = "";
 
         if (session('campaignData')) {
             $campaignData = session('campaignData');
-            $campaignArray =array();
-
+            $campaignArray = array();
             foreach ($campaignData as $campaignID) {
-                $Camp = Campaign::where('id', $campaignID)->get();
+                $camp = Campaign::find($campaignID);
 
-
-                $campaignID;
-                $Camp->name;
-                $request->$campaignID;
-
-                $campaignArray = array( 
-                    $campaignID =>
-
-
-
-                )
-                
+                if ($camp && $request->input($campaignID) != 0) {
+                    $campaignArray[$campaignID] = [
+                        'id' => $campaignID,
+                        'title' => $camp->title,
+                        'payedAmount' => $request->input($campaignID) // Assuming $request->$campaignID is meant to retrieve a form input value
+                    ];
+                    $totalAmount+=$request->input($campaignID);
+                    $donatedCampaignsnames .= $camp->title . ", ";
+                }
             }
-
+            session(['campaignDataCollected' => $campaignArray]);
+            session()->forget('campaignData');
         }
-
-
-
-
-
-
-
-
 
         session(['UserId' => $request->UserId]);
         session(['type' => $request->type]);
-        session(['kit' => $request->kit]);
+        if($donatedCampaignsnames) {
+            session(['kit' => $donatedCampaignsnames]);
+        }
+        else {
+            session(['kit' => $request->kit]);
+        }
         session(['UserPhone' => $request->phone]);
         session(['UserAdress' => $request->adress]);
         session(['UserMessage' => $request->message]);
-        session(['amount' => $request->amount]);
         session(['campaign_id' => $request->campaign_id]);
 
+        if($totalAmount) {
+            session(['amount' => $totalAmount]);
+        }
+        else {
+            session(['amount' => $request->amount]);
+        }
+
         try {
-            $response = $this->gateway->purchase(
-                array(
-                    'amount' => $request->amount,
-                    'currency' => env('PAYPAL_CURRENCY'),
-                    'returnUrl' => url('success'),
-                    'cancelUrl' => url('error')
-                )
-            )->send();
+
+            if($totalAmount) {
+                $response = $this->gateway->purchase(
+                    array(
+                        'amount' => $totalAmount,
+                        'currency' => env('PAYPAL_CURRENCY'),
+                        'returnUrl' => url('success'),
+                        'cancelUrl' => url('error')
+                    )
+                )->send();
+            }
+
+            else {
+                $response = $this->gateway->purchase(
+                    array(
+                        'amount' => $request->amount,
+                        'currency' => env('PAYPAL_CURRENCY'),
+                        'returnUrl' => url('success'),
+                        'cancelUrl' => url('error')
+                    )
+                )->send();
+            }
 
             if ($response->isRedirect()) {
                 $response->redirect();
@@ -138,6 +154,17 @@ class PaymentController extends Controller
                         $campaign->raised_money += $amountToAdd;
                         $campaign->save();
                     }
+
+                    if(session('campaignDataCollected')) {
+                        $campaignsCollected = session('campaignDataCollected');
+                        foreach($campaignsCollected as $campaignData) {
+                            $campaign = Campaign::find($campaignData['id']);
+                            $campaign->raised_money += $campaignData['payedAmount'];
+                            $campaign->save();
+                        }
+                        session()->forget('campaignDataCollected');
+                    }
+
                 }
 
                 // Send an email to the donater to thank him

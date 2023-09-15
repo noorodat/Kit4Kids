@@ -14,9 +14,9 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('donater_kit');
-            $table->bigInteger('donater_phone');
-            $table->string('donater_address');
-            $table->text('donater_message');
+            $table->bigInteger('donater_phone')->nullable();
+            $table->string('donater_address')->nullable();
+            $table->text('donater_message')->nullable();
             $table->float('Amount', 10, 2);
             $table->string('Currency');
             $table->timestamps();

@@ -5412,6 +5412,7 @@ li {
 
 #Donations .submit-area {
     text-align: center;
+    padding: 8px;
 }
 
 @media(max-width:767px) {
@@ -7354,8 +7355,6 @@ li {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 20px;
-    width: 40%;
-    height: 40%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -7396,18 +7395,30 @@ li {
 .closeBtn i {
     color: white;
 }
-.CampaignContainer{
+.CampaignContainer {
+    overflow-x: scroll;
     overflow-y: scroll;
     width: 100%;
     height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
-.CampaignCard{
+.CampaignCard {
     border: 1px solid #18b760;
     border-radius: 10px;
-    width: 240px;
-    height: 330px;
+    width: calc(100% / 4);
+    padding: 5px;
 }
 
+.campaignImage {
+    padding: 8px;
+}
+
+.campaignImage img {
+    width: 100%;
+}
 
 /* End popup */
 

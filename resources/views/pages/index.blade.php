@@ -44,8 +44,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="{{ route('donate-financial') }}" class="theme-btn">Financial donation<i class="fa fa-angle-double-right"
-                                            aria-hidden="true"></i></a>
+                                    <a href="{{ route('donate-financial') }}" class="theme-btn">Financial donation<i
+                                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <div class="slide-shape">
@@ -418,7 +418,8 @@
                     <div class="col-12">
                         @foreach ($campaigns as $campaign)
                             <span class="campaign_id" hidden style="display: none">{{ $campaign->id }}</span>
-                            <div class="event-item">
+                            <div class="event-item"
+                                style="grid-template-columns: 30% 70%; grid-template-rows: 200px; display: grid;">
                                 <div class="event-img" style="">
                                     <img src="{{ url('/images/' . $campaign->image) }}" alt="">
                                 </div>
@@ -455,7 +456,9 @@
                                             <a
                                                 href="{{ route('go-event-single', ['campaign' => $campaign]) }}">{{ $campaign->title }}</a>
                                         </h2>
-                                        <p>{{ \Illuminate\Support\Str::limit($campaign->description, 240, '...') }}</p>
+                                        <p
+                                            style="width: 60ch; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                                            {{ \Illuminate\Support\Str::limit($campaign->description, 240, '...') }}</p>
                                     </div>
                                 </div>
                             </div>

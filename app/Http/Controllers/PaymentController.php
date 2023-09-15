@@ -25,6 +25,37 @@ class PaymentController extends Controller
     public function pay(Request $request)
     {
 
+        if (session('campaignData')) {
+            $campaignData = session('campaignData');
+            $campaignArray =array();
+
+            foreach ($campaignData as $campaignID) {
+                $Camp = Campaign::where('id', $campaignID)->get();
+
+
+                $campaignID;
+                $Camp->name;
+                $request->$campaignID;
+
+                $campaignArray = array( 
+                    $campaignID =>
+
+
+
+                )
+                
+            }
+
+        }
+
+
+
+
+
+
+
+
+
         session(['UserId' => $request->UserId]);
         session(['type' => $request->type]);
         session(['kit' => $request->kit]);
@@ -32,7 +63,7 @@ class PaymentController extends Controller
         session(['UserAdress' => $request->adress]);
         session(['UserMessage' => $request->message]);
         session(['amount' => $request->amount]);
-        session(['campaign_id'  => $request->campaign_id]);
+        session(['campaign_id' => $request->campaign_id]);
 
         try {
             $response = $this->gateway->purchase(
@@ -85,54 +116,54 @@ class PaymentController extends Controller
 
                 $payment = new Payment();
 
-                    $payment->user_id = session('UserId');
-                    $payment->donater_kit = session('kit');
-                    $payment->donater_phone = session('UserPhone');
-                    $payment->donater_address = session('UserAdress');
-                    $payment->donater_message = session('UserMessage');
-                    $payment->amount = $arr['transactions'][0]['amount']['total'];
-                    $payment->currency = env('PAYPAL_CURRENCY');
+                $payment->user_id = session('UserId');
+                $payment->donater_kit = session('kit');
+                $payment->donater_phone = session('UserPhone');
+                $payment->donater_address = session('UserAdress');
+                $payment->donater_message = session('UserMessage');
+                $payment->amount = $arr['transactions'][0]['amount']['total'];
+                $payment->currency = env('PAYPAL_CURRENCY');
 
-                    $payment->save();
+                $payment->save();
 
-                    if (session('type') == 'campaign') {
-                        $campaignId = session('campaign_id'); // Assuming you have a session variable for campaign_id
-                        $amountToAdd = session('amount'); // Assuming you have a session variable for amount
+                if (session('type') == 'campaign') {
+                    $campaignId = session('campaign_id'); // Assuming you have a session variable for campaign_id
+                    $amountToAdd = session('amount'); // Assuming you have a session variable for amount
 
-                        // Find the campaign by campaign_id
-                        $campaign = Campaign::find($campaignId);
+                    // Find the campaign by campaign_id
+                    $campaign = Campaign::find($campaignId);
 
-                        if ($campaign) {
-                            // Update the raised_money column
-                            $campaign->raised_money += $amountToAdd;
-                            $campaign->save();
-                        }
+                    if ($campaign) {
+                        // Update the raised_money column
+                        $campaign->raised_money += $amountToAdd;
+                        $campaign->save();
                     }
+                }
 
-                    // Send an email to the donater to thank him
-                    $details = [
-                        'name' => $request->input('name'),
-                        'email' => $request->input('email'),
-                        'phone' => $request->input('phone'),
-                        'address' => $request->input('address'),
-                        'notes' => $request->input('note'),
-                    ];
+                // Send an email to the donater to thank him
+                $details = [
+                    'name' => $request->input('name'),
+                    'email' => $request->input('email'),
+                    'phone' => $request->input('phone'),
+                    'address' => $request->input('address'),
+                    'notes' => $request->input('note'),
+                ];
 
-                    $user_id = session('UserId');
-                    $user = User::find($user_id);
-                    if ($user) {
-                        $emailContent = "Thanks for your donation"; // Customize the content for payment
-                        Mail::to($user->email)->send(new ContactMail($details, $emailContent));
-                    }
+                $user_id = session('UserId');
+                $user = User::find($user_id);
+                if ($user) {
+                    $emailContent = "Thanks for your donation"; // Customize the content for payment
+                    Mail::to($user->email)->send(new ContactMail($details, $emailContent));
+                }
 
-                    session()->forget('UserId');
-                    session()->forget('kit');
-                    session()->forget('UserPhone');
-                    session()->forget('UserAdress');
-                    session()->forget('UserMessage');
-                    session()->forget('type');
-                    session()->forget('amount');
-                    session()->forget('campaign_id');
+                session()->forget('UserId');
+                session()->forget('kit');
+                session()->forget('UserPhone');
+                session()->forget('UserAdress');
+                session()->forget('UserMessage');
+                session()->forget('type');
+                session()->forget('amount');
+                session()->forget('campaign_id');
 
                 // return redirect()->route('go-donate', ['kit' => session('kitID')])->with('success', 'Payment is Successful.');
                 return redirect()->route('go-home')->with('success', 'Payment is Successful, thank you ❤️');
@@ -144,7 +175,7 @@ class PaymentController extends Controller
             }
         } else {
             // return 'Payment is declined !!';
-                return redirect()->route('go-home')->with('error', 'Payment is declined !!');
+            return redirect()->route('go-home')->with('error', 'Payment is declined !!');
 
         }
     }

@@ -842,6 +842,15 @@ if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
         $('.popup').click(function() {
             $('.popup').fadeOut();
         })
+        $('#popupMaxSubmit').click(function() {
+            document.getElementById('donation_option1').value=maxCampaignMoney.value;
+        });
+
+        $('#popupMoreCampaign').click(function () {
+            $('.popup').fadeOut();
+            $('.popupCampaign').fadeIn();
+        });
+
     }
 }
 

@@ -125,13 +125,20 @@
                                     <div class="inner">
                                         <button class="closeBtn"><i class="fa-solid fa-x"></i></button>
                                             <h2 class="text-center">You're donating more than what's needed to reach our goal!</h2>
-                                            <h3 class="text-center">Would you like to support other campaigns as well and make an even bigger impact? </h3>
-                                            <button type="submit" id="popupMaxSubmit">Donate this campaign ${{$max_amount}}</button>
-                                            <button>Donate more campaigns</button>
+                                            <h3 class="text-center">Would you like to support other campaigns as well and make an even bigger impact? </h3><br>
+                                            <button class="theme-btn submit-btn" type="submit" id="popupMaxSubmit">Donate this campaign ${{$max_amount}}</button>
+                                            <button class="theme-btn" id="popupMoreCampaign" type="button">Donate more campaigns</button>
                                     </div>
                                 </div>
                             {{-- End popup --}}
                                 </form>
+                                <div class="popupCampaign">
+                                    <div class="innerCampaign">
+                                         <button class="closeBtn"><i class="fa-solid fa-x"></i></button>
+
+                                        
+                                    </div>
+                                </div>
 
                             @else
                                 {{ session(['Donate_login' => $campaign]) }}

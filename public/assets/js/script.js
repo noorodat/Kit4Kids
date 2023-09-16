@@ -835,8 +835,6 @@ if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
 
     function buttonClickHandler() {
 
-
-
         $('.popup').fadeIn();
 
         $('.closeBtn').click(function() {
@@ -885,3 +883,6 @@ if(disableCampaignBtn) {
     banIcon.innerHTML = `<i class="fa-solid fa-ban" style="color: #ff0000;"></i>`;
     disableCampaignBtn.appendChild(banIcon);
 }
+
+// Handle send mail to all button
+

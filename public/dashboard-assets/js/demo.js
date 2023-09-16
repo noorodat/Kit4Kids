@@ -424,3 +424,24 @@
     $(this).addClass('active');
   });
 })(jQuery)
+
+
+const sendMailToAllBtn = document.getElementById('sendMailToAllBtn');
+
+if(sendMailToAllBtn) {
+    sendMailToAllBtn.onclick = () => {
+        $('.mailPopup').fadeIn();
+    }
+}
+
+const cancleSendingMailsBtn = document.getElementById('cancleSendingMails');
+
+if(cancleSendingMailsBtn) {
+    cancleSendingMailsBtn.onclick = () => {
+        $('.mailPopup').fadeOut();
+    }
+}
+
+
+
+

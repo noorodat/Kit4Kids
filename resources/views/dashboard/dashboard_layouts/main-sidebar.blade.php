@@ -6,14 +6,13 @@
 
           <span class="brand-text font-weight-light">HopeHarbor</span>
         </a>
-       
+
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
               <img src="{{url('/images/'. session('loginimage') ) }}" class="img-circle elevation-2" alt="User Image" width="60px">
-
             </div>
             <div class="info">
               <h6 style="color: white">Welcome {{session('loginname')}}</h6>
@@ -39,7 +38,7 @@
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
               <li class="nav-item menu-open">
-                
+
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{ route('go-home') }}" class="nav-link active">
@@ -204,13 +203,9 @@
                   <i class="nav-icon far fa-envelope"></i>
                   <p>
                     Mailbox
-
                   </p>
                 </a>
-                
               </li>
-
-
           </nav>
           <!-- /.sidebar-menu -->
         </div>

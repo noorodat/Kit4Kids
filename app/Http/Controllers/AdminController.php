@@ -139,12 +139,13 @@ class AdminController extends Controller
     public function sendMailToAllUsers(Request $request) {
         $title = $request->input('title');
         $message = $request->input('message');
-        
+        session(['emailToAll' => $title]);
         $users = User::all();
 
         foreach($users as $user) {
             Mail::to($user->email)->send(new ContactMail($title, $message));
         }
+        session()->forget('emailToAll');
         return back()->with('message_sent', 'Your Email has been sent to all users successfully');
     }
 

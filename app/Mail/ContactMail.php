@@ -31,6 +31,9 @@ public function build()
     if ($this->content === "Thanks for your donation") {
         return $this->subject('Thank you for your donation')
                     ->view('pages.email.contactMail', ['content' => $this->content]);
+    } else if ($this->details === session('emailToAll')) {
+            return $this->subject(session('emailToAll'))
+                ->view('pages.email.contactMail', ['content' => $this->content]);
     } else {
         return $this->subject('Contact us')
                     ->view('pages.email.contactMail', ['content' => $this->content]);

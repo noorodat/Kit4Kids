@@ -112,7 +112,7 @@
                                                 <input type="text" class="form-control" name="adress" id="Adress"
                                                 required placeholder="Adress">
                                             </div> --}}
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                {{-- <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
                                                     <select class="form-control" name="city" id="city" required>
                                                         <option value="" disabled selected>Select a city</option>
                                                         <option value="Irbid">Irbid</option>
@@ -128,6 +128,9 @@
                                                         <option value="Maan">Ma'an</option>
                                                         <option value="Aqaba">Aqaba</option>
                                                     </select>
+                                                </div> --}}
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                    <input class="form-control" name="city" id="city" required placeholder="City and Address">
                                                 </div>
 
 

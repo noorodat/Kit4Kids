@@ -192,6 +192,8 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Pending Campaigns
+                    
+                    {{-- <span class="pendingCampaignCount">{{}}</span> --}}
 
                   </p>
                 </a>

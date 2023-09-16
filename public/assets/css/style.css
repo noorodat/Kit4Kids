@@ -112,6 +112,7 @@ p {
     color: #787878;
     line-height: 1.63em;
     font-size: 18px;
+    overflow-wrap: break-word;
 }
 
 h1,

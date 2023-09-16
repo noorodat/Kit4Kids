@@ -804,6 +804,14 @@ const maxCampaignMoney = document.getElementById('maxAmout');
 const targetCampaignMoney = document.getElementById('targetMoney');
 const raisedCampaignMoney = document.getElementById('raisdMoney');
 
+const firstphone = document.getElementById('phone');
+const firstAdress = document.getElementById('Adress');
+const firstmessage = document.getElementById('message');
+
+const phonePopup = document.getElementById('phonePopup');
+const AdressPopup = document.getElementById('AdressPopup');
+const messagePopup = document.getElementById('messagePopup');
+
 if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
     mainCampaignInput.addEventListener('keyup', () => {
         if (parseFloat(mainCampaignInput.value) > parseFloat(maxCampaignMoney.value)) {
@@ -853,6 +861,9 @@ if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
         $('#popupMoreCampaign').click(function () {
             $('.popup').fadeOut();
             $('.popupCampaign').fadeIn();
+            document.getElementById('phonePopup').value = firstphone.value;
+            document.getElementById('AdressPopup').value = firstAdress.value;
+            document.getElementById('messagePopup').value = firstmessage.value;
         });
         $('.innerCampaign').click(function (e) {
             e.stopPropagation();

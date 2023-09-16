@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Donation;
@@ -27,10 +28,38 @@ class ProfileController extends Controller
         return view ('dashboard/users/index', compact('users'));
     }
 
+    public function create()
+    {
+        return view('dashboard.users.create');
+    }
+
     /**
-     *
-     * Display the user's profile form.
+     * Store a newly created resource in storage.
      */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:admins',
+            'password' => [
+                'required',
+                'min:8',
+                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
+            ]
+        ]);
+
+        $users = new User();
+
+        $users->name = $request->input('name');
+        $users->email = $request->input('email');
+        $users->password = Hash::make ($request->input('password'));
+
+       
+
+        $users->save();
+
+        return redirect()->route('users.index')->with('success', 'User created successfully');
+    }
 
     public function edit(Request $request): View
     {

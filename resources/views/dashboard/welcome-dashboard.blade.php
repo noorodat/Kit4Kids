@@ -175,7 +175,7 @@ body
           
       
       <!-- Main row -->
-      <div class="row">
+      {{-- <div class="row">
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
 
@@ -400,7 +400,7 @@ body
 
         </section>
         <!-- right col -->
-      </div>
+      </div> --}}
       <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
   </section>

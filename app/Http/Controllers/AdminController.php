@@ -95,34 +95,30 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
+            'new_image' => 'image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
             // Add any desired image validation rules
             'email' => 'required|email|unique:users',
-            'password' => [
-                'required',
-                'min:8',
-                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
-            ]
+            
         ]);
 
         $admins = Admin::findOrFail($id);
 
 
-        // $admins = new Admin();
-
         $admins->name = $request->input('name');
         $admins->email = $request->input('email');
-        $admins->password = Hash::make ($request->input('password'));
+        // $admins->password = Hash::make ($request->input('password'));
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
+        if ($request->hasFile('new_image')) {
+            $image = $request->file('new_image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $image->move(public_path('images'), $imageName);
             $admins->image = $imageName;
-            // $storedPath = $uploadedFile->store('public/photo');
-            $admins->save();
-
         }
+       
+        if ($request->filled('password')) {
+            $admins->password = Hash::make($request->input('password'));
+        }
+
 
         $admins->save();
 

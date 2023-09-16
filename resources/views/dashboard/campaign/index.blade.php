@@ -78,13 +78,13 @@
                 <tr>
 
                     <th scope="row">{{$i}}</th>
-                    <td><img src="{{ url('/images/' . $campaign->image) }}" alt="" width="70%"></td>
+                    <td><img src="{{ url('/images/' . $campaign->image) }}" alt="" width="100px" height="100px"></td>
 
                      <td>{{$campaign->title}}</td>
                     {{-- <td>{{$campaign->description}}</td> --}}
                     <td>
-                        <div class="description-wrapper">
-                            <span class="short-description">{{ Str::limit($campaign->description, 100) }}</span>
+                        <div class="description-wrapper" style="width: 200px">
+                            <span class="short-description">{{ Str::limit($campaign->description, 50) }}</span>
                             <span class="full-description" style="display: none;">{{ $campaign->description }}</span>
                         </div>
                         <a href="#" class="read-more">Read More</a>

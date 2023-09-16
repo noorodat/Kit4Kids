@@ -27,11 +27,21 @@
         </div>
         <div class="form-group">
                 <label>Description</label>
-                <input type="text" class="form-control" name="description" value="{{ $kits->description }}">
+                <textarea name="description" id="" style="width: 100%; height:100px" value="{{ $kits->description }}">{{ $kits->description }}</textarea>
+
             </div>
             <div class="form-group">
-                <label>Image</label>
-                <input type="file" class="form-control" name="image" value="{{ $kits->image }}">
+                <label for="image">Current Image:</label>
+                @if($kits->image)
+                    <img src="{{ url('/images/' . $kits->image) }}" alt="Current Image" style="max-width: 200px;">
+                @else
+                    <p>No image available.</p>
+                @endif
+            </div>
+        
+            <div class="form-group">
+                <label for="new_image">Select New Image:</label>
+                <input type="file" id="new_image" name="new_image"> <!-- Add the name attribute -->
             </div>
             <div class="form-group">
                 <label>Price</label>
@@ -41,14 +51,22 @@
                 <label for="category">Choose category:</label>
 
              
-                <select name="category_id" id="category" class="form-control">
+                {{-- <select name="category_id" id="category" class="form-control">
                     <option value="{{ $kits->category->id }}" selected>{{ $kits->category->title }}</option>
                     @foreach ($categories as $category)
                         @if ($kits->category->id != $category->id)
                             <option value="{{ $category->id }}">{{ $category->title }}</option>
                         @endif
                     @endforeach
+                </select> --}}
+                <select name="category_id" id="category" class="form-control">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ $category->id == $kits->category_id ? 'selected' : '' }}>
+                            {{ $category->title }}
+                        </option>
+                    @endforeach
                 </select>
+                
                 
             </div>
         <button type="submit" class="btn btn-primary">Update</button>

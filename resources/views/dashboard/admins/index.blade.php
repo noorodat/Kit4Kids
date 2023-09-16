@@ -16,6 +16,12 @@
 
 @section('content')
  <!-- Main content -->
+
+ @if(session('success'))
+    <div class="alert alert-success" id="success-alert">
+        {{ session('success') }}
+    </div>
+@endif
  <section class="content">
     <a class="btn btn-primary  mb-3" href="{{route('admins.create') }}">Add Admin </a>
     <!-- Default box -->
@@ -64,7 +70,7 @@
                     <td>{{$admin->email}}</td>
                     <td class="project-actions text-right">
 
-                        <a class="btn btn-info btn-sm" href="{{ route('admins.edit', $admin->id) }}">
+                        <a class="btn btn-info " href="{{ route('admins.edit', $admin->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
@@ -74,14 +80,17 @@
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete this admin?')">Delete</button>
+                            onclick="return confirm('Are you sure you want to delete this admin?')">
+                            <i class="fas fa-trash">
+                            </i>Delete</button>
                           </form>
                     </td>
                 </tr>
-                @endforeach
                 @php
-                    $i++;
-                @endphp
+                $i++;
+            @endphp
+                @endforeach
+              
             </tbody>
 
         </table>

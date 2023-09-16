@@ -17,7 +17,6 @@
 @section('content')
  <!-- Main content -->
  <section class="content">
-    <a class="btn btn-primary  mb-3" href="">Add Category </a>
     <!-- Default box -->
     <div class="card">
       <div class="card-header">

@@ -15,6 +15,11 @@
 @endsection
 
 @section('content')
+@if(session('success'))
+<div class="alert alert-success" id="success-alert">
+    {{ session('success') }}
+</div>
+@endif
  <!-- Main content -->
  <section class="content">
     <a class="btn btn-primary  mb-3" href="{{route('campaigns.create')}}">Add Campaign </a>
@@ -92,7 +97,7 @@
                     <td>{{$campaign->active}}</td>
                     <td class="project-actions text-right">
 
-                        <a class="btn btn-info btn-sm" href="{{ route('campaigns.edit', $campaign->id) }}">
+                        <a class="btn btn-info " href="{{ route('campaigns.edit', $campaign->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
@@ -102,7 +107,9 @@
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete this Category?')">Delete</button>
+                            onclick="return confirm('Are you sure you want to delete this Campaign?')">
+                            <i class="fas fa-trash">
+                            </i>Delete</button>
                           </form>
                     </td>
 

@@ -1,33 +1,24 @@
-      {{-- @if(!session('loginname'))
-        {{redirect()->route('adminLogin')}}
-      @endif --}}
-
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="" class="brand-link">
+        <a href="index3.html" class="brand-link">
           <img src="{{asset('/assets/images/logo/logo.png')}}" alt="logo">
 
           <span class="brand-text font-weight-light">HopeHarbor</span>
         </a>
-
+       
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              {{-- <img src="{{ asset('dashboard-assets/img/body.png') }}" class="img-circle elevation-2" alt="User Image"> --}}
-              <img src="{{ url('/images/' . session('loginimage')) }}" class="img-circle elevation-2" alt="User Image">
+              <img src="{{url('/images/'. session('loginimage') ) }}" class="img-circle elevation-2" alt="User Image" width="60px">
 
             </div>
-            
             <div class="info">
-            <a href="{{ route('admins.index') }}" class="d-block">
-            {{session('loginname')}}
-            </a>
-             </div>
-            
+              <h6 style="color: white">Welcome {{session('loginname')}}</h6>
 
+            </div>
           </div>
 
           <!-- SidebarSearch Form -->
@@ -48,7 +39,7 @@
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
               <li class="nav-item menu-open">
-
+                
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{ route('go-home') }}" class="nav-link active">
@@ -161,7 +152,8 @@
                 <a href="http://127.0.0.1:8000/dashboard/donations" class="nav-link">
                   <i class="nav-icon fas fa-money-bill"></i>
                   <p>
-                    Supplies
+                    Donations
+
                   </p>
                 </a>
 
@@ -197,21 +189,25 @@
               </li>
               <li class="nav-item">
                 <a href="{{ route('pendingcampaign.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-table"></i>
-                    <p>
-                        Pending Campaigns
-                    </p>
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Pending Campaigns
+
+                  </p>
                 </a>
-            </li>
+
+              </li>
 
 
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/dashboard/contactus" class="nav-link">
-                   <i class="nav-icon far fa-envelope"></i>
+                  <i class="nav-icon far fa-envelope"></i>
                   <p>
                     Mailbox
+
                   </p>
                 </a>
+                
               </li>
 
 
@@ -221,4 +217,6 @@
         <!-- /.sidebar -->
       </aside>
 
-
+      @if(!session('loginname'))
+        {{redirect()->route('adminLogin')}}
+      @endif

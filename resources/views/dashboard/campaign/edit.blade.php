@@ -36,10 +36,11 @@
         <div class="form-group">
                 <label>Description</label>
                 <input type="text" class="form-control" name="description" value="{{ $campaigns->description }}">
+                {{-- <textarea name="description" id="" style="width: 100%; height:100px">{{{ $campaigns->description }}}</textarea> --}}
                 <span>@error('description'){{$message}} @enderror</span>
 
             </div>
-            
+
             <div class="form-group">
                 <label>Image</label>
                 <input type="file" class="form-control" name="image" value="{{ $campaigns->image }}">
@@ -70,12 +71,12 @@
                 <label>Status</label>
                 {{-- <input type="text" class="form-control" name="type" value="{{ $campaigns->type }}"> --}}
                 <select name="Status" id="">
-                    
+
                     <option value="1">1</option>
                     <option value="0">0</option>
                 </select>
             </div>
-        
+
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>

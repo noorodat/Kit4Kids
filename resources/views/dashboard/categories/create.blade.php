@@ -56,8 +56,8 @@
                         @enderror --}}
                         <br>
                         <select name="type" id="">
-                            <option value="service">learning</option>
-                            <option value="service">school suplies</option>
+                            <option value="learning">learning</option>
+                            <option value="school suplies">school suplies</option>
                             <option value="service">service</option>
                         </select>
                 </div>

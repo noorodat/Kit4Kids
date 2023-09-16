@@ -16,6 +16,69 @@
 @endsection
 
 @section('content')
+<style>
+  html{
+ width:100%;
+  height:100%;
+}
+body
+{
+  width:100%;
+  height:100%;
+  margin:0px;
+  padding:2rem;
+  background-image:url(https://www.bing.com/th?id=OHR.NorthSeaStairs_EN-IN3347217370_1920x1080.webp&qlt=50);
+  background-position: center;
+    background-size: cover;
+}
+
+.h-fit
+{
+  height: fit-content;
+}
+.card_icon
+{
+      background: #ffffff1f;
+    border-radius: 1rem;
+}
+
+.blur
+{
+  backdrop-filter: blur(6px);
+}
+
+.glass
+{
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    min-width: 180px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    transition: transform 250ms;
+    margin: auto;
+}
+.item{
+  background:rgba(255,255,255,0.05);
+  color:#111;
+  border-radius:1rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid #cecece80;
+  cursor:pointer;
+}
+
+.item:hover
+{
+  background:white;
+}
+
+
+
+
+</style>
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -36,7 +99,7 @@
             <div class="icon">
               <i class="nav-icon fas fa-user"></i>
             </div>
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+            <a href="{{url('dashboard/users')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -51,7 +114,7 @@
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+            <a href="{{url('dashboard/kits')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -67,6 +130,8 @@
               <i class="ion ion-person-add"></i>
             </div>
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+            <a href="{{url('dashboard/admins')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
           </div>
         </div>
         <!-- ./col -->
@@ -81,6 +146,9 @@
             <div class="icon">
               <i class="nav-icon fas fa-money-bill"></i>
             </div>
+            
+            <a href="{{url('dashboard/donations')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
           </div>
         </div>
@@ -90,6 +158,22 @@
         <!-- ./col -->
       </div>
       <!-- /.row -->
+        <div class="glass w-11/12 flex p-4 wrap gap-2 justify-center">
+          <!--  widget    -->
+            <div class="flex flex-col h-full p-4 gap-2 justify-center">
+              <div class="glass p-2 text-xl">
+              Quick Notes to remember      
+              </div>
+              <div class="time glass p-2 text-3xl text-center"></div>
+              <div class="day glass p-2 text-2xl text-center"></div>
+              
+              
+            </div>
+          <!--  links  -->
+            <div class="items glass flex p-4 flex-wrap gap-2 justify-center"></div>
+          </div>
+          
+      
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
@@ -309,26 +393,7 @@
 
             </div>
             <!-- /.card-body-->
-            <div class="card-footer bg-transparent">
-              <div class="row">
-                <div class="col-4 text-center">
-                  <div id="sparkline-1"></div>
-                  <div class="text-white">Visitors</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-4 text-center">
-                  <div id="sparkline-2"></div>
-                  <div class="text-white">Online</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-4 text-center">
-                  <div id="sparkline-3"></div>
-                  <div class="text-white">Sales</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-            </div>
+        
           </div>
           <!-- /.card -->
 
@@ -340,6 +405,83 @@
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
+  <script>
+    document.addEventListener("DOMContentLoaded",()=>{
+  loadItems()
+  loadTime()
+})
+function loadTime()
+{
+  const weekday = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"];
+
+        const currentDate = new Date();
+        const hours = currentDate.getHours();
+        const minutes = currentDate.getMinutes();
+        const formattedTime = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+        document.querySelector('.time').textContent = formattedTime
+  document.querySelector(".day").textContent = weekday[currentDate.getDay()]
+}
+
+function open_url(url)
+{
+  window.open(url, '_blank');
+}
+
+function loadItems()
+{
+  var items = [
+    {
+      "icon":"fa-brands fa-google",
+      "text":"Google",
+      "link":"https://www.google.com/",
+    },
+    {
+      "icon":"fa-brands fa-youtube",
+      "text":"Youtube",
+      "link":"https://youtube.com",
+    },
+    
+    {
+      "icon":"fa-brands fa-codepen",
+      "text":"Codepen",
+      "link":"https://codepen.io",
+    },
+    {
+      "icon":"fa-brands fa-stack-overflow",
+      "text":"Stack",
+      "link":"https://stackoverflow.com/",
+    },
+    {
+      "icon":"fa-brands fa-pinterest",
+      "text":"Pinterest",
+      "link":"https://pinterest.com/",
+    },
+    {
+      "icon":"fa-brands fa-figma",
+      "text":"Figma",
+      "link":"https://figma.com/",
+    },
+    {
+      "icon":"fa-brands fa-whatsapp",
+      "text":"Whatsapp",
+      "link":"https://web.whatsapp.com/",
+    },
+  ]
+  let html=""
+  items.forEach((obj,index)=>{
+    html+=`
+    <a
+    target="_blank"
+    href="${obj.link}"
+    class="w-24 shadow item flex flex-col items-center p-4">
+    <i class="${obj.icon} text-3xl"></i>
+    <div>${obj.text}</div>
+    </a>
+    `
+  })
+  document.querySelector(".items").innerHTML=html;
+}
+  </script>
 @endsection
 
 @section('scripts')

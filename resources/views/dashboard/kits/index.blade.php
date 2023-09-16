@@ -15,6 +15,11 @@
 @endsection
 
 @section('content')
+@if(session('success'))
+<div class="alert alert-success" id="success-alert">
+    {{ session('success') }}
+</div>
+@endif
  <!-- Main content -->
  <section class="content">
     <a class="btn btn-primary  mb-3" href="{{route('kits.create')}}">Add Kit </a>
@@ -43,7 +48,7 @@
                     <th>
                         Kit Title
                     </th>
-                    <th style="width: 30%">
+                    <th style="width: 20%">
                        Kit description
                     </th>
                     <th class="text-center">
@@ -69,7 +74,7 @@
                <td><img src="{{ url('/images/' . $kit->image) }}" alt="" width="100px" height="100x"></td>
 
                 <td>{{$kit->title}}</td>
-               <td>
+               <td >
                 <div class="description-wrapper">
                     <span class="short-description">{{ Str::limit($kit->description, 100) }}</span>
                     <span class="full-description" style="display: none;">{{ $kit->description }}</span>
@@ -90,7 +95,7 @@
 
                <td class="project-actions text-right">
 
-                   <a class="btn btn-info btn-sm" href="{{ route('kits.edit', $kit->id) }}">
+                   <a class="btn btn-info " href="{{ route('kits.edit', $kit->id) }}">
                        <i class="fas fa-pencil-alt">
                        </i>
                        Edit
@@ -100,7 +105,9 @@
                        @method('DELETE')
                        @csrf
                        <button type="submit" class="btn btn-danger"
-                       onclick="return confirm('Are you sure you want to delete this Kit?')">Delete</button>
+                       onclick="return confirm('Are you sure you want to delete this Kit?')">
+                       <i class="fas fa-trash">
+                    </i>Delete</button>
                      </form>
                </td>
 

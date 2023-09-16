@@ -47,7 +47,6 @@
             </div>
         <div class="form-group">
                 
-            <label>Action</label>
          
         </div>
         <button type="submit" class="btn btn-primary">Update</button>

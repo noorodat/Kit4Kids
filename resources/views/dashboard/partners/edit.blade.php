@@ -17,7 +17,7 @@
 @section('content')
 
 <div class="container-fluid">
-    <h2>Edit Admin Information</h2>
+    <h2>Edit Partner Information</h2>
 
     <form action="{{ route('partners.update', $partners->id) }}" method="POST" enctype="multipart/form-data">
         @csrf

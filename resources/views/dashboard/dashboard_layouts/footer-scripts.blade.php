@@ -32,6 +32,15 @@
 <script type="text/javascript"  src="{{URL::asset('dashboard-assets/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script type="text/javascript"  src="{{URL::asset('dashboard-assets/js/demo.js')}}"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    setTimeout(function() {
+        $('#success-alert').fadeOut('fast');
+    }, 3000); // 3000 milliseconds = 3 seconds
+</script>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
       const readMoreLinks = document.querySelectorAll('.read-more');

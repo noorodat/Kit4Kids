@@ -9,6 +9,7 @@
 
 <!-- Ionicons -->
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 <!-- Tempusdominus Bbootstrap 4 -->
 <link rel="stylesheet" href="{{asset('dashboard-assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
@@ -30,3 +31,4 @@
 
 <!-- summernote -->
 <link rel="stylesheet" href="{{asset('dashboard-assets/plugins/summernote/summernote-bs4.css')}}">
+

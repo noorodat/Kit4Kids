@@ -16,8 +16,15 @@
 
 @section('content')
  <!-- Main content -->
+ @if(session('success'))
+<div class="alert alert-success" id="success-alert">
+    {{ session('success') }}
+</div>
+@endif
  <section class="content">
     <!-- Default box -->
+    <a class="btn btn-primary  mb-3" href="{{route('users.create') }}">Add User </a>
+
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Users</h3>
@@ -55,23 +62,28 @@
                    <tr>
                     <th scope="row">{{$i}}</th>
                     <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
+                    <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+                    </td>
                     <td class="project-actions text-right" style="display: flex; justify-contnet:center">
 
                       <form action="{{route('users.destroy',$user->id)}}"  method="POST"  style="display: inline;">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger"
-                        onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                        onclick="return confirm('Are you sure you want to delete this user?')">
+                        <i class="fas fa-trash">
+                        </i>
+                         Delete</button>
                       </form>
 
 
                     </td>
                 </tr>
-                @endforeach
                 @php
-                    $i++;
-                @endphp
+                $i++;
+            @endphp
+                @endforeach
+               
             </tbody>
         </table>
       </div>

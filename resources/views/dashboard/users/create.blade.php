@@ -15,34 +15,41 @@
 @endsection
 
 @section('content')
+<style>
+    span {
+        color: red;
+    }
+</style>
 
 {{-- form --}}
 <div class="card">
         <div class="card-header">Create new User</div>
         <div class="card-body">
-            <form action="{{ route('dashboard.users.index') }}" method="POST">
-                {{-- {!! csrf_field() !!} --}}
+            <form action="{{ route('users.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="UserName">User Name</label>
-                    <input type="text" name="UserName" class="form-control" 
+                    <input type="text" name="name" class="form-control" 
                         placeholder="User Name">
+                        <span>@error('name'){{$message}} @enderror</span>
+
                 </div>
                 <div class="form-group">
                     <label for="UserEmail">User Email </label>
-                    <input type="email" name="UserEmail" class="form-control"
+                    <input type="email" name="email" class="form-control"
                         placeholder="User Email">
+                        <span>@error('email'){{$message}} @enderror</span>
+
                 </div>
                 <div class="form-group">
                         <label for="UserPassword">User Password</label>
-                        <input type="password" name="UserPassword" class="form-control"
+                        <input type="password" name="password" class="form-control"
                             placeholder="User Password">
+                            <span>@error('password'){{$message}} @enderror</span>
+
                     </div>
        
-                        <div class="form-group">
-                                <label for="Status">Status</label>
-                                <input type="text" name="Status" class="form-control"
-                                    placeholder="Admin or User">
+                      
                     <br>
                     <input type="submit" value="Add User" class="btn btn-success"><br>
                 </div>

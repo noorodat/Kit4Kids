@@ -23,6 +23,8 @@
 </style>
 
 {{-- form --}}
+
+
 <div class="card">
         <div class="card-header">Create new Admin</div>
         <div class="card-body">
@@ -64,6 +66,7 @@
             </form>
         </div>
     </div>
+   
 {{-- end form --}}
 @endsection
 

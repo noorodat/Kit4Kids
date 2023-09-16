@@ -59,7 +59,14 @@
                                 <a href="{{url('/campaignPdf/' . $pendingcampaign->auth_file)}}" target="_blank" class="btn btn-primary">Show File</a>
                             </td>
                             <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->title}}</td>
-                            <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->description}}</td>
+                            {{-- <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->description}}</td> --}}
+                            <td>
+                                <div class="description-wrapper" style="width: 200px">
+                                    <span class="short-description">{{ Str::limit( $pendingcampaign->description, 100) }}</span>
+                                    <span class="full-description" style="display: none;">{{ $pendingcampaign->description }}</span>
+                                </div>
+                                <a href="#" class="read-more">Read More</a>
+                            </td>
                             <td>{{$pendingcampaign->target_money}}</td>
 
                             <td class="project-actions text-right" style="display: flex; flex-direction:column; gap:10px">

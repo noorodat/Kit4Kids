@@ -92,9 +92,8 @@
                                         <input type="hidden" value="{{ $campaign->raised_money }}" id="raisdMoney">
                                         <div class="tp-donations-amount">
                                             <h2>Your Donation (USD)</h2>
-                                            <p>Max allowed donation: ${{ $max_amount }}</p>
                                             <input type="number" class="form-control" name="amount" id="donation_option1"
-                                                value="" checked>
+                                                value="" checked required>
                                             <label for="donation_option1" style="font-size: 30px"></label>
                                         </div>
                                         <div class="tp-donations-details">
@@ -134,12 +133,21 @@
                                                 <button class="closeBtn"><i class="fa-solid fa-x"></i></button>
                                                 <h2 class="text-center">You're donating more than what's needed to reach
                                                     our goal!</h2>
+                                                @if (count($moreCampaigns) > 1)
                                                 <h3 class="text-center">Would you like to support other campaigns as well
-                                                    and make an even bigger impact? </h3><br>
+                                                    and make an even bigger impact?
+                                                </h3>
+                                                @endif
+                                                    <br>
                                                 <button class="theme-btn submit-btn" type="submit"
-                                                    id="popupMaxSubmit">Donate this campaign ${{ $max_amount }}</button>
+                                                    id="popupMaxSubmit">Complete the goal: Donate now! ${{ $max_amount }}
+                                                </button>
+                                                @if (count($moreCampaigns) > 1)
                                                 <button class="theme-btn" id="popupMoreCampaign" type="button">Donate
-                                                    more campaigns</button>
+                                                    more campaigns
+                                                </button>
+                                                @endif
+
                                             </div>
                                         </div>
                                         {{-- End popup --}}
@@ -154,7 +162,7 @@
                                             <input type="hidden" name="phone" id="phonePopup" value="">
                                             <input type="hidden" name="adress" id="AdressPopup" value="">
                                             <input type="hidden" name="message" id="messagePopup" value="">
-                                            
+
 
                                             <input type="hidden" id="" name="UserId"
                                                 value="{{ Auth::id() }}">

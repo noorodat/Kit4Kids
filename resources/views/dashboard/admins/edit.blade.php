@@ -33,16 +33,21 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="image">Image:</label>
-            <input type="file" name="image" class="form-control-file @error('image') is-invalid @enderror">
-            @error('image')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+            <label for="image">Current Image:</label>
+            @if($admins->image)
+                <img src="{{ url('/images/' . $admins->image) }}" alt="Current Image" style="max-width: 200px;">
+            @else
+                <p>No image available.</p>
+            @endif
         </div>
+    
         <div class="form-group">
-            <label for="email">ُEmail:</label>
+            <label for="new_image">Select New Image:</label>
+            <input type="file" id="new_image" name="new_image"> <!-- Add the name attribute -->
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
             <input type="email" name="email" class="form-control @error('age') is-invalid @enderror" required
                 value="{{ old('email', $admins->email) }}">
             @error('email')
@@ -52,9 +57,9 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required
-                value="{{ old('password', $admins->password) }}">
+            <label for="password">New Password:</label>
+            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" 
+                >
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -65,7 +70,7 @@
     </form>
     </div>
 </div>
-        
+
 
 
 @endsection

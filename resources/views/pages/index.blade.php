@@ -445,6 +445,9 @@
                                             <script>
                                                 var raised_money = document.getElementById('{{ $campaign->id }}');
                                                 raised_money.style = "color: green; margin-left: 30px;";
+                                                var checkMark = document.createElement('span');
+                                                checkMark.innerHTML = ` <i class="fa-solid fa-check" style="color: #009912;"></i>`;
+                                                raised_money.appendChild(checkMark);
                                             </script>
                                         @endif
                                         <div class="time-left">
@@ -458,7 +461,8 @@
                                         </h2>
                                         <p
                                             style="width: 60ch; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
-                                            {{ \Illuminate\Support\Str::limit($campaign->description, 240, '...') }}</p>
+                                            {{ \Illuminate\Support\Str::limit($campaign->description, 240, '...') }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>

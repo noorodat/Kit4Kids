@@ -90,14 +90,13 @@ class categoryController extends Controller
         $categories->description = $request->input('description');
         $categories->type = $request->input('type');
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
+        if ($request->hasFile('new_image')) {
+            $image = $request->file('new_image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $image->move(public_path('images'), $imageName);
             $categories->image = $imageName;
-            $categories->save();
-
         }
+
 
         $categories->save();
 

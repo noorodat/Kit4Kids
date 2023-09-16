@@ -85,10 +85,13 @@
                                                 <li style="margin-left:30px;" class="raised_money_ele" id="{{$campaign->id}}">Raised Money: ${{ $campaign->raised_money }}</li>
                                             </ul>
                                             @if($campaign->raised_money >= $campaign->target_money)
-                                                <script>
-                                                    var raised_money = document.getElementById('{{$campaign->id}}');
-                                                    raised_money.style = "color: green; margin-left: 30px;";
-                                                </script>
+                                            <script>
+                                                var raised_money = document.getElementById('{{ $campaign->id }}');
+                                                raised_money.style = "color: green; margin-left: 30px;";
+                                                var checkMark = document.createElement('span');
+                                                checkMark.innerHTML = ` <i class="fa-solid fa-check" style="color: #009912;"></i>`;
+                                                raised_money.appendChild(checkMark);
+                                            </script>
                                             @endif
                                             <div class="time-left">
                                                 <span>Time left:</span>

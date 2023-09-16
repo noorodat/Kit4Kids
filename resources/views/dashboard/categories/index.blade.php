@@ -73,7 +73,7 @@
 
                      <td>{{$category->title}}</td>
                     <td>
-                        <div class="description-wrapper">
+                        <div class="description-wrapper" style="width: 200px">
                             <span class="short-description">{{ Str::limit($category->description, 100) }}</span>
                             <span class="full-description" style="display: none;">{{ $category->description }}</span>
                         </div>

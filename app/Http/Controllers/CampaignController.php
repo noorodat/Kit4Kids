@@ -139,7 +139,6 @@ class CampaignController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'required|nullable|image', // Assuming you're expecting an image file
             'target_money' => 'required|numeric|min:0',
             'end_date' => 'required|date|after_or_equal:today',
         ]);
@@ -155,14 +154,14 @@ class CampaignController extends Controller
         $campaigns->end_date = $request->input('end_date');
         $campaigns->active = $request->input('Status');
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
+       
+        if ($request->hasFile('new_image')) {
+            $image = $request->file('new_image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $image->move(public_path('images'), $imageName);
             $campaigns->image = $imageName;
-            $campaigns->save();
-
         }
+
 
         $campaigns->save();
 

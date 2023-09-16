@@ -118,8 +118,8 @@ class KitController extends Controller
         // $category_id = $request->input('category_id');
         // $kit->category_id = $category_id;
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
+        if ($request->hasFile('new_image')) {
+            $image = $request->file('new_image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $imageName);
             $kit->image = $imageName;

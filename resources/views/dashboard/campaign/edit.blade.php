@@ -35,17 +35,24 @@
         </div>
         <div class="form-group">
                 <label>Description</label>
-                <input type="text" class="form-control" name="description" value="{{ $campaigns->description }}">
-                {{-- <textarea name="description" id="" style="width: 100%; height:100px">{{{ $campaigns->description }}}</textarea> --}}
+                {{-- <input type="text" class="form-control" name="description" value="{{ $campaigns->description }}"> --}}
+                <textarea name="description" id="" style="width: 100%; height:100px">{{{ $campaigns->description }}}</textarea>
                 <span>@error('description'){{$message}} @enderror</span>
 
             </div>
 
             <div class="form-group">
-                <label>Image</label>
-                <input type="file" class="form-control" name="image" value="{{ $campaigns->image }}">
-                <span>@error('image'){{$message}} @enderror</span>
-
+                <label for="image">Current Image:</label>
+                @if($campaigns->image)
+                    <img src="{{ url('/images/' . $campaigns->image) }}" alt="Current Image" style="max-width: 200px;">
+                @else
+                    <p>No image available.</p>
+                @endif
+            </div>
+        
+            <div class="form-group">
+                <label for="new_image">Select New Image:</label>
+                <input type="file" id="new_image" name="new_image"> <!-- Add the name attribute -->
             </div>
             <div class="form-group">
                 <label>Target Money</label>

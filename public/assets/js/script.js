@@ -835,8 +835,6 @@ if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
 
     function buttonClickHandler() {
 
-        
-
         $('.popup').fadeIn();
 
         $('.closeBtn').click(function() {
@@ -876,8 +874,15 @@ if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
     }
 }
 
+// Handle disable campaign
+const disableCampaignBtn = document.querySelector('.disableCampagin');
 
+if(disableCampaignBtn) {
+    disableCampaignBtn.style = "pointer-events: none";
+    var banIcon = document.createElement('div');
+    banIcon.innerHTML = `<i class="fa-solid fa-ban" style="color: #ff0000;"></i>`;
+    disableCampaignBtn.appendChild(banIcon);
+}
 
-
-
+// Handle send mail to all button
 

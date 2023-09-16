@@ -17,7 +17,7 @@
 @section('content')
 
 <div class="container-fluid">
-    <form action="{{ route('categories.update',$categories->id) }}" method="POST">
+    <form action="{{ route('categories.update',$categories->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <input type="hidden" name="id" value="{{ $categories->id }}">
@@ -27,11 +27,20 @@
         </div>
         <div class="form-group">
                 <label>Description</label>
-                <input type="text" class="form-control" name="description" value="{{ $categories->description }}">
+                <textarea name="description" id="" style="width: 100%; height:100px">{{{ $categories->description }}}</textarea>
             </div>
             <div class="form-group">
-                <label>Image</label>
-                <input type="file" class="form-control" name="image" value="{{ $categories->image }}">
+                <label for="image">Current Image:</label>
+                @if($categories->image)
+                    <img src="{{ url('/images/' . $categories->image) }}" alt="Current Image" style="max-width: 200px;">
+                @else
+                    <p>No image available.</p>
+                @endif
+            </div>
+        
+            <div class="form-group">
+                <label for="new_image">Select New Image:</label>
+                <input type="file" id="new_image" name="new_image"> <!-- Add the name attribute -->
             </div>
             <div class="form-group">
                 <label>Type</label>

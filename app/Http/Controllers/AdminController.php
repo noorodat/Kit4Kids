@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 
 class AdminController extends Controller
@@ -95,34 +97,30 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
+            'new_image' => 'image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
             // Add any desired image validation rules
             'email' => 'required|email|unique:users',
-            'password' => [
-                'required',
-                'min:8',
-                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
-            ]
+
         ]);
 
         $admins = Admin::findOrFail($id);
 
 
-        // $admins = new Admin();
-
         $admins->name = $request->input('name');
         $admins->email = $request->input('email');
-        $admins->password = Hash::make ($request->input('password'));
+        // $admins->password = Hash::make ($request->input('password'));
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
+        if ($request->hasFile('new_image')) {
+            $image = $request->file('new_image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName); // Upload the image to the public/images directory
+            $image->move(public_path('images'), $imageName);
             $admins->image = $imageName;
-            // $storedPath = $uploadedFile->store('public/photo');
-            $admins->save();
-
         }
+
+        if ($request->filled('password')) {
+            $admins->password = Hash::make($request->input('password'));
+        }
+
 
         $admins->save();
 
@@ -134,10 +132,20 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-
         Admin::destroy($id);
         return back()->with('success', 'Admin deleted successfully.');
     }
 
+    public function sendMailToAllUsers(Request $request) {
+        $title = $request->input('title');
+        $message = $request->input('message');
+        
+        $users = User::all();
+
+        foreach($users as $user) {
+            Mail::to($user->email)->send(new ContactMail($title, $message));
+        }
+        return back()->with('message_sent', 'Your Email has been sent to all users successfully');
+    }
 
 }

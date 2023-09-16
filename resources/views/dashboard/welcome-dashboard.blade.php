@@ -92,9 +92,7 @@ body
 
               <h3>{{ $userCount }}<sup style="font-size: 20px"></sup></h3>
 
-
-
-              <p>Users-Numbers</p>
+              <p>Users</p>
             </div>
             <div class="icon">
               <i class="nav-icon fas fa-user"></i>
@@ -124,7 +122,7 @@ body
             <div class="inner">
               <h3>{{ $adminCount }}<sup style="font-size: 20px"></sup></h3>
 
-              <p>Admin-Numbers</p>
+              <p>Admins</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -146,7 +144,7 @@ body
             <div class="icon">
               <i class="nav-icon fas fa-money-bill"></i>
             </div>
-            
+
             <a href="{{url('dashboard/donations')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
@@ -162,20 +160,20 @@ body
           <!--  widget    -->
             <div class="flex flex-col h-full p-4 gap-2 justify-center">
               <div class="glass p-2 text-xl">
-              Quick Notes to remember      
+              Quick Notes to remember
               </div>
               <div class="time glass p-2 text-3xl text-center"></div>
               <div class="day glass p-2 text-2xl text-center"></div>
-              
-              
+
+
             </div>
           <!--  links  -->
             <div class="items glass flex p-4 flex-wrap gap-2 justify-center"></div>
           </div>
-          
-      
+
+
       <!-- Main row -->
-      <div class="row">
+      {{-- <div class="row">
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
 
@@ -393,14 +391,14 @@ body
 
             </div>
             <!-- /.card-body-->
-        
+
           </div>
           <!-- /.card -->
 
 
         </section>
         <!-- right col -->
-      </div>
+      </div> --}}
       <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
   </section>
@@ -440,7 +438,7 @@ function loadItems()
       "text":"Youtube",
       "link":"https://youtube.com",
     },
-    
+
     {
       "icon":"fa-brands fa-codepen",
       "text":"Codepen",

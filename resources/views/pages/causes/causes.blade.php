@@ -49,8 +49,8 @@
                         <div class="thumb-text">
                             <span>Kits</span>
                         </div>
-                        <h2>School Kits</h2>
-                        <p>Donating school kits to poor students on our website empowers them with essential tools for learning and fosters educational equality, helping break the cycle of poverty through education.</p>
+                        <h2>{{$kits ? ($kits[0]->category->title) : ''}} Kits</h2>
+                        <p>Donating Tawjihi Kits through our website empowers underprivileged students with essential tools for their Tawjihi education, promoting educational equality and contributing to the mission of breaking the cycle of poverty through knowledge.</p>
                     </div>
                 </div>
                 <div class="row">

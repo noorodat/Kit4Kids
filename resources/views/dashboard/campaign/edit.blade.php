@@ -17,7 +17,7 @@
 @section('content')
 
 <style>
-    span{
+    span.err{
         color: red;
     }
 </style>
@@ -30,14 +30,14 @@
         <div class="form-group">
             <label>Title</label>
             <input type="text" class="form-control" name="title" value="{{ $campaigns->title }}">
-            <span>@error('title'){{$message}} @enderror</span>
+            <span class="err">@error('title'){{$message}} @enderror</span>
 
         </div>
         <div class="form-group">
                 <label>Description</label>
                 {{-- <input type="text" class="form-control" name="description" value="{{ $campaigns->description }}"> --}}
                 <textarea name="description" id="" style="width: 100%; height:100px">{{{ $campaigns->description }}}</textarea>
-                <span>@error('description'){{$message}} @enderror</span>
+                <span class="err">@error('description'){{$message}} @enderror</span>
 
             </div>
 
@@ -49,7 +49,7 @@
                     <p>No image available.</p>
                 @endif
             </div>
-        
+
             <div class="form-group">
                 <label for="new_image">Select New Image:</label>
                 <input type="file" id="new_image" name="new_image"> <!-- Add the name attribute -->
@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label>Target Money</label>
                 <input type="number" class="form-control" name="target_money" value="{{ $campaigns->target_money }}">
-                <span>@error('target_money'){{$message}} @enderror</span>
+                <span class="err">@error('target_money'){{$message}} @enderror</span>
 
             </div>
             {{-- <div class="form-group">
@@ -71,7 +71,7 @@
             <div class="form-group">
                 <label>Ended Date</label>
                 <input type="date" class="form-control" name="end_date" value="{{ $campaigns->end_date }}">
-                <span>@error('end_date'){{$message}} @enderror</span>
+                <span class="err">@error('end_date'){{$message}} @enderror</span>
 
             </div>
             <div class="form-group">

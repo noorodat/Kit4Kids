@@ -766,12 +766,12 @@ if (createCampaignImage) {
 }
 
 /* ----------------------- Start Handle donation amount ----------------------- */
-const packagesCount = document.getElementById('packageCount');
-const packagePrice = document.querySelector('.package-price');
-const addPackageBtn = document.querySelector('.addPackageBtn');
-const removePackageBtn = document.querySelector('.decreasePackageBtn');
-const priceDescription = document.getElementById('priceDesc');
-const packagePriceInputValue = document.getElementById('package-price-input');
+let packagesCount = document.getElementById('packageCount');
+let packagePrice = document.querySelector('.package-price');
+let addPackageBtn = document.querySelector('.addPackageBtn');
+let removePackageBtn = document.querySelector('.decreasePackageBtn');
+let priceDescription = document.getElementById('priceDesc');
+let packagePriceInputValue = document.getElementById('package-price-input');
 if(packagePriceInputValue) {
     packagePriceInputValue = document.getElementById('package-price-input').value
 }
@@ -798,19 +798,19 @@ if (packagePrice && addPackageBtn && removePackageBtn) {
 
 // Start handle button type on donate campaign
 
-const submitDonationBtn = document.getElementById('donateCampaign');
-const mainCampaignInput = document.getElementById('donation_option1');
-const maxCampaignMoney = document.getElementById('maxAmout');
-const targetCampaignMoney = document.getElementById('targetMoney');
-const raisedCampaignMoney = document.getElementById('raisdMoney');
+let submitDonationBtn = document.getElementById('donateCampaign');
+let mainCampaignInput = document.getElementById('donation_option1');
+let maxCampaignMoney = document.getElementById('maxAmout');
+let targetCampaignMoney = document.getElementById('targetMoney');
+let raisedCampaignMoney = document.getElementById('raisdMoney');
 
-const firstphone = document.getElementById('phone');
-const firstAdress = document.getElementById('Adress');
-const firstmessage = document.getElementById('message');
+let firstphone = document.getElementById('phone');
+let firstAdress = document.getElementById('Adress');
+let firstmessage = document.getElementById('message');
 
-const phonePopup = document.getElementById('phonePopup');
-const AdressPopup = document.getElementById('AdressPopup');
-const messagePopup = document.getElementById('messagePopup');
+let phonePopup = document.getElementById('phonePopup');
+let AdressPopup = document.getElementById('AdressPopup');
+let messagePopup = document.getElementById('messagePopup');
 
 if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
     mainCampaignInput.addEventListener('keyup', () => {
@@ -875,7 +875,7 @@ if (submitDonationBtn && mainCampaignInput && maxCampaignMoney) {
 }
 
 // Handle disable campaign
-const disableCampaignBtn = document.querySelector('.disableCampagin');
+let disableCampaignBtn = document.querySelector('.disableCampagin');
 
 if(disableCampaignBtn) {
     disableCampaignBtn.style = "pointer-events: none";

@@ -71,7 +71,7 @@
                                                     class="raised_money">
                                             </ul>
                                             <div class="case-bb-text">
-                                                <h3>Event Mission</h3>
+                                                <h3>Campaign Mission</h3>
                                                 <p>{{ $campaign->description }}</p>
                                             </div>
                                             <div class="submit-area sub-btn">

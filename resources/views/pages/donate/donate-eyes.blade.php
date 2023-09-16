@@ -54,13 +54,10 @@
                                 <span>Supplies</span>
                             </div>
                             <h2>Make a Supplies Donation</h2>
-                            <p>Provide a helping hand to students in need by making a supplies donation for school kits!
-                                Your generosity equips them with essential tools, opening doors to a world of learning. Join
-                                us in shaping a better tomorrow!</p>
-                            {{-- <div class="image">
-                                <img src="{{asset($campaign->image)}}" alt="" width="250px" style="padding: 10px">
-                            </div> --}}
-                            {{-- <p><b>{{ $campaign->title }}</b></p> --}}
+                            <div class="image">
+                                <img src="{{asset('assets/images/features/deliveryPicking.jpg')}}" alt="" width="250px" style="padding: 10px">
+                            </div>
+                            <p>Let Us Come to You for School Kit Donations! Provide a helping hand to students in need by donating supplies. Your generosity equips them with essential tools, opening doors to a world of learning. Contact us, and we'll pick up your donation, making it easier than ever to shape a better tomorrow!</p>
                         </div>
                         @if (session('success'))
                             <div class="alert alert-success">

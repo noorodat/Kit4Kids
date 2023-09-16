@@ -39,7 +39,7 @@
                                     <h2>Helping hands, happy hearts.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>Join our dedicated team of volunteers and make a difference in the lives of students.
+                                    <p>Multiple Ways to Give: Donate Financially, Send Packages, Support Campaigns and donate packages
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>
@@ -141,8 +141,7 @@
                                     </h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>"Help shape the future of our students through your valuable contributions as a
-                                        volunteer.</p>
+                                    <p>Help shape the future of our students through your donations.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
@@ -165,7 +164,7 @@
                                     <h2>Give your time, change lives.</h2>
                                 </div>
                                 <div data-swiper-parallax="400" class="slide-text">
-                                    <p>Enrich your life while enriching the lives of students – volunteer with us today.</p>
+                                    <p>Enrich your life while enriching the lives of students – Donate now.</p>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
@@ -334,9 +333,9 @@
                             <span>KITS</span>
                         </div>
                         <h2>Popular kits of HopeHarbor.</h2>
-                        <p>Explore our selection of popular kits designed for volunteers who want to make a meaningful
-                            impact. These volunteer packages include essential resources and tools to support your
-                            volunteering efforts. Join us in making a difference in the community!</p>
+                        <p>Explore our selection of popular kits designed for donors who want to make a meaningful
+                            impact. These kits include essential resources and tools to support
+                            school students. Donate now and make a difference!</p>
                     </div>
                 </div>
                 <div class="row">
@@ -380,7 +379,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-12 col-12">
                         <div class="cta-left">
-                            <h2>If You Want To Join With Us As a Volunteer. Contact Us Today!</h2>
+                            <h2>If You have any inquiry. Contact Us</h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-lg-offset-1 col-md-12 col-12">
@@ -409,7 +408,7 @@
                                 <span>Campaigns</span>
                             </div>
                             <h2>Campaigns</h2>
-                            <p>Explore our exciting calendar of upcoming events that promise to bring inspiration,
+                            <p>Explore urgent campaigns that promise to bring inspiration,
                                 education, and joy to our community. </p>
                         </div>
                     </div>

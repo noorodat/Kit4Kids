@@ -29,7 +29,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col col-xs-12">
-                                <h2>Single Kit</h2>
+                                <h2>{{$kit->title}}</h2>
                                 <ol class="breadcrumb">
                                     <li><a href="{{route('go-home')}}">Home</a></li>
                                     <li>Kit</li>

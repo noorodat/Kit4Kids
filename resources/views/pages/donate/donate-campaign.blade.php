@@ -92,7 +92,6 @@
                                         <input type="hidden" value="{{ $campaign->raised_money }}" id="raisdMoney">
                                         <div class="tp-donations-amount">
                                             <h2>Your Donation (USD)</h2>
-                                            <p>Max allowed donation: ${{ $max_amount }}</p>
                                             <input type="number" class="form-control" name="amount" id="donation_option1"
                                                 value="" checked>
                                             <label for="donation_option1" style="font-size: 30px"></label>
@@ -154,7 +153,7 @@
                                             <input type="hidden" name="phone" id="phonePopup" value="">
                                             <input type="hidden" name="adress" id="AdressPopup" value="">
                                             <input type="hidden" name="message" id="messagePopup" value="">
-                                            
+
 
                                             <input type="hidden" id="" name="UserId"
                                                 value="{{ Auth::id() }}">

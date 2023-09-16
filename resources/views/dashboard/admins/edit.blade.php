@@ -47,7 +47,7 @@
         </div>
         
         <div class="form-group">
-            <label for="email">ُEmail:</label>
+            <label for="email">Email:</label>
             <input type="email" name="email" class="form-control @error('age') is-invalid @enderror" required
                 value="{{ old('email', $admins->email) }}">
             @error('email')
@@ -70,7 +70,7 @@
     </form>
     </div>
 </div>
-        
+
 
 
 @endsection

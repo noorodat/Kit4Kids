@@ -69,7 +69,17 @@
                                                 <p>{{$campaign->description}}</p>
                                             </div>
                                             <div class="submit-area sub-btn">
-                                                <a href="{{ route('go-donate-campaign', ['campaign' => $campaign]) }}" class="theme-btn submit-btn">Donate Now</a>                                            </div>
+                                                @if ($campaign->raised_money >= $campaign->target_money)
+                                                <span class="maxTargetCampaignValue" style="font-size:25px; color: green; font-weight:bold">Campaign reached the target vlaue</span>
+                                                <div style="padding: 15px 0 0 0">
+                                                    <a href="{{route('go-home')}}" class="theme-btn">Home</a>
+                                                    <a href="{{route('go-events')}}" class="theme-btn">Campaigns</a>
+                                                </div>
+                                                @else
+                                                    <a href="{{ route('go-donate-campaign', ['campaign' => $campaign]) }}" class="theme-btn submit-btn">Donate Now</a>
+                                                @endif
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

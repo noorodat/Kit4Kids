@@ -149,10 +149,9 @@
               </li>
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/dashboard/donations" class="nav-link">
-                  <i class="nav-icon fas fa-money-bill"></i>
+                    <i class="nav-icon fa-solid fa-boxes-stacked"></i>
                   <p>
-                    Donations
-
+                    Supplies
                   </p>
                 </a>
 
@@ -191,7 +190,7 @@
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Pending Campaigns
-                    
+
                     {{-- <span class="pendingCampaignCount">{{}}</span> --}}
 
                   </p>

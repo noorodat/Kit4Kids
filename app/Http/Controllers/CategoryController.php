@@ -32,8 +32,8 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-    
-        
+
+
 
         $categories = new Category();
 
@@ -42,7 +42,7 @@ class categoryController extends Controller
             'type' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif |max:2048',
             'description' => 'required',
-           
+
         ]);
 
         $categories->title = $request->input('title');
@@ -56,7 +56,6 @@ class categoryController extends Controller
             $categories->image = $imageName;
             // $storedPath = $uploadedFile->store('public/photo');
             $categories->save();
-
         }
 
         // $categories->save();
@@ -69,10 +68,10 @@ class categoryController extends Controller
      */
     public function show(Category $category)
     {
-        
+
     }
 
-   
+
     public function edit($id)
     {
         $categories = Category::findOrFail($id);
@@ -80,10 +79,10 @@ class categoryController extends Controller
         return view('dashboard.categories.edit', compact('categories'));
     }
 
-    
+
     public function update(Request $request, Category $categories , $id)
     {
-       
+
         $categories = Category::findOrFail($id);
 
         $categories->title = $request->input('title');

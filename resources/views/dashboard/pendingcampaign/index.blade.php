@@ -41,6 +41,7 @@
                             <th>#</th>
                             <th>Campaign image</th>
                             <th>Notarized File</th>
+                            <th>Contact</th>
                             <th>Campaign Title</th>
                             <th>Campaign description</th>
                             <th class="text-center">target_money</th>
@@ -57,6 +58,9 @@
                             <td><img src="{{ url('/images/' . $pendingcampaign->image) }}" alt="" width="350px"></td>
                             <td>
                                 <a href="{{url('/campaignPdf/' . $pendingcampaign->auth_file)}}" target="_blank" class="btn btn-primary">Show File</a>
+                            </td>
+                            <td>
+                                {{$pendingcampaign->phone}}
                             </td>
                             <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->title}}</td>
                             {{-- <td style="word-wrap: break-word; max-width: 30ch;">{{$pendingcampaign->description}}</td> --}}

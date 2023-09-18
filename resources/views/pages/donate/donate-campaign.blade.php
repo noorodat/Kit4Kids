@@ -184,7 +184,7 @@
                                                             data-end-date="{{ $campaign->end_date }}"
                                                             data-campaign-id="{{ $campaign->id }}"></h5>
                                                     </div>
-                                                    <p><sup>Max allowed donation: ${{ $max_amount }}</sup></p>
+                                                    <p><sup>Money left to reach the goal: ${{ $max_amount }}</sup></p>
                                                     <label for="Campaign{{ $campaign->id }}">Donate: $</label>
                                                     <input type="number" id="{{ $campaign->id }}"
                                                         name="{{ $campaign->id }}" value="{{ $max_amount }}"
@@ -211,7 +211,7 @@
                                                                     data-end-date="{{ $moreCampaign->end_date }}"
                                                                     data-campaign-id="{{ $moreCampaign->id }}"></h5>
                                                             </div>
-                                                            <p><sup>Max allowed donation: ${{ $max_amount }}</sup></p>
+                                                            <p><sup>Money left to reach the goal: ${{ $max_amount }}</sup></p>
                                                             <label for="Campaign{{ $moreCampaign->id }}">Donate: $</label>
                                                             <input type="number" id="{{ $moreCampaign->id }}"
                                                                 name="{{ $moreCampaign->id }}" value="0"

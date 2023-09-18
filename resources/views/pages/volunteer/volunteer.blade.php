@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Events')
+@section('title', 'Start campaign')
 
 @section('content')
 
@@ -92,7 +92,7 @@
                                                 <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone" required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-                                                <input type="number" class="form-control" name="targetMoney" id="targetMoney" placeholder="Target money (USD)" required min="50">
+                                                <input type="number" class="form-control" name="targetMoney" id="targetMoney" placeholder="Target money (USD)" min="50" required>
                                                 <small style="font-size: 14px">$50 or more</small>
                                             </div>
                                             <div class="col-lg-12 col-12 form-group">

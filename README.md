@@ -4,7 +4,7 @@
 
 3-Technologies that we used : 
 
-1-Laravel9 Frame work 
+1-Laravel9 Framework 
 2-Php 
 3-Html
 4-Css
